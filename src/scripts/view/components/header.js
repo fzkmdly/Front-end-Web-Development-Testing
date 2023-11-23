@@ -13,9 +13,9 @@ class headerBar extends HTMLElement {
         <nav class="drawer" id="drawer">
             <li><a href="#">Home</a></li>
             <li><a href="#/partner">Partner</a></li>
-            <li><a href="#/sewa">sewa</a></li>
+            <li><a href="#/sewa">Sewa</a></li>
         </nav>
-        <nav class="drawer" id="drawer">
+        <nav class="signDrawer" id="signDrawer">
             <li><a href="#/login">Login</a></li>
             <li><a href="#/register">Register</a></li>
         </nav>

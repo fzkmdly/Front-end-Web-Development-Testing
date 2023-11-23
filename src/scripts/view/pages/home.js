@@ -1,8 +1,8 @@
-const homePage = {
+const Home = {
   async render() {
     return `
                 <div class="topPage">
-                    <h1>Welcome to <span>AkaRestourant</span></h1>
+                    <h1>Welcome to <span>Rent'O</span></h1>
                 </div>
                 <div class="mainPage">
                     <div class="vehicle-list-item" id="vehicle-list-item">
@@ -24,4 +24,4 @@ const homePage = {
   },
 };
 
-export default homePage;
+export default Home;

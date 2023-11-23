@@ -1,4 +1,4 @@
-const partnerPages = {
+const Partner = {
   async render() {
     return `
         <div class="partnerPages" id="partnerPages">
@@ -17,4 +17,4 @@ const partnerPages = {
   },
 };
 
-export default partnerPages;
+export default Partner;

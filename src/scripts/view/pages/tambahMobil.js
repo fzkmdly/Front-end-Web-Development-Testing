@@ -1,4 +1,4 @@
-const Sewa = {
+const TambahMobil = {
   async render() {
 
   },
@@ -8,4 +8,4 @@ const Sewa = {
   },
 };
 
-export default Sewa;
+export default TambahMobil;

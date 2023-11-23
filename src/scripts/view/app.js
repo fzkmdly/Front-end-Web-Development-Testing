@@ -1,3 +1,7 @@
+import DrawerInitiator from '../utils/drawerInitiator';
+import UrlParser from '../routes/url-parser';
+import routes from '../routes/routes';
+
 class App {
   constructor({button, drawer, content}) {
     this._button = button;
@@ -16,7 +20,16 @@ class App {
   }
 
   async renderApp() {
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    const page = routes[url];
+    this._content.innerHTML = await page.render();
 
+    const skipElement = document.querySelector('.skip-link');
+    skipElement.addEventListener('click', (event) => {
+      event.preventDefault();
+      document.querySelector('#main-content').focus();
+    });
+    await page.afterRender();
   }
 }
 

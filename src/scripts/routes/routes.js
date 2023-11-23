@@ -1,11 +1,11 @@
-import Home from '../views/pages/home';
-import Detail from '../views/pages/detail';
-import Partner from '../views/pages/partner';
-import Login from '../views/pages/login';
-import Register from '../views/pages/register';
-import Sewa from '../views/pages/sewa';
-import TambahMobil from '../views/pages/tambah-mobil';
-import Checkout from '../views/pages/checkout';
+import Home from '../view/pages/home';
+import Detail from '../view/pages/detail';
+import Partner from '../view/pages/partner';
+import Login from '../view/pages/login';
+import Register from '../view/pages/register';
+import Sewa from '../view/pages/rentalList';
+import TambahMobil from '../view/pages/tambahMobil';
+import Checkout from '../view/pages/checkout';
 
 const routes = {
   '/': Home,
