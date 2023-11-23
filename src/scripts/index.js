@@ -3,6 +3,7 @@ import './view/components/header';
 import './view/components/footer';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import '../styles/main.css';
 import App from './view/app';
 
 const app = new App({

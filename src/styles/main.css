@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  html, body {
+    display: block;
+    background-color: #FFFFFE;
+    margin: 0;
+  }
+  
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px;
+    padding-inline: 4px;
+    background-color: #bf1722;
+    color: white;
+    z-index: 100;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+}
+
+/******************************Header Drawer********************************/
+
+app-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-button {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  color: #333;
+}
+
+.Identity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Identity img {
+  margin-right: 20px;
+  width: 10%;
+}
+
+.drawer li {
+  display: inline;
+}
+
+.drawer a {
+  padding-inline: 25px;
+  padding-block: 30px;
+
+  color: black;
+  text-decoration: none;
+}
+
+
+/*
+sign Drawer 
+*/
+
+.signDrawer li {
+  display: inline;
+}
+
+.signDrawer a {
+  padding-inline: 45px;
+  padding-block: 10px;
+
+  text-decoration: none;
+  border-radius: 40px;
+}
+
+.loginButton {
+  background-color: #F45D48;
+  color: #FFFFFE;
+}
+
+.registerButton {
+  background-color: #078080;
+  color: #FFFFFE;
+}
+
+
+/*Drawer Transtition*/
+
+.drawer a:hover {
+  background-color: #157777;
+  color: #FFFFFE;
+  transition: 700ms;
+}
+
+.signDrawer .loginButton:hover {
+  background-color:#f7361d;
+  transition: 700ms;
+}
+
+.signDrawer .registerButton:hover{
+  background-color: #065c5c;
+  transition: 700ms;
+}
+
+.drawer a:focus {
+  border: solid 1px black;
+}
+
+/*****************************MainContent**************************/
+
+.main-content {
+  margin-top: 10px;
+}
+
+/*
+Top Page
+*/
+.topPage {
+  display: flex;
+  flex-direction: row;
+  font-size:x-large;
+}
+
+.topPage h1{
+  font-size: 70px;
+  padding: 0;
+  margin: 0;
+}
+
+.leftSide {
+  width: 60%;
+  margin-left: 5px;
+}
+
+.rightSide {
+  width: 40%;
+}
+
+.rightSide img {
+  width: 100%;
+}
+
+.leftSide .directLinkToSewa a {
+  padding-inline: 15px;
+  padding-block: 10px;
+
+  color: #FFFFFE;
+  text-decoration: none;
+  background-color: #078080;
+  border-radius: 10px;
+}
