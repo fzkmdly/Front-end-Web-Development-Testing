@@ -8,7 +8,7 @@ import '../styles/main.css';
 import '../styles/responsive.css';
 import App from './view/app';
 
-const skipToContent = document.querySelector('.skip-to-content');
+const skipToContent = document.querySelector('.skip-link');
 const button = document.querySelector('.menu-button');
 const drawer = document.querySelector('#nav');
 const mainContent = document.querySelector('#main-content');

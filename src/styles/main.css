@@ -34,56 +34,6 @@
     top: 0;
 }
 
-/******************************Header Drawer********************************/
-
-app-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.menu-button {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px 20px;
-  background: transparent;
-  border: none;
-  color: #333;
-}
-
-.Identity {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 30%;
-}
-
-.Identity img {
-  margin-right: 20px;
-  width: 10%;
-}
-
-.mainNavigation{
-  display: flex;
-  flex-direction: row;
-  padding-right: 5px;
-}
-
-.drawer li {
-  display: inline;
-}
-
-.drawer a {
-  padding-inline: 25px;
-  padding-block: 30px;
-
-  color: black;
-  text-decoration: none;
-}
-
-
 /*
 sign Drawer 
 */
@@ -178,7 +128,7 @@ Top Page
   border-radius: 15px;
 }
 
-/* Header v2 */
+/* Header */
 
 nav {
   height: 80px;
