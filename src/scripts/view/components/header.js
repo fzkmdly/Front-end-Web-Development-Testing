@@ -10,15 +10,17 @@ class headerBar extends HTMLElement {
             <h2>Rent'O</h2>
         </section>
         <button class="menu-button" id="open-drawer">&#9776;</button>
-        <nav class="drawer" id="drawer">
-            <li><a href="#">Home</a></li>
-            <li><a href="#/partner">Partner</a></li>
-            <li><a href="#/sewa">Sewa</a></li>
-        </nav>
-        <nav class="signDrawer" id="signDrawer">
-            <li><a href="#/login" class="loginButton">Login</a></li>
-            <li><a href="#/register" class="registerButton">Register</a></li>
-        </nav>
+        <section class="mainNavigation">
+          <nav class="drawer" id="drawer">
+              <li><a href="#">Home</a></li>
+              <li><a href="#/partner">Partner</a></li>
+              <li><a href="#/sewa">Sewa</a></li>
+          </nav>
+          <nav class="signDrawer" id="signDrawer">
+              <li><a href="#/login" class="loginButton">Login</a></li>
+              <li><a href="#/register" class="registerButton">Register</a></li>
+          </nav>
+        </section>
         `;
   }
 }

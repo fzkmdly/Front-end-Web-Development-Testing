@@ -48,11 +48,18 @@ app-header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 30%;
 }
 
 .Identity img {
   margin-right: 20px;
   width: 10%;
+}
+
+.mainNavigation{
+  display: flex;
+  flex-direction: row;
+  padding-right: 5px;
 }
 
 .drawer li {
