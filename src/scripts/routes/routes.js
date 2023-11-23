@@ -3,6 +3,9 @@ import Detail from '../views/pages/detail';
 import Partner from '../views/pages/partner';
 import Login from '../views/pages/login';
 import Register from '../views/pages/register';
+import Sewa from '../views/pages/sewa';
+import TambahMobil from '../views/pages/tambah-mobil';
+import Checkout from '../views/pages/checkout';
 
 const routes = {
   '/': Home,
@@ -11,6 +14,9 @@ const routes = {
   '/partner': Partner,
   '/login': Login,
   '/register': Register,
+  '/sewa': Sewa,
+  '/tambah-mobil': TambahMobil,
+  '/checkout': Checkout,
 };
 
 export default routes;
