@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+  --primary-color: #E3FDFD;
+  --secondary-color: #FF2E63;
+  --hover-color: #2C3333;
+  --black: #3e3e3e;
+  --white: #faf0e6;
+  --cyan: #00ADB5;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
   }
@@ -147,11 +156,12 @@ Top Page
 
 .leftSide {
   width: 60%;
-  margin-left: 5px;
+  margin-left: 20px;
 }
 
 .rightSide {
   width: 40%;
+  
 }
 
 .rightSide img {
@@ -165,5 +175,74 @@ Top Page
   color: #FFFFFE;
   text-decoration: none;
   background-color: #078080;
-  border-radius: 10px;
+  border-radius: 15px;
+}
+
+/* Header v2 */
+
+nav {
+  height: 80px;
+  display: flex;
+  padding: 0 64px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+nav h1 {
+  letter-spacing: 1px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+}
+
+nav h1 a {
+  text-decoration: none;
+  min-width: 44px;
+  min-height: 44px;
+  line-height: 44px;
+  color: black;
+  display: inline-block;
+}
+
+nav a:hover{
+  color: var(--hover-color);
+}
+
+.menu-list {
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  text-transform: uppercase;
+}
+
+.menu-list li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.menu-list a {
+  color: black;
+  text-decoration: none;
+  padding: 16px;
+  font-weight: bold;
+  padding-inline: 45px;
+  padding-block: 10px;
+  display: inline;
+  text-decoration: none;
+  border-radius: 40px;
+}
+
+.menu-list a:hover {
+  transition-duration: 0.2s;
+  color: var(--hover-color);
+}
+
+.menu-button {
+  display: none;
+  padding: 12px;
+  min-width: 55px;
+  min-height: 55px;
+}
+.menu-button i {
+  font-size: 2em;
 }
