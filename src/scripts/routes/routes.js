@@ -9,7 +9,6 @@ import Checkout from '../view/pages/checkout';
 
 const routes = {
   '/': Home,
-  '/favorite': Favorite,
   '/detail/:id': Detail,
   '/partner': Partner,
   '/login': Login,
