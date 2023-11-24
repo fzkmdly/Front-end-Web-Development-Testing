@@ -1,7 +1,7 @@
 const ForgotPassword = {
   async render() {
     return `
-        <h1>Awokaowkaowkaowk</h1>
+        <h1>Chiyo wangy😋</h1>
       `;
   },
 
