@@ -134,7 +134,6 @@ nav {
   height: 80px;
   display: flex;
   padding: 0 64px;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
   z-index: 99;
@@ -288,4 +287,75 @@ input {
 
 .partnerButton:hover {
   background-color: #45a049;
+}
+
+/* Banner */
+
+.banner h2 {
+  font-size: 1.5em;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.banner .second-tagline {
+  font-size: 1.25em;
+  font-weight: 250;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.card-1, .card-2, .card-3 {
+  background-color: #F8F5F2;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 25%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text within the container */
+}
+
+.card-1:hover, .card-2:hover, .card-3:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.card-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-container h4 {
+  font-weight: 300;
+}
+
+.text-container {
+  font-size: 1.25em;
+  font-weight: 250;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Car Collection */
+
+.vehicle-collection h2 {
+  font-size: 1.5em;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
