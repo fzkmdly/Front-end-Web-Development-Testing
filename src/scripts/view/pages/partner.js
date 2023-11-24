@@ -3,9 +3,15 @@ const Partner = {
     return `
           <div class="partnerPages" id="partnerPages">
             <section class="partnerHeader" id="partnerHeader">
-                <h3>Jadilah Partner Rent'O</h3>
-                <h1>Mobilmu Gayamu</h1>
+                <p id="upperTagline">Jadilah Partner Rent'O</p>
+                <p id="lowerTagline">Mobilmu Gayamu</p>
             </section>
+            <div class="banner">
+            <h2>Produktifkan Kendaraan Anda</h2>
+            <p class="second-tagline">Bergabunglah menjadi partner Rent'</p>
+            <div class="cards-container">
+            </div>
+            </div>
             <section class="partnerForm" id="partnerForm">
                 <form action="#" method="post">
                   <h1>Daftar Partner</h1>

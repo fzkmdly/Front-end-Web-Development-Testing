@@ -213,26 +213,34 @@ nav a:hover{
   text-align: center;
   justify-content: center;
   font-size: larger;
-
-  background-image: url('https://banner2.cleanpng.com/20180708/qec/kisspng-car-rental-taxi-enterprise-rent-a-car-renting-5b4210b9152fd1.3231953615310563130868.jpg');
+  color: white;
+  font-family: 'Nunito', sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
+  margin-bottom: 30px;
 }
 
-.partnerHeader h3, h1 {
-  margin-block: 5px;
+.partnerHeader #upperTagline {
+  font-size: 34px;
+  margin-bottom: 0%!important;
 }
 
-.partnerHeader {
-  margin-bottom: 10px;
+.partnerHeader #lowerTagline {
+  font-size: 72px;
+  margin-top: 0%!important;
+}
+
+#upperTagline, #lowerTagline {
+  font-family: 'Nunito', sans-serif!important;
 }
 
 form {
   width: 600px;
-  
+  border-radius: 10px;
   background-color: #F8F5F2;
   padding-top: 20px;
   padding-inline: 10px;
+  font-family: 'Nunito', sans-serif;
 }
 
 form h1, h4 {

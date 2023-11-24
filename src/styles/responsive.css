@@ -3,6 +3,10 @@
         padding: 0 46px;
     }
 
+    .partnerHeader {
+        background-image: url('../public/images/assets/partner-page/car-small.jpg');
+    }
+
     .menu-list {
         background-color: white;
         fill-opacity: 0.5;
@@ -54,4 +58,11 @@
     .detail {
         width: 100%;
     }
+}
+
+@media screen and (min-width: 601px) {
+    .partnerHeader {
+        background-image: url('../public/images/assets/partner-page/car-large.jpg');
+    }
+    
 }
