@@ -6,6 +6,7 @@ import Register from '../view/pages/register';
 import Sewa from '../view/pages/rentalList';
 import TambahMobil from '../view/pages/tambahMobil';
 import Checkout from '../view/pages/checkout';
+import ForgotPassword from '../view/pages/forgot-password';
 
 const routes = {
   '/': Home,
@@ -16,6 +17,7 @@ const routes = {
   '/sewa': Sewa,
   '/tambah-mobil': TambahMobil,
   '/checkout': Checkout,
+  '/forgot-password': ForgotPassword,
 };
 
 export default routes;

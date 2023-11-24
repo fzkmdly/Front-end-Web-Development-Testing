@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
   --primary-color: #E3FDFD;
@@ -358,4 +358,73 @@ input {
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+/* Login Page */
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#login-form {
+  width: 450px;
+  background-color: #F8F5F2;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#login-form h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+#login-form button {
+  font-family: 'Nunito', sans-serif;
+  font-size: large;
+  width: 100%;
+  padding: 10px;
+  background-color: #078080;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+#login-form button:hover {
+  background-color: #4CAF50;
+}
+
+#login-form #register {
+  font-family: 'Nunito', sans-serif;
+  font-size: medium;
+  text-align: center;
+}
+
+#login-form #register a {
+  text-decoration: none;
+  color: black;
+}
+
+#email, #password {
+  font-family: 'Nunito', sans-serif;
+  font-size: medium;
+  border-radius: 10px;
+  margin-bottom: 8px!important;
+}
+
+#forgot-password {
+  font-family: 'Nunito', sans-serif;
+  text-align: right;
+  text-decoration: none;
+  color: red;
+  margin-top: 0%!important;
+}
+
+#forgot-password:hover {
+  color: black;
 }
