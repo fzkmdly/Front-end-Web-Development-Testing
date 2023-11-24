@@ -196,3 +196,96 @@ nav a:hover{
 .menu-button i {
   font-size: 2em;
 }
+
+/*------------------Partner Page----------------------*/
+
+.partnerPages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.partnerHeader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  justify-content: center;
+  font-size: larger;
+
+  background-image: url('https://banner2.cleanpng.com/20180708/qec/kisspng-car-rental-taxi-enterprise-rent-a-car-renting-5b4210b9152fd1.3231953615310563130868.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.partnerHeader h3, h1 {
+  margin-block: 5px;
+}
+
+.partnerHeader {
+  margin-bottom: 10px;
+}
+
+form {
+  width: 600px;
+  
+  background-color: #F8F5F2;
+  padding-top: 20px;
+  padding-inline: 10px;
+}
+
+form h1, h4 {
+  font-size: x-large;
+}
+
+form h1 {
+  text-align: center;
+}
+
+.form-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.form-column:last-child {
+  margin-right: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.tempatTanggalLahir {
+  display: grid;
+  grid-template-columns: repeat(2 , 1fr);
+  column-gap: 5px;
+}
+
+.partnerButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.partnerButton:hover {
+  background-color: #45a049;
+}
