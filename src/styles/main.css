@@ -493,7 +493,7 @@ Rental-bar
   transition: 700ms;
 }
 
-.rental-option button:hover, :focus {
+.rental-option button:hover:focus{
   background-color: #065c5c;
 }
 
