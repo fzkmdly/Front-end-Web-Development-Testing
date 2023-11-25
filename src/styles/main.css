@@ -240,7 +240,7 @@ nav a:hover{
   align-items: center;
 }
 
-form {
+.partnerForm form {
   width: 85%;
   border-radius: 10px;
   background-color: #F8F5F2;
@@ -249,25 +249,25 @@ form {
   font-family: 'Nunito', sans-serif;
 }
 
-form h1, h4 {
+.partnerForm form h1, h4 {
   font-size: x-large;
 }
 
-form h1 {
+.partnerForm form h1 {
   text-align: center;
 }
 
-.form-body {
+.partnerForm .form-body {
   display: flex;
   justify-content: space-between;
 }
 
-.form-column {
+.partnerForm .form-column {
   flex: 1;
   margin-right: 20px;
 }
 
-.form-column:last-child {
+.partnerForm .form-column:last-child {
   margin-right: 0;
 }
 
@@ -441,4 +441,68 @@ input {
 
 #forgot-password:hover {
   color: black;
+}
+
+/*--------------Page sewa--------------*/
+
+.sewa-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+Rental-bar
+*/
+
+.rental-bar{
+  display: flex;
+  flex-direction: column;
+  background-color: #F8F5F2;
+  padding-block: 15px ;
+  padding-block-end: 30px;
+  padding-inline: 10px;
+  margin-inline: 30px !important;
+
+  font-family: 'Nunito', sans-serif;
+}
+
+.rental-bar h1 {
+  margin: 0;
+}
+
+.rental-option{
+  display: flex;
+  flex-direction: row;
+}
+
+.rental-option .rental-leftSide {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 2px;
+}
+
+.rental-option button {
+  margin-left: 10px;
+  padding-inline: 5%;
+  border-radius: 20px;
+  height: 40px;
+  align-self: center;
+
+  background-color: #078080;
+  transition: 700ms;
+}
+
+.rental-option button:hover, :focus {
+  background-color: #065c5c;
+}
+
+/*
+Sewa Page main content
+*/
+
+.vehicle-sewa-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

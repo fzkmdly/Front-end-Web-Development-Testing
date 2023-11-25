@@ -1,6 +1,7 @@
 import 'regenerator-runtime';
 import './view/components/header';
 import './view/components/footer';
+import './view/components/rental-bar';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import '@fortawesome/fontawesome-free/css/all.min.css';
