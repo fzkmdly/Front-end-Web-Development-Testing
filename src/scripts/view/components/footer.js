@@ -12,11 +12,11 @@ class FooterBar extends HTMLElement {
         <div class="row">
           <ul>
             <li><a href="#/about">Abous us</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#/toc">Terms & Conditions</a></li>
           </ul>
         </div>
         <div class="row">
-        Rent'O Copyright © 2023 Rent'O - All rights reserved
+        Rent'O &copy; 2023 Rent'O - All rights reserved
         </div>
       </div>
     `;
