@@ -619,11 +619,13 @@ margin:0% 3%;
 .team-member-name {
   margin-top: 10px;
   font-size: 1.2em;
+  margin-left: 85px;
 }
 
 .team-member-university {
   margin-top: 5px;
   color: #555;
+  margin-left: 85px;
 }
 
 /* Terms of Services Page */

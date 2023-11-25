@@ -43,8 +43,8 @@ const About = {
                   <source type="image/jpeg" srcset="./images/assets/about-us/fullstack/developer-1.jpg">
                   <img src="./images/assets/about-us/fullstack/developer-1.jpg" alt="Lead & Fullstack Developer">
                 </picture>
-                <h3 class="team-member-name">John Doe</h3>
-                <p class="team-member-university">University of Tech</p>
+                <h3 class="team-member-name">Benaya Adi Sahat Dwiyanto</h3>
+                <p class="team-member-university">Politeknik Negeri Jakarta</p>
               </div>
             </div>
 
@@ -57,8 +57,8 @@ const About = {
                   <source type="image/jpeg" srcset="./images/assets/about-us/back-end/developer-1.jpg">
                   <img src="./images/assets/about-us/back-end/developer-1.jpg" alt="Backend Developer 1">
                 </picture>
-                <h3 class="team-member-name">John Doe</h3>
-                <p class="team-member-university">University of Tech</p>
+                <h3 class="team-member-name">Daffa Habibullah</h3>
+                <p class="team-member-university">Universitas Bina Sarana Informatika</p>
               </div>
               <div class="about-team-member">
                 <picture>
@@ -66,8 +66,8 @@ const About = {
                   <source type="image/jpeg" srcset="./images/assets/about-us/back-end/developer-2.jpg">
                   <img src="./images/assets/about-us/back-end/developer-2.jpg" alt="Backend Developer 2">
                 </picture>
-                <h3 class="team-member-name">John Doe</h3>
-                <p class="team-member-university">University of Tech</p>
+                <h3 class="team-member-name">Adam Arrahman</h3>
+                <p class="team-member-university">Universitas Suryakencana</p>
               </div>
             </div>
 
