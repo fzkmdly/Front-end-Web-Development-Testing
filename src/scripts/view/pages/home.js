@@ -10,7 +10,11 @@ const Home = {
                       </div>
                   </section>
                   <section class="rightSide">
-                      <img src="https://raw.githubusercontent.com/Rent-O-Dicoding-Cycle-5/Front-end-Web-Development/main/src/public/images/logo/car2.png" alt="Car Image">
+                      <picture>
+                        <source type="image/webp" srcset="./images/logo/car.webp">
+                        <source type="image/jpeg" srcset="./images/logo/car.png">
+                        <img src="./images/logo/car.png" alt="Quality Check">
+                      </picture>
                   </section>
                 </div>
                 <div class="banner">
