@@ -312,6 +312,9 @@ const createTOCPages = () => {
       </ol>
     </li>
   </ol>
+  `;
+};
+
 const createAboutPages = () => {
   return `
   <div class="about-container">
