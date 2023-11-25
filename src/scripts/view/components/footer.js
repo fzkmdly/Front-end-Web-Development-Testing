@@ -16,7 +16,7 @@ class FooterBar extends HTMLElement {
           </ul>
         </div>
         <div class="row">
-        Rent'O Copyright © 2023 Rent'O - All rights reserved
+        Rent'O &copy; 2023 Rent'O - All rights reserved
         </div>
       </div>
     `;

@@ -114,8 +114,9 @@ Top Page
   
 }
 
-.rightSide img {
-  width: 100%;
+.rightSide img, source {
+  width: 80%;
+  margin-right: 40px;
 }
 
 .leftSide .directLinkToSewa a {
@@ -613,6 +614,7 @@ margin:0% 3%;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 80px;
 }
 
 .team-member-name {
@@ -621,6 +623,7 @@ margin:0% 3%;
 }
 
 .team-member-university {
+  margin-right: 2px;
   margin-top: 5px;
   color: #555;
 }
