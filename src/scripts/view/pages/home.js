@@ -63,7 +63,7 @@ const Home = {
         restaurantContainer.innerHTML = '<h3>No Vehicle available.</h3>';
       };
     } catch (error) {
-
+      console.log(error);
     }
   },
 };

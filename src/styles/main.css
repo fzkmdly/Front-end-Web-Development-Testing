@@ -234,12 +234,18 @@ nav a:hover{
   font-family: 'Nunito', sans-serif!important;
 }
 
+.partnerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 form {
-  width: 600px;
+  width: 85%;
   border-radius: 10px;
   background-color: #F8F5F2;
   padding-top: 20px;
-  padding-inline: 10px;
+  padding-inline: 30px;
   font-family: 'Nunito', sans-serif;
 }
 
