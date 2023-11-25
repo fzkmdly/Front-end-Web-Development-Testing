@@ -1,6 +1,9 @@
+import {createAboutPages} from '../template/templateCreator';
+
 const About = {
   async render() {
     return `
+<<<<<<< Updated upstream
         <div class="about-container">
           <h1 class="about-us">Rent'O: Solusi Penyewaan Mobil Terbaik Anda</h1>
           <div class="about-row">
@@ -95,11 +98,15 @@ const About = {
             </div>
           </div>
         </div>
+=======
+        <div id="about-us" class="about-us"></div>
+>>>>>>> Stashed changes
       `;
   },
 
   async afterRender() {
-    // Additional functionality or event listeners can be added here if needed
+    const aboutUsContainer = document.querySelector('#about-us');
+    aboutUsContainer.innerHTML = createAboutPages();
   },
 };
 
