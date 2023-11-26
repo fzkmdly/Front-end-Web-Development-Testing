@@ -9,7 +9,7 @@ const Sewa = {
           <rental-bar></rental-bar>
         </header>
         <div id="vehicle-sewa-list" class="vehicle-sewa-list">
-          <h1>Pilihlah Kendaraan</h1>
+          <h1>Temukan Kendaraan Pilihan Anda</h1>
           <div class="vehicle-item-container" id="vehicle-item-container">
           </div>
         </div>
