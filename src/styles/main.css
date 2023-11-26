@@ -755,7 +755,9 @@ p, li {
   transition: .3s;
 }
 
-.car-collection-container picture, .car-collection-container source, .car-collection-container img {
+.car-collection-container picture, 
+.car-collection-container source, 
+.car-collection-container img {
   width: 70%;
   height: auto;
   border-radius: 10px;
