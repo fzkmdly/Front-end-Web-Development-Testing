@@ -352,7 +352,8 @@ input {
 .card-image img {
   max-width: 100%;
   height: auto;
-  margin-right: 62px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 .text-container h4 {
