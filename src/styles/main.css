@@ -506,3 +506,39 @@ Sewa Page main content
   flex-direction: column;
   align-items: center;
 }
+
+.vehicleItem {
+  display: flex;
+  flex-direction: row;
+  margin-inline: 5px;
+  justify-content: space-between;
+  background-color: #F8F5F2;
+  margin-block: 4px;
+  border-radius: 10px;
+  padding-block: 5px;
+  padding-inline: 15px;
+}
+
+.vehicleItem-left {
+  width: 30%;
+  align-self: center;
+}
+
+.vehicleItem-center{
+  width: 30%;
+  font-size: larger;
+}
+
+.vehicleItem img {
+  max-width: 75%;
+  border-radius: 1pc;
+}
+
+.vehicleItem a {
+  background-color: #F45D48;
+  text-decoration: none;
+  color: white;
+  padding-inline: 35px;
+  padding-block: 10px;
+  border-radius: 30px;
+}
