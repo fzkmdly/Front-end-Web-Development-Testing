@@ -17,6 +17,29 @@ const vehicleItem = (vehicle) => {
     `;
 };
 
+const createCarCollection = (vehicle) => {
+  return `
+    <a href="#/detail/${vehicle.id}" class="car-container">
+      <div>
+        <section class="car-collection-image">
+          <picture>
+            <source type="image/webp" srcset="./images/assets/dummy-images/raize-white-black.webp">
+            <source type="image/png" srcset="./images/assets/dummy-images/raize-white-black.png">
+            <img src="./images/assets/dummy-images/raize-white-black.png" alt="Toyota Raize with white on top and black at entire bodyworks">
+          </picture>
+        </section>
+        <section class="car-collection-name">
+          <h4 class="car-name">${vehicle.name}</h4>
+          <h6 class="city"><i class="fa-solid fa-location-dot fa-shake"></i>  ${vehicle.city}</h6>
+        </section>
+        <section class="car-collection-price">
+          <h4 class="harga">Rp150.000/hari</h4>
+        </section>
+      </div>
+    </a>
+  `;
+};
+
 const vehicleDetail = (vehicle) => {
   return `
     <article id="vehicleDetail" class="vehicleDetail">
@@ -432,4 +455,5 @@ module.exports = {
   createPartnerRegisterPages,
   createTOCPages,
   createAboutPages,
+  createCarCollection,
 };

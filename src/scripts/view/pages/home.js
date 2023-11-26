@@ -1,3 +1,6 @@
+import {createCarCollection} from '../template/templateCreator';
+import CarDbSource from '../../data/data-source';
+
 const Home = {
   async render() {
     return `
@@ -64,8 +67,8 @@ const Home = {
                   </div>
                 </div>
                 <div class="vehicle-collection">
-                   <h2>Our Partner's Collections</h2>
-                    <div class="vehicle-list-item" id="vehicle-list-item">
+                   <h2>Koleksi Partner Kami</h2>
+                    <div class="car-collection-container" id="car-collection-container">
                     </div>
                 </div>
             `;
@@ -73,11 +76,19 @@ const Home = {
 
   async afterRender() {
     try {
-      // Kode Lain
-      const restaurantContainer = document.getElementById('vehicle-list-item');
-      if (restaurantData.length === 0) {
-        restaurantContainer.innerHTML = '<h3>No Vehicle available.</h3>';
-      };
+      const vehicles = await CarDbSource.listCar();
+      console.log(vehicles);
+      const carCollectionContainer = document.getElementById('car-collection-container');
+
+      if (vehicles.length === 0) {
+        carCollectionContainer.innerHTML = '<h3>No items found</h3>';
+      } else {
+        const limitedVehicles = vehicles.slice(0, 6);
+
+        limitedVehicles.forEach((vehicle) => {
+          carCollectionContainer.innerHTML += createCarCollection(vehicle);
+        });
+      }
     } catch (error) {
       console.log(error);
     }
