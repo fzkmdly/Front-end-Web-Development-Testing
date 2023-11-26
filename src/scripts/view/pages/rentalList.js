@@ -30,7 +30,7 @@ const Sewa = {
         vehicleItemContainer.innerHTML += vehicleItem(vehicles);
       });
     } catch (error) {
-
+      console.log(error);
     }
   },
 };
