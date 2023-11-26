@@ -18,11 +18,11 @@ Rent'O is a user-friendly web application that allows users to browse, select, a
 
 ## Features
 
-- **User Authentication:** Secure user authentication system to protect user accounts.
+- ~~**User Authentication:** Secure user authentication system to protect user accounts.~~
 - **Car Listings:** Browse through a variety of available cars with detailed information.
 - **Reservation System:** Easily reserve a car for a specific date and time.
-- **User Dashboard:** View reservation history and manage account details.
-- **Responsive Design:** Ensures a consistent experience across different devices.
+- ~~**User Dashboard:** View reservation history and manage account details.~~
+- ~~**Responsive Design:** Ensures a consistent experience across different devices.~~
 
 ## Getting Started
 
