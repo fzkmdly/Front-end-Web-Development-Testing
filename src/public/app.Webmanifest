@@ -4,8 +4,8 @@
     "start_url": "./index.html",
     "description": "A website to rent a car simply and quickly",
     "display": "standalone",
-    "background_color": "#FF2E63",
-    "theme_color": "#FF2E63",
+    "background_color": "#FFFFFF",
+    "theme_color": "#FFFFFF",
     "icons": [
       {
         "src": "/images/icons/maskable_icon_x48.png",
@@ -14,13 +14,13 @@
         "purpose": "any maskable"
       },
       {
-        "src": "/images/icons/maskable_icon_72.png",
+        "src": "/images/icons/maskable_icon_x72.png",
         "sizes": "72x72",
         "type": "image/png",
         "purpose": "any maskable"
       },
       {
-        "src": "/images/icons/maskable_icon_96.png",
+        "src": "/images/icons/maskable_icon_9x6.png",
         "sizes": "96x96",
         "type": "image/png",
         "purpose": "any maskable"
@@ -28,18 +28,6 @@
       {
         "src": "/images/icons/maskable_icon_x128.png",
         "sizes": "128x128",
-        "type": "image/png",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "/images/icons/maskable_icon_x144.png",
-        "sizes": "144x144",
-        "type": "image/png",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "/images/icons/maskable_icon_x152.png",
-        "sizes": "152x152",
         "type": "image/png",
         "purpose": "any maskable"
       },

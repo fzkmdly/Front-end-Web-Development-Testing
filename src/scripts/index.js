@@ -8,6 +8,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../styles/main.css';
 import '../styles/responsive.css';
 import App from './view/app';
+import swRegister from './utils/sw-register';
 
 const skipToContent = document.querySelector('.skip-link');
 const button = document.querySelector('.menu-button');
@@ -26,6 +27,7 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderApp();
+  swRegister();
 });
 
 skipToContent.addEventListener('click', (event) => {
