@@ -11,7 +11,6 @@ const Sewa = {
         <div id="vehicle-sewa-list" class="vehicle-sewa-list">
           <h1>Pilihlah Kendaraan</h1>
           <div class="vehicle-item-container" id="vehicle-item-container">
-
           </div>
         </div>
       </div>

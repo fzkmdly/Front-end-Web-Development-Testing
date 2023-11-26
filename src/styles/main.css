@@ -511,20 +511,38 @@ Sewa Page main content
   margin-inline: 5px;
   justify-content: space-between;
   background-color: #F8F5F2;
-  margin-block: 4px;
+  margin-block: 14px;
   border-radius: 10px;
-  padding-block: 5px;
-  padding-inline: 15px;
+  padding-block: 14px;
+  padding-inline: 154px;
+}
+
+.vehicleItem:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
 }
 
 .vehicleItem-left {
   width: 30%;
   align-self: center;
+  margin-right: -124px;
 }
 
 .vehicleItem-center{
   width: 30%;
   font-size: larger;
+}
+
+.vehicleItem-center .vehicle-name {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 78px;;
+}
+
+.vehicleItem-center .city {
+  font-size: larger;
+  margin-top: 14px;
 }
 
 .vehicleItem img {
@@ -539,7 +557,20 @@ Sewa Page main content
   padding-inline: 35px;
   padding-block: 10px;
   border-radius: 30px;
-=======
+}
+
+.vehicleItem-right .start-from {
+  font-size: small;
+  margin-bottom: 0;
+  margin-top: 80px;
+}
+
+.vehicleItem-right .harga {
+  font-size: larger;
+  font-weight: bold;
+  margin-top: 0;
+}
+
 /* Footer */
 
 .footer{

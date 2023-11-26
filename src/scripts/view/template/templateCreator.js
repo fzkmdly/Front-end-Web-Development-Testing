@@ -2,15 +2,15 @@ const vehicleItem = (vehicle) => {
   return `
           <div class="vehicleItem" id="vehicleItem">
             <section class="vehicleItem-left">
-              <img src="https://i.pinimg.com/736x/22/4f/fd/224ffd65ee22d448ac3f587c5d192370.jpg" alt="vehicle image">
+              <img class="lazyload" src="https://i.pinimg.com/736x/22/4f/fd/224ffd65ee22d448ac3f587c5d192370.jpg" alt="vehicle image">
             </section>
             <section class="vehicleItem-center">
-                <h4>${vehicle.name}</h4>
-                <h6>${vehicle.city}</h6>
+                <h4 class="vehicle-name">${vehicle.name}</h4>
+                <h6 class="city"><i class="fa-solid fa-location-dot fa-shake"></i>  ${vehicle.city}</h6>
             </section>
             <section class="vehicleItem-right">
-                <h6>Mulai dari</h6>
-                <h4>Rp. 150.000/hari</h4>
+                <h6 class="start-from">Mulai</h6>
+                <h4 class="harga">Rp150.000/hari</h4>
                 <a href="#/detail/${vehicle.id}">Pilih</a>
             </section>
           </div>
