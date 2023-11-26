@@ -10,7 +10,11 @@ const Home = {
                       </div>
                   </section>
                   <section class="rightSide">
-                      <img src="https://raw.githubusercontent.com/Rent-O-Dicoding-Cycle-5/Front-end-Web-Development/main/src/public/images/logo/car2.png" alt="Car Image">
+                      <picture>
+                        <source type="image/webp" srcset="./images/logo/car.webp">
+                        <source type="image/jpeg" srcset="./images/logo/car.png">
+                        <img src="./images/logo/car.png" alt="Quality Check">
+                      </picture>
                   </section>
                 </div>
                 <div class="banner">
@@ -19,7 +23,11 @@ const Home = {
                     <div class="cards-container">
                         <div class="card-1">
                           <div class="card-image">
-                            <img src="./images/logo/cards-container/high-quality.png" alt="Quality Check">
+                            <picture>
+                              <source type="image/webp" srcset="./images/logo/cards-container/high-quality.webp">
+                              <source type="image/jpeg" srcset="./images/logo/cards-container/high-quality.png">
+                              <img src="./images/logo/cards-container/high-quality.png" alt="Quality Check">
+                            </picture>
                           </div>
                           <div class="text-container">
                             <h4><b>Kualitas Terbaik</b></h4> 
@@ -28,7 +36,11 @@ const Home = {
                         </div>
                         <div class="card-2">
                           <div class="card-image">
-                            <img src="./images/logo/cards-container/price.png" alt="Price Check">
+                            <picture>
+                              <source type="image/webp" srcset="./images/logo/cards-container/price.webp">
+                              <source type="image/jpeg" srcset="./images/logo/cards-container/price.png">
+                              <img src="./images/logo/cards-container/price.png" alt="Price Check">
+                            </picture>
                           </div>
                           <div class="text-container">
                             <h4><b>Harga terjangkau</b></h4> 
@@ -37,7 +49,11 @@ const Home = {
                         </div>
                         <div class="card-3">
                           <div class="card-image">
-                            <img src="./images/logo/cards-container/shield.png" alt="Shield">
+                            <picture>
+                              <source type="image/webp" srcset="./images/logo/cards-container/shield.webp">
+                              <source type="image/jpeg" srcset="./images/logo/cards-container/shield.png">
+                              <img src="./images/logo/cards-container/shield.png" alt="Shield">
+                            </picture>
                           </div>
                           <div class="text-container">
                             <h4><b>Aman dan Cepat</b></h4> 

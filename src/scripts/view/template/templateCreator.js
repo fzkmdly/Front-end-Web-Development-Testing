@@ -232,10 +232,204 @@ const createPartnerRegisterPages = () => {
   `;
 };
 
+const createTOCPages = () => {
+  return `
+  <div class="terms-container">
+  <h2>Syarat dan Ketentuan Rent'O</h2>
+
+  <ol>
+    <li><strong>Penerimaan Syarat</strong>
+      <p>Dengan menggunakan layanan Rent'O, Anda setuju untuk mematuhi dan terikat oleh Syarat dan Ketentuan ini. Jika Anda tidak setuju dengan salah satu bagian dari syarat ini, Anda tidak diperkenankan menggunakan layanan kami.</p>
+    </li>
+
+    <li><strong>Perjanjian Sewa</strong>
+      <ol type="a">
+        <li>Saat menyewa mobil dari Rent'O, Anda setuju untuk mematuhi semua persyaratan yang diuraikan dalam Perjanjian Sewa. Persyaratan ini mencakup durasi penyewaan, biaya, dan kondisi kendaraan.</li>
+        <li>Anda bertanggung jawab untuk membaca dan memahami semua ketentuan dalam Perjanjian Sewa sebelum menandatanganinya.</li>
+      </ol>
+    </li>
+
+    <li><strong>Kelayakan</strong>
+      <ol type="a">
+        <li>Anda harus berusia minimal 21 tahun untuk menyewa mobil dari Rent'O.</li>
+        <li>Anda wajib memiliki SIM (Surat Izin Mengemudi) yang masih berlaku dan sesuai dengan kelas kendaraan yang akan Anda sewa.</li>
+        <li>Proses penyewaan dapat memerlukan verifikasi identitas dan informasi pembayaran yang valid.</li>
+        <li>Rent'O berhak menolak penyewaan jika persyaratan kelayakan tidak terpenuhi.</li>
+      </ol>
+    </li>
+
+    <li><strong>Reservasi dan Pembayaran</strong>
+      <ol type="a">
+        <li>Reservasi tergantung pada ketersediaan kendaraan. Kami merekomendasikan untuk melakukan reservasi sebelumnya untuk memastikan ketersediaan mobil.</li>
+        <li>Pembayaran harus dilakukan di muka melalui metode pembayaran yang disetujui. Biaya tambahan mungkin dikenakan untuk pengembalian terlambat atau kondisi tertentu lainnya.</li>
+      </ol>
+    </li>
+
+    <li><strong>Kebijakan Pembatalan</strong>
+      <ol type="a">
+        <li>Kebijakan pembatalan berbeda berdasarkan jenis reservasi. Silakan lihat syarat-syarat spesifik yang diberikan selama proses pemesanan.</li>
+        <li>Pembatalan yang dilakukan dalam waktu yang singkat mungkin dikenakan biaya pembatalan sesuai dengan kebijakan yang berlaku.</li>
+      </ol>
+    </li>
+
+    <li><strong>Penggunaan Kendaraan</strong>
+      <ol type="a">
+        <li>Kendaraan yang disewa harus digunakan hanya untuk tujuan yang legal dan aman. Pelanggaran apa pun terhadap hukum dapat mengakibatkan pemutusan perjanjian sewa.</li>
+        <li>Anda bertanggung jawab untuk menjaga kendaraan dalam kondisi baik selama periode penyewaan.</li>
+      </ol>
+    </li>
+
+    <li><strong>Asuransi</strong>
+        <ol type="a">
+            <li>Pelanggan disarankan untuk memiliki asuransi kecelakaan. Rent'O juga menyediakan asuransi kecelakaan tambahan untuk pelanggan tanpa biaya tambahan.</li>
+            <li>Asuransi kecelakaan dari Rent'O sudah termasuk dalam biaya layanan dan berlaku dari tanggal awal penggunaan hingga tanggal akhir penggunaan layanan Rent'O.</li>
+            <li>Pelanggan bertanggung jawab untuk memberikan informasi yang benar terkait klaim asuransi jika diperlukan.</li>
+        </ol>
+    </li>
+
+    <li><strong>Pengembalian Kendaraan</strong>
+      <ol type="a">
+        <li>Kendaraan harus dikembalikan tepat waktu dan dalam kondisi yang sama seperti saat disewa. Keterlambatan pengembalian dapat dikenai biaya tambahan.</li>
+        <li>Pengecualian dari kondisi normal akibat pemakaian wajar akan ditanggung oleh Rent'O.</li>
+      </ol>
+    </li>
+
+    <li><strong>Pemeliharaan dan Perbaikan</strong>
+      <ol type="a">
+        <li>Pelanggan wajib melaporkan segala kerusakan pada kendaraan kepada Rent'O sesegera mungkin.</li>
+        <li>Jika kendaraan mengalami kerusakan karena kelalaian atau tindakan penyewa, penyewa wajib menanggung seluruh biaya perbaikan.</li>
+      </ol>
+    </li>
+
+    <li><strong>Pemutusan Layanan</strong>
+      <ol type="a">
+        <li>Rent'O berhak untuk mengakhiri perjanjian sewa dan mengambil kembali kendaraan jika ada pelanggaran terhadap syarat-syarat ini atau jika kendaraan digunakan untuk kegiatan ilegal.</li>
+        <li>Pemutusan dapat terjadi jika pelanggan tidak mematuhi perjanjian, termasuk penggunaan yang tidak sah atau penyalahgunaan kendaraan.</li>
+      </ol>
+    </li>
+
+    <li><strong>Penolakan Tanggung Jawab</strong>
+      <ol type="a">
+        <li>Rent'O tidak bertanggung jawab atas kehilangan, cedera, atau kerusakan yang timbul dari penggunaan layanan rental kami.</li>
+        <li>Pelanggan setuju untuk membebaskan Rent'O dari segala tuntutan hukum yang mungkin timbul dari penggunaan layanan ini.</li>
+      </ol>
+    </li>
+
+    <li><strong>Perubahan pada Syarat</strong>
+      <ol type="a">
+        <li>Rent'O dapat memperbarui Syarat dan Ketentuan ini dari waktu ke waktu. Pengguna akan diberi tahu tentang perubahan apa pun melalui pemberitahuan yang sesuai.</li>
+        <li>Pelanggan diharapkan untuk secara berkala memeriksa Syarat dan Ketentuan untuk memahami perubahan yang mungkin terjadi.</li>
+      </ol>
+    </li>
+  </ol>
+  `;
+};
+
+const createAboutPages = () => {
+  return `
+  <div class="about-container">
+  <h1 class="about-us">Rent'O: Solusi Penyewaan Mobil Terbaik Anda</h1>
+  <div class="about-row">
+    <div class="about-box">
+      <h2 class="about-heading">Armada kami</h2>
+      <p class="about-description">Di Rent'O, kami menawarkan beragam kendaraan berkualitas tinggi yang sesuai dengan setiap 
+      kebutuhan dan preferensi. Apakah Anda mencari mobil kompak untuk petualangan solo atau SUV yang luas untuk perjalanan keluarga, 
+      armada kami yang luas siap membantu Anda.</p>
+    </div>
+    <div class="about-box">
+      <h2 class="about-heading">Bagaimana cara kerjanya</h2>
+      <p class="about-description">Menyewa mobil dengan Rent'O sangatlah mudah. Cukup telusuri platform kami yang mudah digunakan, 
+      pilih kendaraan yang sesuai dengan kebutuhan Anda, dan lakukan reservasi. Proses kami yang mudah memastikan bahwa Anda dapat 
+      fokus pada perjalanan Anda, bukan pada dokumen.</p>
+    </div>
+  </div>
+  <div class="about-row">
+    <div class="about-box">
+      <h2 class="about-heading">Untuk Pemilik Mobil</h2>
+      <p class="about-description">Apakah Anda pemilik mobil yang ingin mendapatkan penghasilan tambahan? Bergabunglah dengan Rent'O 
+      sebagai mitra dan daftarkan kendaraan Anda dengan mudah untuk disewakan. Platform kami menyediakan cara yang aman dan efisien 
+      bagi Anda untuk berbagi mobil dengan tetap memegang kendali penuh atas ketentuan sewa Anda.</p>
+    </div>
+    <div class="about-box">
+      <h2 class="about-heading">Misi</h2>
+      <p class="about-description">Rent'O memiliki misi untuk menyederhanakan proses penyewaan mobil, membuatnya mudah diakses dan 
+      nyaman bagi semua orang. Kami bertujuan untuk menjembatani kesenjangan antara pemilik dan penyewa mobil, membina komunitas 
+      yang dibangun di atas kepercayaan, transparansi, dan pengalaman bersama.</p>
+    </div>
+  </div>
+  <div class="about-developer-section">
+    <h2 class="about-heading">Meet Our Team</h2>
+
+    <!-- Lead & Fullstack Developers -->
+    <h2 class="about-heading">Lead & Fullstack Developers</h2>
+    <div class="about-row">
+      <div class="about-team-member">
+        <picture>
+          <source type="image/webp" srcset="./images/assets/about-us/fullstack/developer-1.webp">
+          <source type="image/jpeg" srcset="./images/assets/about-us/fullstack/developer-1.jpg">
+          <img src="./images/assets/about-us/fullstack/developer-1.jpg" alt="Lead & Fullstack Developer">
+        </picture>
+        <h3 class="team-member-name">Benaya Adi Sahat Dwiyanto</h3>
+        <p class="team-member-university">Politeknik Negeri Jakarta</p>
+      </div>
+    </div>
+
+    <!-- Back-end Developers -->
+    <h2 class="about-heading">Back-end Developers</h2>
+    <div class="about-row">
+      <div class="about-team-member">
+        <picture>
+          <source type="image/webp" srcset="./images/assets/about-us/back-end/developer-1.webp">
+          <source type="image/jpeg" srcset="./images/assets/about-us/back-end/developer-1.jpg">
+          <img src="./images/assets/about-us/back-end/developer-1.jpg" alt="Backend Developer 1">
+        </picture>
+        <h3 class="team-member-name">Daffa Habibullah</h3>
+        <p class="team-member-university">Universitas Bina Sarana Informatika</p>
+      </div>
+      <div class="about-team-member">
+        <picture>
+          <source type="image/webp" srcset="./images/assets/about-us/back-end/developer-2.webp">
+          <source type="image/jpeg" srcset="./images/assets/about-us/back-end/developer-2.jpg">
+          <img src="./images/assets/about-us/back-end/developer-2.jpg" alt="Backend Developer 2">
+        </picture>
+        <h3 class="team-member-name">Adam Arrahman</h3>
+        <p class="team-member-university">Universitas Suryakencana</p>
+      </div>
+    </div>
+
+    <!-- Front-end Developers -->
+    <h2 class="about-heading">Front-end Developers</h2>
+    <div class="about-row">
+      <div class="about-team-member">
+        <picture>
+          <source type="image/webp" srcset="./images/assets/about-us/front-end/developer-1.webp">
+          <source type="image/jpeg" srcset="./images/assets/about-us/front-end/developer-1.jpg">
+          <img src="./images/assets/about-us/front-end/developer-1.jpg" alt="Front-end Developer 1">
+        </picture>
+        <h3 class="team-member-name">Faiz Akhmad Daulay</h3>
+        <p class="team-member-university">Universitas Muhammadiyah Sukabumi</p>
+      </div>
+      <div class="about-team-member">
+        <picture>
+          <source type="image/webp" srcset="./images/assets/about-us/front-end/developer-2.webp">
+          <source type="image/jpeg" srcset="./images/assets/about-us/front-end/developer-2.jpg">
+          <img src="./images/assets/about-us/front-end/developer-2.jpg" alt="Front-end Developer 2">
+        </picture>
+        <h3 class="team-member-name">Faisal A F Rahman</h3>
+        <p class="team-member-university">Universitas Muhammadiyah Sukabumi</p>
+      </div>
+    </div>
+  </div>
+</div>
+  `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
   createLoginPages,
   createRegisterPages,
   createPartnerRegisterPages,
+  createTOCPages,
+  createAboutPages,
 };

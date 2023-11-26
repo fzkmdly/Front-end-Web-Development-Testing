@@ -10,7 +10,7 @@
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
   
   html, body {
@@ -114,8 +114,9 @@ Top Page
   
 }
 
-.rightSide img {
-  width: 100%;
+.rightSide img, source {
+  width: 80%;
+  margin-right: 40px;
 }
 
 .leftSide .directLinkToSewa a {
@@ -214,7 +215,6 @@ nav a:hover{
   justify-content: center;
   font-size: larger;
   color: white;
-  font-family: 'Nunito', sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 30px;
@@ -232,12 +232,14 @@ nav a:hover{
 
 #upperTagline, #lowerTagline {
   font-family: 'Nunito', sans-serif!important;
+  color: white;
 }
 
 .partnerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 64px;
 }
 
 .partnerForm form {
@@ -246,7 +248,7 @@ nav a:hover{
   background-color: #F8F5F2;
   padding-top: 20px;
   padding-inline: 30px;
-  font-family: 'Nunito', sans-serif;
+  padding-bottom: 40px;
 }
 
 .partnerForm form h1, h4 {
@@ -391,13 +393,11 @@ input {
 }
 
 #login-form h2 {
-  font-family: 'Nunito', sans-serif;
   font-size: 2em;
   text-align: center;
 }
 
 #login-form button {
-  font-family: 'Nunito', sans-serif;
   font-size: large;
   width: 100%;
   padding: 10px;
@@ -414,7 +414,6 @@ input {
 }
 
 #login-form #register {
-  font-family: 'Nunito', sans-serif;
   font-size: medium;
   text-align: center;
 }
@@ -425,14 +424,12 @@ input {
 }
 
 #email, #password {
-  font-family: 'Nunito', sans-serif;
   font-size: medium;
   border-radius: 10px;
   margin-bottom: 8px!important;
 }
 
 #forgot-password {
-  font-family: 'Nunito', sans-serif;
   text-align: right;
   text-decoration: none;
   color: red;
@@ -442,6 +439,7 @@ input {
 #forgot-password:hover {
   color: black;
 }
+
 
 /*--------------Page sewa--------------*/
 
@@ -541,4 +539,160 @@ Sewa Page main content
   padding-inline: 35px;
   padding-block: 10px;
   border-radius: 30px;
+=======
+/* Footer */
+
+.footer{
+background:#000;
+padding:30px 0px;
+text-align:center;
+}
+
+.footer .row{
+width:100%;
+margin:1% 0%;
+padding:0.6% 0%;
+color:gray;
+font-size:0.8em;
+}
+
+.footer .row a{
+text-decoration:none;
+color:gray;
+transition:0.5s;
+}
+
+.footer .row a:hover{
+color:#fff;
+}
+
+.footer .row ul li{
+display:inline-block;
+margin:0px 30px;
+}
+
+.footer .row a i{
+font-size:2em;
+margin:0% 1%;
+}
+  
+@media (max-width:720px){
+.footer{
+text-align:left;
+padding:5%;
+}
+.footer .row ul li{
+display:block;
+margin:10px 0px;
+text-align:left;
+}
+.footer .row a i{
+margin:0% 3%;
+}
+}
+
+/* About Us */
+
+.about-container {
+  margin-top: 20px;
+  margin-bottom: 26px;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.about-row {
+  display: flex;
+  justify-content: center;
+}
+
+.about-box {
+  background-color: #f8f5f2;
+  width: 48%; /* Adjust as needed */
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.about-box:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+
+.about-heading, .about-description {
+  text-align: center;
+}
+
+.about-description {
+  font-size: large;
+}
+
+.about-developer-section {
+  margin-top: 40px;
+}
+
+.about-team-member {
+  text-align: center;
+  margin: 20px;
+}
+
+.about-team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 80px;
+}
+
+.team-member-name {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.team-member-university {
+  margin-right: 2px;
+  margin-top: 5px;
+  color: #555;
+}
+
+/* Terms of Services Page */
+
+.terms-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+h2 {
+  color: #333;
+  text-align: center;
+}
+
+h3 {
+  color: #555;
+}
+
+p, li {
+  line-height: 1.5;
+  color: black;
 }
