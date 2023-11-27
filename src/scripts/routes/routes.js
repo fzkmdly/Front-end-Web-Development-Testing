@@ -7,7 +7,7 @@ import Sewa from '../view/pages/rentalList';
 import TambahMobil from '../view/pages/tambahMobil';
 import Checkout from '../view/pages/checkout';
 import About from '../view/pages/about';
-import ToC from '../view/pages/toc';
+import TaC from '../view/pages/tac';
 
 
 const routes = {
@@ -20,7 +20,7 @@ const routes = {
   '/tambah-mobil': TambahMobil,
   '/checkout': Checkout,
   '/about': About,
-  '/toc': ToC,
+  '/tac': TaC,
 };
 
 export default routes;
