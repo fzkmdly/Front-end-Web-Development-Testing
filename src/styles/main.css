@@ -507,6 +507,11 @@ Sewa Page main content
   align-items: center;
 }
 
+.vehicleItem-clickable {
+  text-decoration: none;
+  color: black;
+}
+
 .vehicleItem {
   display: flex;
   flex-direction: row;
@@ -564,7 +569,7 @@ Sewa Page main content
 .vehicleItem-right .start-from {
   font-size: small;
   margin-bottom: 0;
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 .vehicleItem-right .harga {
