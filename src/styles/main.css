@@ -392,6 +392,7 @@ input {
   padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
 }
 
 #login-form h2 {
@@ -609,7 +610,7 @@ font-size:2em;
 margin:0% 1%;
 }
   
-@media (max-width:720px){
+/* @media (max-width:720px){
 .footer{
 text-align:left;
 padding:5%;
@@ -622,7 +623,7 @@ text-align:left;
 .footer .row a i{
 margin:0% 3%;
 }
-}
+} */
 
 /* About Us */
 
@@ -730,7 +731,7 @@ p, li {
 .car-collection-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 15px;
   margin-top: 15px;
 }
@@ -879,44 +880,4 @@ p, li {
 .vehicleDetailRenting button {
   width: 25%;
   height: 35px;
-}
-
-@media only screen and (max-width: 600px) {
-  .vehicleDetail {
-      flex-direction: column;
-      width: 100%;
-      margin-bottom: 10px;
-  }
-
-  .vehicleDetailLeft,
-  .vehicleDetailRight {
-      margin-inline: 0;
-  }
-
-  .vehicleDetailInfo {
-      flex-direction: column;
-  }
-
-  .vehicleOwnerLeft{
-      justify-content: space-around;
-  }
-
-  .vehicleDetailPhotolist {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
-  }
-
-  .vehicleDetailPhotolist img {
-      max-width: 100%;
-  }
-
-  .vehicleDetailForm {
-      grid-template-columns: 1fr;
-      column-gap: 0;
-  }
-
-  .vehicleDetailRenting button {
-      width: 50%;
-      margin-top: 10px;
-  }
 }
