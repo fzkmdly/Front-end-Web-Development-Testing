@@ -1,6 +1,6 @@
 # Rent'O - Car Rental Service
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/06d93c93-cd3f-4435-8b23-9dd73dae76fc/deploy-status)](https://app.netlify.com/sites/transcendent-froyo-7042c1/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/06d93c93-cd3f-4435-8b23-9dd73dae76fc/deploy-status)](https://app.netlify.com/sites/rent-o/deploys)
 
 Welcome to Rent'O, your go-to platform for hassle-free car rentals. Whether you're planning a road trip or just need a reliable vehicle for a day, Rent'O has you covered.
 
