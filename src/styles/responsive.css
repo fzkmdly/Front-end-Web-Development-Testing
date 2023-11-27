@@ -1,6 +1,7 @@
 @media (max-width: 600px) {
     nav {
-        padding: 0 46px;
+        padding-inline: 10px;
+        padding-block: 20px;
     }
 
     .partnerHeader {
@@ -57,6 +58,94 @@
 
     .detail {
         width: 100%;
+    }
+    /*-----Landing Page-----*/
+    .main-content {
+        width: 100%;
+    }
+
+    .topPage {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        font-size: 1rem;
+    }
+
+    .topPage .leftSide h1 {
+        font-size: 1.5rem;
+    }
+
+    .topPage .leftSide a {
+        margin-block-end: 15px;
+    }
+
+    .banner {
+        margin-top: 50px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-1, .card-2, .card-3 {
+        width: 65%;
+    }
+
+    .card-1 img, 
+    .card-2 img, 
+    .card-3 img {
+        margin: 0;
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0;
+        align-content: center;
+        text-align: center;
+    }
+
+    /*----Vehicle Detail----*/
+
+    .vehicleDetail {
+        flex-direction: column;
+        width: 100%;
+    }
+  
+    .vehicleDetailLeft,
+    .vehicleDetailRight {
+        margin-inline: 0;
+    }
+  
+    .vehicleDetailInfo {
+        flex-direction: column;
+    }
+  
+    .vehicleOwnerLeft{
+        justify-content: space-around;
+    }
+  
+    .vehicleDetailPhotolist {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+  
+    .vehicleDetailPhotolist img {
+        max-width: 100%;
+    }
+  
+    .vehicleDetailForm {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+  
+    .vehicleDetailRenting button {
+        width: 50%;
+        margin-top: 10px;
     }
 }
 
