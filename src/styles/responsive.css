@@ -80,6 +80,10 @@
         margin-block-end: 15px;
     }
 
+    .rightSide img, source {
+    margin-right: 0;
+    width: 80%
+
     .banner {
         margin-top: 50px;
     }
