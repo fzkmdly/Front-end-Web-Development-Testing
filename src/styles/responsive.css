@@ -58,6 +58,45 @@
     .detail {
         width: 100%;
     }
+
+    /*----Vehicle Detail----*/
+
+    .vehicleDetail {
+        flex-direction: column;
+        width: 100%;
+    }
+  
+    .vehicleDetailLeft,
+    .vehicleDetailRight {
+        margin-inline: 0;
+    }
+  
+    .vehicleDetailInfo {
+        flex-direction: column;
+    }
+  
+    .vehicleOwnerLeft{
+        justify-content: space-around;
+    }
+  
+    .vehicleDetailPhotolist {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+  
+    .vehicleDetailPhotolist img {
+        max-width: 100%;
+    }
+  
+    .vehicleDetailForm {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+  
+    .vehicleDetailRenting button {
+        width: 50%;
+        margin-top: 10px;
+    }
 }
 
 @media screen and (min-width: 601px) {
