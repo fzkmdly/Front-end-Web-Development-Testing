@@ -1,6 +1,6 @@
 const Register = {
   async render() {
-
+    
   },
 
   async afterRender() {
