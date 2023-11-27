@@ -30,7 +30,7 @@ const createCarCollection = (vehicle) => {
         </section>
         <section class="car-collection-name">
           <h4 class="car-name">${vehicle.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot fa-shake"></i>  ${vehicle.city}</h6>
+          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.city}</h6>
         </section>
         <section class="car-collection-price">
           <h4 class="harga">Rp150.000/hari</h4>
