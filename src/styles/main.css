@@ -392,6 +392,7 @@ input {
   padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
 }
 
 #login-form h2 {
@@ -507,6 +508,11 @@ Sewa Page main content
   align-items: center;
 }
 
+.vehicleItem-clickable {
+  text-decoration: none;
+  color: black;
+}
+
 .vehicleItem {
   display: flex;
   flex-direction: row;
@@ -564,7 +570,7 @@ Sewa Page main content
 .vehicleItem-right .start-from {
   font-size: small;
   margin-bottom: 0;
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 .vehicleItem-right .harga {
@@ -609,7 +615,7 @@ font-size:2em;
 margin:0% 1%;
 }
   
-@media (max-width:720px){
+/* @media (max-width:720px){
 .footer{
 text-align:left;
 padding:5%;
@@ -622,7 +628,7 @@ text-align:left;
 .footer .row a i{
 margin:0% 3%;
 }
-}
+} */
 
 /* About Us */
 
@@ -730,7 +736,7 @@ p, li {
 .car-collection-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 15px;
   margin-top: 15px;
 }
@@ -755,7 +761,9 @@ p, li {
   transition: .3s;
 }
 
-.car-collection-container picture, source, img {
+.car-collection-container picture, 
+.car-collection-container source, 
+.car-collection-container img {
   width: 70%;
   height: auto;
   border-radius: 10px;

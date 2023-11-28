@@ -80,6 +80,11 @@
         margin-block-end: 15px;
     }
 
+    .rightSide img, source {
+        margin-right: 0;
+        width: 80%
+    }
+
     .banner {
         margin-top: 50px;
     }
@@ -167,6 +172,85 @@
     .payingMethod select {
         padding-block: 2px;
         padding-inline: 30px;
+    }
+
+        
+    /* Login form */
+
+    #login-form {
+        width: 60%;
+    }
+
+    /* Footer */
+
+    .footer .row, .footer .row ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Detail page */
+
+    .vehicleDetail {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  
+    .vehicleDetailLeft,
+    .vehicleDetailRight {
+        margin-inline: 0;
+    }
+  
+    .vehicleDetailInfo {
+        flex-direction: column;
+    }
+  
+    .vehicleOwnerLeft{
+        justify-content: space-around;
+    }
+  
+    .vehicleDetailPhotolist {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+  
+    .vehicleDetailPhotolist img {
+        max-width: 100%;
+    }
+  
+    .vehicleDetailForm {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+  
+    .vehicleDetailRenting button {
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    /* Car card at Home page */
+
+    .car-container {
+        padding: 28px;
+    }
+
+    .car-collection-name h4 {
+        font-size: 16px;
+    }
+
+    .car-collection-name h6 {
+        font-size: 11px;
+    }
+
+    .car-collection-price h4 {
+        font-size: 13px;
+    }
+
+    .car-collection-container img,
+    .car-collection-container picture,
+    .car-collection-container source {
+        height: auto;
+        width: 100%;
     }
 }
 
