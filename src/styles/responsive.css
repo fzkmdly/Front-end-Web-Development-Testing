@@ -156,11 +156,17 @@
     .vehicleDetailForm {
         grid-template-columns: 1fr;
         column-gap: 0;
+        width: 15rem;
     }
   
-    .vehicleDetailRenting button {
-        width: 50%;
-        margin-top: 10px;
+    .vehicleCheckinDate {
+        grid-template-columns: 1fr;
+        width: 15rem;
+    }
+  
+    .payingMethod select {
+        padding-block: 2px;
+        padding-inline: 30px;
     }
 }
 

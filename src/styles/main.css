@@ -886,3 +886,101 @@ p, li {
 .vehicleDetailPhotolist img{
   width: 200px !important;
 }
+
+/*-----------Checking Page-------------*/
+
+.checking-page {
+  margin-bottom: 15px;
+}
+
+.vehicleDetailRenting{
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicleDetailRenting form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vehicleCheckinDate{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 100px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.vehicleCheckinDate div {
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicleCheckinDate input {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: solid 1px gray;
+}
+
+.vehicleDetailForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+  column-gap: 100px;
+  font-size: large;
+
+  margin-block-end: 15px;
+}
+
+.vehicleDetailForm div {
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicleDetailForm input {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: solid 1px gray;
+}
+
+.vehicleDetailRenting button {
+  padding-block: 10px;
+  padding-inline: 20px;
+  border-radius: 20px;
+  border: 0;
+  background-color: #F45D48;
+  text-decoration: none;
+  color: white;
+}
+
+.payingMethod {
+  margin-bottom: 10px;
+}
+
+.toggle-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.drawer-content {
+    margin-top: 15px;
+}
+
+.payingMethod label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.payingMethod select{
+  padding-inline: 50px;
+  padding-block: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}

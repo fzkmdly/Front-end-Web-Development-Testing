@@ -8,6 +8,7 @@ import TambahMobil from '../view/pages/tambahMobil';
 import Checkout from '../view/pages/checkout';
 import About from '../view/pages/about';
 import ToC from '../view/pages/toc';
+import Checking from '../view/pages/checking';
 
 
 const routes = {
@@ -21,6 +22,7 @@ const routes = {
   '/checkout': Checkout,
   '/about': About,
   '/toc': ToC,
+  '/checking/:id': Checking,
 };
 
 export default routes;

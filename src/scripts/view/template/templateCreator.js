@@ -66,7 +66,7 @@ const vehicleDetail = (vehicle) => {
                         </div>
                         <div class="vehicleInfoPrice">
                             <p>Mulai dari <br>Rp. 150.000/hari</p>
-                            <a href="#/detail/${vehicle.id}/penyewaan">Sewa Sekarang!</a>
+                            <a href="#/checking/${vehicle.id}">Sewa Sekarang!</a>
                         </div>
                     </section>
                 </div>
@@ -489,6 +489,67 @@ const createAboutPages = () => {
   `;
 };
 
+const vehicleCheckin = (vehicle) =>{
+  return `
+  <section class="vehicleDetailRenting" id="vehicleDetailRenting">
+    <h1>${vehicle.name}</h1>
+    <h3>Lokasi?</h3>
+    <form>
+        <div class="vehicleCheckinDate">
+            <div>
+                <label for="TanggalMulai">Tanggal Mulai</label>
+                <input type="date" name="tanggalMulai" id="tanggalMulai" placeholder="Pilih Waktu">
+            </div>
+            <div>
+                <label for="tanggalSelesai">Tanggal Selesai</label>
+                <input type="date" name="tanggalSelesai" id="tanggalSelesai">
+            </div>
+        </div>
+        <h3>Rental Detail</h3>
+        <div class="vehicleDetailForm">
+            <div>
+                <label for="Lokasi?">Lokasi Penjemputan</label>
+                <input type="text" name="lokasi" id="lokasi" placeholder="Pilihlah Lokasi">
+            </div>
+            <div>
+                <label for="waktuPenjemputan">Waktu Penjemputan</label>
+                <input type="time" name="waktuPenjemputan" id="waktuPenjemputan" placeholder="Pilih Waktu">
+            </div>
+            <div>
+                <label for="LokasiPengantar">Lokasi Pengantar</label>
+                <input type="text" name="lokasiPengantar" id="lokasiPengantar" placeholder="Pilihlah Lokasi">
+            </div>
+            <div>
+                <label for="waktuPengantaran">Waktu Pengantaran</label>
+                <input type="time" name="waktuPengantaran" id="waktuPengantaran">
+            </div>
+        </div>
+        <div class="payingMethod">
+            <div class="drawer-content">
+                <label for="payment-method">Pilih Metode Pembayaran</label>
+                <select id="payment-method" onchange="displayPaymentMethod()">
+                    <optgroup label="Transfer Virtual Account">
+                        <option value="BCAVirtualAccount">BCA Virtual Account</option>
+                        <option value="BNIVirtualAccount">BNI Virtual Account</option>
+                        <option value="PermataVirtualAccount">Permata Virtual Account</option>
+                        <option value="MandiriVirtualAccount">Mandiri Virtual Account</option>
+                    </optgroup>
+                    <optgroup label="Tunai di Gerai Retail">
+                        <option value="IndomartPayment">Indomart</option>
+                        <option value="AlfaMartPayment">Alfamart</option>
+                    </optgroup>
+                    <optgroup label="E-Wallet">
+                        <option value="GoPay">GoPay</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <button>Lanjutkan Pembayaran</button>
+    </form>
+  </section>
+  `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -498,4 +559,5 @@ module.exports = {
   createTOCPages,
   createAboutPages,
   createCarCollection,
+  vehicleCheckin,
 };

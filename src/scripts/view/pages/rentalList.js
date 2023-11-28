@@ -20,7 +20,6 @@ const Sewa = {
   async afterRender() {
     try {
       const vehicle = await CarDbSource.listCar();
-      console.log(vehicle);
       const vehicleItemContainer = document.getElementById('vehicle-item-container');
       if (vehicle.length === 0) {
         vehicleItemContainer.innerHTML = '<h3>No Item founded</h3>';
