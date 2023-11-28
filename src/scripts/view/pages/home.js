@@ -77,7 +77,6 @@ const Home = {
   async afterRender() {
     try {
       const vehicles = await CarDbSource.listCar();
-      console.log(vehicles);
       const carCollectionContainer = document.getElementById('car-collection-container');
 
       if (vehicles.length === 0) {

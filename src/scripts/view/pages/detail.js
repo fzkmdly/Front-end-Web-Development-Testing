@@ -14,7 +14,6 @@ const Detail = {
     try {
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const vehicleData = await CarDbSource.detailCar(url.id);
-      console.log(vehicleData);
 
       const detailContainer = document.getElementById('vehicle-detail-page');
       if (vehicleData === undefined) {

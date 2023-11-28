@@ -7,8 +7,8 @@ import Sewa from '../view/pages/rentalList';
 import TambahMobil from '../view/pages/tambahMobil';
 import Checkout from '../view/pages/checkout';
 import About from '../view/pages/about';
+import Checking from '../view/pages/checking';
 import TaC from '../view/pages/tac';
-
 
 const routes = {
   '/': Home,
@@ -20,6 +20,7 @@ const routes = {
   '/tambah-mobil': TambahMobil,
   '/checkout': Checkout,
   '/about': About,
+  '/checking/:id': Checking,
   '/tac': TaC,
 };
 
