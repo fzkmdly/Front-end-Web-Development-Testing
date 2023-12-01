@@ -9,7 +9,7 @@ const Login = {
         <p id="forgot-password"><a href="#/forgot-password" id="forgot-password">Lupa Kata Sandi?</a></p>
         <button type="button" onclick="login()">Masuk</button>
         <br>
-        <p id="register"><a href="#/register">Buat Akun</a></p>
+        <p id="register" class="login-link">Belum punya akun? <a href="#/register">Buat Akun</a></p>
       </form>
     </div>
     `;
