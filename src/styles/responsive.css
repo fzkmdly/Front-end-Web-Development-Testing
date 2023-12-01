@@ -177,8 +177,8 @@
         
     /* Login form */
 
-    #login-form {
-        width: 60%;
+    #login-form, #register-form {
+        width: 66%;
     }
 
     /* Footer */
