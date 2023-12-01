@@ -369,15 +369,15 @@ input {
   text-align: center;
 }
 
-/* Login Page */
-#login-container {
+/* Login & Register Page */
+#login-container, #register-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
 
-#login-form {
+#login-form, #register-form {
   width: 450px;
   background-color: #F8F5F2;
   padding: 50px;
@@ -386,12 +386,12 @@ input {
   margin-bottom: 24px;
 }
 
-#login-form h2 {
+#login-form h2, #register-form h2 {
   font-size: 2em;
   text-align: center;
 }
 
-#login-form button {
+#login-form button, #register-form button {
   font-size: large;
   width: 100%;
   padding: 10px;
@@ -403,24 +403,20 @@ input {
   margin-top: 6px;
 }
 
-#login-form button:hover {
+#login-form button:hover, #register-form button:hover {
   background-color: #4CAF50;
+  transition: 750ms;
 }
 
-#login-form #register {
-  font-size: medium;
-  text-align: center;
-}
-
-#login-form #register a {
+#login-form #register a, #register-form #login a {
   text-decoration: none;
-  color: black;
+  color: #f45d48;
 }
 
-#email, #password {
+#email, #password, #confirm_password, #name {
   font-size: medium;
   border-radius: 10px;
-  margin-bottom: 8px!important;
+  margin-bottom: 14px!important;
 }
 
 #forgot-password {
@@ -432,6 +428,7 @@ input {
 
 #forgot-password:hover {
   color: black;
+  transition: 750ms;
 }
 
 
