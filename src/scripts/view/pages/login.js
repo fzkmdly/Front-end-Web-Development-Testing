@@ -28,6 +28,16 @@ const Login = {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
+    // Check if email and password are not empty
+    if (!email || !password) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Silakan masukkan email dan kata sandi.',
+      });
+      return;
+    }
+
     // Make API call to login
     try {
       const response = await fetch('https://rental-online-dicoding-cycle-5.et.r.appspot.com/auth/login', {
