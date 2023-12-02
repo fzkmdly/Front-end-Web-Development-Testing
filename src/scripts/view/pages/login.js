@@ -57,10 +57,22 @@ const Login = {
       } else {
         // Login failed
         console.error('Login failed:', data);
+
+        // Update the error message based on the response
+        let errorMessage = 'Email atau kata sandi salah. Silakan coba lagi.';
+        if (data.status === 'failed') {
+          if (data.message === 'Email not found') {
+            errorMessage = 'Email tidak ditemukan. Silakan daftar akun baru.';
+          } else if (data.message === 'Password is wrong') {
+            errorMessage = 'Kata sandi salah. Silakan coba lagi.';
+          }
+          // You can add more conditions for other possible error messages
+        }
+
         Swal.fire({
           icon: 'error',
           title: 'Login Gagal!',
-          text: 'Email atau kata sandi salah. Silakan coba lagi.',
+          text: errorMessage,
         });
       }
     } catch (error) {
