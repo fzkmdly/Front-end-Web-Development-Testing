@@ -6,14 +6,10 @@ const Register = {
       <div id="register-container">
           <form id="register-form">
               <h2>Daftar</h2>
-              <input type="text" name="name" id="name" placeholder="Masukkan Nama Anda" required>
-              <br>
-              <input type="email" name="email" id="email" placeholder="Masukkan Email" required>
-              <br>
-              <input type="password" name="password" id="password" placeholder="Masukkan kata sandi" required>
-              <br>
-              <input type="password" name="confirm_password" id="confirm_password" placeholder="Masukkan ulang kata sandi" required>
-              <br>
+              <input type="text" name="name" id="name" placeholder="Masukkan Nama Anda">
+              <input type="email" name="email" id="email" placeholder="Masukkan Email">
+              <input type="password" name="password" id="password" placeholder="Masukkan kata sandi">
+              <input type="password" name="confirm_password" id="confirm_password" placeholder="Masukkan ulang kata sandi">
               <button type="submit" id="register-btn">Daftar</button>
               <br>
               <p id="login" class="login-link">Sudah punya akun? <a href="#/login">Login</a></p>
@@ -47,6 +43,15 @@ const Register = {
       return;
     }
 
+    if (!name || !email || !password || !confirmPassword) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Silakan isi seluruh kolom!',
+      });
+      return;
+    }
+
     // Make API call to register
     try {
       const response = await fetch('https://rental-online-dicoding-cycle-5.et.r.appspot.com/auth/register', {
@@ -65,15 +70,24 @@ const Register = {
 
       // Handle response, you might want to redirect to a different page on success
       if (response.ok) {
+        let successMessage;
+
+        // Check the success message from the server response
+        if (data.status === 'success' && data.message === 'Register user success!') {
+          successMessage = 'Registrasi Berhasil!';
+        } else {
+          successMessage = 'Registrasi Gagal!'; // Provide a default message if the format is unexpected
+        }
+
         Swal.fire({
           icon: 'success',
-          title: 'Registrasi Berhasil!',
+          title: successMessage,
           html: `Anda berhasil terdaftar dengan:<br>Nama: <strong>${name}</strong><br>Email: <strong>${email}</strong>
             <br><br>Silakan login.`,
           showCloseButton: true,
           showCancelButton: false,
-          focusConfirm: false,
-          confirmButtonText: 'OK',
+          focusConfirm: true,
+          confirmButtonText: 'Login',
         }).then(() => {
           // Redirect or perform other actions on successful registration
           // For example, you can redirect to the login page
