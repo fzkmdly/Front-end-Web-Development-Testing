@@ -15,15 +15,31 @@
             display: block;
         }
 
-        .listRentaledToggle, .listHistoryToggle {
+        .listRentaledToggle,
+        .listHistoryToggle {
             cursor: pointer;
             margin: 5px;
             padding: 10px;
+            border: 2px solid transparent;
+            transition: border 0.3s ease;
+            position: relative; /* Add this for positioning the pseudo-element */
         }
 
-        .focused {
-            border-bottom: solid 2px black;
-            transition: border-bottom 500ms;
+        .listRentaledToggle::after,
+        .listHistoryToggle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px; /* Border thickness */
+            background: linear-gradient(to right, #080808, #1bda44);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .focused::after {
+            width: 100%;
+            left: 0;
         }
     </style>
 </head>
@@ -50,6 +66,9 @@
                         <h5>Rp. 150.000/Hari</h5>
                     </div>
                 </section>
+                <section id="addRentaledVehicle" class="addRentaledVehicle">
+            
+                </section>
             </div>
             <div id="listRentaledHistory" class="listRentaledHistory">
                 <section class="rentaledHistory">
@@ -64,7 +83,7 @@
                     </div>
                 </section>
             </div>
-        </section>
+        </section
     </div>
 
     <script>
