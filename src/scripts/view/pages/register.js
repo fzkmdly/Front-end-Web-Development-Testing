@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 const Register = {
   async render() {
     return `
@@ -37,7 +39,11 @@ const Register = {
 
     // Validate password matching
     if (password !== confirmPassword) {
-      alert('Kata sandi dan konfirmasi kata sandi tidak cocok');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Kata sandi dan konfirmasi kata sandi tidak cocok!',
+      });
       return;
     }
 
@@ -49,7 +55,7 @@ const Register = {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: name,
+          username: name, // Assuming the server expects 'username'
           email,
           password,
         }),
@@ -59,14 +65,35 @@ const Register = {
 
       // Handle response, you might want to redirect to a different page on success
       if (response.ok) {
-        console.log('Registration successful:', data);
-        // Redirect or perform other actions on successful registration
+        Swal.fire({
+          icon: 'success',
+          title: 'Registrasi Berhasil!',
+          html: `Anda berhasil terdaftar sebagai <strong>${name}</strong>.<br>Silakan login.`,
+          showCloseButton: true,
+          showCancelButton: false,
+          focusConfirm: false,
+          confirmButtonText: 'OK',
+        }).then(() => {
+          // Redirect or perform other actions on successful registration
+          // For example, you can redirect to the login page
+          window.location.hash = '#/login';
+        });
       } else {
         console.error('Registration failed:', data);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Registrasi gagal. Coba lagi nanti atau hubungi dukungan pelanggan.',
+        });
         // Handle the error, show a message, etc.
       }
     } catch (error) {
       console.error('Error during registration:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Terjadi kesalahan saat melakukan registrasi. Coba lagi nanti atau hubungi dukungan pelanggan.',
+      });
       // Handle network errors or other exceptions
     }
   },
