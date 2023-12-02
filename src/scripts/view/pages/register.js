@@ -68,7 +68,8 @@ const Register = {
         Swal.fire({
           icon: 'success',
           title: 'Registrasi Berhasil!',
-          html: `Anda berhasil terdaftar sebagai <strong>${name}</strong>.<br>Silakan login.`,
+          html: `Anda berhasil terdaftar dengan:<br>Nama: <strong>${name}</strong><br>Email: <strong>${email}</strong>
+            <br><br>Silakan login.`,
           showCloseButton: true,
           showCancelButton: false,
           focusConfirm: false,
