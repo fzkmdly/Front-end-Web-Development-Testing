@@ -81,10 +81,17 @@ const Register = {
         });
       } else {
         console.error('Registration failed:', data);
+
+        // Update the error message based on the response
+        let errorMessage = 'Registrasi gagal. Coba lagi nanti atau hubungi dukungan pelanggan.';
+        if (data.status === 'failed' && data.message === 'Email already exists') {
+          errorMessage = 'Email sudah terdaftar. Gunakan email lain atau login menggunakan email tersebut.';
+        }
+
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Registrasi gagal. Coba lagi nanti atau hubungi dukungan pelanggan.',
+          text: errorMessage,
         });
         // Handle the error, show a message, etc.
       }
