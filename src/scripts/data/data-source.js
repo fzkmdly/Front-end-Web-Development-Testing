@@ -18,7 +18,7 @@ class CarDbSource {
 
   static async detailCar(id) {
     const url = API_ENDPOINT.DETAIL(id);
-    return this.fetchData(url).then((responseJson) => responseJson.restaurant);
+    return this.fetchData(url).then((responseJson) => responseJson.data.vehicle);
   }
 
   static async postCar(data) {
