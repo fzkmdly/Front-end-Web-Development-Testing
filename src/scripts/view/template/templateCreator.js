@@ -20,6 +20,7 @@ const vehicleItem = (vehicle) => {
 
 const createCarCollection = (vehicle) => {
   const formattedLocations = vehicle.locations.join(', ');
+  const formattedCost = vehicle.vehicleInformation.cost.toLocaleString('id-ID');
 
   return `
     <a href="#/detail/${vehicle.vehicleId}" class="car-container">
@@ -32,7 +33,7 @@ const createCarCollection = (vehicle) => {
           <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${formattedLocations}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp${vehicle.vehicleInformation.cost}/hari</h4>
+          <h4 class="harga">Rp${formattedCost}/hari</h4>
         </section>
       </div>
     </a>
