@@ -13,7 +13,7 @@ class CarDbSource {
 
   static async listCar() {
     const url = API_ENDPOINT.LIST;
-    return this.fetchData(url).then((responseJson) => responseJson.restaurants);
+    return this.fetchData(url).then((responseJson) => responseJson.data.vehicles);
   }
 
   static async detailCar(id) {
