@@ -19,27 +19,27 @@ const vehicleItem = (vehicle) => {
 };
 
 const createCarCollection = (vehicle) => {
+  const formattedLocations = vehicle.locations.join(', ');
+  const formattedCost = vehicle.vehicleInformation.cost.toLocaleString('id-ID');
+
   return `
-    <a href="#/detail/${vehicle.id}" class="car-container">
+    <a href="#/detail/${vehicle.vehicleId}" class="car-container">
       <div>
         <section class="car-collection-image">
-          <picture>
-            <source type="image/webp" srcset="./images/assets/dummy-images/raize-white-black.webp">
-            <source type="image/png" srcset="./images/assets/dummy-images/raize-white-black.png">
-            <img src="./images/assets/dummy-images/raize-white-black.png" alt="Toyota Raize with white on top and black at entire bodyworks">
-          </picture>
+          <img class="lazyload" data-src="${vehicle.images.imagesId1.post_image_url}" alt="Picture of ${vehicle.vehicleInformation.name}" />
         </section>
         <section class="car-collection-name">
-          <h4 class="car-name">${vehicle.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.city}</h6>
+          <h4 class="car-name">${vehicle.vehicleInformation.name}</h4>
+          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${formattedLocations}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp150.000/hari</h4>
+          <h4 class="harga">Rp${formattedCost}/hari</h4>
         </section>
       </div>
     </a>
   `;
 };
+
 
 const vehicleDetail = (vehicle) => {
   return `
