@@ -82,16 +82,9 @@ const Register = {
         Swal.fire({
           icon: 'success',
           title: successMessage,
-          html: `Anda berhasil terdaftar dengan:<br>Nama: <strong>${name}</strong><br>Email: <strong>${email}</strong>
-            <br><br>Silakan login.`,
-          showCloseButton: true,
-          showCancelButton: false,
+          html: `Kami telah mengirimkan email konfirmasi.<br>Silahkan cek kotak masuk Anda!</strong>`,
           focusConfirm: true,
-          confirmButtonText: 'Login',
-        }).then(() => {
-          // Redirect or perform other actions on successful registration
-          // For example, you can redirect to the login page
-          window.location.hash = '#/login';
+          confirmButtonText: 'OK',
         });
       } else {
         console.error('Registration failed:', data);
