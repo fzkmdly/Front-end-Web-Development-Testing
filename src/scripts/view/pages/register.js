@@ -74,9 +74,9 @@ const Register = {
 
         // Check the success message from the server response
         if (data.status === 'success' && data.message === 'Register user success!') {
-          successMessage = 'Registrasi Berhasil!';
+          successMessage = 'Registrasi Berhasil';
         } else {
-          successMessage = 'Registrasi Gagal!'; // Provide a default message if the format is unexpected
+          successMessage = 'Registrasi Gagal'; // Provide a default message if the format is unexpected
         }
 
         Swal.fire({

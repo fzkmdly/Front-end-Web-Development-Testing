@@ -58,8 +58,8 @@ const Login = {
         // Login successful
         Swal.fire({
           icon: 'success',
-          title: 'Login Berhasil!',
-          text: 'Selamat datang kembali!',
+          title: 'Login Berhasil',
+          text: 'Selamat datang kembali',
         }).then(() => {
           // Redirect to a different page or perform other actions on successful login
           console.log('Login successful:', data);
@@ -81,7 +81,7 @@ const Login = {
 
         Swal.fire({
           icon: 'error',
-          title: 'Login Gagal!',
+          title: 'Login Gagal',
           text: errorMessage,
         });
       }
