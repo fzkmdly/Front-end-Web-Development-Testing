@@ -370,14 +370,18 @@ input {
 }
 
 /* Login & Register Page */
-#login-container, #register-container {
+#login-container, #register-container, #forgot-password-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
 
-#login-form, #register-form {
+#forgot-password-form {
+  margin-bottom: 134px!important;
+}
+
+#login-form, #register-form, #forgot-password-form {
   width: 450px;
   background-color: #F8F5F2;
   padding: 50px;
@@ -386,12 +390,12 @@ input {
   margin-bottom: 24px;
 }
 
-#login-form h2, #register-form h2 {
+#login-form h2, #register-form h2, #forgot-password-form h2 {
   font-size: 2em;
   text-align: center;
 }
 
-#login-form button, #register-form button {
+#login-form button, #register-form button, #forgot-password-form button {
   font-size: large;
   width: 100%;
   padding: 10px;
@@ -403,7 +407,7 @@ input {
   margin-top: 6px;
 }
 
-#login-form button:hover, #register-form button:hover {
+#login-form button:hover, #register-form button:hover, #forgot-password-form button:hover {
   background-color: #4CAF50;
   transition: 750ms;
 }
@@ -569,23 +573,22 @@ Sewa Page main content
 
 /* Footer */
 
+footer {
+  background-color: #000;
+}
+
 .footer{
 background:#000;
 padding:30px 0px;
 text-align:center;
+position: fixed;
+bottom: 0;
+width: 100%;
 }
 
-.bg-black {
-  background-color: #000;
-}
-
-.py-8 {
+.footer-container {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.text-white {
-  color: #fff;
 }
 
 .footer-container, .about-us-footer, .tac {

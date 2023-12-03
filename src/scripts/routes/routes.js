@@ -9,6 +9,7 @@ import Checkout from '../view/pages/checkout';
 import About from '../view/pages/about';
 import Checking from '../view/pages/checking';
 import TaC from '../view/pages/tac';
+import ForgotPassword from '../view/pages/forgot-password';
 
 const routes = {
   '/': Home,
@@ -22,6 +23,7 @@ const routes = {
   '/about': About,
   '/checking/:id': Checking,
   '/tac': TaC,
+  '/forgot-password': ForgotPassword,
 };
 
 export default routes;
