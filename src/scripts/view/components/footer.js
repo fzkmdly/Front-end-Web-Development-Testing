@@ -5,7 +5,7 @@ class FooterBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <div class="bg-black py-8 footer-container">
+    <div class="footer-container">
       <div class="github">
         <a href="https://github.com/Rent-O-Dicoding-Cycle-5" target="_blank">
           <i class="fab fa-github github"></i>

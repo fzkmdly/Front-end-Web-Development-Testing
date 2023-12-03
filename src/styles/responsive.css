@@ -177,8 +177,12 @@
         
     /* Login form */
 
-    #login-form, #register-form {
+    #login-form, #register-form, #forgot-password-form {
         width: 66%;
+    }
+
+    #forgot-password-form {
+        margin-bottom: 148px!important;
     }
 
     /* Footer */
