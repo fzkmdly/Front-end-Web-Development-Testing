@@ -634,29 +634,12 @@ text-align:center;
   justify-content: center;
 }
 
-.about-box {
-  background-color: #f8f5f2;
-  width: 48%; /* Adjust as needed */
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0,0,0,.2);
-}
-
 .about-box:hover {
   box-shadow: 0 0 10px rgba(0,0,0,.4);
 }
 
-.about-heading, .about-description {
+.about-heading {
   text-align: center;
-}
-
-.about-description {
-  font-size: large;
 }
 
 .about-developer-section {

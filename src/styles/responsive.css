@@ -203,6 +203,12 @@
         font-size: small;
     }
 
+    /* About Us */
+
+    .about-team-member img {
+        margin: 0;
+    }
+
     /* Detail page */
 
     .vehicleDetail {
