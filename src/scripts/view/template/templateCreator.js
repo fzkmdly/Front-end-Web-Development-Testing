@@ -1,7 +1,4 @@
 const vehicleItem = (vehicle) => {
-  const formattedLocations = vehicle.locations.join(', ');
-  const formattedCost = vehicle.vehicleInformation.cost.toLocaleString('id-ID');
-
   return `
         <a href="#/detail/${vehicle.vehicleId}" class="vehicleItem-clickable">
           <div class="vehicleItem" id="vehicleItem">
@@ -10,11 +7,11 @@ const vehicleItem = (vehicle) => {
             </section>
             <section class="vehicleItem-center">
                 <h4 class="vehicle-name">${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h4>
-                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${formattedLocations}</h6>
+                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.locations.join(', ')}</h6>
             </section>
             <section class="vehicleItem-right">
                 <h6 class="start-from">Mulai</h6>
-                <h4 class="harga">Rp${formattedCost}/hari</h4>
+                <h4 class="harga">Rp${vehicle.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
             </section>
           </div>
         </a>
@@ -22,9 +19,6 @@ const vehicleItem = (vehicle) => {
 };
 
 const createCarCollection = (vehicle) => {
-  const formattedLocations = vehicle.locations.join(', ');
-  const formattedCost = vehicle.vehicleInformation.cost.toLocaleString('id-ID');
-
   return `
     <a href="#/detail/${vehicle.vehicleId}" class="car-container">
       <div>
@@ -33,10 +27,10 @@ const createCarCollection = (vehicle) => {
         </section>
         <section class="car-collection-name">
           <h4 class="car-name">${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${formattedLocations}</h6>
+          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.locations.join(', ')}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp${formattedCost}/hari</h4>
+          <h4 class="harga">Rp${vehicle.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
         </section>
       </div>
     </a>
@@ -45,15 +39,7 @@ const createCarCollection = (vehicle) => {
 
 
 const vehicleDetail = (vehicle) => {
-  const formattedLocations = vehicle.locations.join(', ');
-  const formattedCost = vehicle.vehicleInformation.cost.toLocaleString('id-ID');
-
   return `
-          <div class="detailTracker">
-            <a href="#">Beranda/</a>
-            <a href="#/sewa">Daftar Mobil/</a>
-            <a href="#/detail/${vehicle.vehicleId}">${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</a>
-          </div>
           <article id="vehicleDetail" class="vehicleDetail">
             <div class="vehicleDetailLeft" id="vehicleDetailLeft">
                 <div class="detail-top-left">
@@ -61,7 +47,7 @@ const vehicleDetail = (vehicle) => {
                     <h1>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h1>
                     <p>Tahun: ${vehicle.vehicleInformation.year}</p>
                     <p><i class="fa-solid fa-person"></i>  ${vehicle.vehicleInformation.seats} Penumpang</p>
-                    <p><i class="fa-solid fa-location-dot"></i>  ${formattedLocations}</p>
+                    <p><i class="fa-solid fa-location-dot"></i>  ${vehicle.locations.join(', ')}</p>
                 </div>
                 <div class="detail-bottom-left">
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
@@ -72,7 +58,7 @@ const vehicleDetail = (vehicle) => {
                             </div>
                         </div>
                         <div class="vehicleInfoPrice">
-                            <p>Mulai dari <br>Rp${formattedCost}/hari</p>
+                            <p>Mulai dari <br>Rp${vehicle.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
                             <a href="#/checking/${vehicle.vehicleId}">Sewa Sekarang!</a>
                         </div>
                     </section>
