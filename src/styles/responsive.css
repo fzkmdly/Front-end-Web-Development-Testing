@@ -114,6 +114,33 @@
         text-align: center;
     }
 
+    /*-----VehicleItem In sewa page---------*/
+
+    .vehicleItem {
+        font-size: xx-small;
+        padding-inline: 10px;
+    }
+
+    .vehicleItem img {
+        max-width: 100px;
+    }
+
+    .vehicleItem-center .vehicle-name{
+        font-size: 1rem;
+    }
+
+    .vehicle-item-container {
+        width: 100%;
+    }
+
+    .vehicleItem-right .start-from {
+        margin: 0;
+    }
+
+    .vehicleItem-right .harga {
+        margin: 0;
+    }
+
     /*----Vehicle Detail----*/
 
     .vehicleDetail {
