@@ -89,7 +89,7 @@ const Home = {
         });
       }
     } catch (error) {
-      console.log(error);
+      console.error('An error occurred:', error);
     }
   },
 };

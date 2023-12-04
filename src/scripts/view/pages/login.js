@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Login = {
   async render() {
@@ -40,7 +41,7 @@ const Login = {
 
     // Make API call to login
     try {
-      const response = await fetch('https://rental-online-dicoding-cycle-5.et.r.appspot.com/auth/login', {
+      const response = await fetch(API_ENDPOINT.LOGIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

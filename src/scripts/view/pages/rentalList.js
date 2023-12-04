@@ -24,11 +24,11 @@ const Sewa = {
       if (vehicle.length === 0) {
         vehicleItemContainer.innerHTML = '<h3>No Item founded</h3>';
       }
-      vehicle.forEach((vehicles) => {
-        vehicleItemContainer.innerHTML += vehicleItem(vehicles);
+      vehicle.forEach((vehicle) => {
+        vehicleItemContainer.innerHTML += vehicleItem(vehicle);
       });
     } catch (error) {
-      console.log(error);
+      console.error('An error occurred:', error);
     }
   },
 };

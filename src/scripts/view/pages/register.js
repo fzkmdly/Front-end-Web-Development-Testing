@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Register = {
   async render() {
@@ -54,7 +55,7 @@ const Register = {
 
     // Make API call to register
     try {
-      const response = await fetch('https://rental-online-dicoding-cycle-5.et.r.appspot.com/auth/register', {
+      const response = await fetch(API_ENDPOINT.REGISTER, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
