@@ -42,6 +42,10 @@ const createCarCollection = (vehicles) => {
 
 
 const vehicleDetail = (vehicles) => {
+  const imageList = Array.from({length: 3}, (_, index) => `
+    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${index + 1} dari ${vehicles.vehicleInformation.name}" />
+  `).join('');
+
   return `
           <article id="vehicleDetail" class="vehicleDetail">
             <div class="vehicleDetailLeft" id="vehicleDetailLeft">
@@ -79,7 +83,7 @@ const vehicleDetail = (vehicles) => {
                     <div>
                         <h3>Gambar Mobil</h3>
                         <div class="vehicleDetailPhotolist">
-                          <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                            ${imageList}
                         </div>
                     </div>
                 </section>
