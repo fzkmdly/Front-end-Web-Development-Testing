@@ -84,8 +84,8 @@ const Home = {
       } else {
         const limitedVehicles = vehicles.slice(0, 6);
 
-        limitedVehicles.forEach((vehicle) => {
-          carCollectionContainer.innerHTML += createCarCollection(vehicle);
+        limitedVehicles.forEach((vehicles) => {
+          carCollectionContainer.innerHTML += createCarCollection(vehicles);
         });
       }
     } catch (error) {

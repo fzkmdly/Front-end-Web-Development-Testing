@@ -1,36 +1,36 @@
-const vehicleItem = (vehicle) => {
+const vehicleItem = (vehicles) => {
   return `
-        <a href="#/detail/${vehicle.vehicleId}" class="vehicleItem-clickable">
+        <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
           <div class="vehicleItem" id="vehicleItem">
             <section class="vehicleItem-left">
-              <img class="lazyload" data-src="${vehicle.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicle.vehicleInformation.name}" />
+              <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
             </section>
             <section class="vehicleItem-center">
-                <h4 class="vehicle-name">${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h4>
-                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.locations.join(', ')}</h6>
+                <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
             </section>
             <section class="vehicleItem-right">
                 <h6 class="start-from">Mulai</h6>
-                <h4 class="harga">Rp${vehicle.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
+                <h4 class="harga">Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
             </section>
           </div>
         </a>
     `;
 };
 
-const createCarCollection = (vehicle) => {
+const createCarCollection = (vehicles) => {
   return `
-    <a href="#/detail/${vehicle.vehicleId}" class="car-container">
+    <a href="#/detail/${vehicles.vehicleId}" class="car-container">
       <div>
         <section class="car-collection-image">
-          <img class="lazyload" data-src="${vehicle.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicle.vehicleInformation.name}" />
+          <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
         </section>
         <section class="car-collection-name">
-          <h4 class="car-name">${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.locations.join(', ')}</h6>
+          <h4 class="car-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp${vehicle.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
+          <h4 class="harga">Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
         </section>
       </div>
     </a>
@@ -38,28 +38,28 @@ const createCarCollection = (vehicle) => {
 };
 
 
-const vehicleDetail = (vehicle) => {
+const vehicleDetail = (vehicles) => {
   return `
           <article id="vehicleDetail" class="vehicleDetail">
             <div class="vehicleDetailLeft" id="vehicleDetailLeft">
                 <div class="detail-top-left">
-                    <img class="lazyload" data-src="${vehicle.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicle.vehicleInformation.name}" />
-                    <h1>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h1>
-                    <p>Tahun: ${vehicle.vehicleInformation.year}</p>
-                    <p><i class="fa-solid fa-person"></i>  ${vehicle.vehicleInformation.seats} Penumpang</p>
-                    <p><i class="fa-solid fa-location-dot"></i>  ${vehicle.locations.join(', ')}</p>
+                    <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                    <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
+                    <p>Tahun: ${vehicles.vehicleInformation.year}</p>
+                    <p><i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang</p>
+                    <p><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</p>
                 </div>
                 <div class="detail-bottom-left">
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
                         <div class="vehicleOwnerLeft">
                             <img src="https://i.pinimg.com/236x/4d/9f/c4/4d9fc4609216b812d03302e302a418a5.jpg" alt="">
                             <div class="vehicleOwnerInfo">
-                                <p>${vehicle.partner.partnerName}</p>
+                                <p>${vehicles.partner.partnerName}</p>
                             </div>
                         </div>
                         <div class="vehicleInfoPrice">
-                            <p>Mulai dari <br>Rp${vehicle.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
-                            <a href="#/checking/${vehicle.vehicleId}">Sewa Sekarang!</a>
+                            <p>Mulai dari <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
+                            <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang!</a>
                         </div>
                     </section>
                 </div>
@@ -68,12 +68,12 @@ const vehicleDetail = (vehicle) => {
                 <section class="vehicleDetailDesc" id="vehicleDetailDesc">
                     <div class="vehicleDetailDescription">
                         <h3>Deskripsi</h3>
-                        <p>${vehicle.vehicleInformation.description}</p>
+                        <p>${vehicles.vehicleInformation.description}</p>
                     </div>
                     <div>
                         <h3>Gambar Mobil</h3>
                         <div class="vehicleDetailPhotolist">
-                          <img class="lazyload" data-src="${vehicle.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicle.vehicleInformation.name}" />
+                          <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
                         </div>
                     </div>
                 </section>
