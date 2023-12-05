@@ -7,16 +7,82 @@
     <link rel="stylesheet" href="tmpl.css">
 </head>
 <body>
-    <h1>Data Mobil</h1>
     <div id="addYourVehicle" class="addYourVehicle">
         <form action="" method="post">
+            <h1>Data Mobil</h1>
             <div class="inputFotoMobil">
                 <label for="fotoMobilPengguna">Foto Mobil</label>
                 <input type="file">
             </div>
             <div class="bodyInputMobil">
-                <div class="bodyInputMobilLeft"></div>
-                <div class="bodyInputMobilRight"></div>
+                <div class="bodyInputMobilLeft">
+                    <div class="add-pages-form-group">
+                        <label for="namaMobil">Nama Mobil:</label>
+                        <input type="text" id="namaMobil" name="namaMobil" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="platMobil">Plat Mobil:</label>
+                        <input type="text" id="platMobil" name="platMobil" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="stnk">STNK:</label>
+                        <input type="text" id="stnk" name="stnk" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tipeMobil">Tipe Mobil:</label>
+                        <input type="text" id="tipeMobil" name="tipeMobil" required>
+                    </div>
+                </div>
+                <div class="bodyInputMobilRight">
+                    <div class="add-pages-form-group">
+                        <label for="brand">Brand:</label>
+                        <input type="text" id="brand" name="brand" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tahunKeluaran">Tahun Keluaran:</label>
+                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="bpkb">BPKB:</label>
+                        <input type="text" id="bpkb" name="bpkb" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="maxPenumpang">Maksimum Penumpang:</label>
+                        <input type="text" id="maxPenumpang" name="maxPenumpang" required>
+                    </div>
+                </div>
+            </div>
+            <div class="addVehicleDesc">
+                <label for="deskripsi">Deskripsi Mobil:</label>
+                <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
+            </div>
+            <div class="footerAddForm" id="footerAddForm">
+                <h1>Data Sewa</h1>
+                <div class="hargaSewaForm">
+                    <div class="add-pages-form-group">
+                        <label for="hargaSewa">Harga Sewa:</label>
+                        <input type="text" id="hargaSewa" name="hargaSewa" required>
+                    </div>
+                </div>
+                <h4>Lokasi Mobil</h4>
+                <div class="addAlamatForm">
+                    <section class="addAlamatFormLeft">
+                        <div class="add-pages-form-group">
+                            <label for="alamat">Alamat:</label>
+                            <textarea name="alamat" id="alamat" rows="4"></textarea>
+                        </div>
+                    </section>
+                    <section class="addAlamatFormRight">
+                        <div class="add-pages-form-group">
+                            <label for="provinsi">Provinsi:</label>
+                            <input type="text" id="provinsi" name="provinsi" required>
+                        </div>
+                        <div class="add-pages-form-group">
+                            <label for="kota">Kota:</label>
+                            <input type="text" id="kota" name="kota" required>
+                        </div>
+                    </section>
+                </div>
             </div>
         </form>
     </div>
