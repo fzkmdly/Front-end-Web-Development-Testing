@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tmpl.css">
+</head>
+<body>
+    <div id="addYourVehicle" class="addYourVehicle">
+        <form action="" method="post">
+            <h1>Data Mobil</h1>
+            <div class="inputFotoMobil">
+                <!-- <label for="fotoMobilPengguna">Foto Mobil</label>
+                <input type="file" id="fileInput" accept="image/*" onchange=""> -->
+                <div id="imagePreviewContainer" class="imagePreviewContainer">
+                    <img src="https://i.pinimg.com/564x/00/00/5f/00005f2792a21e1b29d08638dc3d1027.jpg"  id="imagePreview" alt="Pratinjau Gambar" width="150px">
+                  </div>
+                <div class="inputFotoMobilContainer">
+                    <!-- <img src="./src/public/images/icons/partner-page-icon/Vector.png" width="100px" alt="" srcset=""> -->
+                    <input type="file" id="fileInput" accept="image/*" onchange="previewImage()" >
+                </div>
+            </div>
+            <div class="bodyInputMobil">
+                <div class="bodyInputMobilLeft">
+                    <div class="add-pages-form-group">
+                        <label for="namaMobil">Nama Mobil:</label>
+                        <input type="text" id="namaMobil" name="namaMobil" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="platMobil">Plat Mobil:</label>
+                        <input type="text" id="platMobil" name="platMobil" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="stnk">STNK:</label>
+                        <input type="text" id="stnk" name="stnk" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tipeMobil">Tipe Mobil:</label>
+                        <input type="text" id="tipeMobil" name="tipeMobil" required>
+                    </div>
+                </div>
+                <div class="bodyInputMobilRight">
+                    <div class="add-pages-form-group">
+                        <label for="brand">Brand:</label>
+                        <input type="text" id="brand" name="brand" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tahunKeluaran">Tahun Keluaran:</label>
+                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="bpkb">BPKB:</label>
+                        <input type="text" id="bpkb" name="bpkb" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="maxPenumpang">Maksimum Penumpang:</label>
+                        <input type="text" id="maxPenumpang" name="maxPenumpang" required>
+                    </div>
+                </div>
+            </div>
+            <div class="addVehicleDesc">
+                <label for="deskripsi">Deskripsi Mobil:</label>
+                <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
+            </div>
+            <div class="footerAddForm" id="footerAddForm">
+                <h1>Data Sewa</h1>
+                <div class="hargaSewaForm">
+                    <div class="add-pages-form-group">
+                        <label for="hargaSewa">Harga Sewa:</label>
+                        <input type="text" id="hargaSewa" name="hargaSewa" required>
+                    </div>
+                </div>
+                <h4>Lokasi Mobil</h4>
+                <div class="addAlamatForm">
+                    <section class="addAlamatFormLeft">
+                        <div class="add-pages-form-group">
+                            <label for="alamat">Alamat:</label>
+                            <textarea name="alamat" id="alamat" rows="4"></textarea>
+                        </div>
+                    </section>
+                    <section class="addAlamatFormRight">
+                        <div class="add-pages-form-group">
+                            <label for="provinsi">Provinsi:</label>
+                            <input type="text" id="provinsi" name="provinsi" required>
+                        </div>
+                        <div class="add-pages-form-group">
+                            <label for="kota">Kota:</label>
+                            <input type="text" id="kota" name="kota" required>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- <form id="uploadForm">
+        <label for="fileInput">Pilih Foto:</label>
+        <input type="file" id="fileInput" accept="image/*" onchange="previewImage()">
+        
+        <div id="imagePreviewContainer" style="display:none;">
+          <h3>Pratinjau Gambar:</h3>
+          <img id="imagePreview" alt="Pratinjau Gambar" width="200px">
+        </div>
+    
+        <button type="submit">Upload</button>
+      </form> -->
+    
+      <script>
+        function previewImage() {
+          const fileInput = document.getElementById('fileInput');
+          const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+          const imagePreview = document.getElementById('imagePreview');
+    
+          const file = fileInput.files[0];
+
+          if (file) {
+            const reader = new FileReader();
+    
+            reader.onload = function(e) {
+              imagePreview.src = e.target.result;
+              console.log(e)
+              imagePreviewContainer.style.display = 'block';
+            };
+    
+            // Baca data URL gambar
+            reader.readAsDataURL(file);
+          }
+        }
+    
+        // Menggunakan FormData untuk mengirim file ke server
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          const fileInput = document.getElementById('fileInput');
+          const file = fileInput.files[0];
+    
+          if (file) {
+            const formData = new FormData();
+            formData.append('file', file);
+    
+            // Sekarang Anda dapat mengirim formData ke server menggunakan metode Ajax atau formulir pengiriman
+            // Contoh:
+            // fetch('url_server', {
+            //   method: 'POST',
+            //   body: formData,
+            // })
+            // .then(response => response.json())
+            // .then(data => console.log(data))
+            // .catch(error => console.error('Error:', error));
+          }
+        });
+      </script>
+</body>
+</html>

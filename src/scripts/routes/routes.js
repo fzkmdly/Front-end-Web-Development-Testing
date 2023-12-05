@@ -9,6 +9,7 @@ import Checkout from '../view/pages/checkout';
 import About from '../view/pages/about';
 import Checking from '../view/pages/checking';
 import TaC from '../view/pages/tac';
+import addVehicle from '../view/pages/AddRentalVehicle';
 import ForgotPassword from '../view/pages/forgot-password';
 
 const routes = {
@@ -23,6 +24,7 @@ const routes = {
   '/about': About,
   '/checking/:id': Checking,
   '/tac': TaC,
+  '/addvehicle': addVehicle,
   '/forgot-password': ForgotPassword,
 };
 

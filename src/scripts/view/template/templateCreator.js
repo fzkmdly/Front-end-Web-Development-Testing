@@ -231,6 +231,184 @@ const vehicleCheckin = (vehicle) =>{
   `;
 };
 
+const addRentalVehicle = () => {
+  return `
+        <form action="" method="post">
+            <h1>Data Mobil</h1>
+            <div class="inputFotoMobil">
+                <div id="imagePreviewContainer" class="imagePreviewContainer">
+                    <img src="https://i.pinimg.com/564x/00/00/5f/00005f2792a21e1b29d08638dc3d1027.jpg"  id="imagePreview" alt="Pratinjau Gambar" width="150px">
+                </div>
+                <div class="inputFotoMobilContainer">
+                    <!-- <img src="./src/public/images/icons/partner-page-icon/Vector.png" width="100px" alt="" srcset=""> -->
+                    <input type="file" id="fileInput" accept="image/*" onchange="previewImage()" >
+                </div>
+            </div>
+            <div class="bodyInputMobil">
+                <div class="bodyInputMobilLeft">
+                    <div class="add-pages-form-group">
+                        <label for="namaMobil">Nama Mobil:</label>
+                        <input type="text" id="namaMobil" name="namaMobil" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="platMobil">Plat Mobil:</label>
+                        <input type="text" id="platMobil" name="platMobil" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="stnk">STNK:</label>
+                        <input type="text" id="stnk" name="stnk" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tipeMobil">Tipe Mobil:</label>
+                        <input type="text" id="tipeMobil" name="tipeMobil" required>
+                    </div>
+                </div>
+                <div class="bodyInputMobilRight">
+                    <div class="add-pages-form-group">
+                        <label for="brand">Brand:</label>
+                        <input type="text" id="brand" name="brand" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tahunKeluaran">Tahun Keluaran:</label>
+                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="bpkb">BPKB:</label>
+                        <input type="text" id="bpkb" name="bpkb" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="maxPenumpang">Maksimum Penumpang:</label>
+                        <input type="text" id="maxPenumpang" name="maxPenumpang" required>
+                    </div>
+                </div>
+            </div>
+            <div class="addVehicleDesc">
+                <label for="deskripsi">Deskripsi Mobil:</label>
+                <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
+            </div>
+            <div class="footerAddForm" id="footerAddForm">
+                <h1>Data Sewa</h1>
+                <div class="hargaSewaForm">
+                    <div class="add-pages-form-group">
+                        <label for="hargaSewa">Harga Sewa:</label>
+                        <input type="text" id="hargaSewa" name="hargaSewa" required>
+                    </div>
+                </div>
+                <h4>Lokasi Mobil</h4>
+                <div class="addAlamatForm">
+                    <section class="addAlamatFormLeft">
+                        <div class="add-pages-form-group">
+                            <label for="alamat">Alamat:</label>
+                            <textarea name="alamat" id="alamat" rows="4"></textarea>
+                        </div>
+                    </section>
+                    <section class="addAlamatFormRight">
+                        <div class="add-pages-form-group">
+                            <label for="provinsi">Provinsi:</label>
+                            <input type="text" id="provinsi" name="provinsi" required>
+                        </div>
+                        <div class="add-pages-form-group">
+                            <label for="kota">Kota:</label>
+                            <input type="text" id="kota" name="kota" required>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+  `;
+};
+
+const partnerAfterRegistation = () => {
+  return `
+      <style>
+      /* Add your styles here */
+      .listYourRentaled, .listRentaledHistory {
+          display: none;
+      }
+
+      .active {
+          display: flex;
+          flex-direction: column;
+      }
+
+      .listRentaledToggle,
+      .listHistoryToggle {
+          cursor: pointer;
+          margin: 5px;
+          padding: 10px;
+          border: 2px solid transparent;
+          transition: border 0.3s ease;
+          position: relative; /* Add this for positioning the pseudo-element */
+      }
+
+      .listRentaledToggle::after,
+      .listHistoryToggle::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px; /* Border thickness */
+          background: linear-gradient(to right, #080808, #1bda44);
+          transition: width 0.3s ease, left 0.3s ease;
+      }
+
+      .focused::after {
+          width: 100%;
+          left: 0;
+      }
+    </style>
+
+      <div id="rentaledVehicleContainer" class="rentaledVehicleContainer">
+        <section id="rentaledVehicleHeader" class="rentaledVehicleHeader">
+            <h2>Partner List Mobil</h2>
+            <p>Atur dan sewakan mobilmu dengan<br>Mudah dan Cepat</p>
+        </section>
+        <section id="listRentaledVehicleContainer" class="listRentaledVehicleContainer">
+            <ul>
+                <li id="listRentaledToggle" class="listRentaledToggle focused" onclick="showListRentaled()">List Mobil</li>
+                <li id="listHistoryToggle" class="listHistoryToggle" onclick="showRentedHistory()">Riwayat Sewa</li>
+            </ul>
+            <div id="listYourRentaled" class="listYourRentaled active">
+                <div class="listRentaledVehicle">
+                    <section class="rentaledVehicle">
+                        <img src="https://i.pinimg.com/564x/77/81/68/778168720cc2c34747b330e0d95ff389.jpg" alt="">
+                        <div>
+                            <h4>Ryo Yamada</h4>
+                            <p>Waifuku</p>
+                        </div>
+                        <div>
+                            <p>Mulai dari</p>
+                            <h5>Rp. 150.000/Hari</h5>
+                        </div>
+                    </section>
+                </div>
+                <div id="addRentaledVehicle" class="addRentaledVehicle">
+                    <a href="#/addVehicle">
+                        <img src="./images/icons/partner-page-icon/Group 37010.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div id="listRentaledHistory" class="listRentaledHistory">
+                <section class="rentaledHistory">
+                    <img src="https://i.pinimg.com/736x/2c/61/d5/2c61d5d2790e1f902ecc15e63534a950.jpg" alt="">
+                    <div>
+                        <h4>Ryo Yamada</h4>
+                        <p>Waifuku</p>
+                    </div>
+                    <div>
+                        <p>Mulai dari</p>
+                        <h5>Rp. 150.000/Hari</h5>
+                    </div>
+                </section>
+            </div>
+        </section
+      </div>
+
+      
+  `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -239,4 +417,6 @@ module.exports = {
   createPartnerRegisterPages,
   createCarCollection,
   vehicleCheckin,
+  addRentalVehicle,
+  partnerAfterRegistation,
 };

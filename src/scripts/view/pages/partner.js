@@ -1,4 +1,4 @@
-import {createPartnerRegisterPages} from '../template/templateCreator';
+import {createPartnerRegisterPages, partnerAfterRegistation} from '../template/templateCreator';
 
 const Partner = {
   async render() {
@@ -9,10 +9,10 @@ const Partner = {
                 <p id="lowerTagline">Mobilmu Gayamu</p>
             </section>
             <div class="banner">
-            <h2>Produktifkan Kendaraan Anda</h2>
-            <p class="second-tagline">Bergabunglah menjadi partner Rent'</p>
-            <div class="cards-container">
-            </div>
+              <h2>Produktifkan Kendaraan Anda</h2>
+              <p class="second-tagline">Bergabunglah menjadi partner Rent'</p>
+              <div class="cards-container">
+              </div>
             </div>
             <section class="partnerForm" id="partnerForm">
                 
@@ -24,7 +24,7 @@ const Partner = {
   async afterRender() {
     try {
       const formContainer = document.getElementById('partnerForm');
-      formContainer.innerHTML += createPartnerRegisterPages();
+      formContainer.innerHTML += partnerAfterRegistation();
     } catch (error) {
       console.log(error);
     }
