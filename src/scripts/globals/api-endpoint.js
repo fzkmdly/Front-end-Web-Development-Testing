@@ -3,6 +3,7 @@ import CONFIG from './config';
 // Disesuaikan sama API yang digunakan
 const API_ENDPOINT = {
   LIST: `${CONFIG.BASE_URL_VEHICLE}/list`,
+  BRAND: `${CONFIG.BASE_URL_VEHICLE}/vehicle-brand`,
   DETAIL: (id) => `${CONFIG.BASE_URL_VEHICLE}/detail/${id}`,
   POST_CAR: `${CONFIG.BASE_URL}/post`,
   LOGIN: `${CONFIG.BASE_URL}/auth/login`,
