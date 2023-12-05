@@ -30,12 +30,15 @@ module.exports = {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
-      new TerserPlugin(),
+      new TerserPlugin({
+        parallel: true,
+        extractComments: false,
+      }),
     ],
     splitChunks: {
       chunks: 'all',
-      minSize: 20000,
-      maxSize: 70000,
+      minSize: 10000,
+      maxSize: 50000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -88,6 +91,15 @@ module.exports = {
         },
       ],
       overrideExtension: true,
+    }),
+    new TerserPlugin({
+      parallel: true,
+      extractComments: false,
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
+      },
     }),
     new MiniCssExtractPlugin(),
     new BundleAnalyzerPlugin({

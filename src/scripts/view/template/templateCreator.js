@@ -1,73 +1,68 @@
-const vehicleItem = (vehicle) => {
+const vehicleItem = (vehicles) => {
+  const availabilityText = vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia';
+
   return `
-        <a href="#/detail/${vehicle.id}" class="vehicleItem-clickable">
+        <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
           <div class="vehicleItem" id="vehicleItem">
             <section class="vehicleItem-left">
-              <img class="lazyload" src="https://i.pinimg.com/736x/22/4f/fd/224ffd65ee22d448ac3f587c5d192370.jpg" alt="vehicle image">
+              <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
             </section>
             <section class="vehicleItem-center">
-                <h4 class="vehicle-name">${vehicle.name}</h4>
-                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.city}</h6>
+                <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+                <h6 class="availability">${availabilityText}</h6>
+                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
             </section>
             <section class="vehicleItem-right">
                 <h6 class="start-from">Mulai</h6>
-                <h4 class="harga">Rp150.000/hari</h4>
+                <h4 class="harga">Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
             </section>
           </div>
         </a>
     `;
 };
 
-const createCarCollection = (vehicle) => {
+const createCarCollection = (vehicles) => {
   return `
-    <a href="#/detail/${vehicle.id}" class="car-container">
+    <a href="#/detail/${vehicles.vehicleId}" class="car-container">
       <div>
         <section class="car-collection-image">
-          <picture>
-            <source type="image/webp" srcset="./images/assets/dummy-images/raize-white-black.webp">
-            <source type="image/png" srcset="./images/assets/dummy-images/raize-white-black.png">
-            <img src="./images/assets/dummy-images/raize-white-black.png" alt="Toyota Raize with white on top and black at entire bodyworks">
-          </picture>
+          <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
         </section>
         <section class="car-collection-name">
-          <h4 class="car-name">${vehicle.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicle.city}</h6>
+          <h4 class="car-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp150.000/hari</h4>
+          <h4 class="harga">Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
         </section>
       </div>
     </a>
   `;
 };
 
-const vehicleDetail = (vehicle) => {
+
+const vehicleDetail = (vehicles) => {
   return `
-          <div class="detailTracker">
-            <a href="#">Beranda/</a>
-            <a href="#/sewa">Daftar Mobil/</a>
-            <a href="#/detail/${vehicle.id}">${vehicle.name}</a>
-          </div>
           <article id="vehicleDetail" class="vehicleDetail">
             <div class="vehicleDetailLeft" id="vehicleDetailLeft">
                 <div class="detail-top-left">
-                    <img src="https://i.pinimg.com/564x/b1/ad/8c/b1ad8c93a5d96e425e8cb1addc72dce9.jpg" alt="gambar mobil">
-                    <h1>${vehicle.name}</h1>
-                    <p>4 Penumpang</p>
-                    <p>${vehicle.city}</p>
+                    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                    <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
+                    <p>Tahun: ${vehicles.vehicleInformation.year}</p>
+                    <p><i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang</p>
+                    <p><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</p>
                 </div>
                 <div class="detail-bottom-left">
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
                         <div class="vehicleOwnerLeft">
                             <img src="https://i.pinimg.com/236x/4d/9f/c4/4d9fc4609216b812d03302e302a418a5.jpg" alt="">
                             <div class="vehicleOwnerInfo">
-                                <p>Ryo Yamada</p>
-                                <p><span>Tahun :</span> 2020</p>
+                                <p>${vehicles.partner.partnerName}</p>
                             </div>
                         </div>
                         <div class="vehicleInfoPrice">
-                            <p>Mulai dari <br>Rp. 150.000/hari</p>
-                            <a href="#/checking/${vehicle.id}">Sewa Sekarang!</a>
+                            <p>Mulai dari <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
+                            <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang!</a>
                         </div>
                     </section>
                 </div>
@@ -76,15 +71,12 @@ const vehicleDetail = (vehicle) => {
                 <section class="vehicleDetailDesc" id="vehicleDetailDesc">
                     <div class="vehicleDetailDescription">
                         <h3>Deskripsi</h3>
-                        <p>${vehicle.description}</p>
+                        <p>${vehicles.vehicleInformation.description}</p>
                     </div>
                     <div>
                         <h3>Gambar Mobil</h3>
                         <div class="vehicleDetailPhotolist">
-                            <img src="https://i.pinimg.com/236x/cc/30/dc/cc30dc001ec691261e9f0fa54eba2e2f.jpg" alt="">
-                            <img src="https://i.pinimg.com/236x/5b/8e/16/5b8e166e9ff581151b998db6e163a380.jpg" alt="">
-                            <img src="https://i.pinimg.com/236x/10/94/43/10944325197df224075945ce7a46df6d.jpg" alt="">
-                            <img src="https://i.pinimg.com/236x/b2/13/e5/b213e52d58c4f548833e50b23e8c469a.jpg" alt="">
+                          <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
                         </div>
                     </div>
                 </section>

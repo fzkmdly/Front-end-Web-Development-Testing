@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
-:root {
-  --primary-color: #E3FDFD;
-  --secondary-color: #FF2E63;
-  --hover-color: #2C3333;
-  --black: #3e3e3e;
-  --white: #faf0e6;
-  --cyan: #00ADB5;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 * {
   font-family: 'Nunito', sans-serif;
@@ -389,15 +380,19 @@ input {
   text-align: center;
 }
 
-/* Login Page */
-#login-container {
+/* Login & Register Page */
+#login-container, #register-container, #forgot-password-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
 
-#login-form {
+#forgot-password-form {
+  margin-bottom: 134px!important;
+}
+
+#login-form, #register-form, #forgot-password-form {
   width: 450px;
   background-color: #F8F5F2;
   padding: 50px;
@@ -406,12 +401,12 @@ input {
   margin-bottom: 24px;
 }
 
-#login-form h2 {
+#login-form h2, #register-form h2, #forgot-password-form h2 {
   font-size: 2em;
   text-align: center;
 }
 
-#login-form button {
+#login-form button, #register-form button, #forgot-password-form button {
   font-size: large;
   width: 100%;
   padding: 10px;
@@ -423,25 +418,20 @@ input {
   margin-top: 6px;
 }
 
-#login-form button:hover {
+#login-form button:hover, #register-form button:hover, #forgot-password-form button:hover {
   background-color: #4CAF50;
+  transition: 750ms;
 }
 
-#login-form #register {
-  font-size: medium;
-  text-align: center;
-}
-
-#login-form #register a {
+#login-form #register a, #register-form #login a {
   text-decoration: none;
-  color: black;
+  color: #f45d48;
 }
 
-#email,
-#password {
+#email, #password, #confirm_password, #name {
   font-size: medium;
   border-radius: 10px;
-  margin-bottom: 8px !important;
+  margin-bottom: 14px!important;
 }
 
 #forgot-password {
@@ -453,6 +443,7 @@ input {
 
 #forgot-password:hover {
   color: black;
+  transition: 750ms;
 }
 
 
@@ -518,6 +509,7 @@ Sewa Page main content
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-inline: 10px;
 }
 
 .vehicleItem-clickable {
@@ -529,12 +521,14 @@ Sewa Page main content
   display: flex;
   flex-direction: row;
   margin-inline: 5px;
-  justify-content: space-between;
   background-color: #F8F5F2;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
   margin-block: 14px;
-  border-radius: 10px;
-  padding-block: 14px;
-  padding-inline: 154px;
+  margin-inline: 5px;
+  padding-block: 10px;
+  padding-inline: 50px;
 }
 
 .vehicleItem:hover {
@@ -545,7 +539,6 @@ Sewa Page main content
 .vehicleItem-left {
   width: 30%;
   align-self: center;
-  margin-right: -124px;
 }
 
 .vehicleItem-center {
@@ -557,13 +550,18 @@ Sewa Page main content
   font-size: xx-large;
   font-weight: bold;
   margin-bottom: 0;
-  margin-top: 78px;
-  ;
 }
 
-.vehicleItem-center .city {
+.vehicleItem-center .city, .vehicleItem-center .availability {
+  font-weight: normal!important;
   font-size: larger;
   margin-top: 14px;
+}
+
+.vehicleItem-center .availability {
+  font-size: medium!important;
+  font-weight: normal!important;
+  margin: 0;
 }
 
 .vehicleItem img {
@@ -583,7 +581,6 @@ Sewa Page main content
 .vehicleItem-right .start-from {
   font-size: small;
   margin-bottom: 0;
-  margin-top: 100px;
 }
 
 .vehicleItem-right .harga {
@@ -594,54 +591,49 @@ Sewa Page main content
 
 /* Footer */
 
-.footer {
-  background: #000;
-  padding: 30px 0px;
-  text-align: center;
+footer {
+  background-color: #000;
 }
 
-.footer .row {
-  width: 100%;
-  margin: 1% 0%;
-  padding: 0.6% 0%;
-  color: gray;
-  font-size: 0.8em;
-}
-
-.footer .row a {
-  text-decoration: none;
-  color: gray;
-  transition: 0.5s;
-}
-
-.footer .row a:hover {
-  color: #fff;
-}
-
-.footer .row ul li {
-  display: inline-block;
-  margin: 0px 30px;
-}
-
-.footer .row a i {
-  font-size: 2em;
-  margin: 0% 1%;
-}
-
-/* @media (max-width:720px){
 .footer{
-text-align:left;
-padding:5%;
+background:#000;
+padding:30px 0px;
+text-align:center;
+position: fixed;
+bottom: 0;
+width: 100%;
 }
-.footer .row ul li{
-display:block;
-margin:10px 0px;
-text-align:left;
+
+.footer-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-.footer .row a i{
-margin:0% 3%;
+
+.footer-container, .about-us-footer, .tac {
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFE;
 }
-} */
+
+.tac {
+  margin-bottom: 1rem;
+}
+
+.github {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.about-us-footer a, .tac a {
+  text-decoration: none;
+  color: #FFFFFE;
+}
+
+.github i:hover, .about-us a:hover, .tac a:hover {
+  color: #F45D48;
+  transition: 750ms;
+}
 
 /* About Us */
 
@@ -663,31 +655,12 @@ margin:0% 3%;
   justify-content: center;
 }
 
-.about-box {
-  background-color: #f8f5f2;
-  width: 48%;
-  /* Adjust as needed */
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-}
-
 .about-box:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, .4);
 }
 
-.about-heading,
-.about-description {
+.about-heading {
   text-align: center;
-}
-
-.about-description {
-  font-size: large;
 }
 
 .about-developer-section {
@@ -723,7 +696,7 @@ margin:0% 3%;
 .terms-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 34px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -732,17 +705,12 @@ margin:0% 3%;
   text-align: justify;
 }
 
-h2 {
+.terms-container h2 {
   color: #333;
   text-align: center;
 }
 
-h3 {
-  color: #555;
-}
-
-p,
-li {
+.terms-container p, .terms-container li {
   line-height: 1.5;
   color: black;
 }
