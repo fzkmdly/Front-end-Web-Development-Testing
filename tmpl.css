@@ -134,9 +134,17 @@
 
 .inputFotoMobil{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-block: 10px;
+}
+
+.imagePreviewContainer,
+.inputFotoMobilContainer{
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    margin-inline: 15px;
 }
 
 .bodyInputMobil {
@@ -198,6 +206,26 @@
     .addYourVehicle form{
         margin-inline: 5px;
         padding: 0;
+    }
+
+    .inputFotoMobil{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-block: 10px;
+    }
+    
+    .imagePreviewContainer,
+    .inputFotoMobilContainer{
+        padding: 10px;
+        background-color: white;
+        border-radius: 15px;
+        margin-inline: 0;
+        margin-block: 10px;
+    }
+
+    .inputFotoMobil img {
+        width: 100px;
     }
 
     .add-pages-form-group, 

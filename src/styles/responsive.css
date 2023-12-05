@@ -301,6 +301,22 @@
         padding: 0;
     }
 
+    .inputFotoMobil{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-block: 10px;
+    }
+    
+    .imagePreviewContainer,
+    .inputFotoMobilContainer{
+        padding: 10px;
+        background-color: white;
+        border-radius: 15px;
+        margin-inline: 0;
+        margin-block: 10px;
+    }
+
     .add-pages-form-group, 
     .addVehicleDesc {
         width: 100% !important;

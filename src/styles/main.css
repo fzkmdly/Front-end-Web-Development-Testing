@@ -1097,15 +1097,24 @@ li {
   padding-inline: 10px;
   padding-block-end: 30px;
   margin-inline: 100px;
+  margin-block: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 2px gray;
 }
 
-.inputFotoMobil {
+.inputFotoMobil{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-block: 10px;
+}
+
+.imagePreviewContainer,
+.inputFotoMobilContainer{
+  padding: 15px;
+  background-color: white;
+  border-radius: 15px;
+  margin-inline: 15px;
 }
 
 .bodyInputMobil {
