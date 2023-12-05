@@ -55,7 +55,8 @@ const vehicleDetail = (vehicles) => {
                 <div class="detail-bottom-left">
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
                         <div class="vehicleOwnerLeft">
-                            <img src="https://i.pinimg.com/236x/4d/9f/c4/4d9fc4609216b812d03302e302a418a5.jpg" alt="">
+                            <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
+                              ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
                             <div class="vehicleOwnerInfo">
                                 <p>${vehicles.partner.partnerName}</p>
                             </div>
