@@ -48,9 +48,15 @@ const vehicleDetail = (vehicles) => {
                 <div class="detail-top-left">
                     <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
                     <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
-                    <p>Tahun: ${vehicles.vehicleInformation.year}</p>
-                    <p><i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang</p>
-                    <p><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</p>
+                    Tahun: ${vehicles.vehicleInformation.year}
+                    <br>
+                    <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
+                    <br>
+                    <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
+                </div>
+                <div class="vehicleInfoPrice">
+                    <p>Mulai <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
+                    <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
                 </div>
                 <div class="detail-bottom-left">
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
@@ -60,10 +66,6 @@ const vehicleDetail = (vehicles) => {
                             <div class="vehicleOwnerInfo">
                                 <p>${vehicles.partner.partnerName}</p>
                             </div>
-                        </div>
-                        <div class="vehicleInfoPrice">
-                            <p>Mulai dari <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
-                            <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang!</a>
                         </div>
                     </section>
                 </div>
