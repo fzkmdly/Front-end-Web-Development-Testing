@@ -541,9 +541,16 @@ Sewa Page main content
   margin-bottom: 0;
 }
 
-.vehicleItem-center .city {
+.vehicleItem-center .city, .vehicleItem-center .availability {
+  font-weight: normal!important;
   font-size: larger;
   margin-top: 14px;
+}
+
+.vehicleItem-center .availability {
+  font-size: medium!important;
+  font-weight: normal!important;
+  margin: 0;
 }
 
 .vehicleItem img {

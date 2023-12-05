@@ -1,12 +1,15 @@
 const vehicleItem = (vehicles) => {
+  const availabilityText = vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia';
+
   return `
         <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
           <div class="vehicleItem" id="vehicleItem">
             <section class="vehicleItem-left">
-              <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+              <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
             </section>
             <section class="vehicleItem-center">
                 <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+                <h6 class="availability">${availabilityText}</h6>
                 <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
             </section>
             <section class="vehicleItem-right">
@@ -23,7 +26,7 @@ const createCarCollection = (vehicles) => {
     <a href="#/detail/${vehicles.vehicleId}" class="car-container">
       <div>
         <section class="car-collection-image">
-          <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+          <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
         </section>
         <section class="car-collection-name">
           <h4 class="car-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
@@ -43,7 +46,7 @@ const vehicleDetail = (vehicles) => {
           <article id="vehicleDetail" class="vehicleDetail">
             <div class="vehicleDetailLeft" id="vehicleDetailLeft">
                 <div class="detail-top-left">
-                    <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
                     <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
                     <p>Tahun: ${vehicles.vehicleInformation.year}</p>
                     <p><i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang</p>
@@ -73,7 +76,7 @@ const vehicleDetail = (vehicles) => {
                     <div>
                         <h3>Gambar Mobil</h3>
                         <div class="vehicleDetailPhotolist">
-                          <img class="lazyload" data-src="${vehicles.images.imagesId1.post_image_url}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                          <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
                         </div>
                     </div>
                 </section>
