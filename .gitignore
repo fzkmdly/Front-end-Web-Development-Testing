@@ -4,3 +4,5 @@ package-lock.json
 
 e2e/outputs/
 dist/
+
+tmpl.css
