@@ -10,28 +10,29 @@
 }
 
 * {
-    font-family: 'Nunito', sans-serif;
-  }
-  
-  html, body {
-    display: block;
-    background-color: #FFFFFE;
-    margin: 0;
-  }
-  
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    padding: 8px;
-    padding-inline: 4px;
-    background-color: #bf1722;
-    color: white;
-    z-index: 100;
-  }
-  
-  .skip-link:focus {
-    top: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+html,
+body {
+  display: block;
+  background-color: #FFFFFE;
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  padding-inline: 4px;
+  background-color: #bf1722;
+  color: white;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 /*
@@ -70,11 +71,11 @@ sign Drawer
 }
 
 .signDrawer .loginButton:hover {
-  background-color:#f7361d;
+  background-color: #f7361d;
   transition: 700ms;
 }
 
-.signDrawer .registerButton:hover{
+.signDrawer .registerButton:hover {
   background-color: #065c5c;
   transition: 700ms;
 }
@@ -95,10 +96,10 @@ Top Page
 .topPage {
   display: flex;
   flex-direction: row;
-  font-size:x-large;
+  font-size: x-large;
 }
 
-.topPage h1{
+.topPage h1 {
   font-size: 70px;
   padding: 0;
   margin: 0;
@@ -111,10 +112,11 @@ Top Page
 
 .rightSide {
   width: 40%;
-  
+
 }
 
-.rightSide img, source {
+.rightSide img,
+source {
   width: 80%;
   margin-right: 40px;
 }
@@ -155,7 +157,7 @@ nav h1 a {
   display: inline-block;
 }
 
-nav a:hover{
+nav a:hover {
   color: var(--hover-color);
 }
 
@@ -193,6 +195,7 @@ nav a:hover{
   min-width: 55px;
   min-height: 55px;
 }
+
 .menu-button i {
   font-size: 2em;
 }
@@ -222,16 +225,17 @@ nav a:hover{
 
 .partnerHeader #upperTagline {
   font-size: 34px;
-  margin-bottom: 0%!important;
+  margin-bottom: 0% !important;
 }
 
 .partnerHeader #lowerTagline {
   font-size: 72px;
-  margin-top: 0%!important;
+  margin-top: 0% !important;
 }
 
-#upperTagline, #lowerTagline {
-  font-family: 'Nunito', sans-serif!important;
+#upperTagline,
+#lowerTagline {
+  font-family: 'Nunito', sans-serif !important;
   color: white;
 }
 
@@ -251,7 +255,8 @@ nav a:hover{
   padding-bottom: 40px;
 }
 
-.partnerForm form h1, h4 {
+.partnerForm form h1,
+h4 {
   font-size: x-large;
 }
 
@@ -287,7 +292,7 @@ input {
 
 .tempatTanggalLahir {
   display: grid;
-  grid-template-columns: repeat(2 , 1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 5px;
 }
 
@@ -331,7 +336,9 @@ input {
   margin-bottom: 15px;
 }
 
-.card-1, .card-2, .card-3 {
+.card-1,
+.card-2,
+.card-3 {
   background-color: #F8F5F2;
   padding: 20px;
   margin: 10px;
@@ -341,11 +348,15 @@ input {
 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Center text within the container */
+  align-items: center;
+  /* Center items horizontally */
+  text-align: center;
+  /* Center text within the container */
 }
 
-.card-1:hover, .card-2:hover, .card-3:hover {
+.card-1:hover,
+.card-2:hover,
+.card-3:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -426,17 +437,18 @@ input {
   color: black;
 }
 
-#email, #password {
+#email,
+#password {
   font-size: medium;
   border-radius: 10px;
-  margin-bottom: 8px!important;
+  margin-bottom: 8px !important;
 }
 
 #forgot-password {
   text-align: right;
   text-decoration: none;
   color: red;
-  margin-top: 0%!important;
+  margin-top: 0% !important;
 }
 
 #forgot-password:hover {
@@ -455,11 +467,11 @@ input {
 Rental-bar
 */
 
-.rental-bar{
+.rental-bar {
   display: flex;
   flex-direction: column;
   background-color: #F8F5F2;
-  padding-block: 15px ;
+  padding-block: 15px;
   padding-block-end: 30px;
   padding-inline: 10px;
   margin-inline: 30px !important;
@@ -471,7 +483,7 @@ Rental-bar
   margin: 0;
 }
 
-.rental-option{
+.rental-option {
   display: flex;
   flex-direction: row;
 }
@@ -494,7 +506,7 @@ Rental-bar
   transition: 700ms;
 }
 
-.rental-option button:hover:focus{
+.rental-option button:hover:focus {
   background-color: #065c5c;
 }
 
@@ -536,7 +548,7 @@ Sewa Page main content
   margin-right: -124px;
 }
 
-.vehicleItem-center{
+.vehicleItem-center {
   width: 30%;
   font-size: larger;
 }
@@ -545,7 +557,8 @@ Sewa Page main content
   font-size: xx-large;
   font-weight: bold;
   margin-bottom: 0;
-  margin-top: 78px;;
+  margin-top: 78px;
+  ;
 }
 
 .vehicleItem-center .city {
@@ -581,40 +594,40 @@ Sewa Page main content
 
 /* Footer */
 
-.footer{
-background:#000;
-padding:30px 0px;
-text-align:center;
+.footer {
+  background: #000;
+  padding: 30px 0px;
+  text-align: center;
 }
 
-.footer .row{
-width:100%;
-margin:1% 0%;
-padding:0.6% 0%;
-color:gray;
-font-size:0.8em;
+.footer .row {
+  width: 100%;
+  margin: 1% 0%;
+  padding: 0.6% 0%;
+  color: gray;
+  font-size: 0.8em;
 }
 
-.footer .row a{
-text-decoration:none;
-color:gray;
-transition:0.5s;
+.footer .row a {
+  text-decoration: none;
+  color: gray;
+  transition: 0.5s;
 }
 
-.footer .row a:hover{
-color:#fff;
+.footer .row a:hover {
+  color: #fff;
 }
 
-.footer .row ul li{
-display:inline-block;
-margin:0px 30px;
+.footer .row ul li {
+  display: inline-block;
+  margin: 0px 30px;
 }
 
-.footer .row a i{
-font-size:2em;
-margin:0% 1%;
+.footer .row a i {
+  font-size: 2em;
+  margin: 0% 1%;
 }
-  
+
 /* @media (max-width:720px){
 .footer{
 text-align:left;
@@ -652,7 +665,8 @@ margin:0% 3%;
 
 .about-box {
   background-color: #f8f5f2;
-  width: 48%; /* Adjust as needed */
+  width: 48%;
+  /* Adjust as needed */
   border: 1px solid #ccc;
   padding: 20px;
   margin-left: 5px;
@@ -660,14 +674,15 @@ margin:0% 3%;
   margin-bottom: 20px;
   border-radius: 8px;
   box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 }
 
 .about-box:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
 }
 
-.about-heading, .about-description {
+.about-heading,
+.about-description {
   text-align: center;
 }
 
@@ -726,7 +741,8 @@ h3 {
   color: #555;
 }
 
-p, li {
+p,
+li {
   line-height: 1.5;
   color: black;
 }
@@ -757,12 +773,12 @@ p, li {
 }
 
 .car-container:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
   transition: .3s;
 }
 
-.car-collection-container picture, 
-.car-collection-container source, 
+.car-collection-container picture,
+.car-collection-container source,
 .car-collection-container img {
   width: 70%;
   height: auto;
@@ -849,7 +865,7 @@ p, li {
 } */
 
 .vehicleOwnerLeft {
-  margin : 0;
+  margin: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -891,7 +907,7 @@ p, li {
   gap: 10px;
 }
 
-.vehicleDetailPhotolist img{
+.vehicleDetailPhotolist img {
   width: 200px !important;
 }
 
@@ -901,7 +917,7 @@ p, li {
   margin-bottom: 15px;
 }
 
-.vehicleDetailRenting{
+.vehicleDetailRenting {
   display: flex;
   flex-direction: column;
 }
@@ -912,7 +928,7 @@ p, li {
   align-items: center;
 }
 
-.vehicleCheckinDate{
+.vehicleCheckinDate {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 100px;
@@ -978,17 +994,167 @@ p, li {
 }
 
 .drawer-content {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .payingMethod label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.payingMethod select{
+.payingMethod select {
   padding-inline: 50px;
   padding-block: 5px;
   width: 100%;
   margin-bottom: 10px;
+}
+
+/*------------Partner page after registation---------------*/
+
+.rentaledVehicleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rentaledVehicleHeader {
+  width: 100%;
+  /* align-items: center; */
+  text-align: center;
+}
+
+.listRentaledVehicleContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.listRentaledVehicleContainer ul {
+  padding-inline: 0;
+}
+
+.listRentaledVehicleContainer li {
+  display: inline;
+  margin-inline: 10px;
+}
+
+.listRentaledVehicleContainer img {
+  width: 80px;
+  border-radius: 10px;
+}
+
+.listYourRentaled,
+.listRentaledHistory {
+  background-color: #F8F5F2;
+  border-radius: 5px;
+  padding: 7px;
+  box-shadow: 0px 0px 3px gray;
+}
+
+.rentaledVehicle {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 5px;
+  padding-inline: 20px;
+  padding-block: 10px;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rentaledHistory {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 5px;
+  padding-inline: 20px;
+  padding-block: 10px;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addRentaledVehicle {
+  text-align: center;
+  padding-block: 10px;
+}
+
+/*---------------------Add Rental Vehicle Pages------------------------*/
+
+.addYourVehicle {
+  width: 100%;
+  margin-inline: 7px;
+  margin-top: 10px;
+}
+
+.addYourVehicle form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F8F5F2;
+  padding-inline: 10px;
+  padding-block-end: 30px;
+  margin-inline: 100px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px gray;
+}
+
+.inputFotoMobil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 10px;
+}
+
+.bodyInputMobil {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.bodyInputMobilLeft,
+.bodyInputMobilRight {
+  margin-inline: 10px;
+}
+
+.add-pages-form-group,
+.addVehicleDesc {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-block: 5px;
+}
+
+.add-pages-form-group input {
+  border-radius: 5px;
+}
+
+.addVehicleDesc {
+  text-align: center;
+  width: 620px !important;
+}
+
+.footerAddForm {
+  flex-direction: column;
+  display: flex;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.footerAddForm h1 {
+  text-align: center;
+}
+
+.addAlamatFormLeft,
+.addAlamatFormRight {
+  margin-inline: 6.7px;
+}
+
+.addAlamatForm {
+  display: flex;
+  flex-direction: row;
 }
