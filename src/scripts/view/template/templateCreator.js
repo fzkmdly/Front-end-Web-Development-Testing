@@ -364,6 +364,26 @@ const partnerAfterRegistation = () => {
           width: 100%;
           left: 0;
       }
+
+      .availableInfo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-radius: 40px;
+            border: 1px solid #078080;
+        }
+        
+        .available {
+            background-color: #078080;
+        }
+        
+        .availableInfo p {
+            padding-inline: 15px;
+            padding-block: 10px;
+            border-radius: 40px;
+            margin-block: 0;
+            width: 100%;
+        }
     </style>
 
       <div id="rentaledVehicleContainer" class="rentaledVehicleContainer">
@@ -384,10 +404,11 @@ const partnerAfterRegistation = () => {
                             <h4>Ryo Yamada</h4>
                             <p>Waifuku</p>
                         </div>
-                        <div>
-                            <p>Mulai dari</p>
-                            <h5>Rp. 150.000/Hari</h5>
+                        <div class="availableInfo">
+                            <p class="available">Available</p>
+                            <p>Unavailable</p>
                         </div>
+                        <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
                     </section>
                 </div>
                 <div id="addRentaledVehicle" class="addRentaledVehicle">
