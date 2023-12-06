@@ -19,17 +19,14 @@ const Login = {
   },
 
   async afterRender() {
-    // Add event listener for login button
     const loginBtn = document.getElementById('login-btn');
     loginBtn.addEventListener('click', this.handleLogin);
   },
 
   async handleLogin() {
-    // Get user input
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Check if email and password are not empty
     if (!email || !password) {
       Swal.fire({
         icon: 'error',
@@ -39,7 +36,22 @@ const Login = {
       return;
     }
 
-    // Make API call to login
+    const storedLoginInfo = localStorage.getItem('loginInfo');
+
+    if (storedLoginInfo) {
+      const loginInfo = JSON.parse(storedLoginInfo);
+      if (email === loginInfo.email && password === loginInfo.password) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Berhasil',
+          text: 'Selamat datang kembali',
+        }).then(() => {
+          console.log('Login successful from localStorage:', loginInfo);
+        });
+        return;
+      }
+    }
+
     try {
       const response = await fetch(API_ENDPOINT.LOGIN, {
         method: 'POST',
@@ -54,22 +66,27 @@ const Login = {
 
       const data = await response.json();
 
-      // Handle response
       if (response.ok) {
-        // Login successful
         Swal.fire({
           icon: 'success',
           title: 'Login Berhasil',
           text: 'Selamat datang kembali',
         }).then(() => {
-          // Redirect to a different page or perform other actions on successful login
-          console.log('Login successful:', data);
+          const loginInfo = {
+            uid: data.data.uid,
+            username: data.data.username,
+            email: data.data.email,
+            roles: data.data.roles,
+            password: password,
+          };
+          localStorage.setItem('loginInfo', JSON.stringify(loginInfo));
+          console.log('Login successful from API:', data);
+          window.location.hash = '/';
+          window.location.reload();
         });
       } else {
-        // Login failed
         console.error('Login failed:', data);
 
-        // Update the error message based on the response
         let errorMessage = 'Email atau kata sandi salah. Silakan coba lagi.';
         if (data.status === 'failed') {
           if (data.message === 'Email not found') {
@@ -77,7 +94,6 @@ const Login = {
           } else if (data.message === 'Password is wrong') {
             errorMessage = 'Kata sandi salah. Silakan coba lagi.';
           }
-          // You can add more conditions for other possible error messages
         }
 
         Swal.fire({
@@ -87,7 +103,6 @@ const Login = {
         });
       }
     } catch (error) {
-      // Handle network errors or other exceptions
       console.error('Error during login:', error);
       Swal.fire({
         icon: 'error',
