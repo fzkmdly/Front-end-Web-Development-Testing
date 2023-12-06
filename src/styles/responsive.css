@@ -316,6 +316,14 @@
         margin-block: 10px;
     }
 
+    .rentaledVehicleInfo {
+        margin-inline: 5px;
+    }
+
+    .rentaledVehicleInfo h4 {
+        font-size: large;
+    }
+
     .availableInfo {
         display: flex;
         flex-direction: column;
