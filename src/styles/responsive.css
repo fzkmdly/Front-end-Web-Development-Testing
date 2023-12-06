@@ -316,6 +316,26 @@
         margin-block: 10px;
     }
 
+    .availableInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0px;
+        border: 0;
+        margin-inline: 4px;
+    }
+
+    .availableInfo p {
+        padding-inline: 7px;
+        padding-block: 4px;
+        width: fit-content;
+        display: none;
+    }
+
+    .availableInfo p.avia-on {
+        display: block;
+    }
+
     .listRentaledVehicleContainer img {
         width: 60px;
         border-radius: 10px;

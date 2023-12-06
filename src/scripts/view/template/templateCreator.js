@@ -373,7 +373,7 @@ const partnerAfterRegistation = () => {
             border: 1px solid #078080;
         }
         
-        .available {
+        .avia-on {
             background-color: #078080;
         }
         
@@ -405,8 +405,8 @@ const partnerAfterRegistation = () => {
                             <p>Waifuku</p>
                         </div>
                         <div class="availableInfo">
-                            <p class="available">Available</p>
-                            <p>Unavailable</p>
+                            <p class="available avia-on">Available</p>
+                            <p class="unavailabe">Unavailable</p>
                         </div>
                         <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
                     </section>
