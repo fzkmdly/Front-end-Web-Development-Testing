@@ -10,6 +10,7 @@ import About from '../view/pages/about';
 import Checking from '../view/pages/checking';
 import TaC from '../view/pages/tac';
 import addVehicle from '../view/pages/AddRentalVehicle';
+import ForgotPassword from '../view/pages/forgot-password';
 
 const routes = {
   '/': Home,
@@ -24,6 +25,7 @@ const routes = {
   '/checking/:id': Checking,
   '/tac': TaC,
   '/addvehicle': addVehicle,
+  '/forgot-password': ForgotPassword,
 };
 
 export default routes;
