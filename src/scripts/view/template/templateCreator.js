@@ -365,6 +365,12 @@ const partnerAfterRegistation = () => {
           left: 0;
       }
 
+      .rentaledVehicleInfo 
+        p, h4 {
+            margin-block: 0;
+        }
+
+
       .availableInfo {
             display: flex;
             flex-direction: row;
@@ -400,7 +406,7 @@ const partnerAfterRegistation = () => {
                 <div class="listRentaledVehicle">
                     <section class="rentaledVehicle">
                         <img src="https://i.pinimg.com/564x/77/81/68/778168720cc2c34747b330e0d95ff389.jpg" alt="">
-                        <div>
+                        <div class="rentaledVehicleInfo">
                             <h4>Ryo Yamada</h4>
                             <p>Waifuku</p>
                         </div>
@@ -420,7 +426,7 @@ const partnerAfterRegistation = () => {
             <div id="listRentaledHistory" class="listRentaledHistory">
                 <section class="rentaledHistory">
                     <img src="https://i.pinimg.com/736x/2c/61/d5/2c61d5d2790e1f902ecc15e63534a950.jpg" alt="">
-                    <div>
+                    <div class="rentaledVehicleInfo">
                         <h4>Ryo Yamada</h4>
                         <p>Waifuku</p>
                     </div>
