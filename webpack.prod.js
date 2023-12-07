@@ -20,6 +20,6 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [,
+  plugins: [
   ],
 });
