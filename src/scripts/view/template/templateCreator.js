@@ -57,10 +57,13 @@ const vehicleDetail = (vehicles) => {
                     <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
                     <br>
                     <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
-                </div>
-                <div class="vehicleInfoPrice">
-                    <p>Mulai <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
-                    <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
+                    <div class="vehicleInfoPrice">
+                        <p>Mulai <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
+                        <div class="vehicleDetailOptionRent">
+                            <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
+                            <a href="https://wa.me/${vehicles.partnerPhoneNumber}" class="chat">Chat</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="detail-bottom-left">
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
