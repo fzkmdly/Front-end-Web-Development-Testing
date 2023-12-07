@@ -64,6 +64,7 @@ module.exports = {
       runtimeCaching: [
         {
           urlPattern: new RegExp('^https://storage.googleapis.com/rental-online-dicoding-cycle-5.appspot.com/vehicles/AqEh9gIYgINeEDJBHZDh7NFjuyn1/images/'),
+          urlPattern: new RegExp('^https://rental-online-dicoding-cycle-5.et.r.appspot.com/'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'API-Images-Cache',
