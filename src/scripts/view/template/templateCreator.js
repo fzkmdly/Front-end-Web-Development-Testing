@@ -321,11 +321,12 @@ const addRentalVehicle = () => {
                     </section>
                 </div>
             </div>
+            <button class="buttonTambahMobil">Tambahkan Mobil</button>
         </form>
   `;
 };
 
-const partnerAfterRegistation = () => {
+const partnerAfterRegistation = (vehicle) => {
   return `
       <style>
       /* Add your styles here */
@@ -403,7 +404,7 @@ const partnerAfterRegistation = () => {
                 <li id="listHistoryToggle" class="listHistoryToggle" onclick="showRentedHistory()">Riwayat Sewa</li>
             </ul>
             <div id="listYourRentaled" class="listYourRentaled active">
-                <div class="listRentaledVehicle">
+                <div class="listRentaledVehicle" id="listRentaledVehicle">
                     <section class="rentaledVehicle">
                         <img src="https://i.pinimg.com/564x/77/81/68/778168720cc2c34747b330e0d95ff389.jpg" alt="">
                         <div class="rentaledVehicleInfo">
@@ -443,6 +444,23 @@ const partnerAfterRegistation = () => {
   `;
 };
 
+const cardForListRentaled = () => {
+  return `
+    <section class="rentaledHistory">
+        <img src="https://i.pinimg.com/736x/2c/61/d5/2c61d5d2790e1f902ecc15e63534a950.jpg" alt="">
+        <div class="rentaledVehicleInfo">
+            <h4>Hiroi Kikuri</h4>
+            <p>Waifuku</p>
+        </div>
+        <div class="availableInfo">
+            <p class="available avia-on">Available</p>
+            <p class="unavailabe">Unavailable</p>
+        </div>
+        <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
+    </section>
+    `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -453,4 +471,5 @@ module.exports = {
   vehicleCheckin,
   addRentalVehicle,
   partnerAfterRegistation,
+  cardForListRentaled,
 };

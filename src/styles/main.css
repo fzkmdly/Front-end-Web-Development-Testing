@@ -1027,6 +1027,7 @@ width: 100%;
   border-radius: 5px;
   padding-inline: 20px;
   padding-block: 10px;
+  margin-block: 5px;
   width: 500px;
   justify-content: space-between;
   align-items: center;
@@ -1136,4 +1137,12 @@ width: 100%;
   flex-direction: row;
 }
 
-/* Dropdown */
+.buttonTambahMobil {
+  cursor: pointer;
+  padding: 10px;
+  margin-block: 30px;
+  border-radius: 20px;
+  background-color: #F45D48;
+  color: white;
+  border: 1px solid #F45D48;
+}

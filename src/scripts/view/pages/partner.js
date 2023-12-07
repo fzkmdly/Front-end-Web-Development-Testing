@@ -1,4 +1,4 @@
-import {createPartnerRegisterPages, partnerAfterRegistation} from '../template/templateCreator';
+import {cardForListRentaled, createPartnerRegisterPages, partnerAfterRegistation} from '../template/templateCreator';
 
 const Partner = {
   async render() {
@@ -24,7 +24,9 @@ const Partner = {
   async afterRender() {
     try {
       const formContainer = document.getElementById('partnerForm');
-      formContainer.innerHTML += partnerAfterRegistation();
+      formContainer.innerHTML = partnerAfterRegistation();
+      const listRentaledContainer = document.getElementById('listRentaledVehicle');
+      listRentaledContainer.innerHTML += cardForListRentaled();
     } catch (error) {
       console.log(error);
     }
