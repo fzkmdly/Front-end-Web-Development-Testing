@@ -8,10 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
-
-require('dotenv').config({
-  path: path.resolve('.env'),
-});
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -62,6 +59,21 @@ module.exports = {
     },
   },
   plugins: [
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js',
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('^https://storage.googleapis.com/rental-online-dicoding-cycle-5.appspot.com/vehicles/AqEh9gIYgINeEDJBHZDh7NFjuyn1/images/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'API-Images-Cache',
+            cacheableResponse: {
+              statuses: [200],
+            },
+          },
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/templates/index.html'),
@@ -90,7 +102,7 @@ module.exports = {
         {
           test: /\.(jpe?g|png)/,
           options: {
-            quality: 50,
+            quality: 85,
           },
         },
       ],

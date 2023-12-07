@@ -17,6 +17,8 @@ const button = document.querySelector('.menu-button');
 const drawer = document.querySelector('#nav');
 const mainContent = document.querySelector('#main-content');
 
+console.log('Bang, udah bang.');
+
 const app = new App({
   button: button,
   drawer: drawer,
