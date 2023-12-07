@@ -61,7 +61,7 @@ const vehicleDetail = (vehicles) => {
                         <p>Mulai <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
                         <div class="vehicleDetailOptionRent">
                             <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
-                            <a href="https://wa.me/${vehicles.partnerPhoneNumber}" class="chat">Chat</a>
+                            <a href="https://wa.me/62${vehicles.partner.partnerPhoneNumber}" class="chat">Chat</a>
                         </div>
                     </div>
                 </div>
