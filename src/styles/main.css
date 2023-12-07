@@ -802,7 +802,6 @@ width: 100%;
   height: fit-content;
   flex-direction: column;
   margin-inline-end: 5px;
-  background-color: #F8F5F2;
   width: 25%;
 }
 
@@ -832,6 +831,14 @@ width: 100%;
   margin: 0;
 } */
 
+.detail-top-left,
+.detail-bottom-left {
+  background-color: #F8F5F2;
+  margin-block-end: 8px;
+  border-radius: 10px;
+  padding-block: 15px;
+}
+
 .vehicleOwnerLeft {
   margin: 0;
   display: flex;
@@ -856,11 +863,26 @@ width: 100%;
 
 .vehicleInfoPrice a {
   margin-top: 40px;
+  margin-inline: 6px;
   padding-inline: 15px;
   padding-block: 6px;
   text-decoration: none;
   color: white;
   background-color: #F45D48;
+  border-radius: 30px;
+}
+
+.vehicleDetailOptionRent {
+  display: flex;
+  flex-direction: row;
+}
+
+.vehicleDetailOptionRent .chat {
+  padding-inline: 15px;
+  padding-block: 6px;
+  text-decoration: none;
+  color: white;
+  background-color: #065c5c;
   border-radius: 30px;
 }
 
