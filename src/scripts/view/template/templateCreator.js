@@ -58,10 +58,10 @@ const vehicleDetail = (vehicles) => {
                     <br>
                     <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
                     <div class="vehicleInfoPrice">
-                        <p>Mulai <br>Rp${+vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
+                        <p>Mulai <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
                         <div class="vehicleDetailOptionRent">
                             <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
-                            <a href="https://wa.me/62${vehicles.partner.partnerPhoneNumber}" class="chat">Chat</a>
+                            <a href="https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Saya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O" class="chat" target="_blank">Chat</a>
                         </div>
                     </div>
                 </div>
