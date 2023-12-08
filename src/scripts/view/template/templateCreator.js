@@ -58,7 +58,7 @@ const vehicleDetail = (vehicles) => {
                     <br>
                     <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
                     <div class="vehicleInfoPrice">
-                        <p>Mulai <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
+                        <p>Mulai <br>Rp${+vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
                         <div class="vehicleDetailOptionRent">
                             <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
                             <a href="https://wa.me/62${vehicles.partner.partnerPhoneNumber}" class="chat">Chat</a>
@@ -163,7 +163,7 @@ const createPartnerRegisterPages = () => {
                 <span id="nikError" class="error"></span>
 
 
-                <label for="telepon">Telepon:</label>
+                <label for="telepon">Nomor HP:</label>
                 <input type="tel" id="telepon" name="telepon" required>
                 <span id="teleponError" class="error"></span>
 
