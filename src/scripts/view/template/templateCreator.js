@@ -1,5 +1,6 @@
 const vehicleItem = (vehicles) => {
   const availabilityText = vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia';
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
         <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
@@ -14,7 +15,7 @@ const vehicleItem = (vehicles) => {
             </section>
             <section class="vehicleItem-right">
                 <h6 class="start-from">Mulai</h6>
-                <h4 class="harga">Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
+                <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
             </section>
           </div>
         </a>
@@ -22,6 +23,8 @@ const vehicleItem = (vehicles) => {
 };
 
 const createCarCollection = (vehicles) => {
+    const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+
   return `
     <a href="#/detail/${vehicles.vehicleId}" class="car-container">
       <div>
@@ -33,7 +36,7 @@ const createCarCollection = (vehicles) => {
           <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</h4>
+          <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
         </section>
       </div>
     </a>
@@ -45,6 +48,7 @@ const vehicleDetail = (vehicles) => {
   const imageList = Array.from({length: 3}, (_, index) => `
     <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${index + 1} dari ${vehicles.vehicleInformation.name}" />
   `).join('');
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
           <article id="vehicleDetail" class="vehicleDetail">
@@ -58,7 +62,7 @@ const vehicleDetail = (vehicles) => {
                     <br>
                     <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
                     <div class="vehicleInfoPrice">
-                        <p>Mulai <br>Rp${vehicles.vehicleInformation.cost.toLocaleString('id-ID')}/hari</p>
+                        <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
                         <div class="vehicleDetailOptionRent">
                             <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
                             <a href="https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Saya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O" class="chat" target="_blank">Chat</a>
