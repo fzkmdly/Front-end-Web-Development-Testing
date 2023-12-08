@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import {
   cardForListRentaled,
   createPartnerRegisterPages,
@@ -6,6 +7,29 @@ import {
 
 const Partner = {
   async render() {
+    // Check if the user is logged in
+    const isLoggedIn = checkUserLoggedIn();
+
+    // If the user is not logged in, show a SweetAlert2 popup
+    if (!isLoggedIn) {
+      Swal.fire({
+        title: 'Dibutuhkan Login',
+        text: 'Mohon login untuk mengakses halaman ini',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Log In',
+        cancelButtonText: 'Batal',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '#/login';
+        } else {
+          window.location.href = '#/';
+        }
+      });
+
+      return '';
+    }
+
     // Read the login information from localStorage
     const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
     const userRoles = loginInfo.roles || [];
@@ -41,6 +65,14 @@ const Partner = {
 
   async afterRender() {
     try {
+      // Check if the user is logged in
+      const isLoggedIn = checkUserLoggedIn();
+
+      // If the user is not logged in, handle accordingly (e.g., redirect to login page)
+      if (!isLoggedIn) {
+        return;
+      }
+
       // Read the login information from localStorage
       const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
       const userRoles = loginInfo.roles || [];
@@ -65,5 +97,10 @@ const Partner = {
     }
   },
 };
+
+// Function to check if the user is logged in (example implementation)
+function checkUserLoggedIn() {
+  return localStorage.getItem('loginInfo') !== null;
+}
 
 export default Partner;
