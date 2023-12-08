@@ -13,7 +13,7 @@ const Partner = {
     // If the user is not logged in, show a SweetAlert2 popup
     if (!isLoggedIn) {
       Swal.fire({
-        title: 'Dibutuhkan Login',
+        title: 'Anda belum login',
         text: 'Mohon login untuk mengakses halaman ini',
         icon: 'warning',
         showCancelButton: true,
