@@ -261,69 +261,57 @@ const addRentalVehicle = () => {
             <div class="bodyInputMobil">
                 <div class="bodyInputMobilLeft">
                     <div class="add-pages-form-group">
-                        <label for="namaMobil">Nama Mobil:</label>
-                        <input type="text" id="namaMobil" name="namaMobil" required>
+                        <label for="brand">Merek Kendaraan</label>
+                        <input type="text" id="brand" name="brand" placeholder="Contoh: Honda, Toyota" required>
                     </div>
                     <div class="add-pages-form-group">
-                        <label for="platMobil">Plat Mobil:</label>
-                        <input type="text" id="platMobil" name="platMobil" required>
+                        <label for="platMobil">Nomor Pelat Kendaraan</label>
+                        <input type="text" id="platMobil" name="platMobil" placeholder="Contoh: B1234PP" required>
                     </div>
                     <div class="add-pages-form-group">
-                        <label for="stnk">STNK:</label>
+                        <label for="stnk">STNK</label>
                         <input type="text" id="stnk" name="stnk" required>
                     </div>
                     <div class="add-pages-form-group">
-                        <label for="tipeMobil">Tipe Mobil:</label>
+                        <label for="tipeMobil">Tipe Kendaraan</label>
                         <input type="text" id="tipeMobil" name="tipeMobil" required>
                     </div>
                 </div>
                 <div class="bodyInputMobilRight">
                     <div class="add-pages-form-group">
-                        <label for="brand">Brand:</label>
-                        <input type="text" id="brand" name="brand" required>
+                        <label for="namaMobil">Seri</label>
+                        <input type="text" id="namaMobil" name="namaMobil" placeholder="Contoh: Agya, Ayla" required>
                     </div>
                     <div class="add-pages-form-group">
-                        <label for="tahunKeluaran">Tahun Keluaran:</label>
-                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" required>
+                        <label for="tahunKeluaran">Tahun</label>
+                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" placeholder="Contoh: 2023" required>
                     </div>
                     <div class="add-pages-form-group">
-                        <label for="bpkb">BPKB:</label>
+                        <label for="bpkb">BPKB</label>
                         <input type="text" id="bpkb" name="bpkb" required>
                     </div>
                     <div class="add-pages-form-group">
-                        <label for="maxPenumpang">Maksimum Penumpang:</label>
-                        <input type="text" id="maxPenumpang" name="maxPenumpang" required>
+                        <label for="maxPenumpang">Maksimum Penumpang</label>
+                        <input type="text" id="maxPenumpang" name="maxPenumpang" placeholder="Contoh: 4" required>
                     </div>
                 </div>
             </div>
             <div class="addVehicleDesc">
-                <label for="deskripsi">Deskripsi Mobil:</label>
-                <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
+                <label for="deskripsi">Deskripsi Mobil</label>
+                <textarea id="deskripsi" name="deskripsi" rows="4" placeholder="Deskripsikan mobil Anda secara singkat" required></textarea>
             </div>
             <div class="footerAddForm" id="footerAddForm">
-                <h1>Data Sewa</h1>
                 <div class="hargaSewaForm">
                     <div class="add-pages-form-group">
-                        <label for="hargaSewa">Harga Sewa:</label>
-                        <input type="text" id="hargaSewa" name="hargaSewa" required>
+                        <label for="hargaSewa">Harga Sewa</label>
+                        <input type="text" id="hargaSewa" name="hargaSewa" placeholder="Contoh: 150000" required>
                     </div>
                 </div>
-                <h4>Lokasi Mobil</h4>
                 <div class="addAlamatForm">
                     <section class="addAlamatFormLeft">
                         <div class="add-pages-form-group">
-                            <label for="alamat">Alamat:</label>
-                            <textarea name="alamat" id="alamat" rows="4"></textarea>
-                        </div>
-                    </section>
-                    <section class="addAlamatFormRight">
-                        <div class="add-pages-form-group">
-                            <label for="provinsi">Provinsi:</label>
-                            <input type="text" id="provinsi" name="provinsi" required>
-                        </div>
-                        <div class="add-pages-form-group">
-                            <label for="kota">Kota:</label>
-                            <input type="text" id="kota" name="kota" required>
+                            <label for="alamat">Alamat</label>
+                            <textarea name="alamat" id="alamat" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
                         </div>
                     </section>
                 </div>
