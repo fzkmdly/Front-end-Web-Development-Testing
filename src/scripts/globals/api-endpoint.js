@@ -8,6 +8,7 @@ const API_ENDPOINT = {
   POST_CAR: `${CONFIG.BASE_URL}/post`,
   LOGIN: `${CONFIG.BASE_URL}/auth/login`,
   REGISTER: `${CONFIG.BASE_URL}/auth/register`,
+  REGISTER_PARTNER: `${CONFIG.BASE_URL}/partner/create`,
 };
 
 export default API_ENDPOINT;
