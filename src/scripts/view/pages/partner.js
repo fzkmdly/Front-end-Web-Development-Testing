@@ -142,20 +142,20 @@ const Partner = {
             if (response.ok) {
               // Handle success (e.g., show a success message)
               Swal.fire({
-                title: 'Registration Successful',
-                text: 'You have successfully registered as a partner.',
+                title: 'Berhasil Daftar',
+                text: 'Anda telah terdaftar sebagai partner Rent\'O',
                 icon: 'success',
               });
             } else {
               // Handle error (e.g., show an error message)
               Swal.fire({
-                title: 'Registration Failed',
-                text: 'An error occurred during registration.',
+                title: 'Daftar Gagal',
+                text: 'Terjadi kesalahan saat mendaftar',
                 icon: 'error',
               });
             }
           } catch (error) {
-            console.error('Error during registration:', error);
+            console.error('Kesalahan saat daftar:', error);
           }
         });
       }

@@ -17,8 +17,8 @@ class headerBar extends HTMLElement {
         <li><a href="#">Home</a></li>
         <li><a href="#/partner">Partner</a></li>
         <li><a href="#/sewa">Sewa</a></li>
-        <li><a href="#/login" class="loginButton">Login</a></li>
-        <li><a href="#/register" class="registerButton">Register</a></li>
+        <li><a href="#/login" class="loginButton">Masuk</a></li>
+        <li><a href="#/register" class="registerButton">Daftar</a></li>
       </ul>
     </nav>
         `;
