@@ -11,6 +11,7 @@ import Checking from '../view/pages/checking';
 import TaC from '../view/pages/tac';
 import addVehicle from '../view/pages/AddRentalVehicle';
 import ForgotPassword from '../view/pages/forgot-password';
+import userProfile from '../view/pages/userProfile-page';
 
 const routes = {
   '/': Home,
@@ -26,6 +27,7 @@ const routes = {
   '/tac': TaC,
   '/addvehicle': addVehicle,
   '/forgot-password': ForgotPassword,
+  '/user/:id': userProfile,
 };
 
 export default routes;

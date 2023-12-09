@@ -23,7 +23,7 @@ const vehicleItem = (vehicles) => {
 };
 
 const createCarCollection = (vehicles) => {
-    const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
     <a href="#/detail/${vehicles.vehicleId}" class="car-container">
@@ -456,6 +456,97 @@ const cardForListRentaled = () => {
     `;
 };
 
+const userProfilePages = (user) => {
+  return `
+    <div class="userContainer" id="userContainer">
+        <h1>Akun User</h1>
+        <section class="topUserProfile" id="topUserProfile">
+            <img src="https://i.pinimg.com/564x/4b/2b/fc/4b2bfcce01f714c6f0a39eccf655f01f.jpg" width="200px" alt="oke">
+            <h3>Ryo Yamada</h3>
+            <p>Penyewa</p>
+        </section>
+        <section class="bodyUserProfile" id="bodyUserProfile">
+            <a href="">
+                <div class="userEditProfile profileOption">
+                    <img src="./icon/VectorEdit.png" alt="">
+                    <h5>Edit Profile</h5>
+                </div>
+            </a>
+            <a href="#/">
+                <div class="RentHistoBttn profileOption">
+                    <img src="./icon/Car-V8.png" alt="">
+                    <h5>Riwayat Sewa Mobil</h5>
+                </div>
+            </a>
+            <a href="">
+                <div class="RentaledHistoBttn profileOption">
+                    <img src="./icon/Car-Maintenance.png" alt="">
+                    <h5>Riwayat Penyewaan Mobil</h5>
+                </div>
+            </a>
+            <a href="">
+                <div class="logOutBttn profileOption">
+                    <img src="./icon/Logout.png" alt="">
+                    <h5>Log Out</h5>
+                </div>
+            </a>
+        </section>
+    </div>
+    <style>
+        .userProfile {
+            width: 100%;
+        }
+
+        .userContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .topUserProfile {
+            text-align: center;
+        }
+
+        .topUserProfile img {
+            border-radius: 100%;
+        }
+
+        .bodyUserProfile {
+            background-color: #F8F5F2;
+            border-radius: 10px;
+            padding-inline: 25px;
+            padding-block: 15px;
+            width: 250px;
+        }
+
+        .bodyUserProfile a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .profileOption:hover {
+            box-shadow: 0px 0px 2px black;
+        }
+
+        .profileOption {
+            display: flex;
+            flex-direction: row;
+            border-radius: 10px;
+            background-color: white;
+            align-items: center;
+            margin-block: 8px;
+            width: 100%;
+        }
+
+        .profileOption img {
+            width: 20px;
+            margin-block: 0;
+            margin-inline: 5px;
+        }
+    </style>
+    `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -467,4 +558,5 @@ module.exports = {
   addRentalVehicle,
   partnerAfterRegistation,
   cardForListRentaled,
+  userProfilePages,
 };
