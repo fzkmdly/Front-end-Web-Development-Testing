@@ -33,7 +33,7 @@ const Partner = {
 
     // Read the login information from localStorage
     const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
-    const userRoles = loginInfo.roles || [];
+    const userRoles = Array.isArray(loginInfo.roles) ? loginInfo.roles : [];
 
     // Check if the user has the "Partner" role
     const isPartner = userRoles.includes('Partner');
@@ -146,6 +146,11 @@ const Partner = {
                 text: 'Anda telah terdaftar sebagai partner Rent\'O',
                 icon: 'success',
               });
+
+              const existingLoginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+              const updatedRoles = {...existingLoginInfo.roles, 1: 'Partner'};
+              const updatedLoginInfo = {...existingLoginInfo, roles: updatedRoles};
+              localStorage.setItem('loginInfo', JSON.stringify(updatedLoginInfo));
             } else {
               // Handle error (e.g., show an error message)
               Swal.fire({
