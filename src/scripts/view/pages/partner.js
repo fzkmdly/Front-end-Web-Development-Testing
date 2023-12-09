@@ -4,6 +4,7 @@ import {
   createPartnerRegisterPages,
   partnerAfterRegistation,
 } from '../template/templateCreator';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Partner = {
   async render() {
@@ -76,6 +77,7 @@ const Partner = {
       // Read the login information from localStorage
       const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
       const userRoles = loginInfo.roles || [];
+      const accessToken = loginInfo.uid || ''; // Assuming 'uid' contains the access token
 
       // Check if the user is a partner
       const isPartner = userRoles.includes('Partner');
@@ -91,6 +93,71 @@ const Partner = {
         // If the user does not have the "Partner" role, show the registration form
         const registrationFormContainer = document.getElementById('partnerForm');
         registrationFormContainer.innerHTML = createPartnerRegisterPages();
+
+        // Add event listener to the registration form
+        const partnerForm = document.getElementById('partnerForm');
+        partnerForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          console.log('test');
+
+          try {
+            // Gather form data
+            const nama = document.getElementById('fullName_KTP').value;
+            const nik = document.getElementById('nik_KTP').value;
+            const tempatLahir = document.getElementById('placeBirth_KTP').value;
+            const tanggalLahir = document.getElementById('dateBirth_KTP').value;
+            const nomorSIM = document.getElementById('number_SIM').value;
+            const berlakuSIM = document.getElementById('expired_SIM').value;
+            const jenisSIM = document.getElementById('type_SIM').value;
+            const nomorHP = document.getElementById('phoneNumber').value;
+            const alamatKTP = document.getElementById('address_KTP').value;
+            const kota = document.getElementById('city_KTP').value;
+            const provinsi = document.getElementById('province_KTP').value;
+            const kodePos = document.getElementById('postalCode_KTP').value;
+
+            // Make a POST request to the /partner/create endpoint
+            const response = await fetch(API_ENDPOINT.REGISTER_PARTNER, {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${accessToken}`, // Use the access token from 'uid'
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                phoneNumber: nomorHP,
+                fullName_KTP: nama,
+                nik_KTP: nik,
+                address_KTP: alamatKTP,
+                city_KTP: kota,
+                province_KTP: provinsi,
+                postalCode_KTP: kodePos,
+                placeBirth_KTP: tempatLahir,
+                dateBirth_KTP: tanggalLahir,
+                type_SIM: jenisSIM,
+                number_SIM: nomorSIM,
+                expired_SIM: berlakuSIM,
+              }),
+            });
+
+            // Check if the request was successful
+            if (response.ok) {
+              // Handle success (e.g., show a success message)
+              Swal.fire({
+                title: 'Registration Successful',
+                text: 'You have successfully registered as a partner.',
+                icon: 'success',
+              });
+            } else {
+              // Handle error (e.g., show an error message)
+              Swal.fire({
+                title: 'Registration Failed',
+                text: 'An error occurred during registration.',
+                icon: 'error',
+              });
+            }
+          } catch (error) {
+            console.error('Error during registration:', error);
+          }
+        });
       }
     } catch (error) {
       console.log(error);
