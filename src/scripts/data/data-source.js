@@ -21,6 +21,11 @@ class CarDbSource {
     return this.fetchData(url).then((responseJson) => responseJson.data.vehicle);
   }
 
+  static async filterCar() {
+    const url = API_ENDPOINT.LIST;
+    return this.fetchData(url).then((responseJson) => responseJson.data.vehicles);
+  }
+
   static async postCar(data) {
     const url = API_ENDPOINT.POST_CAR;
     const options = {

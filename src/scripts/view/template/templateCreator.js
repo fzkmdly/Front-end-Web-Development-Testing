@@ -23,7 +23,7 @@ const vehicleItem = (vehicles) => {
 };
 
 const createCarCollection = (vehicles) => {
-    const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
     <a href="#/detail/${vehicles.vehicleId}" class="car-container">
@@ -456,6 +456,46 @@ const cardForListRentaled = () => {
     `;
 };
 
+const createSearchBar = () => {
+  return `
+        <div class="search-bar" id="search-bar">
+            <h1>Penyewaan</h1>
+            <p>Pilih waktu, lokasi, 
+                dan jenis kendaraan yang ingin digunakan. 
+                Nikmati perjalanan menyenangkan dengan layanan Rent'O.
+            </p>
+            <form action="" method="post" class="rental-option">
+                <div class="rental-leftSide" id="rental-leftSide">
+                    <label for="vehicle-location">Lokasi Kendaraan</label>
+                    <label for="vehicle-type">Tipe Kendaraan</label>
+                    <label for="vehicle-brand">Merek</label>
+                    <select id="vehicle-location">
+                        <option value="Jakarta">Jakarta</option>
+                        <option value="Bogor">Bogor</option>
+                        <option value="Depok">Depok</option>
+                        <option value="Tangerang">Tangerang</option>
+                        <option value="Bekasi">Bekasi</option>
+                    </select>
+                    <select id="vehicle-type">
+                        <option value="Mobil">Mobil</option>
+                        <option value="Motor">Motor</option>
+                    </select>
+                    <select id="vehicle-brand">
+                        <option value="Daihatsu">Daihatsu</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Mitsubishi">Mitsubishi</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Hyundai">Hyundai</option>
+                    </select>
+                </div>
+            </form>
+            <button type="submit" id="submitRentalOption">Cari</button>
+        </div>
+    `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -467,4 +507,5 @@ module.exports = {
   addRentalVehicle,
   partnerAfterRegistation,
   cardForListRentaled,
+  createSearchBar,
 };
