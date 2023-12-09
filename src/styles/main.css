@@ -161,6 +161,7 @@ nav a:hover {
 .menu-list li {
   list-style-type: none;
   display: inline-block;
+  margin: 2px;
 }
 
 .menu-list a {
