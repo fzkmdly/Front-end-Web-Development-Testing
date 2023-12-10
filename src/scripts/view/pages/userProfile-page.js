@@ -1,3 +1,4 @@
+import axios from 'axios';
 import API_ENDPOINT from '../../globals/api-endpoint';
 import {userProfilePages} from '../template/templateCreator';
 
@@ -15,15 +16,14 @@ const userProfile = {
       const accessToken = loginInfo.uid || '';
 
       // Fetch user profile data using the access token
-      const response = await fetch(`${API_ENDPOINT.PROFILE}`, {
-        method: 'GET',
+      const response = await axios.get(API_ENDPOINT.PROFILE, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
 
-      if (response.ok) {
-        const userData = await response.json();
+      if (response.status >= 200 && response.status < 300) {
+        const userData = response.data;
 
         // Ensure that userData.data.user contains the expected structure
         if (userData && userData.data && userData.data.user) {
