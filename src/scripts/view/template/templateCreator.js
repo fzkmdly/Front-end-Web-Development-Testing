@@ -1,3 +1,5 @@
+const {default: API_ENDPOINT} = require('../../globals/api-endpoint');
+
 const vehicleItem = (vehicles) => {
   const availabilityText = vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia';
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
@@ -142,47 +144,57 @@ const createRegisterPages = () => {
 
 const createPartnerRegisterPages = () => {
   return `
-        <form action="#" method="post" onsubmit="return validatePartnerRegistrationForm()">
-          <h1>Daftar Partner</h1>
-          <h4>Data Diri</h4>
-          <div class="form-body">
+    <form id="partnerForm" enctype="application/json">
+        <h1>Daftar Partner</h1>
+        <div class="form-body">
             <div class="form-column">
-                <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama" required>
+            <label for="nama">Nama sesuai KTP:</label>
+            <input type="text" id="fullName_KTP" name="fullName_KTP" required>
 
-                <div class="tempatTanggalLahir">
-                    <label for="ttl">Tempat</label>
-                    <label for="tanggalLahir">Tanggal Lahir:</label>
-                    <input type="text" id="tempatLahir" name="tempatLahir" required>
-                    <input type="date" id="tanggalLahir" name="tanggalLahir" required>
-                </div>
+            <label for="nik">NIK:</label>
+            <input type="text" id="nik_KTP" name="nik_KTP" required>
+            <span id="nikError" class="error"></span>
 
-                <label for="alamat">Alamat:</label>
-                <input type="text" id="alamat" name="alamat" required>
+            <div class="tempatTanggalLahir">
+                <label for="tempatLahir">Tempat</label>
+                <label for="tanggalLahir">Tanggal Lahir:</label>
+                <input type="text" id="placeBirth_KTP" name="placeBirth_KTP" required>
+                <input type="date" id="dateBirth_KTP" name="dateBirth_KTP" min="1960-01-01" max="2010-01-01" required>
+            </div>
+
+            <label for="nomorSIM">Nomor SIM:</label>
+            <input type="text" id="number_SIM" name="number_SIM" required>
+
+            <label for="masaBerlaku">Masa Berlaku:</label>
+            <input type="date" id="expired_SIM" name="expired_SIM" min="2023-01-01" required>
+
+            <label for="Jenis SIM">Jenis SIM:</label>
+            <input type="text" id="type_SIM" name="type_SIM" placeholder="Contoh: A" required>
             </div>
 
             <div class="form-column">
-                <label for="nik">NIK:</label>
-                <input type="text" id="nik" name="nik" required>
-                <span id="nikError" class="error"></span>
+            <label for="telepon">Nomor HP:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
 
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="address_KTP" name="address_KTP" required>
 
-                <label for="telepon">Nomor HP:</label>
-                <input type="tel" id="telepon" name="telepon" required>
-                <span id="teleponError" class="error"></span>
+            <label for="kota">Kota:</label>
+            <input type="text" id="city_KTP" name="city_KTP" required>
 
-                <label for="kodepos">Kode Pos:</label>
-                <input type="text" id="kodepos" name="kodepos" required>
+            <label for="provinsi">Provinsi:</label>
+            <input type="text" id="province_KTP" name="province_KTP" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="emailPartner" name="email" required>
+            <label for="kodepos">Kode Pos:</label>
+            <input type="text" id="postalCode_KTP" name="postalCode_KTP" required>
             </div>
-          </div>
+        </div>
 
-            <button class="partnerButton" type="submit">Daftar Sekarang</button>
-        </form>
-  `;
+        <button class="partnerButton" type="submit">Daftar Sekarang</button>
+    </form>
+    `;
 };
+
 
 const vehicleCheckin = (vehicle) =>{
   return `
@@ -242,82 +254,6 @@ const vehicleCheckin = (vehicle) =>{
         <button>Lanjutkan Pembayaran</button>
     </form>
   </section>
-  `;
-};
-
-const addRentalVehicle = () => {
-  return `
-        <form action="" method="post">
-            <h1>Data Mobil</h1>
-            <div class="inputFotoMobil">
-                <div id="imagePreviewContainer" class="imagePreviewContainer">
-                    <img src="https://i.pinimg.com/564x/00/00/5f/00005f2792a21e1b29d08638dc3d1027.jpg"  id="imagePreview" alt="Pratinjau Gambar" width="150px">
-                </div>
-                <div class="inputFotoMobilContainer">
-                    <!-- <img src="./src/public/images/icons/partner-page-icon/Vector.png" width="100px" alt="" srcset=""> -->
-                    <input type="file" id="fileInput" accept="image/*" onchange="previewImage()" >
-                </div>
-            </div>
-            <div class="bodyInputMobil">
-                <div class="bodyInputMobilLeft">
-                    <div class="add-pages-form-group">
-                        <label for="brand">Merek Kendaraan</label>
-                        <input type="text" id="brand" name="brand" placeholder="Contoh: Honda, Toyota" required>
-                    </div>
-                    <div class="add-pages-form-group">
-                        <label for="platMobil">Nomor Pelat Kendaraan</label>
-                        <input type="text" id="platMobil" name="platMobil" placeholder="Contoh: B1234PP" required>
-                    </div>
-                    <div class="add-pages-form-group">
-                        <label for="stnk">STNK</label>
-                        <input type="text" id="stnk" name="stnk" required>
-                    </div>
-                    <div class="add-pages-form-group">
-                        <label for="tipeMobil">Tipe Kendaraan</label>
-                        <input type="text" id="tipeMobil" name="tipeMobil" required>
-                    </div>
-                </div>
-                <div class="bodyInputMobilRight">
-                    <div class="add-pages-form-group">
-                        <label for="namaMobil">Seri</label>
-                        <input type="text" id="namaMobil" name="namaMobil" placeholder="Contoh: Agya, Ayla" required>
-                    </div>
-                    <div class="add-pages-form-group">
-                        <label for="tahunKeluaran">Tahun</label>
-                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" placeholder="Contoh: 2023" required>
-                    </div>
-                    <div class="add-pages-form-group">
-                        <label for="bpkb">BPKB</label>
-                        <input type="text" id="bpkb" name="bpkb" required>
-                    </div>
-                    <div class="add-pages-form-group">
-                        <label for="maxPenumpang">Maksimum Penumpang</label>
-                        <input type="text" id="maxPenumpang" name="maxPenumpang" placeholder="Contoh: 4" required>
-                    </div>
-                </div>
-            </div>
-            <div class="addVehicleDesc">
-                <label for="deskripsi">Deskripsi Mobil</label>
-                <textarea id="deskripsi" name="deskripsi" rows="4" placeholder="Deskripsikan mobil Anda secara singkat" required></textarea>
-            </div>
-            <div class="footerAddForm" id="footerAddForm">
-                <div class="hargaSewaForm">
-                    <div class="add-pages-form-group">
-                        <label for="hargaSewa">Harga Sewa</label>
-                        <input type="text" id="hargaSewa" name="hargaSewa" placeholder="Contoh: 150000" required>
-                    </div>
-                </div>
-                <div class="addAlamatForm">
-                    <section class="addAlamatFormLeft">
-                        <div class="add-pages-form-group">
-                            <label for="alamat">Alamat</label>
-                            <textarea name="alamat" id="alamat" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <button class="buttonTambahMobil">Tambahkan Mobil</button>
-        </form>
   `;
 };
 
@@ -544,6 +480,120 @@ const userProfilePages = (user) => {
             margin-inline: 5px;
         }
     </style>
+
+const createSearchBar = () => {
+  return `
+        <div class="search-bar" id="search-bar">
+            <h1>Penyewaan</h1>
+            <p>Pilih waktu, lokasi, 
+                dan jenis kendaraan yang ingin digunakan. 
+                Nikmati perjalanan menyenangkan dengan layanan Rent'O.
+            </p>
+            <form action="" method="post" class="rental-option">
+                <div class="rental-leftSide" id="rental-leftSide">
+                    <label for="vehicle-location">Lokasi Kendaraan</label>
+                    <label for="vehicle-type">Tipe Kendaraan</label>
+                    <label for="vehicle-brand">Merek</label>
+                    <select id="vehicle-location">
+                        <option value="Jakarta">Jakarta</option>
+                        <option value="Bogor">Bogor</option>
+                        <option value="Depok">Depok</option>
+                        <option value="Tangerang">Tangerang</option>
+                        <option value="Bekasi">Bekasi</option>
+                    </select>
+                    <select id="vehicle-type">
+                        <option value="Mobil">Mobil</option>
+                        <option value="Motor">Motor</option>
+                    </select>
+                    <select id="vehicle-brand">
+                        <option value="Daihatsu">Daihatsu</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Mitsubishi">Mitsubishi</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Hyundai">Hyundai</option>
+                    </select>
+                </div>
+            </form>
+            <button type="submit" id="submitRentalOption">Cari</button>
+        </div>
+    `;
+};
+
+const addRentalVehicle = () => {
+  return `
+        <form action="" method="post">
+            <h1>Data Mobil</h1>
+            <div class="inputFotoMobil">
+                <div id="imagePreviewContainer" class="imagePreviewContainer">
+                    <img src="https://i.pinimg.com/564x/00/00/5f/00005f2792a21e1b29d08638dc3d1027.jpg"  id="imagePreview" alt="Pratinjau Gambar" width="150px">
+                </div>
+                <div class="inputFotoMobilContainer">
+                    <!-- <img src="./src/public/images/icons/partner-page-icon/Vector.png" width="100px" alt="" srcset=""> -->
+                    <input type="file" id="fileInput" accept="image/*" onchange="previewImage()" >
+                </div>
+            </div>
+            <div class="bodyInputMobil">
+                <div class="bodyInputMobilLeft">
+                    <div class="add-pages-form-group">
+                        <label for="brand">Merek Kendaraan</label>
+                        <input type="text" id="brand" name="brand" placeholder="Contoh: Honda, Toyota" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="platMobil">Nomor Pelat Kendaraan</label>
+                        <input type="text" id="platMobil" name="platMobil" placeholder="Contoh: B1234PP" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="stnk">STNK</label>
+                        <input type="text" id="stnk" name="stnk" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tipeMobil">Tipe Kendaraan</label>
+                        <input type="text" id="tipeMobil" name="tipeMobil" required>
+                    </div>
+                </div>
+                <div class="bodyInputMobilRight">
+                    <div class="add-pages-form-group">
+                        <label for="namaMobil">Seri</label>
+                        <input type="text" id="namaMobil" name="namaMobil" placeholder="Contoh: Agya, Ayla" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tahunKeluaran">Tahun</label>
+                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" placeholder="Contoh: 2023" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="bpkb">BPKB</label>
+                        <input type="text" id="bpkb" name="bpkb" required>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="maxPenumpang">Maksimum Penumpang</label>
+                        <input type="text" id="maxPenumpang" name="maxPenumpang" placeholder="Contoh: 4" required>
+                    </div>
+                </div>
+            </div>
+            <div class="addVehicleDesc">
+                <label for="deskripsi">Deskripsi Mobil</label>
+                <textarea id="deskripsi" name="deskripsi" rows="4" placeholder="Deskripsikan mobil Anda secara singkat" required></textarea>
+            </div>
+            <div class="footerAddForm" id="footerAddForm">
+                <div class="hargaSewaForm">
+                    <div class="add-pages-form-group">
+                        <label for="hargaSewa">Harga Sewa</label>
+                        <input type="text" id="hargaSewa" name="hargaSewa" placeholder="Contoh: 150000" required>
+                    </div>
+                </div>
+                <div class="addAlamatForm">
+                    <section class="addAlamatFormLeft">
+                        <div class="add-pages-form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea name="alamat" id="alamat" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <button class="buttonTambahMobil">Tambahkan Mobil</button>
+        </form>
     `;
 };
 
@@ -555,8 +605,9 @@ module.exports = {
   createPartnerRegisterPages,
   createCarCollection,
   vehicleCheckin,
-  addRentalVehicle,
   partnerAfterRegistation,
   cardForListRentaled,
   userProfilePages,
+  createSearchBar,
+  addRentalVehicle,
 };

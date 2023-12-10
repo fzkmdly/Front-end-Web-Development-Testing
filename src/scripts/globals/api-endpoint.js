@@ -9,6 +9,7 @@ const API_ENDPOINT = {
   LOGIN: `${CONFIG.BASE_URL}/auth/login`,
   REGISTER: `${CONFIG.BASE_URL}/auth/register`,
   USER: `${CONFIG.BASE_URL}/user/profile`,
+  REGISTER_PARTNER: `${CONFIG.BASE_URL}/partner/create`,
 };
 
 export default API_ENDPOINT;
