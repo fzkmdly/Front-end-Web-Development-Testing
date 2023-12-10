@@ -1,30 +1,46 @@
-import authorization from '../../data/profileData';
+import API_ENDPOINT from '../../globals/api-endpoint';
 import {userProfilePages} from '../template/templateCreator';
 
 const userProfile = {
   async render() {
     return `
         <div id="userProfile" class="userProfile">
-
         </div>
         `;
   },
 
   async afterRender() {
     try {
-      const userContainer = document.getElementById('userProfile');
-      const loginInfo = JSON.parse(localStorage.getItem('loginInfo'));
-      // Check if loginInfo exists and has the uid property
-      if (loginInfo && loginInfo.uid) {
-        const uid = loginInfo.uid;
-        console.log('UID:', uid);
+      const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+      const accessToken = loginInfo.uid || '';
+
+      // Fetch user profile data using the access token
+      const response = await fetch(`${API_ENDPOINT.PROFILE}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const userData = await response.json();
+
+        // Ensure that userData.data.user contains the expected structure
+        if (userData && userData.data && userData.data.user) {
+          // Generate the HTML content for user profile using the template
+          const userProfileContent = userProfilePages(userData.data.user);
+
+          // Render the generated content inside the userProfile element
+          const userProfileElement = document.getElementById('userProfile');
+          userProfileElement.innerHTML = userProfileContent;
+        } else {
+          console.error('Invalid user profile data structure:', userData);
+        }
       } else {
-        console.error('UID not found in loginInfo');
+        console.error('Failed to fetch user profile:', response.status, response.statusText);
       }
-      const data = authorization(loginInfo.uid);
-      userContainer.innerHTML = userProfilePages(data);
     } catch (error) {
-      console.log(error);
+      console.error('Error:', error);
     }
   },
 };
