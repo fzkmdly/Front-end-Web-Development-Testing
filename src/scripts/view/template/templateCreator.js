@@ -461,32 +461,32 @@ const userProfilePages = (user) => {
     <div class="userContainer" id="userContainer">
         <h1>Akun User</h1>
         <section class="topUserProfile" id="topUserProfile">
-            <img src="https://i.pinimg.com/564x/4b/2b/fc/4b2bfcce01f714c6f0a39eccf655f01f.jpg" width="200px" alt="oke">
-            <h3>Ryo Yamada</h3>
+            <img src="${user.urlImage}" width="200px" alt="oke">
+            <h3>${user.username}</h3>
             <p>Penyewa</p>
         </section>
         <section class="bodyUserProfile" id="bodyUserProfile">
             <a href="">
                 <div class="userEditProfile profileOption">
-                    <img src="./icon/VectorEdit.png" alt="">
+                    <img src="./images/icons/userProfile-page/VectorEdit.png" alt="">
                     <h5>Edit Profile</h5>
                 </div>
             </a>
             <a href="#/">
                 <div class="RentHistoBttn profileOption">
-                    <img src="./icon/Car-V8.png" alt="">
+                    <img src="./images/icons/userProfile-page/Car-V8.png" alt="">
                     <h5>Riwayat Sewa Mobil</h5>
                 </div>
             </a>
-            <a href="">
+            <a href="" style="display: none;">
                 <div class="RentaledHistoBttn profileOption">
-                    <img src="./icon/Car-Maintenance.png" alt="">
+                    <img src="./images/icons/userProfile-page/Car-Maintenance.png" alt="">
                     <h5>Riwayat Penyewaan Mobil</h5>
                 </div>
             </a>
             <a href="">
                 <div class="logOutBttn profileOption">
-                    <img src="./icon/Logout.png" alt="">
+                    <img src="./images/icons/userProfile-page/Logout.png" alt="">
                     <h5>Log Out</h5>
                 </div>
             </a>

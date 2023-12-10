@@ -27,7 +27,7 @@ const routes = {
   '/tac': TaC,
   '/addvehicle': addVehicle,
   '/forgot-password': ForgotPassword,
-  '/user/:id': userProfile,
+  '/user': userProfile,
 };
 
 export default routes;

@@ -33,6 +33,9 @@ const assetsToCache = [
   './app.bundle.js',
   './app.webmanifest',
   './sw.bundle.js',
+  './images/icons/userProfile-page/Group 37010.png',
+  './images/icons/userProfile-page/Rectangle 86.png',
+  './images/icons/userProfile-page/Vector.png',
 ];
 
 self.addEventListener('install', (event) => {

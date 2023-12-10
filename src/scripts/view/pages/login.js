@@ -65,6 +65,7 @@ const Login = {
       });
 
       const data = await response.json();
+      console.log(data);
 
       if (response.ok) {
         Swal.fire({
@@ -78,6 +79,7 @@ const Login = {
             email: data.data.email,
             roles: data.data.roles,
             password: password,
+            // urlImage: data.data.urlImage,
           };
           localStorage.setItem('loginInfo', JSON.stringify(loginInfo));
           console.log('Login successful from API:', data);
