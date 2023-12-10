@@ -26,12 +26,31 @@ class CarDbSource {
     return this.fetchData(url).then((responseJson) => responseJson.data.vehicles);
   }
 
+  static async getUserProfile() {
+    const url = API_ENDPOINT.PROFILE;
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${this.getAccessToken()}`,
+      },
+    };
+
+    const response = await this.fetchData(url, options);
+    return response.data.user;
+  }
+
+  static getAccessToken() {
+    const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+    return loginInfo.uid || '';
+  }
+
   static async postCar(data) {
-    const url = API_ENDPOINT.POST_CAR;
+    const url = API_ENDPOINT.CREATE_CAR;
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.getAccessToken()}`,
+        'Content-Type': 'multipart/form-data',
       },
       data: JSON.stringify(data),
     };

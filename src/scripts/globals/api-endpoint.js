@@ -5,7 +5,7 @@ const API_ENDPOINT = {
   LIST: `${CONFIG.BASE_URL_VEHICLE}/list`,
   BRAND: `${CONFIG.BASE_URL_VEHICLE}/vehicle-brand`,
   DETAIL: (id) => `${CONFIG.BASE_URL_VEHICLE}/detail/${id}`,
-  POST_CAR: `${CONFIG.BASE_URL}/post`,
+  CREATE_CAR: `${CONFIG.BASE_URL}/partner-vehicle`,
   LOGIN: `${CONFIG.BASE_URL}/auth/login`,
   REGISTER: `${CONFIG.BASE_URL}/auth/register`,
   PROFILE: `${CONFIG.BASE_URL}/user/profile`,

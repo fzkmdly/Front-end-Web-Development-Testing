@@ -399,7 +399,7 @@ const cardForListRentaled = () => {
 const userProfilePages = (userData) => {
   return `
     <div class="userContainer" id="userContainer">
-        <h1>Akun User</h1>
+        <h1>Detail Akun</h1>
         <section class="topUserProfile" id="topUserProfile">
             <img src="${userData.urlImage}" width="200px" alt="oke">
             <h3>${userData.username.toUpperCase()}</h3>
