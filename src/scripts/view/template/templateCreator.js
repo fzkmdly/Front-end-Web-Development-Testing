@@ -477,15 +477,15 @@ const createSearchBar = () => {
 
 const addRentalVehicle = () => {
   return `
-        <form action="" method="post">
+        <form id="addVehicleForm">
             <h1>Data Mobil</h1>
             <div class="inputFotoMobil">
                 <div id="imagePreviewContainer" class="imagePreviewContainer">
-                    <img src="https://i.pinimg.com/564x/00/00/5f/00005f2792a21e1b29d08638dc3d1027.jpg"  id="imagePreview" alt="Pratinjau Gambar" width="150px">
+                    <img src="https://i.pinimg.com/564x/00/00/5f/00005f2792a21e1b29d08638dc3d1027.jpg" id="imagePreview" alt="Pratinjau Gambar" width="150px">
                 </div>
                 <div class="inputFotoMobilContainer">
                     <!-- <img src="./src/public/images/icons/partner-page-icon/Vector.png" width="100px" alt="" srcset=""> -->
-                    <input type="file" id="fileInput" accept="image/*" onchange="previewImage()" >
+                    <input type="file" name="file" id="vehicleImage" accept="image/png, image/jpeg" onchange="previewImage()" >
                 </div>
             </div>
             <div class="bodyInputMobil">
@@ -496,7 +496,7 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="platMobil">Nomor Pelat Kendaraan</label>
-                        <input type="text" id="platMobil" name="platMobil" placeholder="Contoh: B1234PP" required>
+                        <input type="text" id="plateNumber" name="plateNumber" placeholder="Contoh: B1234PP" required>
                     </div>
                     <div class="add-pages-form-group">
                         <label for="stnk">STNK</label>
@@ -504,17 +504,17 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="tipeMobil">Tipe Kendaraan</label>
-                        <input type="text" id="tipeMobil" name="tipeMobil" required>
+                        <input type="text" id="type" name="type" required>
                     </div>
                 </div>
                 <div class="bodyInputMobilRight">
                     <div class="add-pages-form-group">
                         <label for="namaMobil">Seri</label>
-                        <input type="text" id="namaMobil" name="namaMobil" placeholder="Contoh: Agya, Ayla" required>
+                        <input type="text" id="name" name="name" placeholder="Contoh: Agya, Ayla" required>
                     </div>
                     <div class="add-pages-form-group">
                         <label for="tahunKeluaran">Tahun</label>
-                        <input type="text" id="tahunKeluaran" name="tahunKeluaran" placeholder="Contoh: 2023" required>
+                        <input type="text" id="year" name="year" placeholder="Contoh: 2023" required>
                     </div>
                     <div class="add-pages-form-group">
                         <label for="bpkb">BPKB</label>
@@ -522,31 +522,31 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="maxPenumpang">Maksimum Penumpang</label>
-                        <input type="text" id="maxPenumpang" name="maxPenumpang" placeholder="Contoh: 4" required>
+                        <input type="text" id="seats" name="seats" placeholder="Contoh: 4" required>
                     </div>
                 </div>
             </div>
             <div class="addVehicleDesc">
                 <label for="deskripsi">Deskripsi Mobil</label>
-                <textarea id="deskripsi" name="deskripsi" rows="4" placeholder="Deskripsikan mobil Anda secara singkat" required></textarea>
+                <textarea id="description" name="description" rows="4" placeholder="Deskripsikan mobil Anda secara singkat" required></textarea>
             </div>
             <div class="footerAddForm" id="footerAddForm">
                 <div class="hargaSewaForm">
                     <div class="add-pages-form-group">
                         <label for="hargaSewa">Harga Sewa</label>
-                        <input type="text" id="hargaSewa" name="hargaSewa" placeholder="Contoh: 150000" required>
+                        <input type="text" id="cost" name="cost" placeholder="Contoh: 150000" required>
                     </div>
                 </div>
                 <div class="addAlamatForm">
                     <section class="addAlamatFormLeft">
                         <div class="add-pages-form-group">
                             <label for="alamat">Alamat</label>
-                            <textarea name="alamat" id="alamat" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
+                            <textarea name="address" id="address" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
                         </div>
                     </section>
                 </div>
             </div>
-            <button class="buttonTambahMobil">Tambahkan Mobil</button>
+            <button type="submit" class="buttonTambahMobil">Tambahkan Mobil</button>
         </form>
     `;
 };
