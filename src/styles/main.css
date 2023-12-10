@@ -862,29 +862,30 @@ width: 100%;
   margin-bottom: 15px;
 }
 
-.vehicleInfoPrice a {
-  margin-top: 40px;
-  margin-inline: 6px;
+.vehicleInfoPrice .sewaButton {
+  margin-top: 4px;
+  margin-inline: 18px;
   padding-inline: 15px;
   padding-block: 6px;
   text-decoration: none;
   color: white;
-  background-color: #F45D48;
+  background-color: red;
   border-radius: 30px;
 }
 
-.vehicleDetailOptionRent {
+.vehicleDetailOptionRent, .whatsappButton {
   display: flex;
   flex-direction: row;
+  margin-top: 14px
 }
 
-.vehicleDetailOptionRent .chat {
+.whatsappButton .chat {
   padding-inline: 15px;
   padding-block: 6px;
   text-decoration: none;
   color: white;
-  background-color: #065c5c;
   border-radius: 30px;
+  max-width: 48%;
 }
 
 .vehicleDetailDesc {

@@ -49,6 +49,7 @@ const vehicleDetail = (vehicles) => {
     <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${index + 1} dari ${vehicles.vehicleInformation.name}" />
   `).join('');
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+  const WhatsAppLink = `https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Halo, Bapak/Ibu ${vehicles.partner.partnerName}%0A%0ASaya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O`;
 
   return `
           <article id="vehicleDetail" class="vehicleDetail">
@@ -64,8 +65,13 @@ const vehicleDetail = (vehicles) => {
                     <div class="vehicleInfoPrice">
                         <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
                         <div class="vehicleDetailOptionRent">
-                            <a href="#/checking/${vehicles.vehicleId}">Sewa Sekarang</a>
-                            <a href="https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Saya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O" class="chat" target="_blank">Chat</a>
+                            <a href="#/checking/${vehicles.vehicleId}" class="sewaButton">Sewa Sekarang</a>
+                        </div>
+                        <div class="whatsappButton">
+                            <a aria-label="Chat on WhatsApp" 
+                            href="${WhatsAppLink}" 
+                            class="chat" target="_blank"><img alt="Chat on WhatsApp" 
+                            src="./images/assets/icons/WhatsApp Button.png" /></a>
                         </div>
                     </div>
                 </div>

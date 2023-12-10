@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Swal from 'sweetalert2';
 import {
   cardForListRentaled,
@@ -116,30 +117,28 @@ const Partner = {
             const kodePos = document.getElementById('postalCode_KTP').value;
 
             // Make a POST request to the /partner/create endpoint
-            const response = await fetch(API_ENDPOINT.REGISTER_PARTNER, {
-              method: 'POST',
+            const response = await axios.post(API_ENDPOINT.REGISTER_PARTNER, {
+              phoneNumber: nomorHP,
+              fullName_KTP: nama,
+              nik_KTP: nik,
+              address_KTP: alamatKTP,
+              city_KTP: kota,
+              province_KTP: provinsi,
+              postalCode_KTP: kodePos,
+              placeBirth_KTP: tempatLahir,
+              dateBirth_KTP: tanggalLahir,
+              type_SIM: jenisSIM,
+              number_SIM: nomorSIM,
+              expired_SIM: berlakuSIM,
+            }, {
               headers: {
                 'Authorization': `Bearer ${accessToken}`, // Use the access token from 'uid'
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify({
-                phoneNumber: nomorHP,
-                fullName_KTP: nama,
-                nik_KTP: nik,
-                address_KTP: alamatKTP,
-                city_KTP: kota,
-                province_KTP: provinsi,
-                postalCode_KTP: kodePos,
-                placeBirth_KTP: tempatLahir,
-                dateBirth_KTP: tanggalLahir,
-                type_SIM: jenisSIM,
-                number_SIM: nomorSIM,
-                expired_SIM: berlakuSIM,
-              }),
             });
 
             // Check if the request was successful
-            if (response.ok) {
+            if (response.status >= 200 && response.status < 300) {
               // Handle success (e.g., show a success message)
               Swal.fire({
                 title: 'Berhasil Daftar',
