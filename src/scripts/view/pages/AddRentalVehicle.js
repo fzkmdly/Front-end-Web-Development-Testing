@@ -4,9 +4,9 @@ import API_ENDPOINT from '../../globals/api-endpoint';
 const addVehicle = {
   async render() {
     return `
-        <div id="addYourVehicle" class="addYourVehicle">
-        </div>
-        `;
+      <div id="addYourVehicle" class="addYourVehicle">
+      </div>
+    `;
   },
 
   async afterRender() {
@@ -19,49 +19,55 @@ const addVehicle = {
       addVehicleForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        const formData = new FormData(); // Create a FormData object
+
+        // Add image file to FormData
         const fileInput = document.getElementById('vehicleImage');
         const file = fileInput.files[0];
-
-        if (!file) {
-          console.error('No file selected');
-          return;
+        if (file) {
+          formData.append('vehicleImage', file);
         }
 
-        const reader = new FileReader();
+        // Add other form data to FormData (replace 'name' with actual field names)
+        formData.append('name', document.getElementById('name').value);
+        formData.append('description', document.getElementById('description').value);
+        formData.append('plateNumber', document.getElementById('plateNumber').value);
+        formData.append('stnk', document.getElementById('stnk').value);
+        formData.append('type', document.getElementById('type').value);
+        formData.append('brand', document.getElementById('brand').value);
+        formData.append('year', document.getElementById('year').value);
+        formData.append('bpkb', document.getElementById('bpkb').value);
+        formData.append('seats', document.getElementById('seats').value);
+        formData.append('cost', document.getElementById('cost').value);
+        formData.append('location', document.getElementById('location').value);
+        formData.append('address', document.getElementById('address').value);
 
-        reader.onload = async function(e) {
-          const imageDataURL = e.target.result;
+        // Retrieve Bearer token from local storage
+        const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+        const accessToken = loginInfo.uid || '';
 
-          // Retrieve Bearer token from local storage
-          const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
-          const accessToken = loginInfo.uid || '';
+        // Make the API request with FormData
+        try {
+          const response = await fetch(API_ENDPOINT.CREATE_CAR, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${accessToken}`,
+            },
+            body: formData,
+          });
 
-          // Make the API request with imageDataURL
-          try {
-            const response = await fetch(API_ENDPOINT.CREATE_CAR, {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'multipart/form-data', // Change the Content-Type if needed
-              },
-              body: JSON.stringify({image: imageDataURL /* other form data */}),
-            });
-
-            // Check if the request was successful
-            if (response.ok) {
-              const result = await response.json();
-              console.log('Vehicle added successfully:', result);
-              // Optionally, you can redirect or perform other actions upon success
-            } else {
-              // Handle error response
-              console.error('Failed to add vehicle:', response.statusText);
-            }
-          } catch (error) {
-            console.error('Error adding vehicle:', error);
+          // Check if the request was successful
+          if (response.ok) {
+            const result = await response.json();
+            console.log('Vehicle added successfully:', result);
+            // Optionally, you can redirect or perform other actions upon success
+          } else {
+            // Handle error response
+            console.error('Failed to add vehicle:', response.statusText);
           }
-        };
-
-        reader.readAsDataURL(file);
+        } catch (error) {
+          console.error('Error adding vehicle:', error);
+        }
       });
     } catch (error) {
       console.log(error);

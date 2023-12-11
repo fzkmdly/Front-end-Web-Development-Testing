@@ -492,7 +492,15 @@ const addRentalVehicle = () => {
                 <div class="bodyInputMobilLeft">
                     <div class="add-pages-form-group">
                         <label for="brand">Merek Kendaraan</label>
-                        <input type="text" id="brand" name="brand" placeholder="Contoh: Honda, Toyota" required>
+                        <select id="brand">
+                            <option value="Daihatsu">Daihatsu</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Hyundai">Hyundai</option>
+                        </select>
                     </div>
                     <div class="add-pages-form-group">
                         <label for="platMobil">Nomor Pelat Kendaraan</label>
@@ -503,8 +511,11 @@ const addRentalVehicle = () => {
                         <input type="text" id="stnk" name="stnk" required>
                     </div>
                     <div class="add-pages-form-group">
-                        <label for="tipeMobil">Tipe Kendaraan</label>
-                        <input type="text" id="type" name="type" required>
+                        <label for="tipe-kendaraan">Tipe Kendaraan</label>
+                        <select id="type">
+                            <option value="Mobil">Mobil</option>
+                            <option value="Motor">Motor</option>
+                        </select>
                     </div>
                 </div>
                 <div class="bodyInputMobilRight">
@@ -514,7 +525,7 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="tahunKeluaran">Tahun</label>
-                        <input type="text" id="year" name="year" placeholder="Contoh: 2023" required>
+                        <input type="number" id="year" name="year" placeholder="Contoh: 2023" required>
                     </div>
                     <div class="add-pages-form-group">
                         <label for="bpkb">BPKB</label>
@@ -522,7 +533,11 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="maxPenumpang">Maksimum Penumpang</label>
-                        <input type="text" id="seats" name="seats" placeholder="Contoh: 4" required>
+                        <select id="seats" name="seats">
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="7">7</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -536,6 +551,20 @@ const addRentalVehicle = () => {
                         <label for="hargaSewa">Harga Sewa</label>
                         <input type="text" id="cost" name="cost" placeholder="Contoh: 150000" required>
                     </div>
+                </div>
+                <div class="addAlamatForm">
+                    <section class="addAlamatFormLeft">
+                        <div class="add-pages-form-group">
+                            <label for="lokasi">Lokasi</label>
+                            <select id="location">
+                                <option value="Jakarta">Jakarta</option>
+                                <option value="Bogor">Bogor</option>
+                                <option value="Depok">Depok</option>
+                                <option value="Tangerang">Tangerang</option>
+                                <option value="Bekasi">Bekasi</option>
+                            </select>
+                        </div>
+                    </section>
                 </div>
                 <div class="addAlamatForm">
                     <section class="addAlamatFormLeft">
