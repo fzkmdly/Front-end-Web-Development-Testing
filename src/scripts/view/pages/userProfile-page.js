@@ -70,8 +70,10 @@ const userProfile = {
               return;
             }
 
-            const userProfileData = await response.json();
-            userData.urlImage = userProfileData.urlImage;
+            const apiResponse = await response.json();
+            const imageUrl = apiResponse.data.imageUrl;
+
+            userData.urlImage = imageUrl;
 
             const updatedUserProfileContent = userProfilePages(userData);
             userProfileElement.innerHTML = updatedUserProfileContent;
