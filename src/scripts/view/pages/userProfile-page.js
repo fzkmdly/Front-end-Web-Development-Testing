@@ -42,56 +42,65 @@ const userProfile = {
         const fileInput = document.createElement('input');
         fileInput.type = 'file';
         fileInput.accept = 'image/*';
-        fileInput.click();
 
         fileInput.addEventListener('change', async (event) => {
           const file = event.target.files[0];
 
-          const formData = new FormData();
-          formData.append('image', file);
+          // Display image preview
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            Swal.fire({
+              imageUrl: e.target.result,
+              showCancelButton: true,
+              confirmButtonText: 'Upload',
+              showLoaderOnConfirm: true,
+              preConfirm: async () => {
+                const formData = new FormData();
+                formData.append('image', file);
 
-          try {
-            const response = await fetch(API_ENDPOINT.UPLOAD_PROFILE_IMAGE, {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${CarDbSource.getAccessToken()}`,
+                try {
+                  const response = await fetch(API_ENDPOINT.UPLOAD_PROFILE_IMAGE, {
+                    method: 'POST',
+                    headers: {
+                      Authorization: `Bearer ${CarDbSource.getAccessToken()}`,
+                    },
+                    body: formData,
+                  });
+
+                  if (!response.ok) {
+                    const errorResponse = await response.json();
+                    const errorMessage = errorResponse.message || 'Error: gagal mengubah foto profil!';
+                    throw new Error(errorMessage);
+                  }
+
+                  const apiResponse = await response.json();
+                  const imageUrl = apiResponse.data.imageUrl;
+
+                  userData.urlImage = imageUrl;
+
+                  const updatedUserProfileContent = userProfilePages(userData);
+                  userProfileElement.innerHTML = updatedUserProfileContent;
+
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: 'Foto profil berhasil diubah!',
+                  });
+                } catch (error) {
+                  console.error(error);
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Kesalahan',
+                    text: error.message || 'Terjadi kesalahan saat mengunggah foto!',
+                  });
+                }
               },
-              body: formData,
             });
-
-            if (!response.ok) {
-              const errorResponse = await response.json();
-              const errorMessage = errorResponse.message || 'Error: gagal mengubah foto profil!';
-              Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: errorMessage,
-              });
-              return;
-            }
-
-            const apiResponse = await response.json();
-            const imageUrl = apiResponse.data.imageUrl;
-
-            userData.urlImage = imageUrl;
-
-            const updatedUserProfileContent = userProfilePages(userData);
-            userProfileElement.innerHTML = updatedUserProfileContent;
-
-            Swal.fire({
-              icon: 'success',
-              title: 'Berhasil',
-              text: 'Foto profil berhasil diubah!',
-            });
-          } catch (error) {
-            console.error(error);
-            Swal.fire({
-              icon: 'error',
-              title: 'Kesalahan',
-              text: 'Terjadi kesalahan saat mengunggah foto!',
-            });
-          }
+          };
+          reader.readAsDataURL(file);
         });
+
+        fileInput.click();
       });
     } catch (error) {
       console.error('Error:', error);
