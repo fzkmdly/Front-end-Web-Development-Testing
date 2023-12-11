@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 import {
   cardForListRentaled,
   createPartnerRegisterPages,
