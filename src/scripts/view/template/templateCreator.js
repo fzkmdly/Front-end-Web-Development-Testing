@@ -261,7 +261,7 @@ const vehicleCheckin = (vehicle) =>{
   `;
 };
 
-const partnerAfterRegistation = (vehicle) => {
+const partnerAfterRegistation = (vehicles) => {
   return `
       <style>
       /* Add your styles here */
