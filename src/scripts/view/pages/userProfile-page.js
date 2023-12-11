@@ -12,17 +12,22 @@ const userProfile = {
 
   async afterRender() {
     try {
+      // Check if the user is logged in
+      const loginInfo = localStorage.getItem('loginInfo');
+      if (!loginInfo) {
+        alert('Please log in to view the user profile.');
+        return;
+      }
+
       // Fetch user profile data using the integrated method
       const userData = await CarDbSource.getUserProfile();
 
-      // Generate the HTML content for user profile using the template
       const userProfileContent = userProfilePages(userData);
 
       // Render the generated content inside the userProfile element
       const userProfileElement = document.getElementById('userProfile');
       userProfileElement.innerHTML = userProfileContent;
 
-      // Add event listener for edit profile button
       const editProfilePictureButton = document.getElementById('editProfilePictureButton');
       editProfilePictureButton.addEventListener('click', async () => {
         // Open file selection dialog
@@ -60,7 +65,7 @@ const userProfile = {
               return;
             }
 
-            // Update user profile data with the new image URL
+            // Update the user profile data with the new image URL
             const userProfileData = await response.json();
             userData.urlImage = userProfileData.urlImage;
 
