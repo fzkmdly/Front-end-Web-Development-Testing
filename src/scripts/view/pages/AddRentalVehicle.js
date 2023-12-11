@@ -1,5 +1,6 @@
 import {addRentalVehicle} from '../template/templateCreator';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 
 const addVehicle = {
   async render() {
@@ -19,7 +20,7 @@ const addVehicle = {
       addVehicleForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const formData = new FormData(); // Create a FormData object
+        const formData = new FormData();
 
         // Add image file to FormData
         const fileInput = document.getElementById('vehicleImage');
@@ -58,15 +59,27 @@ const addVehicle = {
 
           // Check if the request was successful
           if (response.ok) {
-            const result = await response.json();
-            console.log('Vehicle added successfully:', result);
-            // Optionally, you can redirect or perform other actions upon success
+            Swal.fire({
+              title: 'Sukses',
+              text: 'Kendaraan berhasil ditambahkan!',
+              icon: 'success',
+            }).then(() => {
+              location.reload();
+            });
           } else {
-            // Handle error response
-            console.error('Failed to add vehicle:', response.statusText);
+            const result = await response.json();
+            Swal.fire({
+              title: 'Kesalahan',
+              text: `Gagal menambahkan kendaraan: ${result.message}`,
+              icon: 'error',
+            });
           }
         } catch (error) {
-          console.error('Error adding vehicle:', error);
+          Swal.fire({
+            title: 'Kesalahan',
+            text: `Gagal menambahkan kendaraan: ${error}`,
+            icon: 'error',
+          });
         }
       });
     } catch (error) {

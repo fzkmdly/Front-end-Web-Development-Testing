@@ -549,7 +549,7 @@ const addRentalVehicle = () => {
                 <div class="hargaSewaForm">
                     <div class="add-pages-form-group">
                         <label for="hargaSewa">Harga Sewa</label>
-                        <input type="text" id="cost" name="cost" placeholder="Contoh: 150000" required>
+                        <input type="number" id="cost" name="cost" placeholder="Contoh: 150000" required>
                     </div>
                 </div>
                 <div class="addAlamatForm">
@@ -570,7 +570,7 @@ const addRentalVehicle = () => {
                     <section class="addAlamatFormLeft">
                         <div class="add-pages-form-group">
                             <label for="alamat">Alamat</label>
-                            <textarea name="address" id="address" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
+                            <textarea name="address" id="address" rows="4" placeholder="Masukkan alamat Anda secara lengkap" required></textarea>
                         </div>
                     </section>
                 </div>
