@@ -19,7 +19,17 @@ const Login = {
   },
 
   async afterRender() {
+    const loginForm = document.getElementById('login-form');
     const loginBtn = document.getElementById('login-btn');
+
+    // Attach event listeners
+    loginForm.addEventListener('submit', this.handleLogin);
+    loginForm.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        this.handleLogin(event);
+      }
+    });
     loginBtn.addEventListener('click', this.handleLogin);
   },
 

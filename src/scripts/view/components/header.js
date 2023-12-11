@@ -51,6 +51,7 @@ class headerBar extends HTMLElement {
 
     // Redirect ke halaman login setelah logout
     window.location.reload();
+    window.location.href = '#/home';
   }
 }
 
