@@ -1187,6 +1187,10 @@ width: 100%;
   border-radius: 100%;
 }
 
+.topUserProfile h2, .topUserProfile h3 {
+  margin: 0;
+}
+
 .bodyUserProfile {
   background-color: #F8F5F2;
   border-radius: 10px;
