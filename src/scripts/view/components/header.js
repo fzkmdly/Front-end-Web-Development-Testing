@@ -4,7 +4,8 @@ class headerBar extends HTMLElement {
   }
 
   render() {
-    const isAuthenticated = localStorage.getItem("uid") !== null;
+    const isAuthenticated = localStorage.getItem("loginInfo") !== null;
+    const userName = this.getUserName();
     this.innerHTML = `
     <nav id="nav" class="menu">
       <h1>
@@ -20,7 +21,7 @@ class headerBar extends HTMLElement {
         <li><a href="#/sewa">Sewa</a></li>
         ${
           isAuthenticated
-            ? `<li><a href="#" class="userName">${this.getUserName()}</a></li>
+            ? `<li><a href="#" class="userName">${userName}</a></li>
                <li><a href="#" class="logoutButton">Logout</a></li>`
             : `<li><a href="#/login" class="loginButton">Login</a></li>
                <li><a href="#/register" class="registerButton">Register</a></li>`
@@ -40,8 +41,8 @@ class headerBar extends HTMLElement {
   getUserName() {
     // Ambil nama pengguna dari penyimpanan lokal atau dari server (sesuai kebutuhan)
     const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
-    const userName = loginInfo ? loginInfo.username : null;
-    return userName || "User";
+    const username = loginInfo ? loginInfo.username : null;
+    return username || "User";
   }
   handleLogout() {
     console.log("Logout button clicked");
