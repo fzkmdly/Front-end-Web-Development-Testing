@@ -16,7 +16,7 @@ const userProfile = {
       if (!loginInfo) {
         Swal.fire({
           icon: 'info',
-          title: 'Anda belum login!',
+          title: 'Anda belum login',
           text: 'Mohon login untuk mengakses halaman ini.',
           showCancelButton: true,
           confirmButtonText: 'Log In',

@@ -43,13 +43,23 @@ sign Drawer
 }
 
 .loginButton {
-  background-color: #F45D48;
-  color: #FFFFFE;
+  background-color: #87C4FF;
+  color: #FFFFFE!important;
+}
+
+.loginButton:hover {
+  background-color: #39A7FF!important;
+  transition: 1.2s;
 }
 
 .registerButton {
-  background-color: #078080;
-  color: #FFFFFE;
+  background-color: #8E8FFA;
+  color: #FFFFFE!important;
+}
+
+.registerButton:hover {
+  background-color: #7752FE;
+  transition: 700ms;
 }
 
 
@@ -165,7 +175,6 @@ nav a:hover {
 }
 
 .menu-list a {
-  color: black;
   text-decoration: none;
   padding: 16px;
   font-weight: bold;
@@ -174,11 +183,11 @@ nav a:hover {
   display: inline;
   text-decoration: none;
   border-radius: 40px;
+  color: #000000;
 }
 
 .menu-list a:hover {
   transition-duration: 0.2s;
-  color: var(--hover-color);
 }
 
 .menu-button {
