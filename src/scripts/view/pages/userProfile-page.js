@@ -1,6 +1,7 @@
 import CarDbSource from '../../data/data-source';
 import {userProfilePages} from '../template/templateCreator';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 
 const userProfile = {
   async render() {
@@ -50,7 +51,12 @@ const userProfile = {
             if (!response.ok) {
               const errorResponse = await response.json();
               const errorMessage = errorResponse.message || 'Error: gagal mengubah foto profil!';
-              alert(errorMessage);
+              // Show error message using SweetAlert
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorMessage,
+              });
               return;
             }
 
@@ -62,11 +68,20 @@ const userProfile = {
             const updatedUserProfileContent = userProfilePages(userData);
             userProfileElement.innerHTML = updatedUserProfileContent;
 
-            // Show success message
-            alert('Foto profil berhasil diubah!');
+            // Show success message using SweetAlert
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Foto profil berhasil diubah!',
+            });
           } catch (error) {
             console.error(error);
-            alert('Error: terjadi kesalahan saat mengunggah foto!');
+            // Show error message using SweetAlert
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Error: terjadi kesalahan saat mengunggah foto!',
+            });
           }
         });
       });
