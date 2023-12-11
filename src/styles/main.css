@@ -615,7 +615,7 @@ width: 100%;
 }
 
 .footer-container {
-  padding-bottom: 1rem;
+  padding-bottom: 8px;
   padding-top: 8px;
 }
 
@@ -631,7 +631,7 @@ width: 100%;
 
 .github {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 6px;
   color: white;
 }
 
