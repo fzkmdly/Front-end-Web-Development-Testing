@@ -37,6 +37,7 @@ const assetsToCache = [
   './images/icons/userProfile-page/Rectangle 86.png',
   './images/icons/userProfile-page/Vector.png',
   './images/assets/icons/WhatsApp Button.png',
+  './scripts/script.js',
 ];
 
 self.addEventListener('install', (event) => {
