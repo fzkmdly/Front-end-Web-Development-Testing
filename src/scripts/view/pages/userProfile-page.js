@@ -78,15 +78,15 @@ const userProfile = {
 
             Swal.fire({
               icon: 'success',
-              title: 'Success',
+              title: 'Berhasil',
               text: 'Foto profil berhasil diubah!',
             });
           } catch (error) {
             console.error(error);
             Swal.fire({
               icon: 'error',
-              title: 'Error',
-              text: 'Error: terjadi kesalahan saat mengunggah foto!',
+              title: 'Kesalahan',
+              text: 'Terjadi kesalahan saat mengunggah foto!',
             });
           }
         });
