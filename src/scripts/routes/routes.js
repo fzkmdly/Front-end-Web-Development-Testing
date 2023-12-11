@@ -15,6 +15,7 @@ import userProfile from '../view/pages/userProfile-page';
 
 const routes = {
   '/': Home,
+  '/home': Home,
   '/detail/:id': Detail,
   '/partner': Partner,
   '/login': Login,

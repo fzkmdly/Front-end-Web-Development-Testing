@@ -4,7 +4,7 @@ class headerBar extends HTMLElement {
   }
 
   render() {
-    const isAuthenticated = localStorage.getItem("loginInfo") !== null;
+    const isAuthenticated = localStorage.getItem('loginInfo') !== null;
     const userName = this.getUserName();
     this.innerHTML = `
     <nav id="nav" class="menu">
@@ -20,40 +20,41 @@ class headerBar extends HTMLElement {
         <li><a href="#/partner">Partner</a></li>
         <li><a href="#/sewa">Sewa</a></li>
         ${
-          isAuthenticated
-            ? `<li><a href="#" class="userName">${userName}</a></li>
-               <li><a href="#" class="logoutButton">Logout</a></li>`
-            : `<li><a href="#/login" class="loginButton">Login</a></li>
+          isAuthenticated ?
+            `<li><a href="#/user" class="userName">${userName}</a></li>
+               <li><a href="#" class="logoutButton">Logout</a></li>` :
+            `<li><a href="#/login" class="loginButton">Login</a></li>
                <li><a href="#/register" class="registerButton">Register</a></li>`
-        }
+}
       </ul>
     </nav>
         `;
     if (isAuthenticated) {
       // Jika pengguna sudah login, tambahkan event listener untuk tombol logout
-      const logoutButton = this.querySelector(".logoutButton");
+      const logoutButton = this.querySelector('.logoutButton');
       if (logoutButton) {
-        logoutButton.addEventListener("click", this.handleLogout.bind(this));
+        logoutButton.addEventListener('click', this.handleLogout.bind(this));
       }
     }
   }
 
   getUserName() {
     // Ambil nama pengguna dari penyimpanan lokal atau dari server (sesuai kebutuhan)
-    const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+    const loginInfo = JSON.parse(localStorage.getItem('loginInfo'));
     const username = loginInfo ? loginInfo.username : null;
-    return username || "User";
+    return username || 'User';
   }
   handleLogout() {
-    console.log("Logout button clicked");
+    console.log('Logout button clicked');
     // Hapus informasi login dari localStorage
-    localStorage.removeItem("loginInfo");
+    localStorage.removeItem('loginInfo');
 
     this.render();
 
     // Redirect ke halaman login setelah logout
-    window.location.href = "#/login";
+    window.location.reload();
+    window.location.href = '#/home';
   }
 }
 
-customElements.define("app-header", headerBar);
+customElements.define('app-header', headerBar);
