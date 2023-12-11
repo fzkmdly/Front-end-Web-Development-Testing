@@ -21,7 +21,7 @@ class headerBar extends HTMLElement {
         <li><a href="#/sewa">Sewa</a></li>
         ${
           isAuthenticated
-            ? `<li><a href="#" class="userName">${userName}</a></li>
+            ? `<li><a href="#/user" class="userName">${userName}</a></li>
                <li><a href="#" class="logoutButton">Logout</a></li>`
             : `<li><a href="#/login" class="loginButton">Login</a></li>
                <li><a href="#/register" class="registerButton">Register</a></li>`
