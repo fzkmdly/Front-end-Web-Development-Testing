@@ -1183,12 +1183,33 @@ width: 100%;
   text-align: center;
 }
 
-.topUserProfile img {
+.userProfilePicture img {
   border-radius: 100%;
 }
 
-.topUserProfile h2, .topUserProfile h3 {
+.topUserProfile .name,
+.topUserProfile .email {
   margin: 0;
+}
+
+.topUserProfile .name {
+  font-size: xx-large;
+}
+
+.topUserProfile .email {
+  font-size: large;
+  font-weight: 400;
+}
+
+.topUserProfile button {
+  padding-inline: 14px;
+  padding-block: 5px;
+  border-radius: 20px;
+  background-color: #F45D48;
+  color: white;
+  border: 1px solid #F45D48;
+  margin-bottom: 14px;
+  margin-top: 2px;
 }
 
 .bodyUserProfile {

@@ -401,11 +401,13 @@ const userProfilePages = (userData) => {
     <div class="userContainer" id="userContainer">
         <h1>Detail Akun</h1>
         <section class="topUserProfile" id="topUserProfile">
-            <img src="${userData.urlImage}" width="200px" alt="oke">
-            <h2>${userData.username.toUpperCase()}</h2>
-            <h3>${userData.email}</h3>
-            <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
+            <div class="userProfilePicture">
+                <img src="${userData.urlImage}" width="200px" alt="oke">
+            </div>
             <button id="editProfilePictureButton">Ganti Foto Profil</button>
+            <h2 class="name">${userData.username.toUpperCase()}</h2>
+            <h3 class="email">${userData.email}</h3>
+            <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
         </section>
         <section class="bodyUserProfile" id="bodyUserProfile">
             <a href="">
