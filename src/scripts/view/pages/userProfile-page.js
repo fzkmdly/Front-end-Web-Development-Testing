@@ -15,7 +15,19 @@ const userProfile = {
       // Check if the user is logged in
       const loginInfo = localStorage.getItem('loginInfo');
       if (!loginInfo) {
-        alert('Please log in to view the user profile.');
+        Swal.fire({
+          icon: 'info',
+          title: 'Anda belum login!',
+          text: 'Mohon login untuk mengakses halaman ini.',
+          showCancelButton: true,
+          confirmButtonText: 'Log In',
+          cancelButtonText: 'Batal',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.hash = '#/login';
+          }
+        });
+
         return;
       }
 
