@@ -615,8 +615,8 @@ width: 100%;
 }
 
 .footer-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  padding-top: 8px;
 }
 
 .footer-container, .about-us-footer, .tac {
@@ -626,7 +626,7 @@ width: 100%;
 }
 
 .tac {
-  margin-bottom: 1rem;
+  margin-bottom: 8px;
 }
 
 .github {
@@ -640,7 +640,7 @@ width: 100%;
   color: #FFFFFE;
 }
 
-.github i:hover, .about-us a:hover, .tac a:hover {
+.github i:hover, .about-us-footer a:hover, .tac a:hover {
   color: #F45D48;
   transition: 750ms;
 }
