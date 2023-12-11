@@ -39,14 +39,14 @@ class headerBar extends HTMLElement {
 
   getUserName() {
     // Ambil nama pengguna dari penyimpanan lokal atau dari server (sesuai kebutuhan)
-    const userName = localStorage.getItem("username"); // Gantilah dengan key yang sesuai
-    return userName || "User"; // Jika tidak ada nama, kembalikan default 'User'
+    const loginInfo = JSON.parse(localStorage.getItem("loginInfo"));
+    const userName = loginInfo ? loginInfo.username : null;
+    return userName || "User";
   }
   handleLogout() {
     console.log("Logout button clicked");
     // Hapus informasi login dari localStorage
-    localStorage.removeItem("uid");
-    localStorage.removeItem("userName");
+    localStorage.removeItem("loginInfo");
 
     // Redirect ke halaman login setelah logout
     window.location.href = "#/login";
