@@ -49,6 +49,8 @@ class headerBar extends HTMLElement {
     // Hapus informasi login dari localStorage
     localStorage.removeItem("loginInfo");
 
+    this.render();
+
     // Redirect ke halaman login setelah logout
     window.location.href = "#/login";
   }
