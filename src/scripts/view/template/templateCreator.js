@@ -172,8 +172,8 @@ const createPartnerRegisterPages = () => {
             <label for="masaBerlaku">Masa Berlaku:</label>
             <input type="date" id="expired_SIM" name="expired_SIM" min="2023-01-01" required>
 
-            <label for="Jenis SIM">Jenis SIM:</label>
-            <select id="nomor-sim">
+            <label for="jenis-sim">Jenis SIM:</label>
+            <select id="jenis-sim">
                 <option value="A">SIM A</option>
                 <option value="B">SIM B</option>
                 <option value="C">SIM C</option>
