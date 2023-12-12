@@ -127,7 +127,7 @@ const Partner = {
               postalCode_KTP: kodePos,
               placeBirth_KTP: tempatLahir,
               dateBirth_KTP: tanggalLahir,
-              jenis-sim: jenisSIM,
+              type_SIM: jenisSIM,
               number_SIM: nomorSIM,
               expired_SIM: berlakuSIM,
             }, {
