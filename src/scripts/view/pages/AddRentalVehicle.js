@@ -46,12 +46,29 @@ const addVehicle = {
         formData.append('bpkb', document.getElementById('bpkb').value);
         formData.append('seats', document.getElementById('seats').value);
         formData.append('cost', document.getElementById('cost').value);
+
+        const costInput = document.getElementById('cost').value;
+        const formattedCost = formatCostInput(costInput);
+        formData.delete('cost');
+        formData.append('cost', formattedCost);
+
         formData.append('location', document.getElementById('location').value);
         formData.append('address', document.getElementById('address').value);
 
         // Retrieve Bearer token from local storage
         const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
         const accessToken = loginInfo.uid || '';
+
+        const costInputField = document.getElementById('cost');
+        costInputField.addEventListener('input', function() {
+          // eslint-disable-next-line no-invalid-this
+          this.value = formatCostInput(this.value);
+        });
+
+        // Function to format the cost input
+        function formatCostInput(input) {
+          return input.replace(/[,.]/g, '');
+        }
 
         try {
           const response = await axios.post(API_ENDPOINT.CREATE_CAR, formData, {

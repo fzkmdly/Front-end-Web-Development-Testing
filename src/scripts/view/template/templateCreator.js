@@ -606,7 +606,7 @@ const addRentalVehicle = () => {
                         <label for="hargaSewa">Biaya Sewa</label>
                         <div class="input-group">
                             <span class="rupiah-symbol">Rp</span>
-                            <input type="number" id="cost" name="cost" placeholder="Contoh: 150000">
+                            <input type="float" id="cost" name="cost" placeholder="Contoh: 150.000">
                         </div>
                     </div>
                 </div>
