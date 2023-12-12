@@ -21,6 +21,11 @@ const addVehicle = {
       addVehicleForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        // Validate form fields
+        if (!validateForm()) {
+          return;
+        }
+
         const formData = new FormData();
 
         // Add image file to FormData
@@ -85,5 +90,54 @@ const addVehicle = {
     }
   },
 };
+
+// Function to validate the form fields
+function validateForm() {
+  const requiredFields = ['vehicleImage', 'brand', 'name', 'plateNumber', 'year', 'stnk', 'bpkb', 'type', 'seats', 'description', 'cost', 'location', 'address'];
+  for (const field of requiredFields) {
+    const inputField = document.getElementById(field);
+    const value = inputField.value.trim();
+    let displayValue = value;
+
+    if (!value) {
+      if (field === 'vehicleImage') {
+        displayValue = 'Gambar Kendaraan';
+      } else if (field === 'brand') {
+        displayValue = 'Merek';
+      } else if (field === 'name') {
+        displayValue = 'Seri';
+      } else if (field === 'plateNumber') {
+        displayValue = 'Nomor Plat';
+      } else if (field === 'year') {
+        displayValue = 'Tahun';
+      } else if (field === 'stnk') {
+        displayValue = 'STNK';
+      } else if (field === 'bpkb') {
+        displayValue = 'BPKB';
+      } else if (field === 'type') {
+        displayValue = 'Tipe Kendaraan';
+      } else if (field === 'seats') {
+        displayValue = 'Maksimum Penumpang';
+      } else if (field === 'description') {
+        displayValue = 'Deskripsi';
+      } else if (field === 'cost') {
+        displayValue = 'Biaya Sewa';
+      } else if (field === 'location') {
+        displayValue = 'Lokasi';
+      } else if (field === 'address') {
+        displayValue = 'Alamat';
+      }
+
+      Swal.fire({
+        title: 'Peringatan',
+        text: `Kolom ${displayValue} harus diisi.`,
+        icon: 'warning',
+      });
+
+      return false;
+    }
+  }
+  return true;
+}
 
 export default addVehicle;

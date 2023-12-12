@@ -1298,3 +1298,18 @@ width: 100%;
   width: 100%;
   margin-bottom: 10px;
 }
+
+/* Rupiah symbols */
+.add-pages-form-group {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.rupiah-symbol {
+  margin-right: 5px;
+  font-weight: bold; /* You can adjust the font-weight as needed */
+}
