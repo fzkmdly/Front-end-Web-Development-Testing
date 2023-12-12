@@ -1,4 +1,5 @@
 import {addRentalVehicle} from '../template/templateCreator';
+import axios from 'axios';
 import API_ENDPOINT from '../../globals/api-endpoint';
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 
@@ -47,18 +48,16 @@ const addVehicle = {
         const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
         const accessToken = loginInfo.uid || '';
 
-        // Make the API request with FormData
         try {
-          const response = await fetch(API_ENDPOINT.CREATE_CAR, {
-            method: 'POST',
+          const response = await axios.post(API_ENDPOINT.CREATE_CAR, formData, {
             headers: {
               'Authorization': `Bearer ${accessToken}`,
+              'Content-Type': 'multipart/form-data', // Set content type for FormData
             },
-            body: formData,
           });
 
           // Check if the request was successful
-          if (response.ok) {
+          if (response.status === 200) {
             Swal.fire({
               title: 'Sukses',
               text: 'Kendaraan berhasil ditambahkan!',
@@ -67,17 +66,16 @@ const addVehicle = {
               location.reload();
             });
           } else {
-            const result = await response.json();
             Swal.fire({
               title: 'Kesalahan',
-              text: `Gagal menambahkan kendaraan: ${result.message}`,
+              text: `Gagal menambahkan kendaraan: ${response.data.message}`,
               icon: 'error',
             });
           }
         } catch (error) {
           Swal.fire({
             title: 'Kesalahan',
-            text: `Gagal menambahkan kendaraan: ${error}`,
+            text: `Gagal menambahkan kendaraan: ${error.message}`,
             icon: 'error',
           });
         }

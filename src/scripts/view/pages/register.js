@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
+import axios from 'axios';
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Register = {
@@ -53,24 +54,18 @@ const Register = {
       return;
     }
 
-    // Make API call to register
+    // Make API call to register using Axios
     try {
-      const response = await fetch(API_ENDPOINT.REGISTER, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: name, // Assuming the server expects 'username'
-          email,
-          password,
-        }),
+      const response = await axios.post(API_ENDPOINT.REGISTER, {
+        username: name,
+        email,
+        password,
       });
 
-      const data = await response.json();
+      const data = response.data;
 
       // Handle response, you might want to redirect to a different page on success
-      if (response.ok) {
+      if (response.status === 200) {
         let successMessage;
 
         // Check the success message from the server response
