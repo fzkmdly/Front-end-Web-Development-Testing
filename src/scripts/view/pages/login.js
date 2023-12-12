@@ -46,22 +46,6 @@ const Login = {
       return;
     }
 
-    const storedLoginInfo = localStorage.getItem('loginInfo');
-
-    if (storedLoginInfo) {
-      const loginInfo = JSON.parse(storedLoginInfo);
-      if (email === loginInfo.email && password === loginInfo.password) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Login Berhasil',
-          text: 'Selamat datang kembali',
-        }).then(() => {
-          console.log('Login successful from localStorage:', loginInfo);
-        });
-        return;
-      }
-    }
-
     try {
       const response = await fetch(API_ENDPOINT.LOGIN, {
         method: 'POST',
