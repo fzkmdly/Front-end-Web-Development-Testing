@@ -109,7 +109,7 @@ const Partner = {
             const tanggalLahir = document.getElementById('dateBirth_KTP').value;
             const nomorSIM = document.getElementById('number_SIM').value;
             const berlakuSIM = document.getElementById('expired_SIM').value;
-            const jenisSIM = document.getElementById('type_SIM').value;
+            const jenisSIM = document.getElementById('jenis-sim').value;
             const nomorHP = document.getElementById('phoneNumber').value;
             const alamatKTP = document.getElementById('address_KTP').value;
             const kota = document.getElementById('city_KTP').value;
@@ -127,7 +127,7 @@ const Partner = {
               postalCode_KTP: kodePos,
               placeBirth_KTP: tempatLahir,
               dateBirth_KTP: tanggalLahir,
-              type_SIM: jenisSIM,
+              jenis-sim: jenisSIM,
               number_SIM: nomorSIM,
               expired_SIM: berlakuSIM,
             }, {
