@@ -754,8 +754,8 @@ const paymentCheck = (sessionDatas, vehicles) => {
                 </div>
                 <hr>
                 <div id="paymentTotalCheck" class="paymentTotalCheck">
-                    <label for="paymentIndexes">${sessionDatas.selisihHari} Hari x 1 Mobil</label>
-                    <input type="text" id="paymentCheck" name="paymentCheck" value="${timeCost}" readonly>
+                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x 1 mobil</label>
+                    <input type="text" id="paymentCheck" name="paymentCheck" value="${timeCost.toLocaleString('id-ID')}" readonly>
                 </div>
             </section>
             <button class="paymentConfirm">Bayar Sekarang</button>

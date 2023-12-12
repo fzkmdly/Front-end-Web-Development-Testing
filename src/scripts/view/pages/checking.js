@@ -21,13 +21,14 @@ const Checking = {
       checkingContainer.innerHTML += vehicleCheckin(vehicleData);
 
       const checkingButton = document.getElementById('insertData-btn');
-      checkingButton.addEventListener('click', this.bookingHandler);
+      checkingButton.addEventListener('click', this.bookingHandler.bind(this));
     } catch (error) {
       console.log(error);
     }
   },
 
   async bookingHandler() {
+    event.preventDefault();
     const formData = {
       tanggalMulai: document.getElementById('tanggalMulai').value,
       tanggalSelesai: document.getElementById('tanggalSelesai').value,
@@ -54,8 +55,8 @@ const Checking = {
         showConfirmButton: false,
         timer: 2000,
       }).then(() => {
-        window.location.hash = `#/checkout/${vehiclesData.vehicleId}`;
-        window.location.reload();
+        const url = UrlParser.parseActiveUrlWithoutCombiner();
+        window.location.hash = `#/checkout/${url.id}`;
       });
     } catch (error) {
       Swal.fire({
