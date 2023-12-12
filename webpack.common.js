@@ -67,7 +67,7 @@ module.exports = {
           urlPattern: new RegExp('^https://rento-backend-api-d6zuozodga-et.a.run.app/'),
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: 'API-Images-Cache',
+            cacheName: 'API-Cache',
             cacheableResponse: {
               statuses: [200],
             },
