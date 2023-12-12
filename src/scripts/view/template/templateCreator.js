@@ -174,6 +174,7 @@ const createPartnerRegisterPages = () => {
 
             <label for="jenis-sim">Jenis SIM:</label>
             <select id="jenis-sim">
+                <option disabled selected value="">Pilih Jenis SIM</option>
                 <option value="A">SIM A</option>
                 <option value="B">SIM B</option>
                 <option value="C">SIM C</option>
@@ -191,7 +192,47 @@ const createPartnerRegisterPages = () => {
             <input type="text" id="city_KTP" name="city_KTP" required>
 
             <label for="provinsi">Provinsi:</label>
-            <input type="text" id="province_KTP" name="province_KTP" required>
+            <select id="province_KTP">
+                <option disabled selected value="">Pilih Provinsi</option>
+                <option value="Aceh">Aceh</option>
+                <option value="Bali">Bali</option>
+                <option value="Banten">Banten</option>
+                <option value="Bengkulu">Bengkulu</option>
+                <option value="Gorontalo">Gorontalo</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Jambi">Jambi</option>
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                <option value="Lampung">Lampung</option>
+                <option value="Maluku">Maluku</option>
+                <option value="Maluku Utara">Maluku Utara</option>
+                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                <option value="Papua">Papua</option>
+                <option value="Papua Barat">Papua Barat</option>
+                <option value="Papua Pengunungan">Papua Pengunungan</option>
+                <option value="Papua Tengah">Papua Tengah</option>
+                <option value="Papua Selatan">Papua Selatan</option>
+                <option value="Papua Barat Daya">Papua Barat Daya</option>
+                <option value="Riau">Riau</option>
+                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                <option value="Sumatera Barat">Sumatera Barat</option>
+                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                <option value="Sumatera Utara">Sumatera Utara</option>
+                <option value="Yogyakarta">Yogyakarta</option>
+            </select>
 
             <label for="kodepos">Kode Pos:</label>
             <input type="text" id="postalCode_KTP" name="postalCode_KTP" required>
@@ -457,6 +498,7 @@ const createSearchBar = () => {
                     <label for="vehicle-type">Tipe Kendaraan</label>
                     <label for="vehicle-brand">Merek</label>
                     <select id="vehicle-location">
+                        <option disabled selected value="">Pilih Lokasi</option>
                         <option value="Jakarta">Jakarta</option>
                         <option value="Bogor">Bogor</option>
                         <option value="Depok">Depok</option>
@@ -464,10 +506,12 @@ const createSearchBar = () => {
                         <option value="Bekasi">Bekasi</option>
                     </select>
                     <select id="vehicle-type">
+                        <option disabled selected value="">Pilih Tipe Kendaraan</option>
                         <option value="Mobil">Mobil</option>
                         <option value="Motor">Motor</option>
                     </select>
                     <select id="vehicle-brand">
+                        <option disabled selected value="">Pilih Merek</option>
                         <option value="Daihatsu">Daihatsu</option>
                         <option value="Honda">Honda</option>
                         <option value="Toyota">Toyota</option>
@@ -501,6 +545,7 @@ const addRentalVehicle = () => {
                     <div class="add-pages-form-group">
                         <label for="brand">Merek Kendaraan</label>
                         <select id="brand">
+                            <option disabled selected value="">Pilih Merek</option>
                             <option value="Daihatsu">Daihatsu</option>
                             <option value="Honda">Honda</option>
                             <option value="Toyota">Toyota</option>
@@ -521,6 +566,7 @@ const addRentalVehicle = () => {
                     <div class="add-pages-form-group">
                         <label for="tipe-kendaraan">Tipe Kendaraan</label>
                         <select id="type">
+                            <option disabled selected value="">Pilih Tipe Kendaraan</option>
                             <option value="Mobil">Mobil</option>
                             <option value="Motor">Motor</option>
                         </select>
@@ -542,6 +588,7 @@ const addRentalVehicle = () => {
                     <div class="add-pages-form-group">
                         <label for="maxPenumpang">Maksimum Penumpang</label>
                         <select id="seats" name="seats">
+                            <option disabled selected value="">Pilih Maksimum Penumpang</option>
                             <option value="2">2</option>
                             <option value="4">4</option>
                             <option value="7">7</option>
@@ -565,6 +612,7 @@ const addRentalVehicle = () => {
                         <div class="add-pages-form-group">
                             <label for="lokasi">Lokasi</label>
                             <select id="location">
+                                <option disabled selected value="">Pilih Lokasi</option>
                                 <option value="Jakarta">Jakarta</option>
                                 <option value="Bogor">Bogor</option>
                                 <option value="Depok">Depok</option>
