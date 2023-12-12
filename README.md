@@ -1,6 +1,6 @@
 # Rent'O - Car Rental Service
 
-## Make a PR, please!
+Make a PR, please!
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/06d93c93-cd3f-4435-8b23-9dd73dae76fc/deploy-status)](https://app.netlify.com/sites/rent-o/deploys)
 
