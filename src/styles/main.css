@@ -1259,3 +1259,42 @@ width: 100%;
   margin-block: 0;
   margin-inline: 5px;
 }
+
+/* SIM Type at Partner Registration */
+#jenis-sim, #province_KTP {
+  padding-block: 5px;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+#province_KTP {
+  padding-block: 8px!important;
+}
+
+/* Header if Logged In */
+.userName {
+  background-color: #bf1722;
+  color: #ffffff!important;
+}
+
+.userName:hover {
+  background-color: #f7361d;
+  transition: 700ms;
+}
+
+.logoutButton {
+  background-color: #3F72AF;
+  color: #FFFFFE!important;
+}
+
+.logoutButton:hover {
+  background-color: #0F4C75!important;
+  transition: 1.2s;
+}
+
+/* Dropdown at Add Vehicle Image */
+#brand, #type, #seats {
+  padding-block: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+}
