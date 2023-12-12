@@ -10,6 +10,7 @@ const API_ENDPOINT = {
   REGISTER: `${CONFIG.BASE_URL}/auth/register`,
   PROFILE: `${CONFIG.BASE_URL}/user/profile`,
   REGISTER_PARTNER: `${CONFIG.BASE_URL}/partner/create`,
+  UPLOAD_PROFILE_IMAGE: `${CONFIG.BASE_URL}/user/profile/img`,
 };
 
 export default API_ENDPOINT;

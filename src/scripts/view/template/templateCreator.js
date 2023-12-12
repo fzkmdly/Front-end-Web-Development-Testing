@@ -261,6 +261,7 @@ const vehicleCheckin = (vehicle) =>{
   `;
 };
 
+// List of partner's rented vehicles
 const partnerAfterRegistation = (vehicles) => {
   return `
       <style>
@@ -374,15 +375,14 @@ const partnerAfterRegistation = (vehicles) => {
             </div>
         </section
       </div>
-
-      
   `;
 };
 
+// History of rented vehicles
 const cardForListRentaled = () => {
   return `
     <section class="rentaledHistory">
-        <img src="https://i.pinimg.com/736x/2c/61/d5/2c61d5d2790e1f902ecc15e63534a950.jpg" alt="">
+        <img src="https://pbs.twimg.com/media/GA0ybC5bQAADN6t?format=jpg&name=4096x4096" alt="">
         <div class="rentaledVehicleInfo">
             <h4>Hiroi Kikuri</h4>
             <p>Waifuku</p>
@@ -401,8 +401,12 @@ const userProfilePages = (userData) => {
     <div class="userContainer" id="userContainer">
         <h1>Detail Akun</h1>
         <section class="topUserProfile" id="topUserProfile">
-            <img src="${userData.urlImage}" width="200px" alt="oke">
-            <h3>${userData.username.toUpperCase()}</h3>
+            <div class="userProfilePicture">
+                <img src="${userData.urlImage}" width="200px" alt="oke">
+            </div>
+            <button id="editProfilePictureButton">Ganti Foto Profil</button>
+            <h2 class="name">${userData.username.toUpperCase()}</h2>
+            <h3 class="email">${userData.email}</h3>
             <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
         </section>
         <section class="bodyUserProfile" id="bodyUserProfile">
