@@ -50,8 +50,8 @@ const Checking = {
 
       Swal.fire({
         icon: 'info',
-        title: 'Data telah disimpan',
-        text: 'Mohon tunggu.....',
+        title: 'Menyiapkan data',
+        text: 'Permintaan Anda sedang diproses',
         showConfirmButton: false,
         timer: 2000,
       }).then(() => {
