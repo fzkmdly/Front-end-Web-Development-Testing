@@ -31,7 +31,7 @@ const Register = {
 
     // Get form data
     const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('email').value.toLowerCase();
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm_password').value;
 
@@ -65,19 +65,10 @@ const Register = {
       const data = response.data;
 
       // Handle response, you might want to redirect to a different page on success
-      if (response.status === 200) {
-        let successMessage;
-
-        // Check the success message from the server response
-        if (data.status === 'success' && data.message === 'Register user success!') {
-          successMessage = 'Registrasi Berhasil';
-        } else {
-          successMessage = 'Registrasi Gagal'; // Provide a default message if the format is unexpected
-        }
-
+      if (data.status === 'success') {
         Swal.fire({
           icon: 'success',
-          title: successMessage,
+          title: 'Registrasi Berhasil',
           html: `Kami telah mengirimkan email konfirmasi.<br>Silahkan cek kotak masuk Anda!</strong>`,
           focusConfirm: true,
           confirmButtonText: 'OK',
@@ -87,7 +78,7 @@ const Register = {
 
         // Update the error message based on the response
         let errorMessage = 'Registrasi gagal. Coba lagi nanti atau hubungi dukungan pelanggan.';
-        if (data.status === 'failed' && data.message === 'Email already exists') {
+        if (data.message === 'Email already exists') {
           errorMessage = 'Email sudah terdaftar. Gunakan email lain atau login menggunakan email tersebut.';
         }
 
@@ -108,6 +99,7 @@ const Register = {
       // Handle network errors or other exceptions
     }
   },
+
 };
 
 export default Register;

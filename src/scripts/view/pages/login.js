@@ -35,7 +35,7 @@ const Login = {
   },
 
   async handleLogin() {
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('email').value.toLowerCase();
     const password = document.getElementById('password').value;
 
     if (!email || !password) {
