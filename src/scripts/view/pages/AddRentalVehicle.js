@@ -1,4 +1,5 @@
 import {addRentalVehicle} from '../template/templateCreator';
+import axios from 'axios';
 import API_ENDPOINT from '../../globals/api-endpoint';
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 
@@ -20,6 +21,11 @@ const addVehicle = {
       addVehicleForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        // Validate form fields
+        if (!validateForm()) {
+          return;
+        }
+
         const formData = new FormData();
 
         // Add image file to FormData
@@ -40,6 +46,12 @@ const addVehicle = {
         formData.append('bpkb', document.getElementById('bpkb').value);
         formData.append('seats', document.getElementById('seats').value);
         formData.append('cost', document.getElementById('cost').value);
+
+        const costInput = document.getElementById('cost').value;
+        const formattedCost = formatCostInput(costInput);
+        formData.delete('cost');
+        formData.append('cost', formattedCost);
+
         formData.append('location', document.getElementById('location').value);
         formData.append('address', document.getElementById('address').value);
 
@@ -47,18 +59,27 @@ const addVehicle = {
         const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
         const accessToken = loginInfo.uid || '';
 
-        // Make the API request with FormData
+        const costInputField = document.getElementById('cost');
+        costInputField.addEventListener('input', function() {
+          // eslint-disable-next-line no-invalid-this
+          this.value = formatCostInput(this.value);
+        });
+
+        // Function to format the cost input
+        function formatCostInput(input) {
+          return input.replace(/[,.]/g, '');
+        }
+
         try {
-          const response = await fetch(API_ENDPOINT.CREATE_CAR, {
-            method: 'POST',
+          const response = await axios.post(API_ENDPOINT.CREATE_CAR, formData, {
             headers: {
               'Authorization': `Bearer ${accessToken}`,
+              'Content-Type': 'multipart/form-data', // Set content type for FormData
             },
-            body: formData,
           });
 
           // Check if the request was successful
-          if (response.ok) {
+          if (response.status === 200) {
             Swal.fire({
               title: 'Sukses',
               text: 'Kendaraan berhasil ditambahkan!',
@@ -67,17 +88,16 @@ const addVehicle = {
               location.reload();
             });
           } else {
-            const result = await response.json();
             Swal.fire({
               title: 'Kesalahan',
-              text: `Gagal menambahkan kendaraan: ${result.message}`,
+              text: `Gagal menambahkan kendaraan: ${response.data.message}`,
               icon: 'error',
             });
           }
         } catch (error) {
           Swal.fire({
             title: 'Kesalahan',
-            text: `Gagal menambahkan kendaraan: ${error}`,
+            text: `Gagal menambahkan kendaraan: ${error.message}`,
             icon: 'error',
           });
         }
@@ -87,5 +107,54 @@ const addVehicle = {
     }
   },
 };
+
+// Function to validate the form fields
+function validateForm() {
+  const requiredFields = ['vehicleImage', 'brand', 'name', 'plateNumber', 'year', 'stnk', 'bpkb', 'type', 'seats', 'description', 'cost', 'location', 'address'];
+  for (const field of requiredFields) {
+    const inputField = document.getElementById(field);
+    const value = inputField.value.trim();
+    let displayValue = value;
+
+    if (!value) {
+      if (field === 'vehicleImage') {
+        displayValue = 'Gambar Kendaraan';
+      } else if (field === 'brand') {
+        displayValue = 'Merek';
+      } else if (field === 'name') {
+        displayValue = 'Seri';
+      } else if (field === 'plateNumber') {
+        displayValue = 'Nomor Plat';
+      } else if (field === 'year') {
+        displayValue = 'Tahun';
+      } else if (field === 'stnk') {
+        displayValue = 'STNK';
+      } else if (field === 'bpkb') {
+        displayValue = 'BPKB';
+      } else if (field === 'type') {
+        displayValue = 'Tipe Kendaraan';
+      } else if (field === 'seats') {
+        displayValue = 'Maksimum Penumpang';
+      } else if (field === 'description') {
+        displayValue = 'Deskripsi';
+      } else if (field === 'cost') {
+        displayValue = 'Biaya Sewa';
+      } else if (field === 'location') {
+        displayValue = 'Lokasi';
+      } else if (field === 'address') {
+        displayValue = 'Alamat';
+      }
+
+      Swal.fire({
+        title: 'Peringatan',
+        text: `Kolom ${displayValue} harus diisi.`,
+        icon: 'warning',
+      });
+
+      return false;
+    }
+  }
+  return true;
+}
 
 export default addVehicle;

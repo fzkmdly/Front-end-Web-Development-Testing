@@ -557,11 +557,11 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="platMobil">Nomor Pelat Kendaraan</label>
-                        <input type="text" id="plateNumber" name="plateNumber" placeholder="Contoh: B1234PP" required>
+                        <input type="text" id="plateNumber" name="plateNumber" placeholder="Contoh: B1234PP">
                     </div>
                     <div class="add-pages-form-group">
                         <label for="stnk">STNK</label>
-                        <input type="text" id="stnk" name="stnk" required>
+                        <input type="text" id="stnk" name="stnk">
                     </div>
                     <div class="add-pages-form-group">
                         <label for="tipe-kendaraan">Tipe Kendaraan</label>
@@ -575,15 +575,15 @@ const addRentalVehicle = () => {
                 <div class="bodyInputMobilRight">
                     <div class="add-pages-form-group">
                         <label for="namaMobil">Seri</label>
-                        <input type="text" id="name" name="name" placeholder="Contoh: Agya, Ayla" required>
+                        <input type="text" id="name" name="name" placeholder="Contoh: Agya, Ayla">
                     </div>
                     <div class="add-pages-form-group">
                         <label for="tahunKeluaran">Tahun</label>
-                        <input type="number" id="year" name="year" placeholder="Contoh: 2023" required>
+                        <input type="number" id="year" name="year" placeholder="Contoh: 2023">
                     </div>
                     <div class="add-pages-form-group">
                         <label for="bpkb">BPKB</label>
-                        <input type="text" id="bpkb" name="bpkb" required>
+                        <input type="text" id="bpkb" name="bpkb">
                     </div>
                     <div class="add-pages-form-group">
                         <label for="maxPenumpang">Maksimum Penumpang</label>
@@ -597,14 +597,17 @@ const addRentalVehicle = () => {
                 </div>
             </div>
             <div class="addVehicleDesc">
-                <label for="deskripsi">Deskripsi Mobil</label>
-                <textarea id="description" name="description" rows="4" placeholder="Deskripsikan mobil Anda secara singkat" required></textarea>
+                <label for="deskripsi">Deskripsi</label>
+                <textarea id="description" name="description" rows="4" placeholder="Deskripsikan secara singkat"></textarea>
             </div>
             <div class="footerAddForm" id="footerAddForm">
                 <div class="hargaSewaForm">
                     <div class="add-pages-form-group">
-                        <label for="hargaSewa">Harga Sewa</label>
-                        <input type="number" id="cost" name="cost" placeholder="Contoh: 150000" required>
+                        <label for="hargaSewa">Biaya Sewa</label>
+                        <div class="input-group">
+                            <span class="rupiah-symbol">Rp</span>
+                            <input type="float" id="cost" name="cost" placeholder="Contoh: 150.000">
+                        </div>
                     </div>
                 </div>
                 <div class="addAlamatForm">
@@ -626,7 +629,7 @@ const addRentalVehicle = () => {
                     <section class="addAlamatFormLeft">
                         <div class="add-pages-form-group">
                             <label for="alamat">Alamat</label>
-                            <textarea name="address" id="address" rows="4" placeholder="Masukkan alamat Anda secara lengkap" required></textarea>
+                            <textarea name="address" id="address" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
                         </div>
                     </section>
                 </div>

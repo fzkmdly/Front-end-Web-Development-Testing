@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
+import axios from 'axios';
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Login = {
@@ -34,7 +35,7 @@ const Login = {
   },
 
   async handleLogin() {
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('email').value.toLowerCase();
     const password = document.getElementById('password').value;
 
     if (!email || !password) {
@@ -63,21 +64,15 @@ const Login = {
     }
 
     try {
-      const response = await fetch(API_ENDPOINT.LOGIN, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+      const response = await axios.post(API_ENDPOINT.LOGIN, {
+        email,
+        password,
       });
 
-      const data = await response.json();
+      const data = response.data;
       console.log(data);
 
-      if (response.ok) {
+      if (response.status === 200) {
         Swal.fire({
           icon: 'success',
           title: 'Login Berhasil',
@@ -88,8 +83,6 @@ const Login = {
             username: data.data.username,
             email: data.data.email,
             roles: data.data.roles,
-            password: password,
-            // urlImage: data.data.urlImage,
           };
           localStorage.setItem('loginInfo', JSON.stringify(loginInfo));
           console.log('Login successful from API:', data);
