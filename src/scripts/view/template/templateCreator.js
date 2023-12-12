@@ -1,21 +1,29 @@
 const vehicleItem = (vehicles) => {
-  const availabilityText = vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia';
+  const availabilityText = vehicles.isAvailable ? "Tersedia" : "Tidak Tersedia";
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
         <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
           <div class="vehicleItem" id="vehicleItem">
             <section class="vehicleItem-left">
-              <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+              <img class="lazyload" data-src="${
+                vehicles.ImageUrl
+              }" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
             </section>
             <section class="vehicleItem-center">
-                <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+                <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${
+    vehicles.vehicleInformation.name
+  }</h4>
                 <h6 class="availability">${availabilityText}</h6>
-                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
+                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(
+                  ", "
+                )}</h6>
             </section>
             <section class="vehicleItem-right">
                 <h6 class="start-from">Mulai</h6>
-                <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
+                <h4 class="harga">Rp${costAsNumber.toLocaleString(
+                  "id-ID"
+                )}/hari</h4>
             </section>
           </div>
         </a>
@@ -29,25 +37,35 @@ const createCarCollection = (vehicles) => {
     <a href="#/detail/${vehicles.vehicleId}" class="car-container">
       <div>
         <section class="car-collection-image">
-          <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+          <img class="lazyload" data-src="${
+            vehicles.ImageUrl
+          }" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
         </section>
         <section class="car-collection-name">
-          <h4 class="car-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
+          <h4 class="car-name">${vehicles.vehicleInformation.brand} ${
+    vehicles.vehicleInformation.name
+  }</h4>
+          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(
+            ", "
+          )}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
+          <h4 class="harga">Rp${costAsNumber.toLocaleString("id-ID")}/hari</h4>
         </section>
       </div>
     </a>
   `;
 };
 
-
 const vehicleDetail = (vehicles) => {
-  const imageList = Array.from({length: 3}, (_, index) => `
-    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${index + 1} dari ${vehicles.vehicleInformation.name}" />
-  `).join('');
+  const imageList = Array.from(
+    { length: 3 },
+    (_, index) => `
+    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${
+      index + 1
+    } dari ${vehicles.vehicleInformation.name}" />
+  `
+  ).join("");
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
   const WhatsAppLink = `https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Halo, Bapak/Ibu ${vehicles.partner.partnerName}%0A%0ASaya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O`;
 
@@ -55,17 +73,29 @@ const vehicleDetail = (vehicles) => {
           <article id="vehicleDetail" class="vehicleDetail">
             <div class="vehicleDetailLeft" id="vehicleDetailLeft">
                 <div class="detail-top-left">
-                    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
-                    <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
+                    <img class="lazyload" data-src="${
+                      vehicles.ImageUrl
+                    }" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                    <h1>${vehicles.vehicleInformation.brand} ${
+    vehicles.vehicleInformation.name
+  }</h1>
                     Tahun: ${vehicles.vehicleInformation.year}
                     <br>
-                    <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
+                    <i class="fa-solid fa-person"></i>  ${
+                      vehicles.vehicleInformation.seats
+                    } Penumpang
                     <br>
-                    <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
+                    <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(
+                      ", "
+                    )}
                     <div class="vehicleInfoPrice">
-                        <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
+                        <p>Mulai <br>Rp${costAsNumber.toLocaleString(
+                          "id-ID"
+                        )}/hari</p>
                         <div class="vehicleDetailOptionRent">
-                            <a href="#/checking/${vehicles.vehicleId}" class="sewaButton">Sewa Sekarang</a>
+                            <a href="#/checking/${
+                              vehicles.vehicleId
+                            }" class="sewaButton">Sewa Sekarang</a>
                         </div>
                         <div class="whatsappButton">
                             <a aria-label="Chat on WhatsApp" 
@@ -78,8 +108,12 @@ const vehicleDetail = (vehicles) => {
                 <div class="detail-bottom-left">
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
                         <div class="vehicleOwnerLeft">
-                            <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
-                              ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
+                            <img class="lazyload" data-src="${
+                              vehicles.partner.partnerImage
+                            }" alt="${vehicles.partner.partnerName}, Pemilik 
+                              ${vehicles.vehicleInformation.brand} ${
+    vehicles.vehicleInformation.name
+  }" />
                             <div class="vehicleOwnerInfo">
                                 <p>${vehicles.partner.partnerName}</p>
                             </div>
@@ -167,7 +201,11 @@ const createPartnerRegisterPages = () => {
             </div>
 
             <label for="nomorSIM">Nomor SIM:</label>
-            <input type="text" id="number_SIM" name="number_SIM" required>
+            <select id="nomor-sim">
+                <option value="A">SIM A</option>
+                <option value="B">SIM B</option>
+                <option value="C">SIM C</option>
+            </select>
 
             <label for="masaBerlaku">Masa Berlaku:</label>
             <input type="date" id="expired_SIM" name="expired_SIM" min="2023-01-01" required>
@@ -199,8 +237,7 @@ const createPartnerRegisterPages = () => {
     `;
 };
 
-
-const vehicleCheckin = (vehicle) =>{
+const vehicleCheckin = (vehicle) => {
   return `
   <section class="vehicleDetailRenting" id="vehicleDetailRenting">
     <h1>${vehicle.name}</h1>
@@ -407,7 +444,7 @@ const userProfilePages = (userData) => {
             <button id="editProfilePictureButton">Ganti Foto Profil</button>
             <h2 class="name">${userData.username.toUpperCase()}</h2>
             <h3 class="email">${userData.email}</h3>
-            <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
+            <p>Anda adalah <b>${userData.roles.join(", dan ")}</b></p>
         </section>
         <section class="bodyUserProfile" id="bodyUserProfile">
             <a href="">
