@@ -427,6 +427,14 @@
     .addAlamatFormRight {
         margin-inline: 0;
     }
+
+    .paymentInfo form{
+        margin-inline: 8px;
+    }
+
+    .paymentBody input {
+        width: 100px;
+    }
 }
 
 @media screen and (min-width: 601px) {

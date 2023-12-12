@@ -21,7 +21,7 @@ const routes = {
   '/register': Register,
   '/sewa': Sewa,
   '/tambah-mobil': TambahMobil,
-  '/checkout': Checkout,
+  '/checkout/:id': Checkout,
   '/about': About,
   '/checking/:id': Checking,
   '/tac': TaC,

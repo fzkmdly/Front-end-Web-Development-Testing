@@ -203,7 +203,7 @@ const createPartnerRegisterPages = () => {
 const vehicleCheckin = (vehicle) =>{
   return `
   <section class="vehicleDetailRenting" id="vehicleDetailRenting">
-    <h1>${vehicle.name}</h1>
+    <h1>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h1>
     <h3>Lokasi?</h3>
     <form>
         <div class="vehicleCheckinDate">
@@ -238,7 +238,7 @@ const vehicleCheckin = (vehicle) =>{
         <div class="payingMethod">
             <div class="drawer-content">
                 <label for="payment-method">Pilih Metode Pembayaran</label>
-                <select id="payment-method" onchange="displayPaymentMethod()">
+                <select id="payment-method">
                     <optgroup label="Transfer Virtual Account">
                         <option value="BCAVirtualAccount">BCA Virtual Account</option>
                         <option value="BNIVirtualAccount">BNI Virtual Account</option>
@@ -255,7 +255,7 @@ const vehicleCheckin = (vehicle) =>{
                 </select>
             </div>
         </div>
-        <button>Lanjutkan Pembayaran</button>
+        <button id="insertData-btn">Lanjutkan Pembayaran</button>
     </form>
   </section>
   `;
@@ -580,6 +580,133 @@ const addRentalVehicle = () => {
     `;
 };
 
+const paymentCheck = (sessionDatas, vehicles) => {
+  const timeCost = sessionDatas.selisihHari * parseFloat(vehicles.vehicleInformation.cost);
+  return `
+        <style>
+            .paymentInfo{
+                width: 100%;
+            }
+
+            .paymentInfo form {
+                background-color: #F8F5F2;
+                border-radius: 8px;
+                margin-inline: 175px;
+                padding-inline: 15px;
+            }
+
+            .paymentInfo form h2 {
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            .paymentBody {
+                display: block;
+            }
+
+            .paymentBodyDesc {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-block: 10px;
+            }
+
+            .paymentBodyDescName{
+                margin-inline: 5px;
+            }
+
+            .paymentBodyDescName p{
+                margin: 0;
+            }
+
+            .paymentBodyDateIndex {
+                width: 100%;
+            }
+
+            .payment-form-group,
+            .paymentTotalCheck {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-block: 5px;
+            }
+
+            .paymentBody input {
+                width: 250px;
+                height: 25px;
+                background-color: #F8F5F2;
+                border: none;
+                outline: none;
+            }
+
+            form .paymentConfirm {
+                cursor: pointer;
+                padding-inline: 40px;
+                padding-block: 10px;
+                border-radius: 20px;
+                color: white;
+                background-color: #F45D48;
+                border: 1px solid #F45D48;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+        </style>
+
+
+        <form action="">
+            <h2>Detail Pembayaran</h2>
+            <section id="paymentBody" class="paymentBody">
+                <div class="paymentBodyDesc">
+                    <img src="${vehicles.ImageUrl}" alt="" width="75px" style="border-radius: 10px;">
+                    <section class="paymentBodyDescName">
+                        <p><b>${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</b></p>
+                        <p>${vehicles.partner.partnerName}</p>
+                    </section>
+                </div>
+                <div id="paymentBodyDateIndex" class="paymentBodyDateIndex">
+                    <div class="payment-form-group">
+                        <label for="lokPenyewaan">Lokasi Penyewaan :</label>
+                        <input type="text" value="${sessionDatas.lokasi}" id="lokPenyewaan" name="lokPenyewaan" readonly>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="tglMulai">Tanggal Mulai :</label>
+                        <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.tanggalMulai}" readonly>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="tglAkhir">Tanggal Selesai : </label>
+                        <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.tanggalSelesai}" readonly>
+                    </div>
+                </div>
+                <hr>
+                <div id="paymentBodyCheckIndex" class="paymentBodyCheckIndex">
+                    <div class="payment-form-group">
+                        <label for="lokPenjemputan">Lokasi Penjemputan :</label>
+                        <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.lokasi}" readonly>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="waktuPenjemputan">Waktu Penjemputan :</label>
+                        <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.waktuPenjemputan}" readonly>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="lokPengantaran">Lokasi Pengantaran :</label>
+                        <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.lokasiPengantar}" readonly>
+                    </div>
+                    <div class="payment-form-group">
+                        <label for="waktuPengantaran">Waktu Pengantaran :</label>
+                        <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.waktuPengantaran}" readonly>
+                    </div>
+                </div>
+                <hr>
+                <div id="paymentTotalCheck" class="paymentTotalCheck">
+                    <label for="paymentIndexes">${sessionDatas.selisihHari} Hari x 1 Mobil</label>
+                    <input type="text" id="paymentCheck" name="paymentCheck" value="${timeCost}" readonly>
+                </div>
+            </section>
+            <button class="paymentConfirm">Bayar Sekarang</button>
+        </form>
+    `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -593,4 +720,5 @@ module.exports = {
   userProfilePages,
   createSearchBar,
   addRentalVehicle,
+  paymentCheck,
 };
