@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
-import axios from 'axios';
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Register = {
@@ -54,21 +53,36 @@ const Register = {
       return;
     }
 
-    // Make API call to register using Axios
+    // Make API call to register
     try {
-      const response = await axios.post(API_ENDPOINT.REGISTER, {
-        username: name,
-        email,
-        password,
+      const response = await fetch(API_ENDPOINT.REGISTER, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: name, // Assuming the server expects 'username'
+          email,
+          password,
+        }),
       });
 
-      const data = response.data;
+      const data = await response.json();
 
       // Handle response, you might want to redirect to a different page on success
-      if (data.status === 'success') {
+      if (response.ok) {
+        let successMessage;
+
+        // Check the success message from the server response
+        if (data.status === 'success' && data.message === 'Register user success!') {
+          successMessage = 'Registrasi Berhasil';
+        } else {
+          successMessage = 'Registrasi Gagal'; // Provide a default message if the format is unexpected
+        }
+
         Swal.fire({
           icon: 'success',
-          title: 'Registrasi Berhasil',
+          title: successMessage,
           html: `Kami telah mengirimkan email konfirmasi.<br>Silahkan cek kotak masuk Anda!</strong>`,
           focusConfirm: true,
           confirmButtonText: 'OK',
@@ -78,7 +92,9 @@ const Register = {
 
         // Update the error message based on the response
         let errorMessage = 'Registrasi gagal. Coba lagi nanti atau hubungi dukungan pelanggan.';
-        if (data.message === 'Email already exists') {
+        if (data.status === 'failed' && data.message === 'Email already exists') {
+          errorMessage = 'Email sudah terdaftar. Gunakan email lain atau login menggunakan email tersebut.';
+        } else if (data.status === 'failed' && data.message === 'The email address is already in use by another account.') {
           errorMessage = 'Email sudah terdaftar. Gunakan email lain atau login menggunakan email tersebut.';
         }
 
@@ -99,7 +115,6 @@ const Register = {
       // Handle network errors or other exceptions
     }
   },
-
 };
 
 export default Register;
