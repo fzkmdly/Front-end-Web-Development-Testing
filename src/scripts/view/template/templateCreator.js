@@ -629,7 +629,7 @@ const paymentCheck = (sessionDatas, vehicles) => {
                     <input type="text" id="paymentMethodName" name="paymentMethodName" value="${sessionDatas.paymentMethod}" readonly>
                 </div>
                 <div id="paymentTotalCheck" class="paymentTotalCheck">
-                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x ${costAsNumber.toLocaleString('id-ID')}</label>
+                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x Rp${costAsNumber.toLocaleString('id-ID')}</label>
                     <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString('id-ID')}" readonly>
                 </div>
             </section>
