@@ -15,6 +15,13 @@ const Checking = {
 
   async afterRender() {
     try {
+      const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+
+      if (!loginInfo.uid) {
+        window.location.hash = '#/login';
+        return;
+      }
+
       const checkingContainer = document.getElementById('checking-page');
 
       const url = UrlParser.parseActiveUrlWithoutCombiner();
