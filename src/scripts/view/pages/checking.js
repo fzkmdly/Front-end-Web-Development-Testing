@@ -104,15 +104,20 @@ const Checking = {
           window.location.hash = `#/checkout/${url.id}`;
         });
       } else {
+        let errorMessages = '';
         if (responseData.message === 'Vehicle is not available') {
-          Swal.fire({
-            icon: 'error',
-            title: 'Tidak Tersedia',
-            text: 'Kendaraan tidak tersedia untuk saat ini',
-          }).then(() => {
-            window.location.hash = '#/sewa';
-          });
+          errorMessages = 'Kendaraan tidak tersedia';
+        } else if (responseData.message === 'You can\'t rent your own vehicle') {
+          errorMessages = 'Anda tidak dapat menyewa kendaraan Anda sendiri';
         }
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Kesalahan',
+          text: errorMessages,
+        }).then(() => {
+          window.location.hash = '#/sewa';
+        });
       };
     } catch (error) {
       Swal.fire({
