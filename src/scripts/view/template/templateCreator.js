@@ -52,56 +52,56 @@ const vehicleDetail = (vehicles) => {
   const WhatsAppLink = `https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Halo, Bapak/Ibu ${vehicles.partner.partnerName}%0A%0ASaya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O`;
 
   return `
-          <article id="vehicleDetail" class="vehicleDetail">
-            <div class="vehicleDetailLeft" id="vehicleDetailLeft">
-                <div class="detail-top-left">
-                    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
-                    <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
-                    Tahun: ${vehicles.vehicleInformation.year}
-                    <br>
-                    <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
-                    <br>
-                    <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
-                    <div class="vehicleInfoPrice">
-                        <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
-                        <div class="vehicleDetailOptionRent">
-                            <a href="#/checking/${vehicles.vehicleId}" class="sewaButton">Sewa Sekarang</a>
-                        </div>
-                        <div class="whatsappButton">
-                            <a aria-label="Chat on WhatsApp" 
-                            href="${WhatsAppLink}" 
-                            class="chat" target="_blank"><img alt="Chat on WhatsApp" 
-                            src="./images/assets/icons/WhatsApp Button.png" /></a>
-                        </div>
+    <article id="vehicleDetail" class="vehicleDetail">
+        <div class="vehicleDetailLeft" id="vehicleDetailLeft">
+            <div class="detail-top-left">
+                <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
+                Tahun: ${vehicles.vehicleInformation.year}
+                <br>
+                <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
+                <br>
+                <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
+                <div class="vehicleInfoPrice">
+                    <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
+                    <div class="vehicleDetailOptionRent">
+                        <a href="#/checking/${vehicles.vehicleId}" class="sewaButton" id="sewaButton">Sewa Sekarang</a>
                     </div>
-                </div>
-                <div class="detail-bottom-left">
-                    <section class="vehicleDetailInfo" id="vehicleDetailInfo">
-                        <div class="vehicleOwnerLeft">
-                            <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
-                              ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
-                            <div class="vehicleOwnerInfo">
-                                <p>${vehicles.partner.partnerName}</p>
-                            </div>
-                        </div>
-                    </section>
+                    <div class="whatsappButton">
+                        <a aria-label="Chat on WhatsApp" 
+                        href="${WhatsAppLink}" 
+                        class="chat" target="_blank"><img alt="Chat on WhatsApp" 
+                        src="./images/assets/icons/WhatsApp Button.png" /></a>
+                    </div>
                 </div>
             </div>
-            <div class="vehicleDetailRight" id="vehicleDetailRight">
-                <section class="vehicleDetailDesc" id="vehicleDetailDesc">
-                    <div class="vehicleDetailDescription">
-                        <h3>Deskripsi</h3>
-                        <p>${vehicles.vehicleInformation.description}</p>
-                    </div>
-                    <div>
-                        <h3>Gambar Mobil</h3>
-                        <div class="vehicleDetailPhotolist">
-                            ${imageList}
+            <div class="detail-bottom-left">
+                <section class="vehicleDetailInfo" id="vehicleDetailInfo">
+                    <div class="vehicleOwnerLeft">
+                        <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
+                            ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
+                        <div class="vehicleOwnerInfo">
+                            <p>${vehicles.partner.partnerName}</p>
                         </div>
                     </div>
                 </section>
             </div>
-          </article>
+        </div>
+        <div class="vehicleDetailRight" id="vehicleDetailRight">
+            <section class="vehicleDetailDesc" id="vehicleDetailDesc">
+                <div class="vehicleDetailDescription">
+                    <h3>Deskripsi</h3>
+                    <p>${vehicles.vehicleInformation.description}</p>
+                </div>
+                <div>
+                    <h3>Gambar Mobil</h3>
+                    <div class="vehicleDetailPhotolist">
+                        ${imageList}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </article>
     `;
 };
 
