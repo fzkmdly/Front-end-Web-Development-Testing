@@ -1389,6 +1389,12 @@ form .paymentConfirm {
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 896px;
+  font-weight: 700;
+}
+
+form .paymentConfirm:hover {
+  background-color: #bf1722;
+  transition: 700ms;
 }
 
 /* Right text in Checkout Page */
