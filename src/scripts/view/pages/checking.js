@@ -6,6 +6,27 @@ import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Checking = {
   async render() {
+    const isLoggedIn = checkUserLoggedIn();
+
+    if (!isLoggedIn) {
+      Swal.fire({
+        title: 'Anda belum login',
+        text: 'Mohon login untuk menyewa kendaraan',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Log In',
+        cancelButtonText: 'Batal',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '#/login';
+        } else {
+          window.location.href = '#/';
+        }
+      });
+
+      return '';
+    }
+
     return `
         <div class="checking-page" id="checking-page">
 
@@ -137,6 +158,10 @@ function validateForm() {
     }
   }
   return true;
+}
+
+function checkUserLoggedIn() {
+  return localStorage.getItem('loginInfo') !== null;
 }
 
 export default Checking;
