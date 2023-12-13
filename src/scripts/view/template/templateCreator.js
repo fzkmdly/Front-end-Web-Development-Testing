@@ -245,11 +245,10 @@ const createPartnerRegisterPages = () => {
 };
 
 
-const vehicleCheckin = (vehicle) =>{
+const vehicleCheckin = (vehicles) =>{
   return `
   <section class="vehicleDetailRenting" id="vehicleDetailRenting">
-    <h1>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h1>
-    <h3>Lokasi?</h3>
+    <h1 class="title">Detail Rental ${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</h1>
     <form>
         <div class="vehicleCheckinDate">
             <div>
@@ -261,7 +260,6 @@ const vehicleCheckin = (vehicle) =>{
                 <input type="date" name="tanggalSelesai" id="tanggalSelesai">
             </div>
         </div>
-        <h3>Rental Detail</h3>
         <div class="vehicleDetailForm">
             <div>
                 <label for="Lokasi?">Lokasi Penjemputan</label>
@@ -284,17 +282,20 @@ const vehicleCheckin = (vehicle) =>{
             <div class="drawer-content">
                 <label for="payment-method">Pilih Metode Pembayaran</label>
                 <select id="payment-method">
+                    <option disabled selected value="">Pilih Metode Pembayaran</option>
                     <optgroup label="Transfer Virtual Account">
-                        <option value="BCAVirtualAccount">BCA Virtual Account</option>
-                        <option value="BNIVirtualAccount">BNI Virtual Account</option>
-                        <option value="PermataVirtualAccount">Permata Virtual Account</option>
-                        <option value="MandiriVirtualAccount">Mandiri Virtual Account</option>
+                        <option value="BCA Virtual Account">BCA Virtual Account</option>
+                        <option value="BNI  Virtual Account">BNI Virtual Account</option>
+                        <option value="BRI  Virtual Account">BRI Virtual Account</option>
+                        <option value="Permata Virtual Account">Permata Virtual Account</option>
+                        <option value="Mandiri  VirtualAccount">Mandiri Virtual Account</option>
                     </optgroup>
                     <optgroup label="Tunai di Gerai Retail">
-                        <option value="IndomartPayment">Indomart</option>
-                        <option value="AlfaMartPayment">Alfamart</option>
+                        <option value="Indomaret">Indomaret</option>
+                        <option value="AlfaMart">Alfamart</option>
                     </optgroup>
                     <optgroup label="E-Wallet">
+                        <option value="QRIS">QRIS</option>
                         <option value="GoPay">GoPay</option>
                     </optgroup>
                 </select>

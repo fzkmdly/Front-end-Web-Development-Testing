@@ -617,6 +617,7 @@ width: 100%;
 .footer-container {
   padding-bottom: 8px;
   padding-top: 8px;
+  margin-top: 32px;
 }
 
 .footer-container, .about-us-footer, .tac {
@@ -923,6 +924,8 @@ width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f8f5f2;
+  padding: 28px;
 }
 
 .vehicleCheckinDate {
@@ -1004,6 +1007,11 @@ width: 100%;
   padding-block: 5px;
   width: 100%;
   margin-bottom: 10px;
+}
+
+.vehicleDetailRenting .title {
+  text-align: center;
+  margin-bottom: 44px;
 }
 
 /*------------Partner page after registation---------------*/
