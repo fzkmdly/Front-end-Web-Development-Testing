@@ -74,8 +74,13 @@ const Checking = {
       if (response.ok) {
         const responseData = await response.json();
         const rentValue = responseData.data.rent;
+
+        const data = {
+          rentId: rentValue,
+        };
+
         sessionStorage.setItem('rentalData', JSON.stringify(formData));
-        sessionStorage.setItem('rentID', rentValue);
+        sessionStorage.setItem('rentID', JSON.stringify(data));
 
         Swal.fire({
           icon: 'info',
