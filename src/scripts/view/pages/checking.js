@@ -38,6 +38,7 @@ const Checking = {
       waktuPengantaran: document.getElementById('waktuPengantaran').value,
       paymentMethod: document.getElementById('payment-method').value,
       selisihHari: hitungHari(document.getElementById('tanggalMulai').value, document.getElementById('tanggalSelesai').value),
+      vehicleId: UrlParser.parseActiveUrlWithoutCombiner().id,
     };
 
     const url = UrlParser.parseActiveUrlWithoutCombiner();
