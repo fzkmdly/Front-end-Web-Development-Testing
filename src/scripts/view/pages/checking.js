@@ -65,6 +65,11 @@ const Checking = {
       return;
     }
 
+    // Validate date
+    if (!validateDate()) {
+      return;
+    }
+
     try {
       // Make the POST request to the API endpoint
       const response = await fetch(url, {
@@ -165,6 +170,23 @@ function validateForm() {
       return false;
     }
   }
+  return true;
+}
+
+function validateDate() {
+  const startDate = document.getElementById('tanggalMulai').value;
+  const endDate = document.getElementById('tanggalSelesai').value;
+
+  if (startDate > endDate) {
+    Swal.fire({
+      title: 'Peringatan',
+      text: 'Tanggal Selesai harus melebihi Tanggal Mulai',
+      icon: 'warning',
+    });
+
+    return false;
+  }
+
   return true;
 }
 
