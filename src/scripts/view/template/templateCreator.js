@@ -504,7 +504,7 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="stnk">STNK</label>
-                        <input type="text" id="stnk" name="stnk">
+                        <input type="text" id="stnk" name="stnk" placeholder="Masukkan nomor STNK">
                     </div>
                     <div class="add-pages-form-group">
                         <label for="tipe-kendaraan">Tipe Kendaraan</label>
@@ -522,11 +522,21 @@ const addRentalVehicle = () => {
                     </div>
                     <div class="add-pages-form-group">
                         <label for="tahunKeluaran">Tahun</label>
-                        <input type="number" id="year" name="year" placeholder="Contoh: 2023">
+                        <select id="year" name="year">
+                            <option disabled selected value="">Pilih Tahun</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                        </select>
                     </div>
                     <div class="add-pages-form-group">
                         <label for="bpkb">BPKB</label>
-                        <input type="text" id="bpkb" name="bpkb">
+                        <input type="text" id="bpkb" name="bpkb" placeholder="Masukkan nomor BPKB">
                     </div>
                     <div class="add-pages-form-group">
                         <label for="maxPenumpang">Maksimum Penumpang</label>

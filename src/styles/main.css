@@ -1301,7 +1301,10 @@ width: 100%;
 }
 
 /* Dropdown at Add Vehicle Image */
-#brand, #type, #seats {
+#brand,
+#type,
+#seats,
+#year {
   padding-block: 8px;
   width: 100%;
   margin-bottom: 10px;
