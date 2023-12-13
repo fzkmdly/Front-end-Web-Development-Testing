@@ -633,6 +633,7 @@ const paymentCheck = (sessionDatas, vehicles) => {
                     <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString('id-ID')}" readonly>
                 </div>
             </section>
+            <button class="paymentConfirm" type="submit">Bayar Sekarang</button>
         </form>
     `;
 };
