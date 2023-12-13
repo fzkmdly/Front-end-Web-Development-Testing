@@ -724,35 +724,35 @@ const paymentCheck = (sessionDatas, vehicles) => {
                 </div>
                 <div id="paymentBodyDateIndex" class="paymentBodyDateIndex">
                     <div class="payment-form-group">
-                        <label for="lokPenyewaan">Lokasi Penyewaan :</label>
-                        <input type="text" value="${sessionDatas.lokasi}" id="lokPenyewaan" name="lokPenyewaan" readonly>
+                        <label for="lokPenyewaan">Lokasi Penyewaan:</label>
+                        <input type="text" value="${vehicles.locations}" id="lokPenyewaan" name="lokPenyewaan" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="tglMulai">Tanggal Mulai :</label>
-                        <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.tanggalMulai}" readonly>
+                        <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.startDate}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="tglAkhir">Tanggal Selesai : </label>
-                        <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.tanggalSelesai}" readonly>
+                        <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.endDate}" readonly>
                     </div>
                 </div>
                 <hr>
                 <div id="paymentBodyCheckIndex" class="paymentBodyCheckIndex">
                     <div class="payment-form-group">
                         <label for="lokPenjemputan">Lokasi Penjemputan :</label>
-                        <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.lokasi}" readonly>
+                        <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.pickupLocation}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="waktuPenjemputan">Waktu Penjemputan :</label>
-                        <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.waktuPenjemputan}" readonly>
+                        <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.pickupTime}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="lokPengantaran">Lokasi Pengantaran :</label>
-                        <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.lokasiPengantar}" readonly>
+                        <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.deliveryLocation}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="waktuPengantaran">Waktu Pengantaran :</label>
-                        <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.waktuPengantaran}" readonly>
+                        <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.deliveryTime}" readonly>
                     </div>
                 </div>
                 <hr>

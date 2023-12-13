@@ -30,35 +30,50 @@ const Checking = {
   async bookingHandler() {
     event.preventDefault();
     const formData = {
-      tanggalMulai: document.getElementById('tanggalMulai').value,
-      tanggalSelesai: document.getElementById('tanggalSelesai').value,
-      lokasi: document.getElementById('lokasi').value,
-      waktuPenjemputan: document.getElementById('waktuPenjemputan').value,
-      lokasiPengantar: document.getElementById('lokasiPengantar').value,
-      waktuPengantaran: document.getElementById('waktuPengantaran').value,
+      startDate: document.getElementById('tanggalMulai').value,
+      endDate: document.getElementById('tanggalSelesai').value,
+      pickupLocation: document.getElementById('lokasi').value,
+      pickupTime: document.getElementById('waktuPenjemputan').value,
+      deliveryLocation: document.getElementById('lokasiPengantar').value,
+      deliveryTime: document.getElementById('waktuPengantaran').value,
       paymentMethod: document.getElementById('payment-method').value,
       selisihHari: hitungHari(document.getElementById('tanggalMulai').value, document.getElementById('tanggalSelesai').value),
       vehicleId: UrlParser.parseActiveUrlWithoutCombiner().id,
     };
 
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const vehiclesData = await CarDbSource.detailCar(url.id);
+    const url = `https://rento-backend-api-d6zuozodga-et.a.run.app/rent-vehicle/${formData.vehicleId}`;
 
-    console.log(formData);
+    // Read the login information from localStorage
+    const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+    const accessToken = loginInfo.uid || '';
 
     try {
-      sessionStorage.setItem('rentalData', JSON.stringify(formData));
-
-      Swal.fire({
-        icon: 'info',
-        title: 'Menyiapkan data',
-        text: 'Permintaan Anda sedang diproses',
-        showConfirmButton: false,
-        timer: 2000,
-      }).then(() => {
-        const url = UrlParser.parseActiveUrlWithoutCombiner();
-        window.location.hash = `#/checkout/${url.id}`;
+      // Make the POST request to the API endpoint
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        sessionStorage.setItem('rentalData', JSON.stringify(formData));
+
+        Swal.fire({
+          icon: 'info',
+          title: 'Menyiapkan data',
+          text: 'Permintaan Anda sedang diproses',
+          showConfirmButton: false,
+          timer: 2000,
+        }).then(() => {
+          const url = UrlParser.parseActiveUrlWithoutCombiner();
+          window.location.hash = `#/checkout/${url.id}`;
+        });
+      } else {
+        throw new Error('Failed to make the POST request');
+      }
     } catch (error) {
       Swal.fire({
         icon: 'error',
