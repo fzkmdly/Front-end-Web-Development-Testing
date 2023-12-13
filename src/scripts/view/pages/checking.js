@@ -29,6 +29,11 @@ const Checking = {
   },
 
   async bookingHandler() {
+    // Validate form fields
+    if (!validateForm()) {
+      return;
+    }
+
     event.preventDefault();
     const formData = {
       startDate: document.getElementById('tanggalMulai').value,
@@ -96,6 +101,42 @@ function hitungHari(tanggalMulaiValue, tanggalSelesaiValue) {
 
   // Menampilkan hasil
   return selisihHari;
+}
+
+function validateForm() {
+  const requiredFields = ['tanggalMulai', 'tanggalSelesai', 'lokasi', 'waktuPenjemputan', 'lokasiPengantar', 'waktuPengantaran', 'payment-method'];
+  for (const field of requiredFields) {
+    const inputField = document.getElementById(field);
+    const value = inputField.value.trim();
+    let displayValue = value;
+
+    if (!value) {
+      if (field === 'tanggalMulai') {
+        displayValue = 'Tanggal Mulai';
+      } else if (field === 'tanggalSelesai') {
+        displayValue = 'Tanggal Selesai';
+      } else if (field === 'lokasi') {
+        displayValue = 'Lokasi Penjemputan';
+      } else if (field === 'waktuPenjemputan') {
+        displayValue = 'Waktu Penjemputan';
+      } else if (field === 'lokasiPengantar') {
+        displayValue = 'Lokasi Pengantaran';
+      } else if (field === 'waktuPengantaran') {
+        displayValue = 'Waktu Pengantaran';
+      } else if (field === 'payment-method') {
+        displayValue = 'Metode Pembayaran';
+      }
+
+      Swal.fire({
+        title: 'Peringatan',
+        text: `${displayValue} harus diisi.`,
+        icon: 'warning',
+      });
+
+      return false;
+    }
+  }
+  return true;
 }
 
 export default Checking;

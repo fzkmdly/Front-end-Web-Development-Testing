@@ -147,7 +147,7 @@ function validateForm() {
 
       Swal.fire({
         title: 'Peringatan',
-        text: `Kolom ${displayValue} harus diisi.`,
+        text: `${displayValue} harus diisi.`,
         icon: 'warning',
       });
 
