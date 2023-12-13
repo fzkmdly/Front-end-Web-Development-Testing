@@ -1364,7 +1364,8 @@ width: 100%;
 }
 
 .payment-form-group,
-.paymentTotalCheck {
+.paymentTotalCheck,
+.paymentMethodName {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
