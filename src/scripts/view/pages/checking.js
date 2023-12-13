@@ -22,6 +22,11 @@ const Checking = {
         return;
       }
 
+      // Clear the sessionStorage
+      if (sessionStorage.length > 0) {
+        sessionStorage.clear();
+      }
+
       const checkingContainer = document.getElementById('checking-page');
 
       const url = UrlParser.parseActiveUrlWithoutCombiner();
@@ -60,6 +65,11 @@ const Checking = {
       return;
     }
 
+    // Validate date
+    if (!validateDate()) {
+      return;
+    }
+
     try {
       // Make the POST request to the API endpoint
       const response = await fetch(url, {
@@ -71,8 +81,17 @@ const Checking = {
         body: JSON.stringify(formData),
       });
 
+      const responseData = await response.json();
+
       if (response.ok) {
+        const rentValue = responseData.data.rent;
+
+        const data = {
+          rentId: rentValue,
+        };
+
         sessionStorage.setItem('rentalData', JSON.stringify(formData));
+        sessionStorage.setItem('rentID', JSON.stringify(data));
 
         Swal.fire({
           icon: 'info',
@@ -85,13 +104,21 @@ const Checking = {
           window.location.hash = `#/checkout/${url.id}`;
         });
       } else {
-        throw new Error('Failed to make the POST request');
-      }
+        if (responseData.message === 'Vehicle is not available') {
+          Swal.fire({
+            icon: 'error',
+            title: 'Tidak Tersedia',
+            text: 'Kendaraan tidak tersedia untuk saat ini',
+          }).then(() => {
+            window.location.hash = '#/sewa';
+          });
+        }
+      };
     } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Kesalahan',
-        text: 'Coba periksa kembali data yang anda tulis',
+        text: 'Coba periksa kembali data yang anda masukkan',
       });
       console.error(error);
     }
@@ -143,6 +170,23 @@ function validateForm() {
       return false;
     }
   }
+  return true;
+}
+
+function validateDate() {
+  const startDate = document.getElementById('tanggalMulai').value;
+  const endDate = document.getElementById('tanggalSelesai').value;
+
+  if (startDate > endDate) {
+    Swal.fire({
+      title: 'Peringatan',
+      text: 'Tanggal Selesai harus melebihi Tanggal Mulai',
+      icon: 'warning',
+    });
+
+    return false;
+  }
+
   return true;
 }
 

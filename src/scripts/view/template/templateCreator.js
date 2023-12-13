@@ -246,6 +246,13 @@ const createPartnerRegisterPages = () => {
 
 
 const vehicleCheckin = (vehicles) =>{
+  // Get the current date
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
+  const currentDate = yyyy + '-' + mm + '-' + dd;
+
   return `
   <section class="vehicleDetailRenting" id="vehicleDetailRenting">
     <h1 class="title">Detail Rental ${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</h1>
@@ -253,11 +260,11 @@ const vehicleCheckin = (vehicles) =>{
         <div class="vehicleCheckinDate">
             <div>
                 <label for="TanggalMulai">Tanggal Mulai</label>
-                <input type="date" name="tanggalMulai" id="tanggalMulai" placeholder="Pilih Waktu">
+                <input type="date" name="tanggalMulai" id="tanggalMulai" placeholder="Pilih Waktu" min="${currentDate}">
             </div>
             <div>
                 <label for="tanggalSelesai">Tanggal Selesai</label>
-                <input type="date" name="tanggalSelesai" id="tanggalSelesai">
+                <input type="date" name="tanggalSelesai" id="tanggalSelesai" min="${currentDate}">
             </div>
         </div>
         <div class="vehicleDetailForm">
@@ -629,11 +636,11 @@ const paymentCheck = (sessionDatas, vehicles) => {
                     <input type="text" id="paymentMethodName" name="paymentMethodName" value="${sessionDatas.paymentMethod}" readonly>
                 </div>
                 <div id="paymentTotalCheck" class="paymentTotalCheck">
-                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x ${costAsNumber.toLocaleString('id-ID')}</label>
+                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x Rp${costAsNumber.toLocaleString('id-ID')}</label>
                     <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString('id-ID')}" readonly>
                 </div>
             </section>
-            <button class="paymentConfirm">Bayar Sekarang</button>
+            <button class="paymentConfirm" type="submit">Bayar Sekarang</button>
         </form>
     `;
 };
