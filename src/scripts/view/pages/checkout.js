@@ -2,6 +2,7 @@ import CarDbSource from '../../data/data-source';
 import UrlParser from '../../routes/url-parser';
 import {paymentCheck} from '../template/templateCreator';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 
 const Checkout = {
   async render() {
@@ -36,10 +37,8 @@ const Checkout = {
       const rentID = JSON.parse(sessionStorage.getItem('rentID'));
       const rentId = rentID.rentId;
 
-      // Get totalPayment from paymentCheck function and format it as needed
       const totalPayment = document.getElementById('paymentCheck').value.replace(/[,.]|Rp/g, '');
 
-      // Make PUT request
       const putUrl = `${API_ENDPOINT.UPDATE_PAYMENT}/${rentId}`;
       const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
       const accessToken = loginInfo.uid || '';
@@ -48,20 +47,31 @@ const Checkout = {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json', // Add this line to set Content-Type
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          totalPayment: totalPayment.toString(), // Convert to string if it's a string-based API
+          totalPayment: totalPayment.toString(),
         }),
       });
 
       if (response.ok) {
-        alert('Payment confirmed successfully!');
+        Swal.fire({
+          icon: 'success',
+          title: 'Sukses',
+          text: 'Pembayaran berhasil dikonfirmasi!',
+          showConfirmButton: false,
+        }).then(() => {
+          // Optional function to clear the sessionStorage
+        });
       } else {
-        alert('Failed to confirm payment:', response.statusText);
+        Swal.fire({
+          icon: 'error',
+          title: 'Kesalahan',
+          text: 'Terjadi kesalahan saat mengkonfirmasi pembayaran',
+        });
       }
     } catch (error) {
-      alert('Error during payment confirmation:', error.message);
+      alert('Kesalahan saat mengkonfirmasi pembayaran', error.message);
     }
   }
   ,
