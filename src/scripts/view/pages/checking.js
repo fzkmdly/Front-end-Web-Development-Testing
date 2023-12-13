@@ -29,11 +29,6 @@ const Checking = {
   },
 
   async bookingHandler() {
-    // Validate form fields
-    if (!validateForm()) {
-      return;
-    }
-
     event.preventDefault();
     const formData = {
       startDate: document.getElementById('tanggalMulai').value,
@@ -53,6 +48,11 @@ const Checking = {
     const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
     const accessToken = loginInfo.uid || '';
 
+    // Validate form fields
+    if (!validateForm()) {
+      return;
+    }
+
     try {
       // Make the POST request to the API endpoint
       const response = await fetch(url, {
@@ -69,7 +69,7 @@ const Checking = {
 
         Swal.fire({
           icon: 'info',
-          title: 'Menyiapkan data',
+          title: 'Mohon Tunggu',
           text: 'Permintaan Anda sedang diproses',
           showConfirmButton: false,
           timer: 2000,
@@ -83,7 +83,7 @@ const Checking = {
     } catch (error) {
       Swal.fire({
         icon: 'error',
-        title: 'Data gagal disimpan',
+        title: 'Kesalahan',
         text: 'Coba periksa kembali data yang anda tulis',
       });
       console.error(error);
