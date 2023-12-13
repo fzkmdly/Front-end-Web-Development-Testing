@@ -2,6 +2,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 import CarDbSource from '../../data/data-source';
 import UrlParser from '../../routes/url-parser';
 import {vehicleCheckin} from '../template/templateCreator';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Checking = {
   async render() {
@@ -41,7 +42,7 @@ const Checking = {
       vehicleId: UrlParser.parseActiveUrlWithoutCombiner().id,
     };
 
-    const url = `https://rento-backend-api-d6zuozodga-et.a.run.app/rent-vehicle/${formData.vehicleId}`;
+    const url = `${API_ENDPOINT.ORDER_RENTAL}/${formData.vehicleId}`;
 
     // Read the login information from localStorage
     const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
