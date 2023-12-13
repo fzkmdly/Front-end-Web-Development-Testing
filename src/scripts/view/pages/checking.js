@@ -2,6 +2,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 import CarDbSource from '../../data/data-source';
 import UrlParser from '../../routes/url-parser';
 import {vehicleCheckin} from '../template/templateCreator';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Checking = {
   async render() {
@@ -30,39 +31,59 @@ const Checking = {
   async bookingHandler() {
     event.preventDefault();
     const formData = {
-      tanggalMulai: document.getElementById('tanggalMulai').value,
-      tanggalSelesai: document.getElementById('tanggalSelesai').value,
-      lokasi: document.getElementById('lokasi').value,
-      waktuPenjemputan: document.getElementById('waktuPenjemputan').value,
-      lokasiPengantar: document.getElementById('lokasiPengantar').value,
-      waktuPengantaran: document.getElementById('waktuPengantaran').value,
+      startDate: document.getElementById('tanggalMulai').value,
+      endDate: document.getElementById('tanggalSelesai').value,
+      pickupLocation: document.getElementById('lokasi').value,
+      pickupTime: document.getElementById('waktuPenjemputan').value,
+      deliveryLocation: document.getElementById('lokasiPengantar').value,
+      deliveryTime: document.getElementById('waktuPengantaran').value,
       paymentMethod: document.getElementById('payment-method').value,
       selisihHari: hitungHari(document.getElementById('tanggalMulai').value, document.getElementById('tanggalSelesai').value),
       vehicleId: UrlParser.parseActiveUrlWithoutCombiner().id,
     };
 
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const vehiclesData = await CarDbSource.detailCar(url.id);
+    const url = `${API_ENDPOINT.ORDER_RENTAL}/${formData.vehicleId}`;
 
-    console.log(formData);
+    // Read the login information from localStorage
+    const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+    const accessToken = loginInfo.uid || '';
+
+    // Validate form fields
+    if (!validateForm()) {
+      return;
+    }
 
     try {
-      sessionStorage.setItem('rentalData', JSON.stringify(formData));
-
-      Swal.fire({
-        icon: 'info',
-        title: 'Menyiapkan data',
-        text: 'Permintaan Anda sedang diproses',
-        showConfirmButton: false,
-        timer: 2000,
-      }).then(() => {
-        const url = UrlParser.parseActiveUrlWithoutCombiner();
-        window.location.hash = `#/checkout/${url.id}`;
+      // Make the POST request to the API endpoint
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        sessionStorage.setItem('rentalData', JSON.stringify(formData));
+
+        Swal.fire({
+          icon: 'info',
+          title: 'Mohon Tunggu',
+          text: 'Permintaan Anda sedang diproses',
+          showConfirmButton: false,
+          timer: 2000,
+        }).then(() => {
+          const url = UrlParser.parseActiveUrlWithoutCombiner();
+          window.location.hash = `#/checkout/${url.id}`;
+        });
+      } else {
+        throw new Error('Failed to make the POST request');
+      }
     } catch (error) {
       Swal.fire({
         icon: 'error',
-        title: 'Data gagal disimpan',
+        title: 'Kesalahan',
         text: 'Coba periksa kembali data yang anda tulis',
       });
       console.error(error);
@@ -80,6 +101,42 @@ function hitungHari(tanggalMulaiValue, tanggalSelesaiValue) {
 
   // Menampilkan hasil
   return selisihHari;
+}
+
+function validateForm() {
+  const requiredFields = ['tanggalMulai', 'tanggalSelesai', 'lokasi', 'waktuPenjemputan', 'lokasiPengantar', 'waktuPengantaran', 'payment-method'];
+  for (const field of requiredFields) {
+    const inputField = document.getElementById(field);
+    const value = inputField.value.trim();
+    let displayValue = value;
+
+    if (!value) {
+      if (field === 'tanggalMulai') {
+        displayValue = 'Tanggal Mulai';
+      } else if (field === 'tanggalSelesai') {
+        displayValue = 'Tanggal Selesai';
+      } else if (field === 'lokasi') {
+        displayValue = 'Lokasi Penjemputan';
+      } else if (field === 'waktuPenjemputan') {
+        displayValue = 'Waktu Penjemputan';
+      } else if (field === 'lokasiPengantar') {
+        displayValue = 'Lokasi Pengantaran';
+      } else if (field === 'waktuPengantaran') {
+        displayValue = 'Waktu Pengantaran';
+      } else if (field === 'payment-method') {
+        displayValue = 'Metode Pembayaran';
+      }
+
+      Swal.fire({
+        title: 'Peringatan',
+        text: `${displayValue} harus diisi`,
+        icon: 'warning',
+      });
+
+      return false;
+    }
+  }
+  return true;
 }
 
 export default Checking;

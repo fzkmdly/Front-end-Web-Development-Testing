@@ -245,11 +245,10 @@ const createPartnerRegisterPages = () => {
 };
 
 
-const vehicleCheckin = (vehicle) =>{
+const vehicleCheckin = (vehicles) =>{
   return `
   <section class="vehicleDetailRenting" id="vehicleDetailRenting">
-    <h1>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h1>
-    <h3>Lokasi?</h3>
+    <h1 class="title">Detail Rental ${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</h1>
     <form>
         <div class="vehicleCheckinDate">
             <div>
@@ -261,19 +260,18 @@ const vehicleCheckin = (vehicle) =>{
                 <input type="date" name="tanggalSelesai" id="tanggalSelesai">
             </div>
         </div>
-        <h3>Rental Detail</h3>
         <div class="vehicleDetailForm">
             <div>
-                <label for="Lokasi?">Lokasi Penjemputan</label>
-                <input type="text" name="lokasi" id="lokasi" placeholder="Pilihlah Lokasi">
+                <label for="Lokasi?">Alamat Penjemputan</label>
+                <textarea class="alamatpenjemputan" rows="4" type="text" name="lokasi" id="lokasi" placeholder="Masukkan alamat penjemputan"></textarea>
             </div>
             <div>
                 <label for="waktuPenjemputan">Waktu Penjemputan</label>
                 <input type="time" name="waktuPenjemputan" id="waktuPenjemputan" placeholder="Pilih Waktu">
             </div>
             <div>
-                <label for="LokasiPengantar">Lokasi Pengantar</label>
-                <input type="text" name="lokasiPengantar" id="lokasiPengantar" placeholder="Pilihlah Lokasi">
+                <label for="LokasiPengantar">Alamat Pengantaran</label>
+                <textarea class="alamatpengantaran" rows="4" type="text" name="lokasiPengantar" id="lokasiPengantar" placeholder="Masukkan alamat pengantaran"></textarea>
             </div>
             <div>
                 <label for="waktuPengantaran">Waktu Pengantaran</label>
@@ -284,17 +282,20 @@ const vehicleCheckin = (vehicle) =>{
             <div class="drawer-content">
                 <label for="payment-method">Pilih Metode Pembayaran</label>
                 <select id="payment-method">
+                    <option disabled selected value="">Pilih Metode Pembayaran</option>
                     <optgroup label="Transfer Virtual Account">
-                        <option value="BCAVirtualAccount">BCA Virtual Account</option>
-                        <option value="BNIVirtualAccount">BNI Virtual Account</option>
-                        <option value="PermataVirtualAccount">Permata Virtual Account</option>
-                        <option value="MandiriVirtualAccount">Mandiri Virtual Account</option>
+                        <option value="BCA Virtual Account">BCA Virtual Account</option>
+                        <option value="BNI Virtual Account">BNI Virtual Account</option>
+                        <option value="BRI Virtual Account">BRI Virtual Account</option>
+                        <option value="Permata Virtual Account">Permata Virtual Account</option>
+                        <option value="Mandiri  VirtualAccount">Mandiri Virtual Account</option>
                     </optgroup>
                     <optgroup label="Tunai di Gerai Retail">
-                        <option value="IndomartPayment">Indomart</option>
-                        <option value="AlfaMartPayment">Alfamart</option>
+                        <option value="Indomaret">Indomaret</option>
+                        <option value="AlfaMart">Alfamart</option>
                     </optgroup>
                     <optgroup label="E-Wallet">
+                        <option value="QRIS">QRIS</option>
                         <option value="GoPay">GoPay</option>
                     </optgroup>
                 </select>
@@ -309,71 +310,6 @@ const vehicleCheckin = (vehicle) =>{
 // List of partner's rented vehicles
 const partnerAfterRegistation = (vehicles) => {
   return `
-      <style>
-      /* Add your styles here */
-      .listYourRentaled, .listRentaledHistory {
-          display: none;
-      }
-
-      .active {
-          display: flex;
-          flex-direction: column;
-      }
-
-      .listRentaledToggle,
-      .listHistoryToggle {
-          cursor: pointer;
-          margin: 5px;
-          padding: 10px;
-          border: 2px solid transparent;
-          transition: border 0.3s ease;
-          position: relative; /* Add this for positioning the pseudo-element */
-      }
-
-      .listRentaledToggle::after,
-      .listHistoryToggle::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0;
-          height: 2px; /* Border thickness */
-          background: linear-gradient(to right, #080808, #1bda44);
-          transition: width 0.3s ease, left 0.3s ease;
-      }
-
-      .focused::after {
-          width: 100%;
-          left: 0;
-      }
-
-      .rentaledVehicleInfo 
-        p, h4 {
-            margin-block: 0;
-        }
-
-
-      .availableInfo {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            border-radius: 40px;
-            border: 1px solid #078080;
-        }
-        
-        .avia-on {
-            background-color: #078080;
-        }
-        
-        .availableInfo p {
-            padding-inline: 15px;
-            padding-block: 10px;
-            border-radius: 40px;
-            margin-block: 0;
-            width: 100%;
-        }
-    </style>
-
       <div id="rentaledVehicleContainer" class="rentaledVehicleContainer">
         <section id="rentaledVehicleHeader" class="rentaledVehicleHeader">
             <h2>Partner List Mobil</h2>
@@ -641,82 +577,14 @@ const addRentalVehicle = () => {
 
 const paymentCheck = (sessionDatas, vehicles) => {
   const timeCost = sessionDatas.selisihHari * parseFloat(vehicles.vehicleInformation.cost);
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+
   return `
-        <style>
-            .paymentInfo{
-                width: 100%;
-            }
-
-            .paymentInfo form {
-                background-color: #F8F5F2;
-                border-radius: 8px;
-                margin-inline: 175px;
-                padding-inline: 15px;
-            }
-
-            .paymentInfo form h2 {
-                text-align: center;
-                padding-top: 10px;
-            }
-
-            .paymentBody {
-                display: block;
-            }
-
-            .paymentBodyDesc {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                margin-block: 10px;
-            }
-
-            .paymentBodyDescName{
-                margin-inline: 5px;
-            }
-
-            .paymentBodyDescName p{
-                margin: 0;
-            }
-
-            .paymentBodyDateIndex {
-                width: 100%;
-            }
-
-            .payment-form-group,
-            .paymentTotalCheck {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                margin-block: 5px;
-            }
-
-            .paymentBody input {
-                width: 250px;
-                height: 25px;
-                background-color: #F8F5F2;
-                border: none;
-                outline: none;
-            }
-
-            form .paymentConfirm {
-                cursor: pointer;
-                padding-inline: 40px;
-                padding-block: 10px;
-                border-radius: 20px;
-                color: white;
-                background-color: #F45D48;
-                border: 1px solid #F45D48;
-                margin-top: 20px;
-                margin-bottom: 10px;
-            }
-        </style>
-
-
-        <form action="">
+        <form>
             <h2>Detail Pembayaran</h2>
             <section id="paymentBody" class="paymentBody">
                 <div class="paymentBodyDesc">
-                    <img src="${vehicles.ImageUrl}" alt="" width="75px" style="border-radius: 10px;">
+                    <img src="${vehicles.ImageUrl}" alt="" width="150px" style="border-radius: 10px;">
                     <section class="paymentBodyDescName">
                         <p><b>${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</b></p>
                         <p>${vehicles.partner.partnerName}</p>
@@ -724,40 +592,40 @@ const paymentCheck = (sessionDatas, vehicles) => {
                 </div>
                 <div id="paymentBodyDateIndex" class="paymentBodyDateIndex">
                     <div class="payment-form-group">
-                        <label for="lokPenyewaan">Lokasi Penyewaan :</label>
-                        <input type="text" value="${sessionDatas.lokasi}" id="lokPenyewaan" name="lokPenyewaan" readonly>
+                        <label for="lokPenyewaan">Lokasi Penyewaan:</label>
+                        <input type="text" value="${vehicles.locations}" id="lokPenyewaan" name="lokPenyewaan" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="tglMulai">Tanggal Mulai :</label>
-                        <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.tanggalMulai}" readonly>
+                        <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.startDate}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="tglAkhir">Tanggal Selesai : </label>
-                        <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.tanggalSelesai}" readonly>
+                        <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.endDate}" readonly>
                     </div>
                 </div>
                 <hr>
                 <div id="paymentBodyCheckIndex" class="paymentBodyCheckIndex">
                     <div class="payment-form-group">
                         <label for="lokPenjemputan">Lokasi Penjemputan :</label>
-                        <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.lokasi}" readonly>
+                        <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.pickupLocation}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="waktuPenjemputan">Waktu Penjemputan :</label>
-                        <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.waktuPenjemputan}" readonly>
+                        <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.pickupTime}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="lokPengantaran">Lokasi Pengantaran :</label>
-                        <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.lokasiPengantar}" readonly>
+                        <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.deliveryLocation}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="waktuPengantaran">Waktu Pengantaran :</label>
-                        <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.waktuPengantaran}" readonly>
+                        <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.deliveryTime}" readonly>
                     </div>
                 </div>
                 <hr>
                 <div id="paymentTotalCheck" class="paymentTotalCheck">
-                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x 1 mobil</label>
+                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x ${costAsNumber.toLocaleString('id-ID')}</label>
                     <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString('id-ID')}" readonly>
                 </div>
             </section>
