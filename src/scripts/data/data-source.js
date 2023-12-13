@@ -39,6 +39,19 @@ class CarDbSource {
     return response.data.user;
   }
 
+  static async getPartnerVehicle() {
+    const url = API_ENDPOINT.PARTNER_CAR;
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${this.getAccessToken()}`,
+      },
+    };
+
+    const response = await this.fetchData(url, options);
+    return response.data.vehicle;
+  }
+
   static getAccessToken() {
     const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
     return loginInfo.uid || '';
