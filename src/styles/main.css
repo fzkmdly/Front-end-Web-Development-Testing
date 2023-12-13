@@ -1406,7 +1406,8 @@ form .paymentConfirm:hover {
 #paymentCheck,
 #waktuPengantaran,
 #lokPengantaran,
-#waktuPenjemputan{
+#waktuPenjemputan,
+#paymentMethodName {
   font-size: medium;
 }
 
