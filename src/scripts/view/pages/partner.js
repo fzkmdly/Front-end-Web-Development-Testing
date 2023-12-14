@@ -6,6 +6,7 @@ import {
   partnerAfterRegistation,
 } from '../template/templateCreator';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import CarDbSource from '../../data/data-source';
 
 const Partner = {
   async render() {
@@ -88,8 +89,14 @@ const Partner = {
         const formContainer = document.getElementById('partnerForm');
         formContainer.innerHTML = partnerAfterRegistation();
 
+        const partnerVehicles = await CarDbSource.getPartnerVehicle(accessToken);
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
-        listRentaledContainer.innerHTML += cardForListRentaled();
+        listRentaledContainer.innerHTML = '';
+
+        partnerVehicles.forEach((vehicle) => {
+          listRentaledContainer.innerHTML += cardForListRentaled(vehicle);
+        });
+
       } else {
         // If the user does not have the "Partner" role, show the registration form
         const registrationFormContainer = document.getElementById('partnerForm');
