@@ -51,8 +51,15 @@ const userProfile = {
               icon: 'error',
               title: 'Kesalahan',
               text: 'Ukuran gambar maksimal 2 MB!',
-            }).then(() => {
-              editProfilePictureButton.click();
+              showCancelButton: true,
+              confirmButtonText: 'Pilih gambar lain',
+              cancelButtonText: 'Batal',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                editProfilePictureButton.click();
+              } else {
+                // Don't do anything
+              }
             });
             return;
           }
