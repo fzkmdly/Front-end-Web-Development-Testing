@@ -71,20 +71,6 @@ class CarDbSource {
     const loginInfo = JSON.parse(localStorage.getItem("loginInfo")) || {};
     return loginInfo.uid || "";
   }
-
-  static async postCar(data) {
-    const url = API_ENDPOINT.CREATE_CAR;
-    const options = {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${this.getAccessToken()}`,
-        "Content-Type": "multipart/form-data",
-      },
-      data: JSON.stringify(data),
-    };
-
-    return this.fetchData(url, options);
-  }
 }
 
 export default CarDbSource;

@@ -12,6 +12,8 @@ const API_ENDPOINT = {
   REGISTER_PARTNER: `${CONFIG.BASE_URL}/partner/create`,
   UPLOAD_PROFILE_IMAGE: `${CONFIG.BASE_URL}/user/profile/img`,
   PARTNER_CAR: `${CONFIG.BASE_URL}/partner-vehicle/list`,
+  ORDER_RENTAL: `${CONFIG.BASE_URL}/rent-vehicle`,
+  UPDATE_PAYMENT: `${CONFIG.BASE_URL}/rent-vehicle/payment`,
 };
 
 export default API_ENDPOINT;
