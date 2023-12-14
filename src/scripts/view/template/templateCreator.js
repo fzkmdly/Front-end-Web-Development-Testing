@@ -389,10 +389,12 @@ const userProfilePages = (userData) => {
     <div class="userContainer" id="userContainer">
         <h1>Detail Akun</h1>
         <section class="topUserProfile" id="topUserProfile">
-            <div class="userProfilePicture">
-                <img src="${userData.urlImage}" width="200px" alt="oke">
+            <div class="userProfilePicture" id="editProfilePictureButton">
+                <img src="${userData.urlImage}" width="200px" alt="oke" class="hover-image">
+                <div class="overlay">
+                    <span class="overlay-text"><i class="fa-regular fa-pencil"></i> Ubah Gambar</span>
+                </div>
             </div>
-            <button id="editProfilePictureButton">Ganti Foto Profil</button>
             <h2 class="name">${userData.username.toUpperCase()}</h2>
             <h3 class="email">${userData.email}</h3>
             <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
@@ -424,6 +426,46 @@ const userProfilePages = (userData) => {
             </a>
         </section>
     </div>
+    <style>
+    .userProfilePicture {
+        position: relative;
+        overflow: hidden;
+        border-radius: 100%;
+    }
+      
+    .hover-image {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      
+      .overlay-text {
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .userProfilePicture:hover .hover-image {
+        transform: scale(1.1);
+      }
+
+      .userProfilePicture:hover .overlay {
+        opacity: 1;
+      }
+    </style>
     `;
 };
 

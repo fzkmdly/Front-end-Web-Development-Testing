@@ -1224,28 +1224,12 @@ width: 100%;
 
 .topUserProfile .name {
   font-size: xx-large;
+  margin-block: 10px;
 }
 
 .topUserProfile .email {
   font-size: large;
   font-weight: 400;
-}
-
-.topUserProfile button {
-  padding-inline: 14px;
-  padding-block: 5px;
-  border-radius: 20px;
-  background-color: #71C9CE;
-  color: white;
-  border: 1px solid #A6E3E9;
-  margin-bottom: 14px;
-  margin-top: 2px;
-  font-size: medium;
-}
-
-.topUserProfile button:hover {
-  background-color: #00ADB5;
-  transition: 700ms;
 }
 
 .bodyUserProfile {
