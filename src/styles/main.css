@@ -1087,6 +1087,19 @@ width: 100%;
   padding-block: 10px;
 }
 
+.addRentaledVehicle i {
+  font-size: 5em;
+  color: white;
+  background-color: red;
+  border-radius: 14px;
+}
+
+.addRentaledVehicle i:hover {
+  background-color: #B31312;
+  color: white;
+  transition: 700ms;
+}
+
 /*---------------------Add Rental Vehicle Pages------------------------*/
 
 .addYourVehicle {
@@ -1289,7 +1302,8 @@ width: 100%;
 #brand,
 #type,
 #seats,
-#year {
+#year,
+#location {
   padding-block: 8px;
   width: 100%;
   margin-bottom: 10px;

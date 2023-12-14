@@ -344,7 +344,7 @@ const partnerAfterRegistation = (vehicles) => {
                 </div>
                 <div id="addRentaledVehicle" class="addRentaledVehicle">
                     <a href="#/addVehicle">
-                        <img src="./images/icons/partner-page-icon/Group 37010.png" alt="">
+                        <i class="fa-solid fa-plus"></i>
                     </a>
                 </div>
             </div>
