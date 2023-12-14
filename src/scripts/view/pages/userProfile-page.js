@@ -46,6 +46,17 @@ const userProfile = {
         fileInput.addEventListener('change', async (event) => {
           const file = event.target.files[0];
 
+          if (!imageSizeLimit(file)) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Kesalahan',
+              text: 'Ukuran gambar maksimal 2 MB!',
+            }).then(() => {
+              editProfilePictureButton.click();
+            });
+            return;
+          }
+
           // Display image preview
           const reader = new FileReader();
           reader.onload = function(e) {
@@ -107,5 +118,14 @@ const userProfile = {
     }
   },
 };
+
+function imageSizeLimit(file) {
+  const fileSize = file.size / 1024 / 1024;
+  if (fileSize > 2) {
+    return false;
+  }
+
+  return true;
+}
 
 export default userProfile;

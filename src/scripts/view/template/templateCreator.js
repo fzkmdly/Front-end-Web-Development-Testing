@@ -395,7 +395,6 @@ const userProfilePages = (userData) => {
                     <span class="overlay-text"><i class="fa-regular fa-pencil"></i> Ubah Gambar</span>
                 </div>
             </div>
-            <button id="editProfilePictureButton">Ganti Foto Profil</button>
             <h2 class="name">${userData.username.toUpperCase()}</h2>
             <h3 class="email">${userData.email}</h3>
             <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
