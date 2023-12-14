@@ -426,46 +426,6 @@ const userProfilePages = (userData) => {
             </a>
         </section>
     </div>
-    <style>
-    .userProfilePicture {
-        position: relative;
-        overflow: hidden;
-        border-radius: 100%;
-    }
-      
-    .hover-image {
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-      }
-      
-      .overlay-text {
-        color: #fff;
-        font-size: 20px;
-        cursor: pointer;
-      }
-
-      .userProfilePicture:hover .hover-image {
-        transform: scale(1.1);
-      }
-
-      .userProfilePicture:hover .overlay {
-        opacity: 1;
-      }
-    </style>
     `;
 };
 
