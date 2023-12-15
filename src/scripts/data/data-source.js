@@ -1,5 +1,6 @@
 import axios from 'axios';
 import API_ENDPOINT from '../globals/api-endpoint';
+import Cookies from 'js-cookie';
 
 class CarDbSource {
   static async fetchData(url, options = {}) {
@@ -40,8 +41,7 @@ class CarDbSource {
   }
 
   static getAccessToken() {
-    const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
-    return loginInfo.uid || '';
+    return Cookies.get('uid') || '';
   }
 }
 
