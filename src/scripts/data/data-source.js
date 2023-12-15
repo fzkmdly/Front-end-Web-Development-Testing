@@ -56,7 +56,7 @@ class CarDbSource {
 
     const response = await this.fetchData(url, options);
     if (response.status === "success") {
-      return response.data.vehicles || [];
+      return response.data.vehicles;
     } else {
       throw new Error(
         response.message || "Gagal mendapatkan data mobil partner"

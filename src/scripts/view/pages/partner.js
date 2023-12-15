@@ -90,12 +90,12 @@ const Partner = {
         formContainer.innerHTML = partnerAfterRegistation();
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
 
-        const partnerVehicles = await CarDbSource.getPartnerVehicle(accessToken);
+        const partnerVehicles = await CarDbSource.getPartnerVehicle();
         if (partnerVehicles === 0){
           listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
         }
-        partnerVehicles.forEach((vehicle) => {
-          listRentaledContainer.innerHTML += cardForListRentaled(vehicle);
+        partnerVehicles.forEach((vehicles) => {
+          listRentaledContainer.innerHTML += cardForListRentaled(vehicles);
         });
 
       } else {
