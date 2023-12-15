@@ -40,7 +40,7 @@ const Detail = {
         text: 'Anda harus login untuk melakukan pemesanan',
         showCancelButton: true,
         cancelButtonText: 'Batal',
-        confirmButtonText: 'Log In',
+        confirmButtonText: 'Login',
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.href = '#/login';
