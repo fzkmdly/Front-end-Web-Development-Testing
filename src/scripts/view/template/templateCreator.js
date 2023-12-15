@@ -383,7 +383,7 @@ const partnerAfterRegistation = (vehicles) => {
                 </div>
             </div>
             <div id="listRentaledHistory" class="listRentaledHistory">
-            ${generateRentedHistoryCards(vehicles)}
+            ${generateRentedHistoryCards()}
             </div>
         </section
       </div>
@@ -409,22 +409,21 @@ const generateVehicleCards = (vehicles) => {
     `).join('');
   };
 
-  const generateRentedHistoryCards = (vehicles) => {
+  const generateRentedHistoryCards = () => {
 
-    const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
-    return vehicles.map((vehicles) => `
+    return  `
       <section class="rentaledHistory">
-        <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
+        <img src="" alt="jajajajja">
         <div class="rentaledVehicleInfo">
-          <h4>${vehicles.partner.partnerName}</h4>
-          <p>${vehicles.vehicleInformation.name}</p>
+          <h4></h4>
+          <p></p>
         </div>
         <div>
           <p>Mulai dari</p>
-          <h5>${costAsNumber.toLocaleString("id-ID")}</h5>
+          <h5></h5>
         </div>
       </section>
-    `).join('');
+    `.join('');
   };
 
 // History of rented vehicles
