@@ -6,6 +6,7 @@ import {
   partnerAfterRegistation,
 } from '../template/templateCreator';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import Cookies from 'js-cookie'; // Import the Cookies library
 
 const Partner = {
   async render() {
@@ -32,12 +33,17 @@ const Partner = {
       return '';
     }
 
-    // Read the login information from localStorage
-    const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
-    const userRoles = Array.isArray(loginInfo.roles) ? loginInfo.roles : [];
+    // Read the login information from Cookies
+    // eslint-disable-next-line no-unused-vars
+    const uid = Cookies.get('uid') || '';
+    // eslint-disable-next-line no-unused-vars
+    const username = Cookies.get('username') || '';
+    // eslint-disable-next-line no-unused-vars
+    const email = Cookies.get('email') || '';
+    const roles = JSON.parse(Cookies.get('roles')) || [];
 
     // Check if the user has the "Partner" role
-    const isPartner = userRoles.includes('Partner');
+    const isPartner = roles.includes('Partner');
 
     // If the user has the "Partner" role, render the page
     if (isPartner) {
@@ -75,13 +81,17 @@ const Partner = {
         return;
       }
 
-      // Read the login information from localStorage
-      const loginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
-      const userRoles = loginInfo.roles || [];
-      const accessToken = loginInfo.uid || ''; // Assuming 'uid' contains the access token
+      // Read the login information from Cookies
+      const uid = Cookies.get('uid') || '';
+      // eslint-disable-next-line no-unused-vars
+      const username = Cookies.get('username') || '';
+      // eslint-disable-next-line no-unused-vars
+      const email = Cookies.get('email') || '';
+      const roles = JSON.parse(Cookies.get('roles')) || [];
+      const accessToken = uid; // Assuming 'uid' contains the access token
 
       // Check if the user is a partner
-      const isPartner = userRoles.includes('Partner');
+      const isPartner = roles.includes('Partner');
 
       // Do not proceed with rendering if the user is a partner
       if (isPartner) {
@@ -146,10 +156,10 @@ const Partner = {
                 icon: 'success',
               });
 
-              const existingLoginInfo = JSON.parse(localStorage.getItem('loginInfo')) || {};
+              const existingLoginInfo = JSON.parse(Cookies.get('loginInfo')) || {};
               const updatedRoles = {...existingLoginInfo.roles, 1: 'Partner'};
               const updatedLoginInfo = {...existingLoginInfo, roles: updatedRoles};
-              localStorage.setItem('loginInfo', JSON.stringify(updatedLoginInfo));
+              Cookies.set('loginInfo', JSON.stringify(updatedLoginInfo));
             } else {
               // Handle error (e.g., show an error message)
               Swal.fire({
@@ -171,7 +181,7 @@ const Partner = {
 
 // Function to check if the user is logged in (example implementation)
 function checkUserLoggedIn() {
-  return localStorage.getItem('loginInfo') !== null;
+  return Cookies.get('uid') !== undefined;
 }
 
 export default Partner;
