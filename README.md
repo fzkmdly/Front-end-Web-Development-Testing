@@ -1,6 +1,8 @@
 # Rent'O - Car Rental Service
 
-For contributing, create a PR, please!
+For contributing, create a PR, please! :D
+
+Please use Main branch every create a PR! :D
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/06d93c93-cd3f-4435-8b23-9dd73dae76fc/deploy-status)](https://app.netlify.com/sites/rent-o/deploys)
 
