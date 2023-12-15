@@ -152,14 +152,21 @@ const Partner = {
               // Handle success (e.g., show a success message)
               Swal.fire({
                 title: 'Berhasil Daftar',
-                text: 'Anda telah terdaftar sebagai partner Rent\'O',
+                html: `Anda telah terdaftar sebagai partner Rent\'O.<br>Silahkan login ulang!`,
                 icon: 'success',
+                confirmButtonText: 'Login Ulang',
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  // Clear all cookies
+                  const cookies = Cookies.get();
+                  // eslint-disable-next-line guard-for-in
+                  for (const cookie in cookies) {
+                    Cookies.remove(cookie);
+                  }
+                  window.location.href = '#/login';
+                  window.location.reload();
+                }
               });
-
-              const existingLoginInfo = JSON.parse(Cookies.get('loginInfo')) || {};
-              const updatedRoles = {...existingLoginInfo.roles, 1: 'Partner'};
-              const updatedLoginInfo = {...existingLoginInfo, roles: updatedRoles};
-              Cookies.set('loginInfo', JSON.stringify(updatedLoginInfo));
             } else {
               // Handle error (e.g., show an error message)
               Swal.fire({
