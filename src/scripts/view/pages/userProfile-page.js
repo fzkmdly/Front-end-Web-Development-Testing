@@ -2,6 +2,7 @@ import CarDbSource from '../../data/data-source';
 import {userProfilePages} from '../template/templateCreator';
 import API_ENDPOINT from '../../globals/api-endpoint';
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
+import Cookies from 'js-cookie'; // Import the Cookies library
 
 const userProfile = {
   async render() {
@@ -12,8 +13,9 @@ const userProfile = {
 
   async afterRender() {
     try {
-      const loginInfo = localStorage.getItem('loginInfo');
-      if (!loginInfo) {
+      const accessToken = Cookies.get('uid');
+
+      if (!accessToken) {
         Swal.fire({
           icon: 'info',
           title: 'Anda belum login',
@@ -24,6 +26,8 @@ const userProfile = {
         }).then((result) => {
           if (result.isConfirmed) {
             window.location.hash = '#/login';
+          } else {
+            window.location.hash = '#/';
           }
         });
 
@@ -45,6 +49,24 @@ const userProfile = {
 
         fileInput.addEventListener('change', async (event) => {
           const file = event.target.files[0];
+
+          if (!imageSizeLimit(file)) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Kesalahan',
+              text: 'Ukuran gambar maksimal 2 MB!',
+              showCancelButton: true,
+              confirmButtonText: 'Pilih gambar lain',
+              cancelButtonText: 'Batal',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                editProfilePictureButton.click();
+              } else {
+                // Don't do anything
+              }
+            });
+            return;
+          }
 
           // Display image preview
           const reader = new FileReader();
@@ -107,5 +129,14 @@ const userProfile = {
     }
   },
 };
+
+function imageSizeLimit(file) {
+  const fileSize = file.size / 1024 / 1024;
+  if (fileSize > 2) {
+    return false;
+  }
+
+  return true;
+}
 
 export default userProfile;

@@ -193,6 +193,21 @@ const createRegisterPages = () => {
 };
 
 const createPartnerRegisterPages = () => {
+  // Calendar limit for SIM expired date (3 months from today)
+  const sixMonthsFromToday = new Date();
+  sixMonthsFromToday.setMonth(sixMonthsFromToday.getMonth() + 3);
+  const sixMonthsFromTodayString = sixMonthsFromToday.toISOString().split('T')[0];
+
+  // Calendar limit 17 years ago from today
+  const seventeenYearsAgo = new Date();
+  seventeenYearsAgo.setFullYear(seventeenYearsAgo.getFullYear() - 17);
+  const seventeenYearsAgoString = seventeenYearsAgo.toISOString().split('T')[0];
+
+  // Calendar limit 58 years ago from today
+  const fiftyEightYearsAgo = new Date();
+  fiftyEightYearsAgo.setFullYear(fiftyEightYearsAgo.getFullYear() - 58);
+  const fiftyEightYearsAgoString = fiftyEightYearsAgo.toISOString().split('T')[0];
+
   return `
     <form id="partnerForm" enctype="application/json">
         <h1>Daftar Partner</h1>
@@ -209,14 +224,14 @@ const createPartnerRegisterPages = () => {
                 <label for="tempatLahir">Tempat</label>
                 <label for="tanggalLahir">Tanggal Lahir:</label>
                 <input type="text" id="placeBirth_KTP" name="placeBirth_KTP" required>
-                <input type="date" id="dateBirth_KTP" name="dateBirth_KTP" min="1960-01-01" max="2010-01-01" required>
+                <input type="date" id="dateBirth_KTP" name="dateBirth_KTP" min="${fiftyEightYearsAgoString}" max="${seventeenYearsAgoString}" required>
             </div>
 
             <label for="nomorSIM">Nomor SIM:</label>
             <input type="text" id="number_SIM" name="number_SIM" required>
 
             <label for="masaBerlaku">Masa Berlaku:</label>
-            <input type="date" id="expired_SIM" name="expired_SIM" min="2023-01-01" required>
+            <input type="date" id="expired_SIM" name="expired_SIM" min="${sixMonthsFromTodayString}" required>
 
             <label for="jenis-sim">Jenis SIM:</label>
             <select id="jenis-sim">
@@ -432,10 +447,12 @@ const userProfilePages = (userData) => {
     <div class="userContainer" id="userContainer">
         <h1>Detail Akun</h1>
         <section class="topUserProfile" id="topUserProfile">
-            <div class="userProfilePicture">
-                <img src="${userData.urlImage}" width="200px" alt="oke">
+            <div class="userProfilePicture" id="editProfilePictureButton">
+                <img src="${userData.urlImage}" width="200px" alt="oke" class="hover-image">
+                <div class="overlay">
+                    <span class="overlay-text"><i class="fa-regular fa-pencil"></i> Ubah Gambar</span>
+                </div>
             </div>
-            <button id="editProfilePictureButton">Ganti Foto Profil</button>
             <h2 class="name">${userData.username.toUpperCase()}</h2>
             <h3 class="email">${userData.email}</h3>
             <p>Anda adalah <b>${userData.roles.join(", dan ")}</b></p>

@@ -1,7 +1,7 @@
 {
   "name": "front-end-web-development",
   "version": "1.0.0",
-  "description": "",
+  "description": "Front-end Development - Dicoding Cycle 5",
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
@@ -14,7 +14,11 @@
     "build-image": "node sharp.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Faiz Akhmad Daulay, Faisal A F Rahman, Benaya Adi Sahat Dwiyanto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rent-O-Dicoding-Cycle-5/Front-end-Web-Development.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.23.6",
@@ -47,6 +51,7 @@
   },
   "dependencies": {
     "axios": "^1.6.2",
+    "js-cookie": "^3.0.5",
     "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.14.0",
     "sweetalert2": "^11.10.1",

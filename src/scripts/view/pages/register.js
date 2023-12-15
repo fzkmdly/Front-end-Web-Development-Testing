@@ -83,9 +83,13 @@ const Register = {
         Swal.fire({
           icon: 'success',
           title: successMessage,
-          html: `Kami telah mengirimkan email konfirmasi.<br>Silahkan cek kotak masuk Anda!</strong>`,
+          text: 'Silakan login untuk melanjutkan',
           focusConfirm: true,
-          confirmButtonText: 'OK',
+          confirmButtonText: 'Login',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '#/login';
+          }
         });
       } else {
         console.error('Registration failed:', data);
