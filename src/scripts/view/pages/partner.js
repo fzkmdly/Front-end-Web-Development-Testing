@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 import {
-  cardForListRentaled,
+  generateVehicleCards ,
   createPartnerRegisterPages,
   partnerAfterRegistation,
 } from '../template/templateCreator';
@@ -95,7 +95,7 @@ const Partner = {
           listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
         }
         partnerVehicles.forEach((vehicles) => {
-          listRentaledContainer.innerHTML += cardForListRentaled(vehicles);
+          listRentaledContainer.innerHTML += generateVehicleCards(vehicles);
         });
 
       } else {
