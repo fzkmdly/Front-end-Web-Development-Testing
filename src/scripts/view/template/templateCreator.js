@@ -391,16 +391,18 @@ const partnerAfterRegistation = (vehicles) => {
 };
 
 const generateVehicleCards = (vehicles) => {
-    return vehicles.map((vehicle) => `
+
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+    return vehicles.map((vehicles) => `
       <section class="rentaledVehicle">
-        <img src="${vehicle.ImageUrl}" alt="${vehicle.vehicleInformation.name}">
+        <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
         <div class="rentaledVehicleInfo">
-          <h4>${vehicle.partner.partnerName}</h4>
-          <p>${vehicle.vehicleInformation.name}</p>
+          <h4>${vehicles.vehicleInformation.name}</h4>
+          <p>${costAsNumber.toLocaleString("id-ID")}</p>
         </div>
         <div class="availableInfo">
-          <p class="${vehicle.isAvailable ? 'avia-on' : ''}">${vehicle.isAvailable ? 'Available' : 'Unavailable'}</p>
-          <p class="${!vehicle.isAvailable ? 'avia-on' : ''}">${!vehicle.isAvailable ? 'Unavailable' : 'Available'}</p>
+          <p class="${vehicles.isAvailable ? 'avia-on' : ''}">${vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
+          <p class="${!vehicles.isAvailable ? 'avia-on' : ''}">${!vehicles.isAvailable ? 'Tidak Tersedia' : 'Tersedia'}</p>
         </div>
         <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
       </section>
@@ -408,16 +410,18 @@ const generateVehicleCards = (vehicles) => {
   };
 
   const generateRentedHistoryCards = (vehicles) => {
-    return vehicles.map((vehicle) => `
+
+    const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+    return vehicles.map((vehicles) => `
       <section class="rentaledHistory">
-        <img src="${vehicle.ImageUrl}" alt="${vehicle.vehicleInformation.name}">
+        <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
         <div class="rentaledVehicleInfo">
-          <h4>${vehicle.partner.partnerName}</h4>
-          <p>${vehicle.vehicleInformation.name}</p>
+          <h4>${vehicles.partner.partnerName}</h4>
+          <p>${vehicles.vehicleInformation.name}</p>
         </div>
         <div>
           <p>Mulai dari</p>
-          <h5>${vehicle.vehicleInformation.cost}</h5>
+          <h5>${costAsNumber.toLocaleString("id-ID")}</h5>
         </div>
       </section>
     `).join('');
