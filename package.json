@@ -14,7 +14,7 @@
     "build-image": "node sharp.js"
   },
   "keywords": [],
-  "author": "Faiz Akhmad Daulay & Faisal A F Rahman",
+  "author": "Faiz Akhmad Daulay, Faisal A F Rahman, Benaya Adi Sahat Dwiyanto",
   "repository": {
     "type": "git",
     "url": "https://github.com/Rent-O-Dicoding-Cycle-5/Front-end-Web-Development.git"
