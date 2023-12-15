@@ -157,6 +157,11 @@ const createPartnerRegisterPages = () => {
   seventeenYearsAgo.setFullYear(seventeenYearsAgo.getFullYear() - 17);
   const seventeenYearsAgoString = seventeenYearsAgo.toISOString().split('T')[0];
 
+  // Calendar limit 58 years ago from today
+  const fiftyEightYearsAgo = new Date();
+  fiftyEightYearsAgo.setFullYear(fiftyEightYearsAgo.getFullYear() - 58);
+  const fiftyEightYearsAgoString = fiftyEightYearsAgo.toISOString().split('T')[0];
+
   return `
     <form id="partnerForm" enctype="application/json">
         <h1>Daftar Partner</h1>
@@ -173,7 +178,7 @@ const createPartnerRegisterPages = () => {
                 <label for="tempatLahir">Tempat</label>
                 <label for="tanggalLahir">Tanggal Lahir:</label>
                 <input type="text" id="placeBirth_KTP" name="placeBirth_KTP" required>
-                <input type="date" id="dateBirth_KTP" name="dateBirth_KTP" min="1960-01-01" max="${seventeenYearsAgoString}" required>
+                <input type="date" id="dateBirth_KTP" name="dateBirth_KTP" min="${fiftyEightYearsAgoString}" max="${seventeenYearsAgoString}" required>
             </div>
 
             <label for="nomorSIM">Nomor SIM:</label>
