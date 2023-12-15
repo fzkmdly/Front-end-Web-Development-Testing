@@ -171,7 +171,6 @@ function validateForm() {
         text: `${displayValue} harus diisi`,
         icon: 'warning',
       });
-
       return false;
     }
   }
@@ -188,10 +187,8 @@ function validateDate() {
       text: 'Tanggal Selesai harus melebihi Tanggal Mulai',
       icon: 'warning',
     });
-
     return false;
   }
-
   return true;
 }
 
