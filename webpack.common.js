@@ -10,6 +10,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -147,6 +148,26 @@ module.exports = {
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false,
+    }),
+    new CompressionPlugin({
+      filename: '[path][base].gz',
+      algorithm: 'gzip',
+      test: /\.(js|css|html|png|jpg)$/,
+      compressionOptions: {
+        level: 8,
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    new CompressionPlugin({
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|png|jpg)$/,
+      compressionOptions: {
+        level: 8,
+      },
+      threshold: 10240,
+      minRatio: 0.8,
     }),
   ],
 };
