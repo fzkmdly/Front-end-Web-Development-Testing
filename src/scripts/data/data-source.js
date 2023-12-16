@@ -1,6 +1,6 @@
-import axios from 'axios';
-import API_ENDPOINT from '../globals/api-endpoint';
-import Cookies from 'js-cookie';
+import axios from "axios";
+import API_ENDPOINT from "../globals/api-endpoint";
+import Cookies from "js-cookie";
 
 class CarDbSource {
   static async fetchData(url, options = {}) {
@@ -57,7 +57,9 @@ class CarDbSource {
 
     const response = await this.fetchData(url, options);
     if (response.status === "success") {
-      return response.data.vehicles;
+      const vehicles = response.data.vehicles || [];
+      console.log("Vehicles:", vehicles); // Tambahkan log ini
+      return vehicles;
     } else {
       throw new Error(
         response.message || "Gagal mendapatkan data mobil partner"
@@ -69,7 +71,7 @@ class CarDbSource {
   }
 
   static getAccessToken() {
-    const token = Cookies.get('uid') || '';
+    const token = Cookies.get("uid") || "";
     return token;
   }
 }

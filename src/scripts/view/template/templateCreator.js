@@ -406,7 +406,7 @@ const partnerAfterRegistation = (vehicles) => {
 };
 
 const generateVehicleCards = (vehicles) => {
-
+  console.log("Generating vehicle cards with data:", vehicles);
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
     return vehicles.map((vehicles) => `
       <section class="rentaledVehicle">
