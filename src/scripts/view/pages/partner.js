@@ -100,14 +100,15 @@ const Partner = {
         formContainer.innerHTML = partnerAfterRegistation();
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
 
-        const partnerVehicles = await CarDbSource.getPartnerVehicle();
+        const partnerVehicles = await CarDbSource.getPartnerVehicle(accessToken);
         if (partnerVehicles === 0){
           listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
-        }
-        partnerVehicles.forEach((vehicles) => {
+        } else {
+          partnerVehicles.forEach((vehicles) => {
           listRentaledContainer.innerHTML += generateVehicleCards(vehicles);
-        });
-
+          });
+        }
+        
       } else {
         // If the user does not have the "Partner" role, show the registration form
         const registrationFormContainer = document.getElementById('partnerForm');

@@ -69,9 +69,8 @@ class CarDbSource {
   }
 
   static getAccessToken() {
-    const loginInfo = JSON.parse(localStorage.getItem("loginInfo")) || {};
-    return loginInfo.uid || "";
-    return Cookies.get('uid') || '';
+    const token = Cookies.get('uid') || '';
+    return token;
   }
 }
 
