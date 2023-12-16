@@ -10,7 +10,6 @@
     "lint-fix": "eslint --fix --ext .js ./src",
     "serve": "http-server dist",
     "build-serve": "yarn run build && yarn run serve",
-    "test": "karma start",
     "build-image": "node sharp.js"
   },
   "keywords": [],
@@ -31,6 +30,7 @@
     "css-minimizer-webpack-plugin": "^5.0.1",
     "eslint": ">=8.55.0",
     "eslint-config-google": "^0.14.0",
+    "html-minimizer-webpack-plugin": "^4.4.0",
     "html-webpack-plugin": "^5.5.4",
     "http-server": "^14.1.1",
     "imagemin-mozjpeg": "^9.0.0",
@@ -40,6 +40,7 @@
     "sharp": "^0.33.0",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
+    "uglify-js": "^3.17.4",
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",

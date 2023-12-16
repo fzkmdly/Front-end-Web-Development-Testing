@@ -9,6 +9,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -30,10 +31,34 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new CssMinimizerPlugin(),
+      new CssMinimizerPlugin({
+        test: /\.css$/i,
+        parallel: true,
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: {removeAll: true},
+            },
+          ],
+        },
+      }),
       new TerserPlugin({
+        minify: TerserPlugin.uglifyJsMinify,
         parallel: true,
         extractComments: false,
+      }),
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      }),
+      new HtmlMinimizerPlugin({
+        test: /\.html$/i,
+        minimizerOptions: {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeAttributeQuotes: true,
+        },
       }),
     ],
     splitChunks: {
