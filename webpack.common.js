@@ -155,7 +155,7 @@ module.exports = {
       algorithm: 'gzip',
       test: /\.(js|css|html|png|jpg)$/,
       compressionOptions: {
-        level: 8,
+        level: 9,
       },
       threshold: 10240,
       minRatio: 0.8,
@@ -165,7 +165,7 @@ module.exports = {
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|png|jpg)$/,
       compressionOptions: {
-        level: 8,
+        level: 9,
       },
       threshold: 10240,
       minRatio: 0.8,
