@@ -87,6 +87,7 @@ module.exports = {
   plugins: [
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
+      skipWaiting: true,
       runtimeCaching: [
         {
           urlPattern: new RegExp('^https://storage.googleapis.com/rental-online-dicoding-cycle-5.appspot.com/vehicles/AqEh9gIYgINeEDJBHZDh7NFjuyn1/images/'),
