@@ -435,6 +435,39 @@
     .paymentBody input {
         width: 100px;
     }
+
+    /*--------------User History Page--------------*/
+
+.userHistoryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .userHistoryList {
+    padding: 5px;
+    width: fit-content;
+  }
+  
+  .userHistoryList img {
+    width: 100px;
+  }
+  
+  .userRentaledHistory {
+    padding-inline: 10px;
+    font-size: x-small;
+    /* padding-block: 10px;
+    justify-content: space-between;
+    align-items: center; */
+  }
+
+  .userRentaledHistory h4 {
+    font-size: large;
+  }
+  
+  .userRentaledHistory div {
+    margin-inline: 10px;
+  }
 }
 
 @media screen and (min-width: 601px) {

@@ -4,7 +4,6 @@ import Partner from '../view/pages/partner';
 import Login from '../view/pages/login';
 import Register from '../view/pages/register';
 import Sewa from '../view/pages/rentalList';
-import TambahMobil from '../view/pages/tambahMobil';
 import Checkout from '../view/pages/checkout';
 import About from '../view/pages/about';
 import Checking from '../view/pages/checking';
@@ -12,6 +11,7 @@ import TaC from '../view/pages/tac';
 import addVehicle from '../view/pages/AddRentalVehicle';
 import ForgotPassword from '../view/pages/forgot-password';
 import userProfile from '../view/pages/userProfile-page';
+import userHistoryPage from '../view/pages/userHistory';
 
 const routes = {
   '/': Home,
@@ -21,7 +21,6 @@ const routes = {
   '/login': Login,
   '/register': Register,
   '/sewa': Sewa,
-  '/tambah-mobil': TambahMobil,
   '/checkout/:id': Checkout,
   '/about': About,
   '/checking/:id': Checking,
@@ -29,6 +28,7 @@ const routes = {
   '/addvehicle': addVehicle,
   '/forgot-password': ForgotPassword,
   '/user': userProfile,
+  '/userhistory': userHistoryPage,
 };
 
 export default routes;
