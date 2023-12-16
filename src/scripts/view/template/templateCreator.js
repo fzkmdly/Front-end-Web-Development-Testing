@@ -421,7 +421,7 @@ const userProfilePages = (userData) => {
                     <h5>Edit Profile</h5>
                 </div>
             </a>
-            <a href="#/userHistory">
+            <a href="#/history">
                 <div class="RentHistoBttn profileOption">
                     <img src="./images/icons/userProfile-page/Car-V8.png" alt="">
                     <h5>Riwayat Sewa Mobil</h5>
