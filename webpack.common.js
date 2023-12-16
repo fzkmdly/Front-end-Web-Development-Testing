@@ -90,7 +90,7 @@ module.exports = {
       skipWaiting: true,
       runtimeCaching: [
         {
-          urlPattern: new RegExp('^https://storage.googleapis.com/rental-online-dicoding-cycle-5.appspot.com/vehicles/AqEh9gIYgINeEDJBHZDh7NFjuyn1/images/'),
+          urlPattern: new RegExp('^https://storage.googleapis.com/rental-online-dicoding-cycle-5.appspot.com/'),
           urlPattern: new RegExp('^https://rento-backend-api-d6zuozodga-et.a.run.app/'),
           handler: 'StaleWhileRevalidate',
           options: {
