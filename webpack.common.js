@@ -41,7 +41,7 @@ module.exports = {
       minSize: 10000,
       maxSize: 50000,
       minChunks: 1,
-      maxAsyncRequests: 30,
+      maxAsyncRequests: 50,
       maxInitialRequests: 30,
       automaticNameDelimiter: '~',
       enforceSizeThreshold: 50000,

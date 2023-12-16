@@ -21,7 +21,9 @@ class App {
 
   async renderApp() {
     const url = UrlParser.parseActiveUrlWithCombiner();
+    console.info(url);
     const page = routes[url];
+    console.info(page);
     this._content.innerHTML = await page.render();
 
     const skipElement = document.querySelector('.skip-link');

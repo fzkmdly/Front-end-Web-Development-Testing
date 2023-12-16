@@ -406,7 +406,7 @@ const userProfilePages = (userData) => {
                     <h5>Edit Profile</h5>
                 </div>
             </a>
-            <a href="#/">
+            <a href="#/userHistory">
                 <div class="RentHistoBttn profileOption">
                     <img src="./images/icons/userProfile-page/Car-V8.png" alt="">
                     <h5>Riwayat Sewa Mobil</h5>
@@ -657,6 +657,39 @@ const paymentCheck = (sessionDatas, vehicles) => {
     `;
 };
 
+const userHistoryPageHead = () => {
+  return `
+    <section id="userHistoryHeader" class="userHistoryHeader">
+        <h2>Riwayat Sewa Pengguna</h2>
+        <p>Lihat Riwayat Sewa<br>Pesananmu disini</p>    
+    </section>
+    <section class="userHistoryContainer">
+        <div class="userHistoryIndex">
+            <p>Riwayat Pengguna</p>
+        </div>
+        <div id="userHistoryList" class="userHistoryList">
+
+        </div>
+    </section>
+    `;
+};
+
+const userHistoryCard =() => {
+    return `
+    <section class="userRentaledHistory">
+        <img src="https://i.pinimg.com/564x/80/16/fd/8016fd6864a1ffc27887cc7a5d814737.jpg" alt="">
+        <div class="UserRentalInfo">
+            <h4>Lexus LFA</h4>
+            <p>2012</p>
+        </div>
+        <div>
+            <p>Sudah disewa</p>
+            <p>12-12-2023</p>
+        </div>
+    </section> 
+    `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -671,4 +704,6 @@ module.exports = {
   createSearchBar,
   addRentalVehicle,
   paymentCheck,
+  userHistoryPageHead,
+  userHistoryCard,
 };
