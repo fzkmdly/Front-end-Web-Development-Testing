@@ -8,8 +8,8 @@ const Login = {
       <div id="login-container">
         <form id="login-form">
           <h2>Masuk</h2>
-          <input type="email" id="email" name="email" placeholder="Masukkan Email" required>
-          <input type="password" id="password" name="password" placeholder="Masukkan Kata Sandi" required>
+          <input type="email" id="email" name="email" placeholder="Masukkan Email" autocomplete="email" required>
+          <input type="password" id="password" name="password" placeholder="Masukkan Kata Sandi" autocomplete="current-password" required>
           <p id="forgot-password"><a href="#/forgot-password" id="forgot-password">Lupa Kata Sandi?</a></p>
           <button type="button" id="login-btn">Masuk</button>
           <br>
