@@ -107,8 +107,9 @@ const Partner = {
         if (partnerVehicles === 0){
           listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
         } else {
-          let vehicleHTML = partnerVehicles.map(vehicles => generateVehicleCards(vehicles)).join('');
-          listRentaledContainer.innerHTML = vehicleHTML;
+          partnerVehicles.forEach((vehicles) => {
+            listRentaledContainer.innerHTML += getPartnerVehicle(vehicles);
+          });
         }
         
       } else {
