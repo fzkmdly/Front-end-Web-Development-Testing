@@ -454,32 +454,38 @@ const createSearchBar = () => {
             </p>
             <form action="" method="post" class="rental-option">
                 <div class="rental-leftSide" id="rental-leftSide">
-                    <label for="vehicle-location">Lokasi Kendaraan</label>
-                    <label for="vehicle-type">Tipe Kendaraan</label>
-                    <label for="vehicle-brand">Merek</label>
-                    <select id="vehicle-location">
-                        <option disabled selected value="">Pilih Lokasi</option>
-                        <option value="Jakarta">Jakarta</option>
-                        <option value="Bogor">Bogor</option>
-                        <option value="Depok">Depok</option>
-                        <option value="Tangerang">Tangerang</option>
-                        <option value="Bekasi">Bekasi</option>
-                    </select>
-                    <select id="vehicle-type">
-                        <option disabled selected value="">Pilih Tipe Kendaraan</option>
-                        <option value="Mobil">Mobil</option>
-                        <option value="Motor">Motor</option>
-                    </select>
-                    <select id="vehicle-brand">
-                        <option disabled selected value="">Pilih Merek</option>
-                        <option value="Daihatsu">Daihatsu</option>
-                        <option value="Honda">Honda</option>
-                        <option value="Toyota">Toyota</option>
-                        <option value="Suzuki">Suzuki</option>
-                        <option value="Mitsubishi">Mitsubishi</option>
-                        <option value="Nissan">Nissan</option>
-                        <option value="Hyundai">Hyundai</option>
-                    </select>
+                    <div>
+                        <label for="vehicle-location">Lokasi Kendaraan</label>
+                        <select id="vehicle-location">
+                            <option disabled selected value="">Pilih Lokasi</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Bogor">Bogor</option>
+                            <option value="Depok">Depok</option>
+                            <option value="Tangerang">Tangerang</option>
+                            <option value="Bekasi">Bekasi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vehicle-type">Tipe Kendaraan</label>
+                        <select id="vehicle-type">
+                            <option disabled selected value="">Pilih Tipe Kendaraan</option>
+                            <option value="Mobil">Mobil</option>
+                            <option value="Motor">Motor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vehicle-brand">Merek</label>
+                        <select id="vehicle-brand">
+                            <option disabled selected value="">Pilih Merek</option>
+                            <option value="Daihatsu">Daihatsu</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Hyundai">Hyundai</option>
+                        </select>
+                    </div>
                 </div>
             </form>
             <button type="submit" id="submitRentalOption">Cari</button>

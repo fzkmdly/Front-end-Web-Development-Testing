@@ -141,6 +141,15 @@
         margin: 0;
     }
 
+    .search-bar {
+        margin-inline: 15px !important;
+    }
+
+    .rental-option .rental-leftSide {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 20px;
+    }
+
     /*----Vehicle Detail----*/
 
     .vehicleDetail {
