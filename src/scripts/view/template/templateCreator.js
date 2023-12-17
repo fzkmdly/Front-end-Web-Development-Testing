@@ -407,7 +407,7 @@ const partnerAfterRegistation = (vehicles) => {
 const generateVehicleCards = (vehicles) => {
   console.log("Generating vehicle cards with data:", vehicles);
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
-    return vehicles.map((vehicles) => `
+    return `
       <section class="rentaledVehicle">
         <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
         <div class="rentaledVehicleInfo">
@@ -419,7 +419,7 @@ const generateVehicleCards = (vehicles) => {
         </div>
         <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
       </section>
-    `).join('');
+    `;
   };
 
   const generateRentedHistoryCards = () => {
