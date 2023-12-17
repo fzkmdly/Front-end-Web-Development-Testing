@@ -675,13 +675,9 @@ const paymentCheck = (sessionDatas, vehicles) => {
 const userHistoryPageHead = () => {
   return `
     <section id="userHistoryHeader" class="userHistoryHeader">
-        <h2>Riwayat Sewa Pengguna</h2>
-        <p>Lihat Riwayat Sewa<br>Pesananmu disini</p>    
+        <h1>Riwayat Sewa Pengguna</h1>
     </section>
     <section class="userHistoryContainer">
-        <div class="userHistoryIndex">
-            <p>Riwayat Pengguna</p>
-        </div>
         <div id="userHistoryList" class="userHistoryList"></div>
     </section>
     `;
@@ -706,10 +702,14 @@ const userHistoryCard = (rent) => {
               <p>ID: ${rent.rentId}</p>
               <p>Status: ${statusText}</p>
               <p>Metode Pembayaran: ${rent.paymentMethod}</p>
-              <p>Mulai pada: ${startDateString}</p>
-              <p>Selesai pada: ${endDateString}</p>
               <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
           </div>
+          <div>
+              <p>Diantar pada:</p>
+              <p>${startDateString + ', ' + rent.delivery.location + ', ' + rent.delivery.time}</p>
+              <p>Dijemput pada:</p>
+              <p>${endDateString + ', ' + rent.pickUp.location + ', ' + rent.pickUp.time}</p>
+           </div>
       </section> 
     </a>
     `;

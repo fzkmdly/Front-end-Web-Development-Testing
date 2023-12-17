@@ -1543,7 +1543,6 @@ p, h4 {
   flex-direction: row;
   background-color: white;
   border-radius: 5px;
-  padding-inline: 20px;
   padding-block: 10px;
   justify-content: space-between;
   align-items: center;
@@ -1551,7 +1550,7 @@ p, h4 {
 }
 
 .userRentaledHistory div {
-  margin-inline: 10px;
+  margin-inline: 86px;
 }
 
 .userRentaledHistory div p {
