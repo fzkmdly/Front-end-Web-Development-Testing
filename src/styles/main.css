@@ -485,18 +485,20 @@ Rental-bar
   margin: 0;
 }
 
-.search-bar button {
+.search-bar #submitRentalOption {
   margin-top: 20px;
   padding-inline: 5%;
   border-radius: 20px;
   height: 40px;
   align-self: center;
-  background-color: #078080;
-  transition: 700ms;
+  background-color: #7B66FF;
+  color: white;
+  font-size: large;
 }
 
-.search-bar button:hover:focus {
-  background-color: #065c5c;
+.search-bar #submitRentalOption:hover {
+  background-color: #5FBDFF;
+  transition: 700ms;
 }
 
 .rental-option {
