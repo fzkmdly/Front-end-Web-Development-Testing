@@ -682,26 +682,27 @@ const userHistoryPageHead = () => {
         <div class="userHistoryIndex">
             <p>Riwayat Pengguna</p>
         </div>
-        <div id="userHistoryList" class="userHistoryList">
-
-        </div>
+        <div id="userHistoryList" class="userHistoryList"></div>
     </section>
     `;
 };
 
-const userHistoryCard =() => {
-    return `
-    <section class="userRentaledHistory">
-        <img src="https://i.pinimg.com/564x/80/16/fd/8016fd6864a1ffc27887cc7a5d814737.jpg" alt="">
-        <div class="UserRentalInfo">
-            <h4>Lexus LFA</h4>
-            <p>2012</p>
-        </div>
-        <div>
-            <p>Sudah disewa</p>
-            <p>12-12-2023</p>
-        </div>
-    </section> 
+const userHistoryCard = (rent) => {
+  const statusText = rent.status ? 'Sukses' : 'Menunggu';
+
+  return `
+    <a href="#/detail/${rent.vehicleId}" class="vehicleItem-clickable">
+      <section class="userRentaledHistory">
+          <div class="UserRentalInfo">
+              <h4>${rent.totalPayment}</h4>
+              <p>${rent.paymentMethod}</p>
+          </div>
+          <div>
+              <p>Status: ${statusText}</p>
+              <p>${rent.schedule.endDate}</p>
+          </div>
+      </section> 
+    </a>
     `;
 };
 
