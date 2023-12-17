@@ -392,13 +392,12 @@ const partnerAfterRegistation = (vehicles) => {
                     
                 </div>
                 <div id="addRentaledVehicle" class="addRentaledVehicle">
-                    <a href="#/addVehicle">
+                    <a href="#/addVehicle"> 
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </div>
             </div>
             <div id="listRentaledHistory" class="listRentaledHistory">
-            ${generateRentedHistoryCards()}
             </div>
         </section
       </div>
