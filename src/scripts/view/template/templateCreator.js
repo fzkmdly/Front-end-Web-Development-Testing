@@ -695,6 +695,10 @@ const userHistoryCard = (rent) => {
   //   Format floating number to IDR currency
   const totalCost = parseFloat(rent.totalPayment);
 
+  //   Format updatedAt date to dd/mm/yyyy
+  const updatedAt = new Date(rent.updatedAt);
+  const updatedAtString = updatedAt.toLocaleDateString('id-ID');
+
   return `
     <a href="#/detail/${rent.vehicleId}" class="vehicleItem-clickable">
       <section class="userRentaledHistory">
@@ -703,12 +707,13 @@ const userHistoryCard = (rent) => {
                 <p>Status: ${statusText}</p>
                 <p>Metode Pembayaran: ${rent.paymentMethod}</p>
                 <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
+                <p>Diperbarui pada: ${updatedAtString}</p>
             </div>
-            <div>
-                <p>Diantar pada:</p>
-                <p>${startDateString + ', ' + rent.delivery.location + ', ' + rent.delivery.time}</p>
-                <p>Dijemput pada:</p>
-                <p>${endDateString + ', ' + rent.pickUp.location + ', ' + rent.pickUp.time}</p>
+            <div class="date-info">
+                <p>Diantar di:</p>
+                <p>${rent.delivery.location + ', ' + rent.delivery.time + ', ' + startDateString}</p>
+                <p>Dijemput di:</p>
+                <p>${rent.pickUp.location + ', ' + rent.pickUp.time + ', ' + endDateString}</p>
             </div>
       </section> 
     </a>
