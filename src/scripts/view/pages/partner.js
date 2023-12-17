@@ -1,11 +1,12 @@
 import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 import {
-  cardForListRentaled,
+  generateVehicleCards,
   createPartnerRegisterPages,
   partnerAfterRegistation,
 } from '../template/templateCreator';
 import API_ENDPOINT from '../../globals/api-endpoint';
+import CarDbSource from '../../data/data-source';
 import Cookies from 'js-cookie'; // Import the Cookies library
 
 const Partner = {
@@ -90,6 +91,7 @@ const Partner = {
       const roles = JSON.parse(Cookies.get('roles')) || [];
       const accessToken = uid; // Assuming 'uid' contains the access token
 
+
       // Check if the user is a partner
       const isPartner = roles.includes('Partner');
 
@@ -97,9 +99,19 @@ const Partner = {
       if (isPartner) {
         const formContainer = document.getElementById('partnerForm');
         formContainer.innerHTML = partnerAfterRegistation();
-
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
-        listRentaledContainer.innerHTML += cardForListRentaled();
+        console.log('apakah ada?', listRentaledContainer);
+
+        const partnerVehicles = await CarDbSource.getPartnerVehicle();
+        console.log('Data kendaraan diterima:', partnerVehicles);
+        if (partnerVehicles.length === 0) {
+          listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
+        } else {
+          // Buat sebuah string HTML dari seluruh vehicles
+          const vehiclesHTML = partnerVehicles.map((vehicle) => generateVehicleCards(vehicle)).join('');
+          // Kemudian update innerHTML sekali saja
+          listRentaledContainer.innerHTML = vehiclesHTML;
+        }
       } else {
         // If the user does not have the "Partner" role, show the registration form
         const registrationFormContainer = document.getElementById('partnerForm');

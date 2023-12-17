@@ -3,106 +3,105 @@ const vehicleItem = (vehicles) => {
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
-        <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
-          <div class="vehicleItem" id="vehicleItem">
-            <section class="vehicleItem-left">
-              <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
-            </section>
-            <section class="vehicleItem-center">
-                <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
-                <h6 class="availability">${availabilityText}</h6>
-                <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
-            </section>
-            <section class="vehicleItem-right">
-                <h6 class="start-from">Mulai</h6>
-                <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
-            </section>
-          </div>
-        </a>
-    `;
+          <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
+            <div class="vehicleItem" id="vehicleItem">
+              <section class="vehicleItem-left">
+                <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+              </section>
+              <section class="vehicleItem-center">
+                  <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+                  <h6 class="availability">${availabilityText}</h6>
+                  <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
+              </section>
+              <section class="vehicleItem-right">
+                  <h6 class="start-from">Mulai</h6>
+                  <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
+              </section>
+            </div>
+          </a>
+      `;
 };
 
 const createCarCollection = (vehicles) => {
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
-    <a href="#/detail/${vehicles.vehicleId}" class="car-container">
-      <div>
-        <section class="car-collection-image">
-          <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
-        </section>
-        <section class="car-collection-name">
-          <h4 class="car-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
-        </section>
-        <section class="car-collection-price">
-          <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
-        </section>
-      </div>
-    </a>
-  `;
+      <a href="#/detail/${vehicles.vehicleId}" class="car-container">
+        <div>
+          <section class="car-collection-image">
+            <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+          </section>
+          <section class="car-collection-name">
+            <h4 class="car-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+            <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
+          </section>
+          <section class="car-collection-price">
+            <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
+          </section>
+        </div>
+      </a>
+    `;
 };
-
 
 const vehicleDetail = (vehicles) => {
   const imageList = Array.from({length: 3}, (_, index) => `
-    <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${index + 1} dari ${vehicles.vehicleInformation.name}" />
-  `).join('');
+      <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${index + 1} dari ${vehicles.vehicleInformation.name}" />
+    `).join('');
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
   const WhatsAppLink = `https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Halo, Bapak/Ibu ${vehicles.partner.partnerName}%0A%0ASaya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O`;
 
   return `
-    <article id="vehicleDetail" class="vehicleDetail">
-        <div class="vehicleDetailLeft" id="vehicleDetailLeft">
-            <div class="detail-top-left">
-                <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
-                <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
-                Tahun: ${vehicles.vehicleInformation.year}
-                <br>
-                <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
-                <br>
-                <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
-                <div class="vehicleInfoPrice">
-                    <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
-                    <div class="vehicleDetailOptionRent">
-                        <a href="#/checking/${vehicles.vehicleId}" class="sewaButton" id="sewaButton">Sewa Sekarang</a>
-                    </div>
-                    <div class="whatsappButton">
-                        <a aria-label="Chat on WhatsApp" 
-                        href="${WhatsAppLink}" 
-                        class="chat" target="_blank"><img alt="Chat on WhatsApp" 
-                        src="./images/assets/icons/WhatsApp Button.png" /></a>
-                    </div>
-                </div>
-            </div>
-            <div class="detail-bottom-left">
-                <section class="vehicleDetailInfo" id="vehicleDetailInfo">
-                    <div class="vehicleOwnerLeft">
-                        <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
-                            ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
-                        <div class="vehicleOwnerInfo">
-                            <p>${vehicles.partner.partnerName}</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-        <div class="vehicleDetailRight" id="vehicleDetailRight">
-            <section class="vehicleDetailDesc" id="vehicleDetailDesc">
-                <div class="vehicleDetailDescription">
-                    <h3>Deskripsi</h3>
-                    <p>${vehicles.vehicleInformation.description}</p>
-                </div>
-                <div>
-                    <h3>Gambar Mobil</h3>
-                    <div class="vehicleDetailPhotolist">
-                        ${imageList}
-                    </div>
-                </div>
-            </section>
-        </div>
-    </article>
-    `;
+      <article id="vehicleDetail" class="vehicleDetail">
+          <div class="vehicleDetailLeft" id="vehicleDetailLeft">
+              <div class="detail-top-left">
+                  <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                  <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
+                  Tahun: ${vehicles.vehicleInformation.year}
+                  <br>
+                  <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
+                  <br>
+                  <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
+                  <div class="vehicleInfoPrice">
+                      <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
+                      <div class="vehicleDetailOptionRent">
+                          <a href="#/checking/${vehicles.vehicleId}" class="sewaButton" id="sewaButton">Sewa Sekarang</a>
+                      </div>
+                      <div class="whatsappButton">
+                          <a aria-label="Chat on WhatsApp" 
+                          href="${WhatsAppLink}" 
+                          class="chat" target="_blank"><img alt="Chat on WhatsApp" 
+                          src="./images/assets/icons/WhatsApp Button.png" /></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="detail-bottom-left">
+                  <section class="vehicleDetailInfo" id="vehicleDetailInfo">
+                      <div class="vehicleOwnerLeft">
+                          <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
+                              ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
+                          <div class="vehicleOwnerInfo">
+                              <p>${vehicles.partner.partnerName}</p>
+                          </div>
+                      </div>
+                  </section>
+              </div>
+          </div>
+          <div class="vehicleDetailRight" id="vehicleDetailRight">
+              <section class="vehicleDetailDesc" id="vehicleDetailDesc">
+                  <div class="vehicleDetailDescription">
+                      <h3>Deskripsi</h3>
+                      <p>${vehicles.vehicleInformation.description}</p>
+                  </div>
+                  <div>
+                      <h3>Gambar Mobil</h3>
+                      <div class="vehicleDetailPhotolist">
+                          ${imageList}
+                      </div>
+                  </div>
+              </section>
+          </div>
+      </article>
+      `;
 };
 
 const createLoginPages = () => {
@@ -259,7 +258,6 @@ const createPartnerRegisterPages = () => {
     `;
 };
 
-
 const vehicleCheckin = (vehicles) =>{
   // Get the current date
   const today = new Date();
@@ -344,61 +342,56 @@ const partnerAfterRegistation = (vehicles) => {
             </ul>
             <div id="listYourRentaled" class="listYourRentaled active">
                 <div class="listRentaledVehicle" id="listRentaledVehicle">
-                    <section class="rentaledVehicle">
-                        <img src="https://i.pinimg.com/564x/77/81/68/778168720cc2c34747b330e0d95ff389.jpg" alt="">
-                        <div class="rentaledVehicleInfo">
-                            <h4>Ryo Yamada</h4>
-                            <p>Waifuku</p>
-                        </div>
-                        <div class="availableInfo">
-                            <p class="available avia-on">Available</p>
-                            <p class="unavailabe">Unavailable</p>
-                        </div>
-                        <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
-                    </section>
+                    
                 </div>
                 <div id="addRentaledVehicle" class="addRentaledVehicle">
-                    <a href="#/addVehicle">
+                    <a href="#/addVehicle"> 
                         <i class="fa-solid fa-plus"></i>
                     </a>
                 </div>
             </div>
             <div id="listRentaledHistory" class="listRentaledHistory">
-                <section class="rentaledHistory">
-                    <img src="https://i.pinimg.com/736x/2c/61/d5/2c61d5d2790e1f902ecc15e63534a950.jpg" alt="">
-                    <div class="rentaledVehicleInfo">
-                        <h4>Ryo Yamada</h4>
-                        <p>Waifuku</p>
-                    </div>
-                    <div>
-                        <p>Mulai dari</p>
-                        <h5>Rp. 150.000/Hari</h5>
-                    </div>
-                </section>
             </div>
         </section
       </div>
   `;
 };
 
-// History of rented vehicles
-const cardForListRentaled = () => {
+const generateVehicleCards = (vehicles) => {
+  console.log('Generating vehicle cards with data:', vehicles);
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
   return `
-    <section class="rentaledHistory">
-        <img src="https://pbs.twimg.com/media/GA0ybC5bQAADN6t?format=jpg&name=4096x4096" alt="">
+      <section class="rentaledVehicle">
+        <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
         <div class="rentaledVehicleInfo">
-            <h4>Hiroi Kikuri</h4>
-            <p>Waifuku</p>
+          <h4>${vehicles.vehicleInformation.name}</h4>
+          <p>${costAsNumber.toLocaleString('id-ID')}</p>
         </div>
         <div class="availableInfo">
-            <p class="available avia-on">Available</p>
-            <p class="unavailabe">Unavailable</p>
+          <p class="${vehicles.isAvailable ? 'avia-on' : ''}">${vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
         </div>
         <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
-    </section>
+      </section>
     `;
 };
 
+const generateRentedHistoryCards = () => {
+  return `
+      <section class="rentaledHistory">
+        <img src="" alt="jajajajja">
+        <div class="rentaledVehicleInfo">
+          <h4></h4>
+          <p></p>
+        </div>
+        <div>
+          <p>Mulai dari</p>
+          <h5></h5>
+        </div>
+      </section>
+    `.join('');
+};
+
+// History of rented vehicles
 const userProfilePages = (userData) => {
   return `
     <div class="userContainer" id="userContainer">
@@ -620,62 +613,62 @@ const paymentCheck = (sessionDatas, vehicles) => {
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
-        <form>
-            <h2>Detail Pembayaran</h2>
-            <section id="paymentBody" class="paymentBody">
-                <div class="paymentBodyDesc">
-                    <img src="${vehicles.ImageUrl}" alt="" width="150px" style="border-radius: 10px;">
-                    <section class="paymentBodyDescName">
-                        <p><b>${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</b></p>
-                        <p>${vehicles.partner.partnerName}</p>
-                    </section>
-                </div>
-                <div id="paymentBodyDateIndex" class="paymentBodyDateIndex">
-                    <div class="payment-form-group">
-                        <label for="lokPenyewaan">Lokasi Penyewaan:</label>
-                        <input type="text" value="${vehicles.locations}" id="lokPenyewaan" name="lokPenyewaan" readonly>
-                    </div>
-                    <div class="payment-form-group">
-                        <label for="tglMulai">Tanggal Mulai :</label>
-                        <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.startDate}" readonly>
-                    </div>
-                    <div class="payment-form-group">
-                        <label for="tglAkhir">Tanggal Selesai : </label>
-                        <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.endDate}" readonly>
-                    </div>
-                </div>
-                <hr>
-                <div id="paymentBodyCheckIndex" class="paymentBodyCheckIndex">
-                    <div class="payment-form-group">
-                        <label for="lokPenjemputan">Lokasi Penjemputan :</label>
-                        <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.pickupLocation}" readonly>
-                    </div>
-                    <div class="payment-form-group">
-                        <label for="waktuPenjemputan">Waktu Penjemputan :</label>
-                        <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.pickupTime}" readonly>
-                    </div>
-                    <div class="payment-form-group">
-                        <label for="lokPengantaran">Lokasi Pengantaran :</label>
-                        <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.deliveryLocation}" readonly>
-                    </div>
-                    <div class="payment-form-group">
-                        <label for="waktuPengantaran">Waktu Pengantaran :</label>
-                        <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.deliveryTime}" readonly>
-                    </div>
-                </div>
-                <hr>
-                <div id="paymentMethodName" class="paymentMethodName">
-                    <label for="payment-method">Metode Pembayaran</label>
-                    <input type="text" id="paymentMethodName" name="paymentMethodName" value="${sessionDatas.paymentMethod}" readonly>
-                </div>
-                <div id="paymentTotalCheck" class="paymentTotalCheck">
-                    <label for="paymentIndexes">${sessionDatas.selisihHari} hari x Rp${costAsNumber.toLocaleString('id-ID')}</label>
-                    <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString('id-ID')}" readonly>
-                </div>
-            </section>
-            <button class="paymentConfirm" type="submit">Bayar Sekarang</button>
-        </form>
-    `;
+          <form>
+              <h2>Detail Pembayaran</h2>
+              <section id="paymentBody" class="paymentBody">
+                  <div class="paymentBodyDesc">
+                      <img src="${vehicles.ImageUrl}" alt="" width="150px" style="border-radius: 10px;">
+                      <section class="paymentBodyDescName">
+                          <p><b>${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</b></p>
+                          <p>${vehicles.partner.partnerName}</p>
+                      </section>
+                  </div>
+                  <div id="paymentBodyDateIndex" class="paymentBodyDateIndex">
+                      <div class="payment-form-group">
+                          <label for="lokPenyewaan">Lokasi Penyewaan:</label>
+                          <input type="text" value="${vehicles.locations}" id="lokPenyewaan" name="lokPenyewaan" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="tglMulai">Tanggal Mulai :</label>
+                          <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.startDate}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="tglAkhir">Tanggal Selesai : </label>
+                          <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.endDate}" readonly>
+                      </div>
+                  </div>
+                  <hr>
+                  <div id="paymentBodyCheckIndex" class="paymentBodyCheckIndex">
+                      <div class="payment-form-group">
+                          <label for="lokPenjemputan">Lokasi Penjemputan :</label>
+                          <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.pickupLocation}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="waktuPenjemputan">Waktu Penjemputan :</label>
+                          <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.pickupTime}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="lokPengantaran">Lokasi Pengantaran :</label>
+                          <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.deliveryLocation}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="waktuPengantaran">Waktu Pengantaran :</label>
+                          <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.deliveryTime}" readonly>
+                      </div>
+                  </div>
+                  <hr>
+                  <div id="paymentMethodName" class="paymentMethodName">
+                      <label for="payment-method">Metode Pembayaran</label>
+                      <input type="text" id="paymentMethodName" name="paymentMethodName" value="${sessionDatas.paymentMethod}" readonly>
+                  </div>
+                  <div id="paymentTotalCheck" class="paymentTotalCheck">
+                      <label for="paymentIndexes">${sessionDatas.selisihHari} hari x Rp${costAsNumber.toLocaleString('id-ID')}</label>
+                      <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString('id-ID')}" readonly>
+                  </div>
+              </section>
+              <button class="paymentConfirm" type="submit">Bayar Sekarang</button>
+          </form>
+      `;
 };
 
 const userHistoryPageHead = () => {
@@ -736,7 +729,8 @@ module.exports = {
   createCarCollection,
   vehicleCheckin,
   partnerAfterRegistation,
-  cardForListRentaled,
+  generateVehicleCards,
+  generateRentedHistoryCards,
   userProfilePages,
   createSearchBar,
   addRentalVehicle,
