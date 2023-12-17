@@ -149,6 +149,8 @@ const Partner = {
                       showConfirmButton: false,
                       allowOutsideClick: false,
                     });
+                    // Give 5 seconds delay
+                    await new Promise((resolve) => setTimeout(resolve, 3000));
                     // Perform deletion
                     await CarDbSource.deletePartnerCar(vehicleId);
                     window.location.reload();
