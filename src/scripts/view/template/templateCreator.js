@@ -1,5 +1,5 @@
 const vehicleItem = (vehicles) => {
-  const availabilityText = vehicles.isAvailable ? "Tersedia" : "Tidak Tersedia";
+  const availabilityText = vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia';
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
   return `
@@ -7,23 +7,23 @@ const vehicleItem = (vehicles) => {
           <div class="vehicleItem" id="vehicleItem">
             <section class="vehicleItem-left">
               <img class="lazyload" data-src="${
-                vehicles.ImageUrl
-              }" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+  vehicles.ImageUrl
+}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
             </section>
             <section class="vehicleItem-center">
                 <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${
-    vehicles.vehicleInformation.name
-  }</h4>
+  vehicles.vehicleInformation.name
+}</h4>
                 <h6 class="availability">${availabilityText}</h6>
                 <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(
-                  ", "
-                )}</h6>
+      ', ',
+  )}</h6>
             </section>
             <section class="vehicleItem-right">
                 <h6 class="start-from">Mulai</h6>
                 <h4 class="harga">Rp${costAsNumber.toLocaleString(
-                  "id-ID"
-                )}/hari</h4>
+      'id-ID',
+  )}/hari</h4>
             </section>
           </div>
         </a>
@@ -38,19 +38,19 @@ const createCarCollection = (vehicles) => {
       <div>
         <section class="car-collection-image">
           <img class="lazyload" data-src="${
-            vehicles.ImageUrl
-          }" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+  vehicles.ImageUrl
+}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
         </section>
         <section class="car-collection-name">
           <h4 class="car-name">${vehicles.vehicleInformation.brand} ${
-    vehicles.vehicleInformation.name
-  }</h4>
+  vehicles.vehicleInformation.name
+}</h4>
           <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(
-            ", "
-          )}</h6>
+      ', ',
+  )}</h6>
         </section>
         <section class="car-collection-price">
-          <h4 class="harga">Rp${costAsNumber.toLocaleString("id-ID")}/hari</h4>
+          <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
         </section>
       </div>
     </a>
@@ -59,13 +59,13 @@ const createCarCollection = (vehicles) => {
 
 const vehicleDetail = (vehicles) => {
   const imageList = Array.from(
-    { length: 3 },
-    (_, index) => `
+      {length: 3},
+      (_, index) => `
     <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${
-      index + 1
-    } dari ${vehicles.vehicleInformation.name}" />
-  `
-  ).join("");
+  index + 1
+} dari ${vehicles.vehicleInformation.name}" />
+  `,
+  ).join('');
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
   const WhatsAppLink = `https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Halo, Bapak/Ibu ${vehicles.partner.partnerName}%0A%0ASaya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O`;
 
@@ -74,28 +74,28 @@ const vehicleDetail = (vehicles) => {
             <div class="vehicleDetailLeft" id="vehicleDetailLeft">
                 <div class="detail-top-left">
                     <img class="lazyload" data-src="${
-                      vehicles.ImageUrl
-                    }" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+  vehicles.ImageUrl
+}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
                     <h1>${vehicles.vehicleInformation.brand} ${
-    vehicles.vehicleInformation.name
-  }</h1>
+  vehicles.vehicleInformation.name
+}</h1>
                     Tahun: ${vehicles.vehicleInformation.year}
                     <br>
                     <i class="fa-solid fa-person"></i>  ${
-                      vehicles.vehicleInformation.seats
-                    } Penumpang
+  vehicles.vehicleInformation.seats
+} Penumpang
                     <br>
                     <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(
-                      ", "
-                    )}
+      ', ',
+  )}
                     <div class="vehicleInfoPrice">
                         <p>Mulai <br>Rp${costAsNumber.toLocaleString(
-                          "id-ID"
-                        )}/hari</p>
+      'id-ID',
+  )}/hari</p>
                         <div class="vehicleDetailOptionRent">
                             <a href="#/checking/${
-                              vehicles.vehicleId
-                            }" class="sewaButton">Sewa Sekarang</a>
+  vehicles.vehicleId
+}" class="sewaButton">Sewa Sekarang</a>
                         </div>
                         <div class="whatsappButton">
                             <a aria-label="Chat on WhatsApp" 
@@ -109,28 +109,17 @@ const vehicleDetail = (vehicles) => {
                     <section class="vehicleDetailInfo" id="vehicleDetailInfo">
                         <div class="vehicleOwnerLeft">
                             <img class="lazyload" data-src="${
-                              vehicles.partner.partnerImage
-                            }" alt="${vehicles.partner.partnerName}, Pemilik 
+  vehicles.partner.partnerImage
+}" alt="${vehicles.partner.partnerName}, Pemilik 
                               ${vehicles.vehicleInformation.brand} ${
-    vehicles.vehicleInformation.name
-  }" />
+  vehicles.vehicleInformation.name
+}" />
                             <div class="vehicleOwnerInfo">
                                 <p>${vehicles.partner.partnerName}</p>
                             </div>
                         </div>
                     </section>
                 </div>
-            </div>
-            <div class="detail-bottom-left">
-                <section class="vehicleDetailInfo" id="vehicleDetailInfo">
-                    <div class="vehicleOwnerLeft">
-                        <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
-                            ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
-                        <div class="vehicleOwnerInfo">
-                            <p>${vehicles.partner.partnerName}</p>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
         <div class="vehicleDetailRight" id="vehicleDetailRight">
@@ -405,14 +394,14 @@ const partnerAfterRegistation = (vehicles) => {
 };
 
 const generateVehicleCards = (vehicles) => {
-  console.log("Generating vehicle cards with data:", vehicles);
+  console.log('Generating vehicle cards with data:', vehicles);
   const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
-    return `
+  return `
       <section class="rentaledVehicle">
         <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
         <div class="rentaledVehicleInfo">
           <h4>${vehicles.vehicleInformation.name}</h4>
-          <p>${costAsNumber.toLocaleString("id-ID")}</p>
+          <p>${costAsNumber.toLocaleString('id-ID')}</p>
         </div>
         <div class="availableInfo">
           <p class="${vehicles.isAvailable ? 'avia-on' : ''}">${vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
@@ -420,11 +409,10 @@ const generateVehicleCards = (vehicles) => {
         <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
       </section>
     `;
-  };
+};
 
-  const generateRentedHistoryCards = () => {
-
-    return  `
+const generateRentedHistoryCards = () => {
+  return `
       <section class="rentaledHistory">
         <img src="" alt="jajajajja">
         <div class="rentaledVehicleInfo">
@@ -437,7 +425,7 @@ const generateVehicleCards = (vehicles) => {
         </div>
       </section>
     `.join('');
-  };
+};
 
 // History of rented vehicles
 const userProfilePages = (userData) => {
@@ -453,7 +441,7 @@ const userProfilePages = (userData) => {
             </div>
             <h2 class="name">${userData.username.toUpperCase()}</h2>
             <h3 class="email">${userData.email}</h3>
-            <p>Anda adalah <b>${userData.roles.join(", dan ")}</b></p>
+            <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
         </section>
         <section class="bodyUserProfile" id="bodyUserProfile">
             <a href="">
@@ -666,14 +654,14 @@ const paymentCheck = (sessionDatas, vehicles) => {
             <section id="paymentBody" class="paymentBody">
                 <div class="paymentBodyDesc">
                     <img src="${
-                      vehicles.ImageUrl
-                    }" alt="" width="75px" style="border-radius: 10px;">
+  vehicles.ImageUrl
+}" alt="" width="75px" style="border-radius: 10px;">
                     <section class="paymentBodyDescName">
                         <p><b>${
-                          vehicles.vehicleInformation.brand +
-                          " " +
+  vehicles.vehicleInformation.brand +
+                          ' ' +
                           vehicles.vehicleInformation.name
-                        }</b></p>
+}</b></p>
                         <p>${vehicles.partner.partnerName}</p>
                     </section>
                 </div>
@@ -681,20 +669,20 @@ const paymentCheck = (sessionDatas, vehicles) => {
                     <div class="payment-form-group">
                         <label for="lokPenyewaan">Lokasi Penyewaan :</label>
                         <input type="text" value="${
-                          sessionDatas.lokasi
-                        }" id="lokPenyewaan" name="lokPenyewaan" readonly>
+  sessionDatas.lokasi
+}" id="lokPenyewaan" name="lokPenyewaan" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="tglMulai">Tanggal Mulai :</label>
                         <input type="date" id="tanggalMulai" name="tanggalMulai" value="${
-                          sessionDatas.tanggalMulai
-                        }" readonly>
+  sessionDatas.tanggalMulai
+}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="tglAkhir">Tanggal Selesai : </label>
                         <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${
-                          sessionDatas.tanggalSelesai
-                        }" readonly>
+  sessionDatas.tanggalSelesai
+}" readonly>
                     </div>
                 </div>
                 <hr>
@@ -702,26 +690,26 @@ const paymentCheck = (sessionDatas, vehicles) => {
                     <div class="payment-form-group">
                         <label for="lokPenjemputan">Lokasi Penjemputan :</label>
                         <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${
-                          sessionDatas.lokasi
-                        }" readonly>
+  sessionDatas.lokasi
+}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="waktuPenjemputan">Waktu Penjemputan :</label>
                         <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${
-                          sessionDatas.waktuPenjemputan
-                        }" readonly>
+  sessionDatas.waktuPenjemputan
+}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="lokPengantaran">Lokasi Pengantaran :</label>
                         <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${
-                          sessionDatas.lokasiPengantar
-                        }" readonly>
+  sessionDatas.lokasiPengantar
+}" readonly>
                     </div>
                     <div class="payment-form-group">
                         <label for="waktuPengantaran">Waktu Pengantaran :</label>
                         <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${
-                          sessionDatas.waktuPengantaran
-                        }" readonly>
+  sessionDatas.waktuPengantaran
+}" readonly>
                     </div>
                 </div>
                 <hr>
@@ -731,11 +719,11 @@ const paymentCheck = (sessionDatas, vehicles) => {
                 </div>
                 <div id="paymentTotalCheck" class="paymentTotalCheck">
                     <label for="paymentIndexes">${
-                      sessionDatas.selisihHari
-                    } hari x 1 mobil</label>
+  sessionDatas.selisihHari
+} hari x 1 mobil</label>
                     <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString(
-                      "id-ID"
-                    )}" readonly>
+      'id-ID',
+  )}" readonly>
                 </div>
             </section>
             <button class="paymentConfirm" type="submit">Bayar Sekarang</button>
