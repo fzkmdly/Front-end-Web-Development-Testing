@@ -114,28 +114,57 @@ const Partner = {
           if (event.target.classList.contains('delete-icon')) {
             const vehicleId = event.target.getAttribute('data-vehicle-id');
 
-            // Show SweetAlert confirmation popup
+            // Show first stage confirmation popup with a button
             Swal.fire({
               title: 'Konfirmasi Hapus Kendaraan',
-              text: 'Apakah Anda yakin ingin menghapus kendaraan ini?',
+              text: 'Klik tombol "Lanjut" untuk mengkonfirmasi penghapusan kendaraan ini.',
               icon: 'warning',
               showCancelButton: true,
-              confirmButtonText: 'Ya, Hapus',
+              confirmButtonText: 'Lanjut',
               cancelButtonText: 'Batal',
-            }).then(async (result) => {
-              if (result.isConfirmed) {
-                // User clicked "Ya, Hapus"
-                try {
-                  // Perform deletion
-                  await CarDbSource.deletePartnerCar(vehicleId);
-                  window.location.reload();
-                } catch (error) {
-                  console.error('Error deleting partner car:', error);
-                  // Handle error, show Swal error popup if needed
+            }).then(async (firstStageResult) => {
+              if (firstStageResult.isConfirmed) {
+                // User clicked "Lanjut" in the first stage
+
+                // Show second stage confirmation popup with a text input
+                const {value: userInput} = await Swal.fire({
+                  title: 'Konfirmasi Penghapusan',
+                  text: 'Masukkan "HAPUS" untuk mengkonfirmasi penghapusan kendaraan ini:',
+                  input: 'text',
+                  inputPlaceholder: 'HAPUS',
+                  showCancelButton: true,
+                  confirmButtonText: 'Ya, Hapus',
+                  cancelButtonText: 'Batal',
+                });
+
+                // Check if the user typed "HAPUS" in the second stage
+                if (userInput && userInput.toUpperCase() === 'HAPUS') {
+                  try {
+                    Swal.fire({
+                      title: 'Menghapus Kendaraan',
+                      text: 'Sedang menghapus kendaraan...',
+                      icon: 'info',
+                      showConfirmButton: false,
+                      allowOutsideClick: false,
+                    });
+                    // Perform deletion
+                    await CarDbSource.deletePartnerCar(vehicleId);
+                    window.location.reload();
+                  } catch (error) {
+                    console.error('Error deleting partner car:', error);
+                    // Handle error, show Swal error popup if needed
+                    Swal.fire({
+                      title: 'Gagal Menghapus Kendaraan',
+                      text: 'Terjadi kesalahan saat menghapus kendaraan',
+                      icon: 'error',
+                    });
+                  }
+                } else {
+                  // User canceled the second stage or did not type "HAPUS"
                   Swal.fire({
-                    title: 'Gagal Menghapus Kendaraan',
-                    text: 'Terjadi kesalahan saat menghapus kendaraan',
-                    icon: 'error',
+                    title: 'Penghapusan Dibatalkan',
+                    text: 'Penghapusan kendaraan dibatalkan.',
+                    icon: 'info',
                   });
                 }
               }
