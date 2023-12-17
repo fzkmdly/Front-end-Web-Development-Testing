@@ -16,6 +16,7 @@ const API_ENDPOINT = {
   UPDATE_PAYMENT: `${CONFIG.BASE_URL}/rent-vehicle/payment`,
   RENT_VEHICLE: (id) => `${CONFIG.BASE_URL}/rent-vehicle/detail/${id}`,
   ORDER_HISTORY: `${CONFIG.BASE_URL}/user-rent`,
+  DELETE_PARTNER_CAR: (id) => `${CONFIG.BASE_URL}/partner-vehicle/delete/${id}`,
 };
 
 export default API_ENDPOINT;

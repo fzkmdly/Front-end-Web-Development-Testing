@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 import {
-  generateVehicleCards,
+  cardForListRentaled,
   createPartnerRegisterPages,
   partnerAfterRegistation,
 } from '../template/templateCreator';
@@ -95,23 +95,85 @@ const Partner = {
       // Check if the user is a partner
       const isPartner = roles.includes('Partner');
 
+      const vehicles = await CarDbSource.partnerCars();
+
       // Do not proceed with rendering if the user is a partner
       if (isPartner) {
         const formContainer = document.getElementById('partnerForm');
         formContainer.innerHTML = partnerAfterRegistation();
-        const listRentaledContainer = document.getElementById('listRentaledVehicle');
-        console.log('apakah ada?', listRentaledContainer);
 
-        const partnerVehicles = await CarDbSource.getPartnerVehicle();
-        console.log('Data kendaraan diterima:', partnerVehicles);
-        if (partnerVehicles.length === 0) {
-          listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
-        } else {
-          // Buat sebuah string HTML dari seluruh vehicles
-          const vehiclesHTML = partnerVehicles.map((vehicle) => generateVehicleCards(vehicle)).join('');
-          // Kemudian update innerHTML sekali saja
-          listRentaledContainer.innerHTML = vehiclesHTML;
+        const listRentaledContainer = document.getElementById('listRentaledVehicle');
+        if (vehicles.length === 0) {
+          listRentaledContainer.innerHTML = '<h3>No Item founded</h3>';
         }
+        vehicles.forEach((vehicle) => {
+          listRentaledContainer.innerHTML += cardForListRentaled(vehicle);
+        });
+
+        listRentaledContainer.addEventListener('click', async (event) => {
+          if (event.target.classList.contains('delete-icon')) {
+            const vehicleId = event.target.getAttribute('data-vehicle-id');
+
+            // Show first stage confirmation popup with a button
+            Swal.fire({
+              title: 'Konfirmasi Hapus Kendaraan',
+              text: 'Klik tombol "Lanjut" untuk mengkonfirmasi penghapusan kendaraan ini.',
+              icon: 'warning',
+              showCancelButton: true,
+              allowOutsideClick: false,
+              confirmButtonText: 'Lanjut',
+              cancelButtonText: 'Batal',
+            }).then(async (firstStageResult) => {
+              if (firstStageResult.isConfirmed) {
+                // User clicked "Lanjut" in the first stage
+
+                // Show second stage confirmation popup with a text input
+                const {value: userInput} = await Swal.fire({
+                  title: 'Konfirmasi Penghapusan',
+                  text: 'Masukkan "HAPUS" untuk mengkonfirmasi penghapusan kendaraan ini:',
+                  input: 'text',
+                  inputPlaceholder: 'HAPUS',
+                  showCancelButton: true,
+                  allowOutsideClick: false,
+                  confirmButtonText: 'Ya, Hapus',
+                  cancelButtonText: 'Batal',
+                });
+
+                // Check if the user typed "HAPUS" in the second stage
+                if (userInput && userInput.toUpperCase() === 'HAPUS') {
+                  try {
+                    Swal.fire({
+                      title: 'Menghapus Kendaraan',
+                      text: 'Sedang menghapus kendaraan...',
+                      icon: 'info',
+                      showConfirmButton: false,
+                      allowOutsideClick: false,
+                    });
+                    // Give 5 seconds delay
+                    await new Promise((resolve) => setTimeout(resolve, 3000));
+                    // Perform deletion
+                    await CarDbSource.deletePartnerCar(vehicleId);
+                    window.location.reload();
+                  } catch (error) {
+                    console.error('Error deleting partner car:', error);
+                    // Handle error, show Swal error popup if needed
+                    Swal.fire({
+                      title: 'Gagal Menghapus Kendaraan',
+                      text: 'Terjadi kesalahan saat menghapus kendaraan',
+                      icon: 'error',
+                    });
+                  }
+                } else {
+                  // User canceled the second stage or did not type "HAPUS"
+                  Swal.fire({
+                    title: 'Penghapusan Dibatalkan',
+                    icon: 'info',
+                  });
+                }
+              }
+            });
+          }
+        });
       } else {
         // If the user does not have the "Partner" role, show the registration form
         const registrationFormContainer = document.getElementById('partnerForm');

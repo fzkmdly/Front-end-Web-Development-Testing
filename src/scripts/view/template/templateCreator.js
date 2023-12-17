@@ -357,40 +357,6 @@ const partnerAfterRegistation = (vehicles) => {
   `;
 };
 
-const generateVehicleCards = (vehicles) => {
-  console.log('Generating vehicle cards with data:', vehicles);
-  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
-  return `
-      <section class="rentaledVehicle">
-        <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
-        <div class="rentaledVehicleInfo">
-          <h4>${vehicles.vehicleInformation.name}</h4>
-          <p>${costAsNumber.toLocaleString('id-ID')}</p>
-        </div>
-        <div class="availableInfo">
-          <p class="${vehicles.isAvailable ? 'avia-on' : ''}">${vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
-        </div>
-        <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
-      </section>
-    `;
-};
-
-const generateRentedHistoryCards = () => {
-  return `
-      <section class="rentaledHistory">
-        <img src="" alt="jajajajja">
-        <div class="rentaledVehicleInfo">
-          <h4></h4>
-          <p></p>
-        </div>
-        <div>
-          <p>Mulai dari</p>
-          <h5></h5>
-        </div>
-      </section>
-    `.join('');
-};
-
 // History of rented vehicles
 const userProfilePages = (userData) => {
   return `
@@ -720,6 +686,30 @@ const userHistoryCard = (rent) => {
     `;
 };
 
+// History of rented vehicles
+const cardForListRentaled = (vehicle) => {
+  const availabilityClass = vehicle.isAvailable ? 'available' : 'unavailable';
+  const availabilitySwitch = vehicle.isAvailable ? 'avia-on' : 'avia-off';
+  return `
+        <section class="rentaledVehicle">
+            <img src="${vehicle.ImageUrl}" alt="foto ${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}">
+            <div class="rentaledVehicleInfo">
+                <h4>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h4>
+                <p>${vehicle.vehicleInformation.type}</p>
+            </div>
+            <div class="availableInfo">
+                <p class="${availabilityClass} ${availabilitySwitch}" id="availability">${vehicle.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
+            </div>
+            <i class="fa-solid fa-trash fa-2xl delete-icon" 
+                data-vehicle-id="${vehicle.vehicleId}" 
+                style="color: #f45d48; cursor: pointer; transition: color 700ms;" 
+                onmouseover="this.style.color='#ff0000'" 
+                onmouseout="this.style.color='#f45d48'">
+            </i>
+        </section>
+      `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -729,8 +719,7 @@ module.exports = {
   createCarCollection,
   vehicleCheckin,
   partnerAfterRegistation,
-  generateVehicleCards,
-  generateRentedHistoryCards,
+  cardForListRentaled,
   userProfilePages,
   createSearchBar,
   addRentalVehicle,
