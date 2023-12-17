@@ -102,6 +102,7 @@ const Partner = {
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
 
         const partnerVehicles = await CarDbSource.getPartnerVehicle(accessToken);
+        console.log("Data kendaraan diterima:", partnerVehicles);
         if (partnerVehicles === 0){
           listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
         } else {
