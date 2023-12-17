@@ -55,7 +55,7 @@ class CarDbSource {
       },
     };
 
-    const response = await axios.get(url, options);
+    const response = await this.fetchData(url, options);
     if (response.status === "success") {
       const vehicles = response.data.data.vehicles || [];
       console.log("Vehicles:", vehicles); // Tambahkan log ini

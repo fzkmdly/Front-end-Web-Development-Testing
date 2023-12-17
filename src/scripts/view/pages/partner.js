@@ -100,6 +100,7 @@ const Partner = {
         const formContainer = document.getElementById('partnerForm');
         formContainer.innerHTML = partnerAfterRegistation();
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
+        console.log("apakah ada?", listRentaledContainer);
 
         const partnerVehicles = await CarDbSource.getPartnerVehicle(accessToken);
         console.log("Data kendaraan diterima:", partnerVehicles);
