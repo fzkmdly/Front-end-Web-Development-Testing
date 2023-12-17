@@ -13,6 +13,7 @@ const API_ENDPOINT = {
   UPLOAD_PROFILE_IMAGE: `${CONFIG.BASE_URL}/user/profile/img`,
   ORDER_RENTAL: `${CONFIG.BASE_URL}/rent-vehicle`,
   UPDATE_PAYMENT: `${CONFIG.BASE_URL}/rent-vehicle/payment`,
+  ORDER_HISTORY: `${CONFIG.BASE_URL}/user-rent`,
 };
 
 export default API_ENDPOINT;

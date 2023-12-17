@@ -421,7 +421,7 @@ const userProfilePages = (userData) => {
                     <h5>Edit Profile</h5>
                 </div>
             </a>
-            <a href="#/userHistory">
+            <a href="#/history">
                 <div class="RentHistoBttn profileOption">
                     <img src="./images/icons/userProfile-page/Car-V8.png" alt="">
                     <h5>Riwayat Sewa Mobil</h5>
@@ -681,33 +681,50 @@ const paymentCheck = (sessionDatas, vehicles) => {
 const userHistoryPageHead = () => {
   return `
     <section id="userHistoryHeader" class="userHistoryHeader">
-        <h2>Riwayat Sewa Pengguna</h2>
-        <p>Lihat Riwayat Sewa<br>Pesananmu disini</p>    
+        <h1>Riwayat Sewa Pengguna</h1>
     </section>
     <section class="userHistoryContainer">
-        <div class="userHistoryIndex">
-            <p>Riwayat Pengguna</p>
-        </div>
-        <div id="userHistoryList" class="userHistoryList">
-
-        </div>
+        <div id="userHistoryList" class="userHistoryList"></div>
     </section>
     `;
 };
 
-const userHistoryCard =() => {
-    return `
-    <section class="userRentaledHistory">
-        <img src="https://i.pinimg.com/564x/80/16/fd/8016fd6864a1ffc27887cc7a5d814737.jpg" alt="">
-        <div class="UserRentalInfo">
-            <h4>Lexus LFA</h4>
-            <p>2012</p>
-        </div>
-        <div>
-            <p>Sudah disewa</p>
-            <p>12-12-2023</p>
-        </div>
-    </section> 
+const userHistoryCard = (rent) => {
+  const statusText = rent.status ? 'Sukses' : 'Menunggu';
+
+  //   Format date to dd/mm/yyyy and get day
+  const startDate = new Date(rent.schedule.startDate);
+  const endDate = new Date(rent.schedule.endDate);
+  const startDateString = startDate.toLocaleDateString('id-ID');
+  const endDateString = endDate.toLocaleDateString('id-ID');
+
+  //   Format floating number to IDR currency
+  const totalCost = parseFloat(rent.totalPayment);
+
+  //   Format updatedAt date to dd/mm/yyyy
+  const updatedAt = new Date(rent.updatedAt);
+  const updatedAtString = updatedAt.toLocaleDateString('id-ID');
+
+  return `
+    <a href="#/detail/${rent.vehicleId}" class="vehicleItem-clickable">
+      <section class="userRentaledHistory">
+            <div class="rental-info">
+                <p>ID Rental: ${rent.rentId}</p>
+                <p>Status: ${statusText}</p>
+                <p>Metode Pembayaran: ${rent.paymentMethod}</p>
+                <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
+                <p>Diperbarui pada: ${updatedAtString}</p>
+            </div>
+            <div class="date-info">
+                <p>Diantar di:</p>
+                <p>${rent.delivery.location}</p>
+                <p>Pada: ${rent.delivery.time + ', ' + startDateString}</p>
+                <p>Dijemput di:</p>
+                <p>${rent.pickUp.location}</p>
+                <p>Pada: ${rent.pickUp.time + ', ' + endDateString}</p>
+            </div>
+      </section> 
+    </a>
     `;
 };
 
