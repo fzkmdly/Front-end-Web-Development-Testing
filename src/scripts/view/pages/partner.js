@@ -165,7 +165,6 @@ const Partner = {
                   // User canceled the second stage or did not type "HAPUS"
                   Swal.fire({
                     title: 'Penghapusan Dibatalkan',
-                    text: 'Penghapusan kendaraan dibatalkan.',
                     icon: 'info',
                   });
                 }
