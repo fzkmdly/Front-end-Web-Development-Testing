@@ -1,6 +1,6 @@
-import axios from "axios";
-import API_ENDPOINT from "../globals/api-endpoint";
-import Cookies from "js-cookie";
+import axios from 'axios';
+import API_ENDPOINT from '../globals/api-endpoint';
+import Cookies from 'js-cookie';
 
 class CarDbSource {
   static async fetchData(url, options = {}) {
@@ -15,28 +15,28 @@ class CarDbSource {
   static async listCar() {
     const url = API_ENDPOINT.LIST;
     return this.fetchData(url).then(
-      (responseJson) => responseJson.data.vehicles
+        (responseJson) => responseJson.data.vehicles,
     );
   }
 
   static async detailCar(id) {
     const url = API_ENDPOINT.DETAIL(id);
     return this.fetchData(url).then(
-      (responseJson) => responseJson.data.vehicle
+        (responseJson) => responseJson.data.vehicle,
     );
   }
 
   static async filterCar() {
     const url = API_ENDPOINT.LIST;
     return this.fetchData(url).then(
-      (responseJson) => responseJson.data.vehicles
+        (responseJson) => responseJson.data.vehicles,
     );
   }
 
   static async getUserProfile() {
     const url = API_ENDPOINT.PROFILE;
     const options = {
-      method: "GET",
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${this.getAccessToken()}`,
       },
@@ -50,7 +50,7 @@ class CarDbSource {
     const url = API_ENDPOINT.PARTNER_CAR;
     const validToken = this.getAccessToken();
     const options = {
-      method: "GET",
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${validToken}`,
       },
@@ -58,21 +58,21 @@ class CarDbSource {
 
     const response = await this.fetchData(url, options);
     console.log(response.data);
-    if (response.status === "success") {
+    if (response.status === 'success') {
       const vehicles = response.data.vehicles || [];
-      console.log("Vehicles:", vehicles); // Tambahkan log ini
+      console.log('Vehicles:', vehicles); // Tambahkan log ini
       return vehicles;
     } else {
       throw new Error(
-        response.message || "Gagal mendapatkan data mobil partner"
+          response.message || 'Gagal mendapatkan data mobil partner',
       );
     }
   }
   catch(error) {
-    throw new Error("Terjadi kesalahan saat mengambil data mobil partner");
+    throw new Error('Terjadi kesalahan saat mengambil data mobil partner');
   }
-  
-    static async getOrderHistory() {
+
+  static async getOrderHistory() {
     const url = `${API_ENDPOINT.ORDER_HISTORY}/${this.getAccessToken()}`;
     const options = {
       method: 'GET',
