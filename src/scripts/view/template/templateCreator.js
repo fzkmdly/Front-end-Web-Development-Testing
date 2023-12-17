@@ -357,40 +357,6 @@ const partnerAfterRegistation = (vehicles) => {
   `;
 };
 
-const generateVehicleCards = (vehicles) => {
-  console.log('Generating vehicle cards with data:', vehicles);
-  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
-  return `
-      <section class="rentaledVehicle">
-        <img src="${vehicles.ImageUrl}" alt="${vehicles.vehicleInformation.name}">
-        <div class="rentaledVehicleInfo">
-          <h4>${vehicles.vehicleInformation.name}</h4>
-          <p>${costAsNumber.toLocaleString('id-ID')}</p>
-        </div>
-        <div class="availableInfo">
-          <p class="${vehicles.isAvailable ? 'avia-on' : ''}">${vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
-        </div>
-        <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
-      </section>
-    `;
-};
-
-const generateRentedHistoryCards = () => {
-  return `
-      <section class="rentaledHistory">
-        <img src="" alt="jajajajja">
-        <div class="rentaledVehicleInfo">
-          <h4></h4>
-          <p></p>
-        </div>
-        <div>
-          <p>Mulai dari</p>
-          <h5></h5>
-        </div>
-      </section>
-    `.join('');
-};
-
 // History of rented vehicles
 const userProfilePages = (userData) => {
   return `
