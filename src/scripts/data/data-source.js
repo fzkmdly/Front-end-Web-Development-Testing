@@ -48,10 +48,11 @@ class CarDbSource {
 
   static async getPartnerVehicle() {
     const url = API_ENDPOINT.PARTNER_CAR;
+    const validToken = this.getAccessToken();
     const options = {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${this.getAccessToken()}`,
+        Authorization: `Bearer ${validToken}`,
       },
     };
 
@@ -71,7 +72,7 @@ class CarDbSource {
   }
 
   static getAccessToken() {
-    const token = Cookies.get("uid") || "";
+    const token = Cookies.get('uid');
     return token;
   }
 }
