@@ -69,6 +69,25 @@ class CarDbSource {
   catch(error) {
     throw new Error("Terjadi kesalahan saat mengambil data mobil partner");
   }
+  
+    static async getOrderHistory() {
+    const url = `${API_ENDPOINT.ORDER_HISTORY}/${this.getAccessToken()}`;
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${this.getAccessToken()}`,
+      },
+    };
+
+    try {
+      const response = await this.fetchData(url, options);
+      console.log(response); // Log the response to check the data
+      return response.data.rents;
+    } catch (error) {
+      console.error('Error fetching order history:', error);
+      throw error;
+    }
+  }
 
   static getAccessToken() {
     const token = Cookies.get("uid") || "";
