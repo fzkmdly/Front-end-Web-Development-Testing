@@ -706,7 +706,6 @@ const userHistoryCard = (rent) => {
   const updatedAtString = updatedAt.toLocaleDateString('id-ID');
 
   return `
-    <a href="#/detail/${rent.vehicleId}" class="vehicleItem-clickable">
       <section class="userRentaledHistory">
             <div class="rental-info">
                 <p>ID Rental: ${rent.rentId}</p>
@@ -725,7 +724,6 @@ const userHistoryCard = (rent) => {
                 <p>Pada: ${rent.pickUp.time + ', ' + endDateString}</p>
             </div>
       </section> 
-    </a>
     `;
 };
 
