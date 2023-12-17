@@ -690,16 +690,25 @@ const userHistoryPageHead = () => {
 const userHistoryCard = (rent) => {
   const statusText = rent.status ? 'Sukses' : 'Menunggu';
 
+  //   Format date to dd/mm/yyyy and get day
+  const startDate = new Date(rent.schedule.startDate);
+  const endDate = new Date(rent.schedule.endDate);
+  const startDateString = startDate.toLocaleDateString('id-ID');
+  const endDateString = endDate.toLocaleDateString('id-ID');
+
+  //   Format floating number to IDR currency
+  const totalCost = parseFloat(rent.totalPayment);
+
   return `
     <a href="#/detail/${rent.vehicleId}" class="vehicleItem-clickable">
       <section class="userRentaledHistory">
-          <div class="UserRentalInfo">
-              <h4>${rent.totalPayment}</h4>
-              <p>${rent.paymentMethod}</p>
-          </div>
           <div>
+              <p>ID: ${rent.rentId}</p>
               <p>Status: ${statusText}</p>
-              <p>${rent.schedule.endDate}</p>
+              <p>Metode Pembayaran: ${rent.paymentMethod}</p>
+              <p>Mulai pada: ${startDateString}</p>
+              <p>Selesai pada: ${endDateString}</p>
+              <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
           </div>
       </section> 
     </a>
