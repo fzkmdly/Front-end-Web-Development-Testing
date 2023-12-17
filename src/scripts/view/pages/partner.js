@@ -113,9 +113,33 @@ const Partner = {
         listRentaledContainer.addEventListener('click', async (event) => {
           if (event.target.classList.contains('delete-icon')) {
             const vehicleId = event.target.getAttribute('data-vehicle-id');
-            console.log(vehicleId);
-            await CarDbSource.deletePartnerCar(vehicleId);
-            window.location.reload();
+
+            // Show SweetAlert confirmation popup
+            Swal.fire({
+              title: 'Konfirmasi Hapus Kendaraan',
+              text: 'Apakah Anda yakin ingin menghapus kendaraan ini?',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Ya, Hapus',
+              cancelButtonText: 'Batal',
+            }).then(async (result) => {
+              if (result.isConfirmed) {
+                // User clicked "Ya, Hapus"
+                try {
+                  // Perform deletion
+                  await CarDbSource.deletePartnerCar(vehicleId);
+                  window.location.reload();
+                } catch (error) {
+                  console.error('Error deleting partner car:', error);
+                  // Handle error, show Swal error popup if needed
+                  Swal.fire({
+                    title: 'Gagal Menghapus Kendaraan',
+                    text: 'Terjadi kesalahan saat menghapus kendaraan',
+                    icon: 'error',
+                  });
+                }
+              }
+            });
           }
         });
       } else {
