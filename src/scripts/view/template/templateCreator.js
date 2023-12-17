@@ -698,18 +698,18 @@ const userHistoryCard = (rent) => {
   return `
     <a href="#/detail/${rent.vehicleId}" class="vehicleItem-clickable">
       <section class="userRentaledHistory">
-          <div>
-              <p>ID: ${rent.rentId}</p>
-              <p>Status: ${statusText}</p>
-              <p>Metode Pembayaran: ${rent.paymentMethod}</p>
-              <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
-          </div>
-          <div>
-              <p>Diantar pada:</p>
-              <p>${startDateString + ', ' + rent.delivery.location + ', ' + rent.delivery.time}</p>
-              <p>Dijemput pada:</p>
-              <p>${endDateString + ', ' + rent.pickUp.location + ', ' + rent.pickUp.time}</p>
-           </div>
+            <div>
+                <p>ID: ${rent.rentId}</p>
+                <p>Status: ${statusText}</p>
+                <p>Metode Pembayaran: ${rent.paymentMethod}</p>
+                <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
+            </div>
+            <div>
+                <p>Diantar pada:</p>
+                <p>${startDateString + ', ' + rent.delivery.location + ', ' + rent.delivery.time}</p>
+                <p>Dijemput pada:</p>
+                <p>${endDateString + ', ' + rent.pickUp.location + ', ' + rent.pickUp.time}</p>
+            </div>
       </section> 
     </a>
     `;
