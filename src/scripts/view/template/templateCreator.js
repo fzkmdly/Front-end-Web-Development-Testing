@@ -698,7 +698,7 @@ const cardForListRentaled = (vehicle) => {
                 <p>${vehicle.vehicleInformation.type}</p>
             </div>
             <div class="availableInfo">
-                <p class="${availabilityClass} ${availabilitySwitch}" id="availability">${vehicle.isAvailable ? 'Available' : 'Unavailable'}</p>
+                <p class="${availabilityClass} ${availabilitySwitch}" id="availability">${vehicle.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
             </div>
             <i class="fa-solid fa-trash fa-2xl delete-icon" data-vehicle-id="${vehicle.vehicleId}" style="color: #f45d48;"></i>
         </section>
