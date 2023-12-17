@@ -711,9 +711,11 @@ const userHistoryCard = (rent) => {
             </div>
             <div class="date-info">
                 <p>Diantar di:</p>
-                <p>${rent.delivery.location + ', ' + rent.delivery.time + ', ' + startDateString}</p>
+                <p>${rent.delivery.location}</p>
+                <p>Pada: ${rent.delivery.time + ', ' + startDateString}</p>
                 <p>Dijemput di:</p>
-                <p>${rent.pickUp.location + ', ' + rent.pickUp.time + ', ' + endDateString}</p>
+                <p>${rent.pickUp.location}</p>
+                <p>Pada: ${rent.pickUp.time + ', ' + endDateString}</p>
             </div>
       </section> 
     </a>
