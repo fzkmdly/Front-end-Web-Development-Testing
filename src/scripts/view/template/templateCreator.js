@@ -389,7 +389,7 @@ const partnerAfterRegistation = (vehicles) => {
             </ul>
             <div id="listYourRentaled" class="listYourRentaled active">
                 <div class="listRentaledVehicle" id="listRentaledVehicle">
-                    ${generateVehicleCards(vehicles)}
+                    
                 </div>
                 <div id="addRentaledVehicle" class="addRentaledVehicle">
                     <a href="#/addVehicle">
@@ -417,7 +417,6 @@ const generateVehicleCards = (vehicles) => {
         </div>
         <div class="availableInfo">
           <p class="${vehicles.isAvailable ? 'avia-on' : ''}">${vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
-          <p class="${!vehicles.isAvailable ? 'avia-on' : ''}">${!vehicles.isAvailable ? 'Tidak Tersedia' : 'Tersedia'}</p>
         </div>
         <i class="fa-solid fa-trash fa-2xl" style="color: #f45d48;"></i>
       </section>

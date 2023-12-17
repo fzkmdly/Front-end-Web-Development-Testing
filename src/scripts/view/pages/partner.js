@@ -97,7 +97,7 @@ const Partner = {
       // Do not proceed with rendering if the user is a partner
       if (isPartner) {
         const formContainer = document.getElementById('partnerForm');
-        formContainer.innerHTML = partnerAfterRegistation();
+        formContainer.innerHTML += partnerAfterRegistation();
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
 
         const partnerVehicles = await CarDbSource.getPartnerVehicle(accessToken);
