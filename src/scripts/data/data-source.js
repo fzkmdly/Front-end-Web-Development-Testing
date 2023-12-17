@@ -57,8 +57,9 @@ class CarDbSource {
     };
 
     const response = await this.fetchData(url, options);
+    console.log(response.data);
     if (response.status === "success") {
-      const vehicles = response.data.data.vehicles || [];
+      const vehicles = response.data.vehicles || [];
       console.log("Vehicles:", vehicles); // Tambahkan log ini
       return vehicles;
     } else {
