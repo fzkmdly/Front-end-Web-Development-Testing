@@ -462,7 +462,7 @@ const userProfilePages = (userData) => {
                     <h5>Edit Profile</h5>
                 </div>
             </a>
-            <a href="#/">
+            <a href="#/history">
                 <div class="RentHistoBttn profileOption">
                     <img src="./images/icons/userProfile-page/Car-V8.png" alt="">
                     <h5>Riwayat Sewa Mobil</h5>
@@ -495,32 +495,38 @@ const createSearchBar = () => {
             </p>
             <form action="" method="post" class="rental-option">
                 <div class="rental-leftSide" id="rental-leftSide">
-                    <label for="vehicle-location">Lokasi Kendaraan</label>
-                    <label for="vehicle-type">Tipe Kendaraan</label>
-                    <label for="vehicle-brand">Merek</label>
-                    <select id="vehicle-location">
-                        <option disabled selected value="">Pilih Lokasi</option>
-                        <option value="Jakarta">Jakarta</option>
-                        <option value="Bogor">Bogor</option>
-                        <option value="Depok">Depok</option>
-                        <option value="Tangerang">Tangerang</option>
-                        <option value="Bekasi">Bekasi</option>
-                    </select>
-                    <select id="vehicle-type">
-                        <option disabled selected value="">Pilih Tipe Kendaraan</option>
-                        <option value="Mobil">Mobil</option>
-                        <option value="Motor">Motor</option>
-                    </select>
-                    <select id="vehicle-brand">
-                        <option disabled selected value="">Pilih Merek</option>
-                        <option value="Daihatsu">Daihatsu</option>
-                        <option value="Honda">Honda</option>
-                        <option value="Toyota">Toyota</option>
-                        <option value="Suzuki">Suzuki</option>
-                        <option value="Mitsubishi">Mitsubishi</option>
-                        <option value="Nissan">Nissan</option>
-                        <option value="Hyundai">Hyundai</option>
-                    </select>
+                    <div>
+                        <label for="vehicle-location">Lokasi Kendaraan</label>
+                        <select id="vehicle-location">
+                            <option disabled selected value="">Pilih Lokasi</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Bogor">Bogor</option>
+                            <option value="Depok">Depok</option>
+                            <option value="Tangerang">Tangerang</option>
+                            <option value="Bekasi">Bekasi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vehicle-type">Tipe Kendaraan</label>
+                        <select id="vehicle-type">
+                            <option disabled selected value="">Pilih Tipe Kendaraan</option>
+                            <option value="Mobil">Mobil</option>
+                            <option value="Motor">Motor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vehicle-brand">Merek</label>
+                        <select id="vehicle-brand">
+                            <option disabled selected value="">Pilih Merek</option>
+                            <option value="Daihatsu">Daihatsu</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Hyundai">Hyundai</option>
+                        </select>
+                    </div>
                 </div>
             </form>
             <button type="submit" id="submitRentalOption">Cari</button>
@@ -737,6 +743,55 @@ const paymentCheck = (sessionDatas, vehicles) => {
     `;
 };
 
+const userHistoryPageHead = () => {
+  return `
+    <section id="userHistoryHeader" class="userHistoryHeader">
+        <h1>Riwayat Sewa Pengguna</h1>
+    </section>
+    <section class="userHistoryContainer">
+        <div id="userHistoryList" class="userHistoryList"></div>
+    </section>
+    `;
+};
+
+const userHistoryCard = (rent) => {
+  const statusText = rent.status ? 'Sukses' : 'Menunggu';
+
+  //   Format date to dd/mm/yyyy and get day
+  const startDate = new Date(rent.schedule.startDate);
+  const endDate = new Date(rent.schedule.endDate);
+  const startDateString = startDate.toLocaleDateString('id-ID');
+  const endDateString = endDate.toLocaleDateString('id-ID');
+
+  //   Format floating number to IDR currency
+  const totalCost = parseFloat(rent.totalPayment);
+
+  //   Format updatedAt date to dd/mm/yyyy
+  const updatedAt = new Date(rent.updatedAt);
+  const updatedAtString = updatedAt.toLocaleDateString('id-ID');
+
+  return `
+      <section class="userRentaledHistory">
+            <div class="rental-info">
+                <p>ID Rental: ${rent.rentId}</p>
+                <p>Status: ${statusText}</p>
+                <p>Metode Pembayaran: ${rent.paymentMethod}</p>
+                <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
+                <p>Diperbarui pada: ${updatedAtString}</p>
+            </div>
+            <div class="date-info">
+                <p>Diantar di:</p>
+                <p>${rent.delivery.location}</p>
+                <p>Pada: ${rent.delivery.time + ', ' + startDateString}</p>
+                <br>
+                <p>Dijemput di:</p>
+                <p>${rent.pickUp.location}</p>
+                <p>Pada: ${rent.pickUp.time + ', ' + endDateString}</p>
+            </div>
+      </section> 
+    `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -752,4 +807,6 @@ module.exports = {
   createSearchBar,
   addRentalVehicle,
   paymentCheck,
+  userHistoryPageHead,
+  userHistoryCard,
 };
