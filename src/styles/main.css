@@ -1549,8 +1549,12 @@ p, h4 {
   margin: 10px;
 }
 
-.userRentaledHistory div {
-  margin-inline: 86px;
+.userRentaledHistory .rental-info {
+  margin-inline: 40px;
+}
+
+.userRentaledHistory .date-info{
+  margin-inline: 40px;
 }
 
 .userRentaledHistory div p {

@@ -702,8 +702,8 @@ const userHistoryCard = (rent) => {
   return `
     <a href="#/detail/${rent.vehicleId}" class="vehicleItem-clickable">
       <section class="userRentaledHistory">
-            <div>
-                <p>ID: ${rent.rentId}</p>
+            <div class="rental-info">
+                <p>ID Rental: ${rent.rentId}</p>
                 <p>Status: ${statusText}</p>
                 <p>Metode Pembayaran: ${rent.paymentMethod}</p>
                 <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
