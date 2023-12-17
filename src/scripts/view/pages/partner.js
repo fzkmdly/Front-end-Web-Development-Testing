@@ -90,6 +90,7 @@ const Partner = {
       const email = Cookies.get('email') || '';
       const roles = JSON.parse(Cookies.get('roles')) || [];
       const accessToken = uid; // Assuming 'uid' contains the access token
+      
 
       // Check if the user is a partner
       const isPartner = roles.includes('Partner');
@@ -104,9 +105,8 @@ const Partner = {
         if (partnerVehicles === 0){
           listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
         } else {
-          partnerVehicles.forEach((vehicles) => {
-          listRentaledContainer.innerHTML += generateVehicleCards(vehicles);
-          });
+          let vehicleHTML = partnerVehicles.map(vehicles => generateVehicleCards(vehicles)).join('');
+          listRentaledContainer.innerHTML = vehicleHTML;
         }
         
       } else {
