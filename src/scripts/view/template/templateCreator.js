@@ -720,6 +720,25 @@ const userHistoryCard = (rent) => {
     `;
 };
 
+// History of rented vehicles
+const cardForListRentaled = (vehicle) => {
+  const availabilityClass = vehicle.isAvailable ? 'available' : 'unavailable';
+  const availabilitySwitch = vehicle.isAvailable ? 'avia-on' : 'avia-off';
+  return `
+        <section class="rentaledVehicle">
+            <img src="${vehicle.ImageUrl}" alt="foto ${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}">
+            <div class="rentaledVehicleInfo">
+                <h4>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h4>
+                <p>${vehicle.vehicleInformation.type}</p>
+            </div>
+            <div class="availableInfo">
+                <p class="${availabilityClass} ${availabilitySwitch}" id="availability">${vehicle.isAvailable ? 'Available' : 'Unavailable'}</p>
+            </div>
+            <i class="fa-solid fa-trash fa-2xl delete-icon" data-vehicle-id="${vehicle.vehicleId}" style="color: #f45d48;"></i>
+        </section>
+      `;
+};
+
 module.exports = {
   vehicleItem,
   vehicleDetail,
@@ -729,8 +748,7 @@ module.exports = {
   createCarCollection,
   vehicleCheckin,
   partnerAfterRegistation,
-  generateVehicleCards,
-  generateRentedHistoryCards,
+  cardForListRentaled,
   userProfilePages,
   createSearchBar,
   addRentalVehicle,

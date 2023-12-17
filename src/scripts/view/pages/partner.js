@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2/dist/sweetalert2.all.min';
 import {
-  generateVehicleCards,
+  cardForListRentaled,
   createPartnerRegisterPages,
   partnerAfterRegistation,
 } from '../template/templateCreator';
@@ -95,23 +95,29 @@ const Partner = {
       // Check if the user is a partner
       const isPartner = roles.includes('Partner');
 
+      const vehicles = await CarDbSource.partnerCars();
+
       // Do not proceed with rendering if the user is a partner
       if (isPartner) {
         const formContainer = document.getElementById('partnerForm');
         formContainer.innerHTML = partnerAfterRegistation();
-        const listRentaledContainer = document.getElementById('listRentaledVehicle');
-        console.log('apakah ada?', listRentaledContainer);
 
-        const partnerVehicles = await CarDbSource.getPartnerVehicle();
-        console.log('Data kendaraan diterima:', partnerVehicles);
-        if (partnerVehicles.length === 0) {
-          listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
-        } else {
-          // Buat sebuah string HTML dari seluruh vehicles
-          const vehiclesHTML = partnerVehicles.map((vehicle) => generateVehicleCards(vehicle)).join('');
-          // Kemudian update innerHTML sekali saja
-          listRentaledContainer.innerHTML = vehiclesHTML;
+        const listRentaledContainer = document.getElementById('listRentaledVehicle');
+        if (vehicles.length === 0) {
+          listRentaledContainer.innerHTML = '<h3>No Item founded</h3>';
         }
+        vehicles.forEach((vehicle) => {
+          listRentaledContainer.innerHTML += cardForListRentaled(vehicle);
+        });
+
+        listRentaledContainer.addEventListener('click', async (event) => {
+          if (event.target.classList.contains('delete-icon')) {
+            const vehicleId = event.target.getAttribute('data-vehicle-id');
+            console.log(vehicleId);
+            await CarDbSource.deletePartnerCar(vehicleId);
+            window.location.reload();
+          }
+        });
       } else {
         // If the user does not have the "Partner" role, show the registration form
         const registrationFormContainer = document.getElementById('partnerForm');
