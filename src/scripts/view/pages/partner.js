@@ -120,6 +120,7 @@ const Partner = {
               text: 'Klik tombol "Lanjut" untuk mengkonfirmasi penghapusan kendaraan ini.',
               icon: 'warning',
               showCancelButton: true,
+              allowOutsideClick: false,
               confirmButtonText: 'Lanjut',
               cancelButtonText: 'Batal',
             }).then(async (firstStageResult) => {
@@ -133,6 +134,7 @@ const Partner = {
                   input: 'text',
                   inputPlaceholder: 'HAPUS',
                   showCancelButton: true,
+                  allowOutsideClick: false,
                   confirmButtonText: 'Ya, Hapus',
                   cancelButtonText: 'Batal',
                 });
