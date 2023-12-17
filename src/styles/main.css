@@ -1344,7 +1344,10 @@ width: 100%;
 #type,
 #seats,
 #year,
-#location {
+#location,
+#vehicle-location,
+#vehicle-brand,
+#vehicle-type {
   padding-block: 8px;
   width: 100%;
   margin-bottom: 10px;
