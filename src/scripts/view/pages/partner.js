@@ -104,12 +104,13 @@ const Partner = {
 
         const partnerVehicles = await CarDbSource.getPartnerVehicle();
         console.log("Data kendaraan diterima:", partnerVehicles);
-        if (partnerVehicles === 0){
+        if (partnerVehicles.length === 0){
           listRentaledContainer.innerHTML = '<h3>No item founded</h3>';
         } else {
-          partnerVehicles.forEach((vehicles) => {
-            listRentaledContainer.innerHTML += generateVehicleCards(vehicles);
-          });
+          // Buat sebuah string HTML dari seluruh vehicles
+          const vehiclesHTML = partnerVehicles.map(vehicle => generateVehicleCards(vehicle)).join('');
+          // Kemudian update innerHTML sekali saja
+          listRentaledContainer.innerHTML = vehiclesHTML;
         }
         
       } else {
