@@ -1547,6 +1547,7 @@ p, h4 {
   padding-block: 10px;
   justify-content: space-between;
   align-items: center;
+  margin: 10px;
 }
 
 .userRentaledHistory div {
