@@ -61,7 +61,7 @@ const Checkout = {
           text: 'Pembayaran berhasil dikonfirmasi!',
           showConfirmButton: false,
         }).then(() => {
-          // Optional function to clear the sessionStorage
+          window.location.hash = '#/history';
         });
       } else {
         Swal.fire({
