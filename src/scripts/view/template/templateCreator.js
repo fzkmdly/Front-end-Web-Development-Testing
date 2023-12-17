@@ -700,7 +700,12 @@ const cardForListRentaled = (vehicle) => {
             <div class="availableInfo">
                 <p class="${availabilityClass} ${availabilitySwitch}" id="availability">${vehicle.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
             </div>
-            <i class="fa-solid fa-trash fa-2xl delete-icon" data-vehicle-id="${vehicle.vehicleId}" style="color: #f45d48;"></i>
+            <i class="fa-solid fa-trash fa-2xl delete-icon" 
+                data-vehicle-id="${vehicle.vehicleId}" 
+                style="color: #f45d48; cursor: pointer; transition: color 700ms;" 
+                onmouseover="this.style.color='#ff0000'" 
+                onmouseout="this.style.color='#f45d48'">
+            </i>
         </section>
       `;
 };
