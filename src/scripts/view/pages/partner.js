@@ -95,20 +95,20 @@ const Partner = {
       // Check if the user is a partner
       const isPartner = roles.includes('Partner');
 
-      const vehicles = await CarDbSource.partnerCars();
-
       // Do not proceed with rendering if the user is a partner
       if (isPartner) {
         const formContainer = document.getElementById('partnerForm');
         formContainer.innerHTML = partnerAfterRegistation();
 
         const listRentaledContainer = document.getElementById('listRentaledVehicle');
+
+        const vehicles = await CarDbSource.partnerCars();
         if (vehicles.length === 0) {
-          listRentaledContainer.innerHTML = '<h3>No Item founded</h3>';
+          listRentaledContainer.innerHTML = `<h3 class="no-rentaled">Anda belum memiliki kendaraan yang disewakan</h3>`;
+        } else {
+          const vehiclesHTML = vehicles.map((vehicle) => cardForListRentaled(vehicle)).join('');
+          listRentaledContainer.innerHTML = vehiclesHTML;
         }
-        vehicles.forEach((vehicle) => {
-          listRentaledContainer.innerHTML += cardForListRentaled(vehicle);
-        });
 
         listRentaledContainer.addEventListener('click', async (event) => {
           if (event.target.classList.contains('delete-icon')) {
