@@ -59,3 +59,6 @@ Before you begin, ensure you have the following tools installed:
 
 5. The application should now be running locally. Visit http://localhost:9000 in your web browser to access Rent'O.
 
+## Contributing
+
+Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions on contributing :tada:
