@@ -1,37 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
-:root {
-  --primary-color: #E3FDFD;
-  --secondary-color: #FF2E63;
-  --hover-color: #2C3333;
-  --black: #3e3e3e;
-  --white: #faf0e6;
-  --cyan: #00ADB5;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 * {
-    font-family: 'Nunito', sans-serif;
-  }
-  
-  html, body {
-    display: block;
-    background-color: #FFFFFE;
-    margin: 0;
-  }
-  
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    padding: 8px;
-    padding-inline: 4px;
-    background-color: #bf1722;
-    color: white;
-    z-index: 100;
-  }
-  
-  .skip-link:focus {
-    top: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+html,
+body {
+  display: block;
+  background-color: #FFFFFE;
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  padding-inline: 4px;
+  background-color: #bf1722;
+  color: white;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 /*
@@ -51,13 +43,23 @@ sign Drawer
 }
 
 .loginButton {
-  background-color: #F45D48;
-  color: #FFFFFE;
+  background-color: #393E46;
+  color: #FFFFFE!important;
+}
+
+.loginButton:hover {
+  background-color: #222831!important;
+  transition: 1.2s;
 }
 
 .registerButton {
-  background-color: #078080;
-  color: #FFFFFE;
+  background-color: #0F4C75;
+  color: #FFFFFE!important;
+}
+
+.registerButton:hover {
+  background-color: #3F72AF;
+  transition: 700ms;
 }
 
 
@@ -70,11 +72,11 @@ sign Drawer
 }
 
 .signDrawer .loginButton:hover {
-  background-color:#f7361d;
+  background-color: #f7361d;
   transition: 700ms;
 }
 
-.signDrawer .registerButton:hover{
+.signDrawer .registerButton:hover {
   background-color: #065c5c;
   transition: 700ms;
 }
@@ -95,10 +97,10 @@ Top Page
 .topPage {
   display: flex;
   flex-direction: row;
-  font-size:x-large;
+  font-size: x-large;
 }
 
-.topPage h1{
+.topPage h1 {
   font-size: 70px;
   padding: 0;
   margin: 0;
@@ -111,10 +113,11 @@ Top Page
 
 .rightSide {
   width: 40%;
-  
+
 }
 
-.rightSide img, source {
+.rightSide img,
+source {
   width: 80%;
   margin-right: 40px;
 }
@@ -155,7 +158,7 @@ nav h1 a {
   display: inline-block;
 }
 
-nav a:hover{
+nav a:hover {
   color: var(--hover-color);
 }
 
@@ -168,10 +171,10 @@ nav a:hover{
 .menu-list li {
   list-style-type: none;
   display: inline-block;
+  margin: 2px;
 }
 
 .menu-list a {
-  color: black;
   text-decoration: none;
   padding: 16px;
   font-weight: bold;
@@ -180,11 +183,11 @@ nav a:hover{
   display: inline;
   text-decoration: none;
   border-radius: 40px;
+  color: #000000;
 }
 
 .menu-list a:hover {
   transition-duration: 0.2s;
-  color: var(--hover-color);
 }
 
 .menu-button {
@@ -193,6 +196,7 @@ nav a:hover{
   min-width: 55px;
   min-height: 55px;
 }
+
 .menu-button i {
   font-size: 2em;
 }
@@ -222,16 +226,17 @@ nav a:hover{
 
 .partnerHeader #upperTagline {
   font-size: 34px;
-  margin-bottom: 0%!important;
+  margin-bottom: 0% !important;
 }
 
 .partnerHeader #lowerTagline {
   font-size: 72px;
-  margin-top: 0%!important;
+  margin-top: 0% !important;
 }
 
-#upperTagline, #lowerTagline {
-  font-family: 'Nunito', sans-serif!important;
+#upperTagline,
+#lowerTagline {
+  font-family: 'Nunito', sans-serif !important;
   color: white;
 }
 
@@ -251,7 +256,8 @@ nav a:hover{
   padding-bottom: 40px;
 }
 
-.partnerForm form h1, h4 {
+.partnerForm form h1,
+h4 {
   font-size: x-large;
 }
 
@@ -287,7 +293,7 @@ input {
 
 .tempatTanggalLahir {
   display: grid;
-  grid-template-columns: repeat(2 , 1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 5px;
 }
 
@@ -299,6 +305,7 @@ input {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 16px;
 }
 
 .partnerButton:hover {
@@ -331,7 +338,9 @@ input {
   margin-bottom: 15px;
 }
 
-.card-1, .card-2, .card-3 {
+.card-1,
+.card-2,
+.card-3 {
   background-color: #F8F5F2;
   padding: 20px;
   margin: 10px;
@@ -341,11 +350,15 @@ input {
 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Center text within the container */
+  align-items: center;
+  /* Center items horizontally */
+  text-align: center;
+  /* Center text within the container */
 }
 
-.card-1:hover, .card-2:hover, .card-3:hover {
+.card-1:hover,
+.card-2:hover,
+.card-3:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -378,28 +391,33 @@ input {
   text-align: center;
 }
 
-/* Login Page */
-#login-container {
+/* Login & Register Page */
+#login-container, #register-container, #forgot-password-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
 }
 
-#login-form {
+#forgot-password-form {
+  margin-bottom: 134px!important;
+}
+
+#login-form, #register-form, #forgot-password-form {
   width: 450px;
   background-color: #F8F5F2;
   padding: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
 }
 
-#login-form h2 {
+#login-form h2, #register-form h2, #forgot-password-form h2 {
   font-size: 2em;
   text-align: center;
 }
 
-#login-form button {
+#login-form button, #register-form button, #forgot-password-form button {
   font-size: large;
   width: 100%;
   padding: 10px;
@@ -411,35 +429,32 @@ input {
   margin-top: 6px;
 }
 
-#login-form button:hover {
+#login-form button:hover, #register-form button:hover, #forgot-password-form button:hover {
   background-color: #4CAF50;
+  transition: 750ms;
 }
 
-#login-form #register {
-  font-size: medium;
-  text-align: center;
-}
-
-#login-form #register a {
+#login-form #register a, #register-form #login a {
   text-decoration: none;
-  color: black;
+  color: #f45d48;
 }
 
-#email, #password {
+#email, #password, #confirm_password, #name {
   font-size: medium;
   border-radius: 10px;
-  margin-bottom: 8px!important;
+  margin-bottom: 14px!important;
 }
 
 #forgot-password {
   text-align: right;
   text-decoration: none;
   color: red;
-  margin-top: 0%!important;
+  margin-top: 0% !important;
 }
 
 #forgot-password:hover {
   color: black;
+  transition: 750ms;
 }
 
 
@@ -454,23 +469,39 @@ input {
 Rental-bar
 */
 
-.rental-bar{
+.search-bar {
   display: flex;
   flex-direction: column;
   background-color: #F8F5F2;
-  padding-block: 15px ;
+  padding-block: 15px;
   padding-block-end: 30px;
   padding-inline: 10px;
   margin-inline: 30px !important;
-
+  align-items: center;
   font-family: 'Nunito', sans-serif;
 }
 
-.rental-bar h1 {
+.search-bar h1 {
   margin: 0;
 }
 
-.rental-option{
+.search-bar #submitRentalOption {
+  margin-top: 20px;
+  padding-inline: 5%;
+  border-radius: 20px;
+  height: 40px;
+  align-self: center;
+  background-color: #7B66FF;
+  color: white;
+  font-size: large;
+}
+
+.search-bar #submitRentalOption:hover {
+  background-color: #5FBDFF;
+  transition: 700ms;
+}
+
+.rental-option {
   display: flex;
   flex-direction: row;
 }
@@ -478,23 +509,8 @@ Rental-bar
 .rental-option .rental-leftSide {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 10px;
+  column-gap: 54px;
   row-gap: 2px;
-}
-
-.rental-option button {
-  margin-left: 10px;
-  padding-inline: 5%;
-  border-radius: 20px;
-  height: 40px;
-  align-self: center;
-
-  background-color: #078080;
-  transition: 700ms;
-}
-
-.rental-option button:hover:focus{
-  background-color: #065c5c;
 }
 
 /*
@@ -505,18 +521,26 @@ Sewa Page main content
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-inline: 10px;
+}
+
+.vehicleItem-clickable {
+  text-decoration: none;
+  color: black;
 }
 
 .vehicleItem {
   display: flex;
   flex-direction: row;
   margin-inline: 5px;
-  justify-content: space-between;
   background-color: #F8F5F2;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
   margin-block: 14px;
-  border-radius: 10px;
-  padding-block: 14px;
-  padding-inline: 154px;
+  margin-inline: 5px;
+  padding-block: 10px;
+  padding-inline: 50px;
 }
 
 .vehicleItem:hover {
@@ -527,10 +551,9 @@ Sewa Page main content
 .vehicleItem-left {
   width: 30%;
   align-self: center;
-  margin-right: -124px;
 }
 
-.vehicleItem-center{
+.vehicleItem-center {
   width: 30%;
   font-size: larger;
 }
@@ -539,12 +562,18 @@ Sewa Page main content
   font-size: xx-large;
   font-weight: bold;
   margin-bottom: 0;
-  margin-top: 78px;;
 }
 
-.vehicleItem-center .city {
+.vehicleItem-center .city, .vehicleItem-center .availability {
+  font-weight: normal!important;
   font-size: larger;
   margin-top: 14px;
+}
+
+.vehicleItem-center .availability {
+  font-size: medium!important;
+  font-weight: normal!important;
+  margin: 0;
 }
 
 .vehicleItem img {
@@ -564,7 +593,6 @@ Sewa Page main content
 .vehicleItem-right .start-from {
   font-size: small;
   margin-bottom: 0;
-  margin-top: 80px;
 }
 
 .vehicleItem-right .harga {
@@ -575,53 +603,49 @@ Sewa Page main content
 
 /* Footer */
 
+footer {
+  background-color: #000;
+}
+
 .footer{
 background:#000;
 padding:30px 0px;
 text-align:center;
+position: fixed;
+bottom: 0;
+width: 100%;
 }
 
-.footer .row{
-width:100%;
-margin:1% 0%;
-padding:0.6% 0%;
-color:gray;
-font-size:0.8em;
+.footer-container {
+  padding-bottom: 8px;
+  padding-top: 8px;
+  margin-top: 32px;
 }
 
-.footer .row a{
-text-decoration:none;
-color:gray;
-transition:0.5s;
+.footer-container, .about-us-footer, .tac {
+  text-align: center;
+  text-decoration: none;
+  color: #FFFFFE;
 }
 
-.footer .row a:hover{
-color:#fff;
+.tac {
+  margin-bottom: 8px;
 }
 
-.footer .row ul li{
-display:inline-block;
-margin:0px 30px;
+.github {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  color: white;
 }
 
-.footer .row a i{
-font-size:2em;
-margin:0% 1%;
+.about-us-footer a, .tac a {
+  text-decoration: none;
+  color: #FFFFFE;
 }
-  
-@media (max-width:720px){
-.footer{
-text-align:left;
-padding:5%;
-}
-.footer .row ul li{
-display:block;
-margin:10px 0px;
-text-align:left;
-}
-.footer .row a i{
-margin:0% 3%;
-}
+
+.github i:hover, .about-us-footer a:hover, .tac a:hover {
+  color: #F45D48;
+  transition: 750ms;
 }
 
 /* About Us */
@@ -644,29 +668,12 @@ margin:0% 3%;
   justify-content: center;
 }
 
-.about-box {
-  background-color: #f8f5f2;
-  width: 48%; /* Adjust as needed */
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-sizing: border-box;
-  box-shadow: 0 0 10px rgba(0,0,0,.2);
-}
-
 .about-box:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
 }
 
-.about-heading, .about-description {
+.about-heading {
   text-align: center;
-}
-
-.about-description {
-  font-size: large;
 }
 
 .about-developer-section {
@@ -702,7 +709,7 @@ margin:0% 3%;
 .terms-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 34px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -711,16 +718,12 @@ margin:0% 3%;
   text-align: justify;
 }
 
-h2 {
+.terms-container h2 {
   color: #333;
   text-align: center;
 }
 
-h3 {
-  color: #555;
-}
-
-p, li {
+.terms-container p, .terms-container li {
   line-height: 1.5;
   color: black;
 }
@@ -730,7 +733,7 @@ p, li {
 .car-collection-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 15px;
   margin-top: 15px;
 }
@@ -751,12 +754,12 @@ p, li {
 }
 
 .car-container:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .4);
   transition: .3s;
 }
 
-.car-collection-container picture, 
-.car-collection-container source, 
+.car-collection-container picture,
+.car-collection-container source,
 .car-collection-container img {
   width: 70%;
   height: auto;
@@ -787,6 +790,17 @@ p, li {
 
 /*----------Vehicle Detail------------*/
 
+.detailTracker {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.detailTracker a {
+  text-decoration: none;
+  color: black;
+}
+
 .vehicleDetail {
   display: flex;
   flex-direction: row;
@@ -794,22 +808,26 @@ p, li {
 }
 
 .vehicleDetailLeft {
+  border-radius: 10px;
   display: flex;
-  padding-inline: 5px;
+  padding-inline: 10px;
+  padding-block: 6px;
   height: fit-content;
   flex-direction: column;
-  align-items: center;
   margin-inline-end: 5px;
-  background-color: #F8F5F2;
+  width: 25%;
 }
 
 .vehicleDetailLeft img {
   width: 100%;
+  border-radius: 15px;
 }
 
 .vehicleDetailRight {
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  width: 74%;
   margin-inline-start: 5px;
   padding-inline: 5px;
   background-color: #F8F5F2;
@@ -817,33 +835,89 @@ p, li {
 
 .vehicleDetailInfo {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: baseline;
   justify-content: space-between;
+}
+
+/* .detail-bottom-left {
+  margin: 0;
+} */
+
+.detail-top-left,
+.detail-bottom-left {
+  background-color: #F8F5F2;
+  margin-block-end: 8px;
+  border-radius: 10px;
+  padding-block: 15px;
 }
 
 .vehicleOwnerLeft {
+  margin: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: fit-content;
-  justify-content: space-between;
+  width: 100%;
 }
 
 .vehicleOwnerLeft img {
-  width: 50%;
+  width: 38%;
+  margin-right: 15px;
+}
+
+.vehicleInfoPrice {
+  margin-top: 0px;
+  padding-block-end: 15px;
+}
+
+.vehicleInfoPrice p {
+  margin-bottom: 15px;
+}
+
+.vehicleInfoPrice .sewaButton {
+  padding-inline: 15px;
+  padding-block: 6px;
+  text-decoration: none;
+  color: white;
+  background-color: red;
+  border-radius: 30px;
+}
+
+.vehicleDetailOptionRent, .whatsappButton {
+  display: flex;
+  flex-direction: row;
+  margin-top: 14px
+}
+
+.whatsappButton .chat {
+  text-decoration: none;
+  color: white;
+  border-radius: 30px;
+  max-width: 50%;
+}
+
+.vehicleDetailDesc {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .vehicleDetailPhotolist {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-.vehicleDetailPhotolist img{
-  max-width: 400px;
+.vehicleDetailPhotolist img {
+  width: 200px !important;
 }
 
-.vehicleDetailRenting{
+/*-----------Checking Page-------------*/
+
+.checking-page {
+  margin-bottom: 15px;
+}
+
+.vehicleDetailRenting {
   display: flex;
   flex-direction: column;
 }
@@ -852,6 +926,28 @@ p, li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f8f5f2;
+  padding: 28px;
+}
+
+.vehicleCheckinDate {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 100px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.vehicleCheckinDate div {
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicleCheckinDate input {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: solid 1px gray;
 }
 
 .vehicleDetailForm {
@@ -877,46 +973,594 @@ p, li {
 }
 
 .vehicleDetailRenting button {
-  width: 25%;
-  height: 35px;
+  padding-block: 10px;
+  padding-inline: 20px;
+  border-radius: 20px;
+  border: 0;
+  background-color: #F45D48;
+  text-decoration: none;
+  color: white;
 }
 
-@media only screen and (max-width: 600px) {
-  .vehicleDetail {
-      flex-direction: column;
-      width: 100%;
-      margin-bottom: 10px;
-  }
+.payingMethod {
+  margin-bottom: 10px;
+}
 
-  .vehicleDetailLeft,
-  .vehicleDetailRight {
-      margin-inline: 0;
-  }
+.toggle-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  .vehicleDetailInfo {
-      flex-direction: column;
-  }
+.drawer-content {
+  margin-top: 15px;
+}
 
-  .vehicleOwnerLeft{
-      justify-content: space-around;
-  }
+.payingMethod label {
+  display: block;
+  margin-bottom: 5px;
+}
 
-  .vehicleDetailPhotolist {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
-  }
+.payingMethod select {
+  padding-inline: 50px;
+  padding-block: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-  .vehicleDetailPhotolist img {
-      max-width: 100%;
-  }
+.vehicleDetailRenting .title {
+  text-align: center;
+  margin-bottom: 44px;
+}
 
-  .vehicleDetailForm {
-      grid-template-columns: 1fr;
-      column-gap: 0;
-  }
+/*------------Partner page after registation---------------*/
 
-  .vehicleDetailRenting button {
-      width: 50%;
-      margin-top: 10px;
-  }
+.rentaledVehicleContainer,
+.userHistory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rentaledVehicleHeader,
+.userHistoryHeader {
+  width: 100%;
+  /* align-items: center; */
+  text-align: center;
+}
+
+.listRentaledVehicleContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.listRentaledVehicleContainer ul {
+  padding-inline: 0;
+}
+
+.listRentaledVehicleContainer li {
+  display: inline;
+  margin-inline: 10px;
+}
+
+.listRentaledVehicleContainer img {
+  width: 80px;
+  border-radius: 10px;
+}
+
+.listYourRentaled,
+.listRentaledHistory {
+  background-color: #F8F5F2;
+  border-radius: 5px;
+  padding: 7px;
+  box-shadow: 0px 0px 3px gray;
+}
+
+.rentaledVehicle {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 5px;
+  padding-inline: 20px;
+  padding-block: 10px;
+  margin-block: 5px;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rentaledHistory {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 5px;
+  padding-inline: 20px;
+  padding-block: 10px;
+  width: 500px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addRentaledVehicle {
+  text-align: center;
+  padding-block: 10px;
+}
+
+.addRentaledVehicle i {
+  font-size: 5em;
+  color: white;
+  background-color: red;
+  border-radius: 14px;
+}
+
+.addRentaledVehicle i:hover {
+  background-color: #B31312;
+  color: white;
+  transition: 700ms;
+}
+
+/*---------------------Add Rental Vehicle Pages------------------------*/
+
+.addYourVehicle {
+  width: 100%;
+  margin-inline: 7px;
+  margin-top: 10px;
+}
+
+.addYourVehicle form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F8F5F2;
+  padding-inline: 10px;
+  padding-block-end: 30px;
+  margin-inline: 100px;
+  margin-block: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px gray;
+}
+
+.inputFotoMobil{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-block: 10px;
+}
+
+.imagePreviewContainer,
+.inputFotoMobilContainer{
+  padding: 15px;
+  background-color: white;
+  border-radius: 15px;
+  margin-inline: 15px;
+}
+
+.bodyInputMobil {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.bodyInputMobilLeft,
+.bodyInputMobilRight {
+  margin-inline: 10px;
+}
+
+.add-pages-form-group,
+.addVehicleDesc {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-block: 5px;
+}
+
+.add-pages-form-group input {
+  border-radius: 5px;
+}
+
+.addVehicleDesc {
+  text-align: center;
+  width: 620px !important;
+}
+
+.footerAddForm {
+  flex-direction: column;
+  display: flex;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.footerAddForm h1 {
+  text-align: center;
+}
+
+.addAlamatFormLeft,
+.addAlamatFormRight {
+  margin-inline: 6.7px;
+}
+
+.addAlamatForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonTambahMobil {
+  cursor: pointer;
+  padding: 10px;
+  margin-block: 30px;
+  border-radius: 20px;
+  background-color: #F45D48;
+  color: white;
+  border: 1px solid #F45D48;
+}
+
+/* Profile Page */
+
+.userProfile {
+  width: 100%;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topUserProfile {
+  text-align: center;
+}
+
+.userProfilePicture img {
+  border-radius: 100%;
+}
+
+.topUserProfile .name,
+.topUserProfile .email {
+  margin: 0;
+}
+
+.topUserProfile .name {
+  font-size: xx-large;
+  margin-block: 10px;
+}
+
+.topUserProfile .email {
+  font-size: large;
+  font-weight: 400;
+}
+
+.bodyUserProfile {
+  background-color: #F8F5F2;
+  border-radius: 10px;
+  padding-inline: 25px;
+  padding-block: 15px;
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.bodyUserProfile a {
+  text-decoration: none;
+  color: black;
+}
+
+.profileOption:hover {
+  box-shadow: 0px 0px 2px black;
+}
+
+.profileOption {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  background-color: white;
+  align-items: center;
+  margin-block: 8px;
+  width: 100%;
+}
+
+.profileOption img {
+  width: 20px;
+  margin-block: 0;
+  margin-inline: 5px;
+}
+
+.userProfilePicture {
+  position: relative;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.userProfilePicture .hover-image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.userProfilePicture .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.userProfilePicture .overlay-text {
+  color: #fff;
+  font-size: 15px;
+  cursor: default;
+}
+
+.userProfilePicture:hover .hover-image {
+  transform: scale(1.1);
+}
+
+.userProfilePicture:hover .overlay {
+  opacity: 1;
+}
+
+/* SIM Type at Partner Registration */
+#jenis-sim, #province_KTP {
+  padding-block: 5px;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+#province_KTP {
+  padding-block: 8px!important;
+}
+
+/* Header if Logged In */
+.userName {
+  background-color: #bf1722;
+  color: #ffffff!important;
+}
+
+.userName:hover {
+  background-color: #f7361d;
+  transition: 700ms;
+}
+
+.logoutButton {
+  background-color: #3F72AF;
+  color: #FFFFFE!important;
+}
+
+.logoutButton:hover {
+  background-color: #0F4C75!important;
+  transition: 1.2s;
+}
+
+/* Dropdown at Add Vehicle Image */
+#brand,
+#type,
+#seats,
+#year,
+#location,
+#vehicle-location,
+#vehicle-brand,
+#vehicle-type {
+  padding-block: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Rupiah symbols */
+.add-pages-form-group {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.rupiah-symbol {
+  margin-right: 5px;
+  font-weight: bold; /* You can adjust the font-weight as needed */
+}
+
+/* Checkout page */
+.paymentInfo{
+  width: 100%;
+}
+
+.paymentInfo form {
+  background-color: #F8F5F2;
+  border-radius: 8px;
+  margin-inline: 175px;
+  padding-inline: 15px;
+}
+
+.paymentInfo form h2 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.paymentBody {
+  display: block;
+}
+
+.paymentBodyDesc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-block: 10px;
+  margin-bottom: 28px;
+}
+
+.paymentBodyDescName{
+  margin-inline: 5px;
+}
+
+.paymentBodyDescName p{
+  margin: 0;
+}
+
+.paymentBodyDateIndex {
+  width: 100%;
+}
+
+.payment-form-group,
+.paymentTotalCheck,
+.paymentMethodName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.paymentBody input {
+  width: 250px;
+  height: 25px;
+  background-color: #F8F5F2;
+  border: none;
+  outline: none;
+}
+
+form .paymentConfirm {
+  cursor: pointer;
+  padding-inline: 40px;
+  padding-block: 10px;
+  border-radius: 20px;
+  color: white;
+  background-color: #F45D48;
+  border: 1px solid #F45D48;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+form .paymentConfirm:hover {
+  background-color: #bf1722;
+  transition: 700ms;
+}
+
+/* Right text in Checkout Page */
+#lokPenyewaan,
+#tanggalSelesai,
+#tanggalMulai,
+#lokPenjemputan,
+#paymentCheck,
+#waktuPengantaran,
+#lokPengantaran,
+#waktuPenjemputan,
+#paymentMethodName {
+  font-size: medium;
+}
+
+/* Partner Page, List or History */
+.listYourRentaled, .listRentaledHistory {
+  display: none;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.listRentaledToggle,
+.listHistoryToggle {
+  cursor: pointer;
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+  position: relative; /* Add this for positioning the pseudo-element */
+}
+
+.listRentaledToggle::after,
+.listHistoryToggle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px; /* Border thickness */
+  background: linear-gradient(to right, #080808, #1bda44);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.focused::after {
+  width: 100%;
+  left: 0;
+}
+
+.rentaledVehicleInfo 
+p, h4 {
+  margin-block: 0;
+}
+
+
+.availableInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 40px;
+  border: 1px solid #078080;
+}
+
+.avia-on {
+  background-color: #078080;
+  color: white;
+}
+
+.availableInfo p {
+  padding-inline: 15px;
+  padding-block: 10px;
+  border-radius: 40px;
+  margin-block: 0;
+  width: 100%;
+}
+
+/*--------------User History Page--------------*/
+
+.userHistoryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userHistoryList {
+  background-color: #F8F5F2;
+  border-radius: 5px;
+  padding: 7px;
+  box-shadow: 0px 0px 3px gray;
+  width: fit-content;
+}
+
+.userHistoryList img {
+  width: 150px;
+}
+
+.userRentaledHistory {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 5px;
+  padding-block: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.userRentaledHistory .rental-info {
+  margin-inline: 40px;
+}
+
+.userRentaledHistory .date-info{
+  margin-inline: 40px;
+}
+
+.userRentaledHistory div p {
+  margin : 3px
 }

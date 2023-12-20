@@ -1,6 +1,5 @@
 const CONFIG = {
-  BASE_URL: 'https://restaurant-api.dicoding.dev', // URL API Sementara
-  BASE_IMAGE_URL: 'https://restaurant-api.dicoding.dev/images/medium/', // URL API Sementara
+  BASE_URL: 'https://rento-backend-api-d6zuozodga-et.a.run.app',
   CACHE_NAME: new Date().toISOString(),
   DATABASE_NAME: 'rentO-db',
   DATABASE_VERSION: '1',

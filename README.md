@@ -1,6 +1,6 @@
 # Rent'O - Car Rental Service
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/06d93c93-cd3f-4435-8b23-9dd73dae76fc/deploy-status)](https://app.netlify.com/sites/transcendent-froyo-7042c1/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/06d93c93-cd3f-4435-8b23-9dd73dae76fc/deploy-status)](https://app.netlify.com/sites/rent-o/deploys)
 
 Welcome to Rent'O, your go-to platform for hassle-free car rentals. Whether you're planning a road trip or just need a reliable vehicle for a day, Rent'O has you covered.
 
@@ -11,6 +11,7 @@ Welcome to Rent'O, your go-to platform for hassle-free car rentals. Whether you'
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+- [Contributing](#contributing)
 
 ## Overview
 
@@ -18,11 +19,11 @@ Rent'O is a user-friendly web application that allows users to browse, select, a
 
 ## Features
 
-- ~~**User Authentication:** Secure user authentication system to protect user accounts.~~
+- **User Authentication:** Secure user authentication system to protect user accounts.
 - **Car Listings:** Browse through a variety of available cars with detailed information.
 - **Reservation System:** Easily reserve a car for a specific date and time.
-- ~~**User Dashboard:** View reservation history and manage account details.~~
-- ~~**Responsive Design:** Ensures a consistent experience across different devices.~~
+- **User Dashboard:** View reservation history and manage account details.
+- **Responsive Design:** Ensures a consistent experience across different devices.
 
 ## Getting Started
 
@@ -31,7 +32,8 @@ Rent'O is a user-friendly web application that allows users to browse, select, a
 Before you begin, ensure you have the following tools installed:
 
 - Node.js
-- yarn or npm (Node Package Manager)
+- yarn
+- Your favorite code editor
   
 ### Installation
 
@@ -56,3 +58,7 @@ Before you begin, ensure you have the following tools installed:
    yarn run start-dev
 
 5. The application should now be running locally. Visit http://localhost:9000 in your web browser to access Rent'O.
+
+## Contributing
+
+Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for instructions on contributing :tada:

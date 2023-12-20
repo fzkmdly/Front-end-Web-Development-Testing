@@ -1,111 +1,107 @@
-const vehicleItem = (vehicle) => {
+const vehicleItem = (vehicles) => {
+  const availabilityText = vehicles.isAvailable ? 'Tersedia' : 'Tidak Tersedia';
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+
   return `
-          <div class="vehicleItem" id="vehicleItem">
-            <section class="vehicleItem-left">
-              <img class="lazyload" src="https://i.pinimg.com/736x/22/4f/fd/224ffd65ee22d448ac3f587c5d192370.jpg" alt="vehicle image">
-            </section>
-            <section class="vehicleItem-center">
-                <h4 class="vehicle-name">${vehicle.name}</h4>
-                <h6 class="city"><i class="fa-solid fa-location-dot fa-shake"></i>  ${vehicle.city}</h6>
-            </section>
-            <section class="vehicleItem-right">
-                <h6 class="start-from">Mulai</h6>
-                <h4 class="harga">Rp150.000/hari</h4>
-                <a href="#/detail/${vehicle.id}">Pilih</a>
-            </section>
-          </div>
+          <a href="#/detail/${vehicles.vehicleId}" class="vehicleItem-clickable">
+            <div class="vehicleItem" id="vehicleItem">
+              <section class="vehicleItem-left">
+                <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+              </section>
+              <section class="vehicleItem-center">
+                  <h4 class="vehicle-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+                  <h6 class="availability">${availabilityText}</h6>
+                  <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
+              </section>
+              <section class="vehicleItem-right">
+                  <h6 class="start-from">Mulai</h6>
+                  <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
+              </section>
+            </div>
+          </a>
+      `;
+};
+
+const createCarCollection = (vehicles) => {
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+
+  return `
+      <a href="#/detail/${vehicles.vehicleId}" class="car-container">
+        <div>
+          <section class="car-collection-image">
+            <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+          </section>
+          <section class="car-collection-name">
+            <h4 class="car-name">${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h4>
+            <h6 class="city"><i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}</h6>
+          </section>
+          <section class="car-collection-price">
+            <h4 class="harga">Rp${costAsNumber.toLocaleString('id-ID')}/hari</h4>
+          </section>
+        </div>
+      </a>
     `;
 };
 
-const createCarCollection = (vehicle) => {
-  return `
-    <a href="#/detail/${vehicle.id}" class="car-container">
-      <div>
-        <section class="car-collection-image">
-          <picture>
-            <source type="image/webp" srcset="./images/assets/dummy-images/raize-white-black.webp">
-            <source type="image/png" srcset="./images/assets/dummy-images/raize-white-black.png">
-            <img src="./images/assets/dummy-images/raize-white-black.png" alt="Toyota Raize with white on top and black at entire bodyworks">
-          </picture>
-        </section>
-        <section class="car-collection-name">
-          <h4 class="car-name">${vehicle.name}</h4>
-          <h6 class="city"><i class="fa-solid fa-location-dot fa-shake"></i>  ${vehicle.city}</h6>
-        </section>
-        <section class="car-collection-price">
-          <h4 class="harga">Rp150.000/hari</h4>
-        </section>
-      </div>
-    </a>
-  `;
-};
+const vehicleDetail = (vehicles) => {
+  const imageList = Array.from({length: 3}, (_, index) => `
+      <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar ${index + 1} dari ${vehicles.vehicleInformation.name}" />
+    `).join('');
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
+  const WhatsAppLink = `https://wa.me/62${vehicles.partner.partnerPhoneNumber}?text=Halo, Bapak/Ibu ${vehicles.partner.partnerName}%0A%0ASaya ingin menyewa ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name} di web Rent'O`;
 
-const vehicleDetail = (vehicle) => {
   return `
       <article id="vehicleDetail" class="vehicleDetail">
-        <div class="vehicleDetailLeft" id="vehicleDetailLeft">
-            <h1>${vehicle.name}</h1>
-            <img src="https://i.pinimg.com/564x/b1/ad/8c/b1ad8c93a5d96e425e8cb1addc72dce9.jpg" alt="gambar mobil">
-            <p>4 Penumpang</p>
-            <p>${vehicle.city}</p>
-        </div>
-        <div class="vehicleDetailRight" id="vehicleDetailRight">
-            <section class="vehicleDetailInfo" id="vehicleDetailInfo">
-                <div class="vehicleOwnerLeft">
-                    <img src="https://i.pinimg.com/236x/4d/9f/c4/4d9fc4609216b812d03302e302a418a5.jpg" alt="">
-                    <div class="vehicleOwnerInfo">
-                        <p>Ryo Yamada</p>
-                        <p><span>Tahun :</span> 2020</p>
-                    </div>
-                </div>
-                <div class="vehicleInfoPrice">
-                    <p>Mulai dari</p>
-                    <p>Rp. 150.000/hari</p>
-                    <a href="#/detail/${vehicle.id}/check">Check</a>
-                </div>
-            </section>
-            <section class="vehicleDetailDesc" id="vehicleDetailDesc">
-                <div class="vehicleDetailDescription">
-                    <h3>Deskripsi</h3>
-                    <p>${vehicle.description}</p>
-                </div>
-                <div>
-                    <h3>Gambar Mobil</h3>
-                    <div class="vehicleDetailPhotolist">
-                        <img src="https://i.pinimg.com/236x/cc/30/dc/cc30dc001ec691261e9f0fa54eba2e2f.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/5b/8e/16/5b8e166e9ff581151b998db6e163a380.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/10/94/43/10944325197df224075945ce7a46df6d.jpg" alt="">
-                        <img src="https://i.pinimg.com/236x/b2/13/e5/b213e52d58c4f548833e50b23e8c469a.jpg" alt="">
-                    </div>
-                </div>
-            </section>
-            <section class="vehicleDetailRenting" id="vehicleDetailRenting">
-                <h3>Lokasi?</h3>
-                <form action="" method="post">
-                    <div class="vehicleDetailForm">
-                        <div>
-                            <label for="Lokasi?">Lokasi</label>
-                            <input type="text" name="lokasi" id="lokasi" placeholder="Pilihlah Lokasi">
-                        </div>
-                        <div>
-                            <label for="TanggalMulai">Tanggal Mulai</label>
-                            <input type="date" name="tanggalMulai" id="tanggalMulai" placeholder="Pilih Waktu">
-                        </div>
-                        <div>
-                            <label for="LokasiPenganter">Lokasi Pengantar</label>
-                            <input type="text" name="lokasiPengantar" id="lokasiPengantar">
-                        </div>
-                        <div>
-                            <label for="Lokasi?">Tanggal Selesai</label>
-                            <input type="date" name="tanggalSelesai" id="tanggalSelesai">
-                        </div>
-                    </div>
-                    <button type="submit">Lanjutkan Pembayaran</button>
-                </form>
-            </section>
-        </div>
+          <div class="vehicleDetailLeft" id="vehicleDetailLeft">
+              <div class="detail-top-left">
+                  <img class="lazyload" data-src="${vehicles.ImageUrl}" alt="Gambar dari ${vehicles.vehicleInformation.name}" />
+                  <h1>${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}</h1>
+                  Tahun: ${vehicles.vehicleInformation.year}
+                  <br>
+                  <i class="fa-solid fa-person"></i>  ${vehicles.vehicleInformation.seats} Penumpang
+                  <br>
+                  <i class="fa-solid fa-location-dot"></i>  ${vehicles.locations.join(', ')}
+                  <div class="vehicleInfoPrice">
+                      <p>Mulai <br>Rp${costAsNumber.toLocaleString('id-ID')}/hari</p>
+                      <div class="vehicleDetailOptionRent">
+                          <a href="#/checking/${vehicles.vehicleId}" class="sewaButton" id="sewaButton">Sewa Sekarang</a>
+                      </div>
+                      <div class="whatsappButton">
+                          <a aria-label="Chat on WhatsApp" 
+                          href="${WhatsAppLink}" 
+                          class="chat" target="_blank"><img alt="Chat on WhatsApp" 
+                          src="./images/assets/icons/WhatsApp Button.png" /></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="detail-bottom-left">
+                  <section class="vehicleDetailInfo" id="vehicleDetailInfo">
+                      <div class="vehicleOwnerLeft">
+                          <img class="lazyload" data-src="${vehicles.partner.partnerImage}" alt="${vehicles.partner.partnerName}, Pemilik 
+                              ${vehicles.vehicleInformation.brand} ${vehicles.vehicleInformation.name}" />
+                          <div class="vehicleOwnerInfo">
+                              <p>${vehicles.partner.partnerName}</p>
+                          </div>
+                      </div>
+                  </section>
+              </div>
+          </div>
+          <div class="vehicleDetailRight" id="vehicleDetailRight">
+              <section class="vehicleDetailDesc" id="vehicleDetailDesc">
+                  <div class="vehicleDetailDescription">
+                      <h3>Deskripsi</h3>
+                      <p>${vehicles.vehicleInformation.description}</p>
+                  </div>
+                  <div>
+                      <h3>Gambar Mobil</h3>
+                      <div class="vehicleDetailPhotolist">
+                          ${imageList}
+                      </div>
+                  </div>
+              </section>
+          </div>
       </article>
-    `;
+      `;
 };
 
 const createLoginPages = () => {
@@ -146,363 +142,572 @@ const createRegisterPages = () => {
       <button id="submit-register" type="submit" class="btn">Register</button>
     </form>
   </div>
-  <script>
-    function validateForm() {
-      var password = document.getElementById("inputPassword").value;
-      var confirmPassword = document.getElementById("confirmPassword").value;
-      var passwordError = document.getElementById("passwordError");
-
-      if (password !== confirmPassword) {
-        passwordError.textContent = "Kata Sandi tidak cocok";
-        return false;
-      } else {
-        passwordError.textContent = "";
-        return true;
-      }
-    }
-  </script>
   `;
 };
-
-// const createPartnerRegisterPages = () => {
-//   return `
-//   <div class="form-register-partner">
-//     <h1><span>Daftar</span></h1>
-//     <h2><span>Data Identitas</span></h2>
-//     <form id="partnerRegistrationForm" onsubmit="return validatePartnerRegistrationForm()">
-//       <div class="form-content">
-//         <input name="inputName" type="text" class="form-control" id="inputName" placeholder="Masukkan Nama Sesuai KTP">
-//       </div>
-//       <div class="form-content">
-//         <input name="inputNIK" type="number" class="form-control" id="inputNIK" placeholder="Masukkan NIK">
-//       </div>
-//       <div class="form-content">
-//         <input name="inputTempatLahir" type="text" class="form-control" id="inputTempatLahir" placeholder="Masukkan Tempat Lahir">
-//       </div>
-//       <div class="form-content">
-//         <input name="inputTanggalLahir" type="date" class="form-control" id="inputTanggalLahir" min="1950-01-01" max="${getCurrentDate()}">
-//       </div>
-//       <div class="form-content">
-//         <input name="inputNomorHP" type="number" class="form-control" id="inputNomorHP">
-//       </div>
-//       <div class="form-content">
-//         <input name="inputEmail" type="email" class="form-control" id="inputEmail" placeholder="Masukkan Email">
-//       </div>
-//       <span id="nikError" class="error"></span>
-//       <span id="nomorHPError" class="error"></span>
-//       <button id="submit-register" type="submit" class="btn">Register</button>
-//     </form>
-//     <script>
-//       function getCurrentDate() {
-//         var today = new Date();
-//         var dd = String(today.getDate()).padStart(2, '0');
-//         var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-//         var yyyy = today.getFullYear();
-//         return yyyy + '-' + mm + '-' + dd;
-//       }
-
-//       function validatePartnerRegistrationForm() {
-//         var nik = document.getElementById("inputNIK").value;
-//         var nikError = document.getElementById("nikError");
-
-//         // Validate that the NIK is exactly 16 digits long
-//         if (nik.length !== 16 || isNaN(nik)) {
-//           nikError.textContent = "NIK harus terdiri dari 16 digit";
-//           return false;
-//         } else {
-//           nikError.textContent = "";
-//         }
-
-//         return true;
-
-//         var nomorHP = document.getElementById("inputNomorHP").value;
-//         var nomorHPError = document.getElementById("nomorHPError");
-
-//         // Validate that the phone number is between 10 and 13 digits
-//         if (phoneNumber.length < 10 || phoneNumber.length > 13 || isNaN(phoneNumber)) {
-//           phoneError.textContent = "Nomor Telepon harus terdiri dari 10 hingga 13 digit";
-//           return false;
-//         } else {
-//           phoneError.textContent = "";
-//         }
-//       }
-//     </script>
-//   </div>
-//   `;
-// };
 
 const createPartnerRegisterPages = () => {
-  return `
-                <form action="#" method="post" onsubmit="return validatePartnerRegistrationForm()">
-                  <h1>Daftar Partner</h1>
-                  <h4>Data Diri</h4>
-                  <div class="form-body">
-                    <div class="form-column">
-                        <label for="nama">Nama:</label>
-                        <input type="text" id="nama" name="nama" required>
+  // Calendar limit for SIM expired date (3 months from today)
+  const sixMonthsFromToday = new Date();
+  sixMonthsFromToday.setMonth(sixMonthsFromToday.getMonth() + 3);
+  const sixMonthsFromTodayString = sixMonthsFromToday.toISOString().split('T')[0];
 
-                        <div class="tempatTanggalLahir">
-                            <label for="ttl">Tempat</label>
-                            <label for="tanggalLahir">Tanggal Lahir:</label>
-                            <input type="text" id="tempatLahir" name="tempatLahir" required>
-                            <input type="date" id="tanggalLahir" name="tanggalLahir" required>
+  // Calendar limit 17 years ago from today
+  const seventeenYearsAgo = new Date();
+  seventeenYearsAgo.setFullYear(seventeenYearsAgo.getFullYear() - 17);
+  const seventeenYearsAgoString = seventeenYearsAgo.toISOString().split('T')[0];
+
+  // Calendar limit 58 years ago from today
+  const fiftyEightYearsAgo = new Date();
+  fiftyEightYearsAgo.setFullYear(fiftyEightYearsAgo.getFullYear() - 58);
+  const fiftyEightYearsAgoString = fiftyEightYearsAgo.toISOString().split('T')[0];
+
+  return `
+    <form id="partnerForm" enctype="application/json">
+        <h1>Daftar Partner</h1>
+        <div class="form-body">
+            <div class="form-column">
+            <label for="nama">Nama sesuai KTP:</label>
+            <input type="text" id="fullName_KTP" name="fullName_KTP" required>
+
+            <label for="nik">NIK:</label>
+            <input type="text" id="nik_KTP" name="nik_KTP" required>
+            <span id="nikError" class="error"></span>
+
+            <div class="tempatTanggalLahir">
+                <label for="tempatLahir">Tempat</label>
+                <label for="tanggalLahir">Tanggal Lahir:</label>
+                <input type="text" id="placeBirth_KTP" name="placeBirth_KTP" required>
+                <input type="date" id="dateBirth_KTP" name="dateBirth_KTP" min="${fiftyEightYearsAgoString}" max="${seventeenYearsAgoString}" required>
+            </div>
+
+            <label for="nomorSIM">Nomor SIM:</label>
+            <input type="text" id="number_SIM" name="number_SIM" required>
+
+            <label for="masaBerlaku">Masa Berlaku:</label>
+            <input type="date" id="expired_SIM" name="expired_SIM" min="${sixMonthsFromTodayString}" required>
+
+            <label for="jenis-sim">Jenis SIM:</label>
+            <select id="jenis-sim">
+                <option disabled selected value="">Pilih Jenis SIM</option>
+                <option value="A">SIM A</option>
+                <option value="B">SIM B</option>
+                <option value="C">SIM C</option>
+            </select>
+            </div>
+
+            <div class="form-column">
+            <label for="telepon">Nomor HP:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="address_KTP" name="address_KTP" required>
+
+            <label for="kota">Kota:</label>
+            <input type="text" id="city_KTP" name="city_KTP" required>
+
+            <label for="provinsi">Provinsi:</label>
+            <select id="province_KTP">
+                <option disabled selected value="">Pilih Provinsi</option>
+                <option value="Aceh">Aceh</option>
+                <option value="Bali">Bali</option>
+                <option value="Banten">Banten</option>
+                <option value="Bengkulu">Bengkulu</option>
+                <option value="Gorontalo">Gorontalo</option>
+                <option value="Jakarta">Jakarta</option>
+                <option value="Jambi">Jambi</option>
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                <option value="Lampung">Lampung</option>
+                <option value="Maluku">Maluku</option>
+                <option value="Maluku Utara">Maluku Utara</option>
+                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                <option value="Papua">Papua</option>
+                <option value="Papua Barat">Papua Barat</option>
+                <option value="Papua Pengunungan">Papua Pengunungan</option>
+                <option value="Papua Tengah">Papua Tengah</option>
+                <option value="Papua Selatan">Papua Selatan</option>
+                <option value="Papua Barat Daya">Papua Barat Daya</option>
+                <option value="Riau">Riau</option>
+                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                <option value="Sumatera Barat">Sumatera Barat</option>
+                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                <option value="Sumatera Utara">Sumatera Utara</option>
+                <option value="Yogyakarta">Yogyakarta</option>
+            </select>
+
+            <label for="kodepos">Kode Pos:</label>
+            <input type="text" id="postalCode_KTP" name="postalCode_KTP" required>
+            </div>
+        </div>
+
+        <button class="partnerButton" type="submit">Daftar Sekarang</button>
+    </form>
+    `;
+};
+
+const vehicleCheckin = (vehicles) =>{
+  // Get the current date
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  const yyyy = today.getFullYear();
+  const currentDate = yyyy + '-' + mm + '-' + dd;
+
+  return `
+  <section class="vehicleDetailRenting" id="vehicleDetailRenting">
+    <h1 class="title">Detail Rental ${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</h1>
+    <form>
+        <div class="vehicleCheckinDate">
+            <div>
+                <label for="TanggalMulai">Tanggal Mulai</label>
+                <input type="date" name="tanggalMulai" id="tanggalMulai" placeholder="Pilih Waktu" min="${currentDate}">
+            </div>
+            <div>
+                <label for="tanggalSelesai">Tanggal Selesai</label>
+                <input type="date" name="tanggalSelesai" id="tanggalSelesai" min="${currentDate}">
+            </div>
+        </div>
+        <div class="vehicleDetailForm">
+            <div>
+                <label for="Lokasi?">Alamat Penjemputan</label>
+                <textarea class="alamatpenjemputan" rows="4" type="text" name="lokasi" id="lokasi" placeholder="Masukkan alamat penjemputan"></textarea>
+            </div>
+            <div>
+                <label for="waktuPenjemputan">Waktu Penjemputan</label>
+                <input type="time" name="waktuPenjemputan" id="waktuPenjemputan" placeholder="Pilih Waktu">
+            </div>
+            <div>
+                <label for="LokasiPengantar">Alamat Pengantaran</label>
+                <textarea class="alamatpengantaran" rows="4" type="text" name="lokasiPengantar" id="lokasiPengantar" placeholder="Masukkan alamat pengantaran"></textarea>
+            </div>
+            <div>
+                <label for="waktuPengantaran">Waktu Pengantaran</label>
+                <input type="time" name="waktuPengantaran" id="waktuPengantaran">
+            </div>
+        </div>
+        <div class="payingMethod">
+            <div class="drawer-content">
+                <label for="payment-method">Pilih Metode Pembayaran</label>
+                <select id="payment-method">
+                    <option disabled selected value="">Pilih Metode Pembayaran</option>
+                    <optgroup label="Transfer Virtual Account">
+                        <option value="BCA Virtual Account">BCA Virtual Account</option>
+                        <option value="BNI Virtual Account">BNI Virtual Account</option>
+                        <option value="BRI Virtual Account">BRI Virtual Account</option>
+                        <option value="Permata Virtual Account">Permata Virtual Account</option>
+                        <option value="Mandiri  VirtualAccount">Mandiri Virtual Account</option>
+                    </optgroup>
+                    <optgroup label="Tunai di Gerai Retail">
+                        <option value="Indomaret">Indomaret</option>
+                        <option value="AlfaMart">Alfamart</option>
+                    </optgroup>
+                    <optgroup label="E-Wallet">
+                        <option value="QRIS">QRIS</option>
+                        <option value="GoPay">GoPay</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <button id="insertData-btn">Lanjutkan Pembayaran</button>
+    </form>
+  </section>
+  `;
+};
+
+// List of partner's rented vehicles
+const partnerAfterRegistation = (vehicles) => {
+  return `
+      <div id="rentaledVehicleContainer" class="rentaledVehicleContainer">
+        <section id="rentaledVehicleHeader" class="rentaledVehicleHeader">
+            <h2>Partner List Mobil</h2>
+            <p>Atur dan sewakan mobilmu dengan<br>Mudah dan Cepat</p>
+        </section>
+        <section id="listRentaledVehicleContainer" class="listRentaledVehicleContainer">
+            <ul>
+                <li id="listRentaledToggle" class="listRentaledToggle focused" onclick="showListRentaled()">List Mobil</li>
+                <li id="listHistoryToggle" class="listHistoryToggle" onclick="showRentedHistory()">Riwayat Sewa</li>
+            </ul>
+            <div id="listYourRentaled" class="listYourRentaled active">
+                <div class="listRentaledVehicle" id="listRentaledVehicle">
+                    
+                </div>
+                <div id="addRentaledVehicle" class="addRentaledVehicle">
+                    <a href="#/addVehicle"> 
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div id="listRentaledHistory" class="listRentaledHistory">
+            </div>
+        </section
+      </div>
+  `;
+};
+
+// History of rented vehicles
+const userProfilePages = (userData) => {
+  return `
+    <div class="userContainer" id="userContainer">
+        <h1>Detail Akun</h1>
+        <section class="topUserProfile" id="topUserProfile">
+            <div class="userProfilePicture" id="editProfilePictureButton">
+                <img src="${userData.urlImage}" width="200px" alt="oke" class="hover-image">
+                <div class="overlay">
+                    <span class="overlay-text"><i class="fa-regular fa-pencil"></i> Ubah Gambar</span>
+                </div>
+            </div>
+            <h2 class="name">${userData.username.toUpperCase()}</h2>
+            <h3 class="email">${userData.email}</h3>
+            <p>Anda adalah <b>${userData.roles.join(', dan ')}</b></p>
+        </section>
+        <section class="bodyUserProfile" id="bodyUserProfile">
+            <a href="">
+                <div class="userEditProfile profileOption">
+                    <img src="./images/icons/userProfile-page/VectorEdit.png" alt="">
+                    <h5>Edit Profile</h5>
+                </div>
+            </a>
+            <a href="#/history">
+                <div class="RentHistoBttn profileOption">
+                    <img src="./images/icons/userProfile-page/Car-V8.png" alt="">
+                    <h5>Riwayat Sewa Mobil</h5>
+                </div>
+            </a>
+            <a href="" style="display: none;">
+                <div class="RentaledHistoBttn profileOption">
+                    <img src="./images/icons/userProfile-page/Car-Maintenance.png" alt="">
+                    <h5>Riwayat Penyewaan Mobil</h5>
+                </div>
+            </a>
+            <a href="">
+                <div class="logOutBttn profileOption">
+                    <img src="./images/icons/userProfile-page/Logout.png" alt="">
+                    <h5>Log Out</h5>
+                </div>
+            </a>
+        </section>
+    </div>
+    `;
+};
+
+const createSearchBar = () => {
+  return `
+        <div class="search-bar" id="search-bar">
+            <h1>Penyewaan</h1>
+            <p>Pilih waktu, lokasi, 
+                dan jenis kendaraan yang ingin digunakan. 
+                Nikmati perjalanan menyenangkan dengan layanan Rent'O.
+            </p>
+            <form action="" method="post" class="rental-option">
+                <div class="rental-leftSide" id="rental-leftSide">
+                    <div>
+                        <label for="vehicle-location">Lokasi Kendaraan</label>
+                        <select id="vehicle-location">
+                            <option disabled selected value="">Pilih Lokasi</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Bogor">Bogor</option>
+                            <option value="Depok">Depok</option>
+                            <option value="Tangerang">Tangerang</option>
+                            <option value="Bekasi">Bekasi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vehicle-type">Tipe Kendaraan</label>
+                        <select id="vehicle-type">
+                            <option disabled selected value="">Pilih Tipe Kendaraan</option>
+                            <option value="Mobil">Mobil</option>
+                            <option value="Motor">Motor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vehicle-brand">Merek</label>
+                        <select id="vehicle-brand">
+                            <option disabled selected value="">Pilih Merek</option>
+                            <option value="Daihatsu">Daihatsu</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Hyundai">Hyundai</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <button type="submit" id="submitRentalOption">Cari</button>
+        </div>
+    `;
+};
+
+const addRentalVehicle = () => {
+  return `
+        <form id="addVehicleForm">
+            <h1>Data Mobil</h1>
+            <div class="inputFotoMobil">
+                <div id="imagePreviewContainer" class="imagePreviewContainer">
+                    <img src="https://i.pinimg.com/564x/00/00/5f/00005f2792a21e1b29d08638dc3d1027.jpg" id="imagePreview" alt="Pratinjau Gambar" width="150px">
+                </div>
+                <div class="inputFotoMobilContainer">
+                    <!-- <img src="./src/public/images/icons/partner-page-icon/Vector.png" width="100px" alt="" srcset=""> -->
+                    <input type="file" name="file" id="vehicleImage" accept="image/png, image/jpeg" onchange="previewImage()" >
+                </div>
+            </div>
+            <div class="bodyInputMobil">
+                <div class="bodyInputMobilLeft">
+                    <div class="add-pages-form-group">
+                        <label for="brand">Merek Kendaraan</label>
+                        <select id="brand">
+                            <option disabled selected value="">Pilih Merek</option>
+                            <option value="Daihatsu">Daihatsu</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Hyundai">Hyundai</option>
+                        </select>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="platMobil">Nomor Pelat Kendaraan</label>
+                        <input type="text" id="plateNumber" name="plateNumber" placeholder="Contoh: B1234PP">
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="stnk">STNK</label>
+                        <input type="text" id="stnk" name="stnk" placeholder="Masukkan nomor STNK">
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tipe-kendaraan">Tipe Kendaraan</label>
+                        <select id="type">
+                            <option disabled selected value="">Pilih Tipe Kendaraan</option>
+                            <option value="Mobil">Mobil</option>
+                            <option value="Motor">Motor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="bodyInputMobilRight">
+                    <div class="add-pages-form-group">
+                        <label for="namaMobil">Seri</label>
+                        <input type="text" id="name" name="name" placeholder="Contoh: Agya, Ayla">
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="tahunKeluaran">Tahun</label>
+                        <select id="year" name="year">
+                            <option disabled selected value="">Pilih Tahun</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                        </select>
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="bpkb">BPKB</label>
+                        <input type="text" id="bpkb" name="bpkb" placeholder="Masukkan nomor BPKB">
+                    </div>
+                    <div class="add-pages-form-group">
+                        <label for="maxPenumpang">Maksimum Penumpang</label>
+                        <select id="seats" name="seats">
+                            <option disabled selected value="">Pilih Maksimum Penumpang</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="addVehicleDesc">
+                <label for="deskripsi">Deskripsi</label>
+                <textarea id="description" name="description" rows="4" placeholder="Deskripsikan secara singkat"></textarea>
+            </div>
+            <div class="footerAddForm" id="footerAddForm">
+                <div class="hargaSewaForm">
+                    <div class="add-pages-form-group">
+                        <label for="hargaSewa">Biaya Sewa</label>
+                        <div class="input-group">
+                            <span class="rupiah-symbol">Rp</span>
+                            <input type="float" id="cost" name="cost" placeholder="Contoh: 150.000">
                         </div>
-
-                        <label for="alamat">Alamat:</label>
-                        <input type="text" id="alamat" name="alamat" required>
                     </div>
+                </div>
+                <div class="addAlamatForm">
+                    <section class="addAlamatFormLeft">
+                        <div class="add-pages-form-group">
+                            <label for="lokasi">Lokasi</label>
+                            <select id="location">
+                                <option disabled selected value="">Pilih Lokasi</option>
+                                <option value="Jakarta">Jakarta</option>
+                                <option value="Bogor">Bogor</option>
+                                <option value="Depok">Depok</option>
+                                <option value="Tangerang">Tangerang</option>
+                                <option value="Bekasi">Bekasi</option>
+                            </select>
+                        </div>
+                    </section>
+                </div>
+                <div class="addAlamatForm">
+                    <section class="addAlamatFormLeft">
+                        <div class="add-pages-form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea name="address" id="address" rows="4" placeholder="Masukkan alamat Anda secara lengkap"></textarea>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <button type="submit" class="buttonTambahMobil">Tambahkan Mobil</button>
+        </form>
+    `;
+};
 
-                    <div class="form-column">
-                        <label for="nik">NIK:</label>
-                        <input type="text" id="nik" name="nik" required>
-                        <span id="nikError" class="error"></span>
+const paymentCheck = (sessionDatas, vehicles) => {
+  const timeCost = sessionDatas.selisihHari * parseFloat(vehicles.vehicleInformation.cost);
+  const costAsNumber = parseFloat(vehicles.vehicleInformation.cost);
 
-
-                        <label for="telepon">Telepon:</label>
-                        <input type="tel" id="telepon" name="telepon" required>
-                        <span id="teleponError" class="error"></span>
-
-                        <label for="kodepos">Kode Pos:</label>
-                        <input type="text" id="kodepos" name="kodepos" required>
-
-                        <label for="email">Email:</label>
-                        <input type="email" id="emailPartner" name="email" required>
-                    </div>
+  return `
+          <form>
+              <h2>Detail Pembayaran</h2>
+              <section id="paymentBody" class="paymentBody">
+                  <div class="paymentBodyDesc">
+                      <img src="${vehicles.ImageUrl}" alt="" width="150px" style="border-radius: 10px;">
+                      <section class="paymentBodyDescName">
+                          <p><b>${vehicles.vehicleInformation.brand + ' ' + vehicles.vehicleInformation.name}</b></p>
+                          <p>${vehicles.partner.partnerName}</p>
+                      </section>
                   </div>
-
-                    <button class="partnerButton" type="submit">Daftar Sekarang</button>
-                </form>
-                <script>
-                  function getCurrentDate() {
-                    var today = new Date();
-                    var dd = String(today.getDate()).padStart(2, '0');
-                    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-                    var yyyy = today.getFullYear();
-                    return yyyy + '-' + mm + '-' + dd;
-                  }
-
-                  function validatePartnerRegistrationForm() {
-                    var nik = document.getElementById("nik").value;
-                    var nikError = document.getElementById("nikError");
-
-                    // Validate that the NIK is exactly 16 digits long
-                    if (nik.length !== 16 || isNaN(nik)) {
-                      nikError.textContent = "NIK harus terdiri dari 16 digit";
-                      return false;
-                    } else {
-                      nikError.textContent = "";
-                    }
-
-                    var telepon = document.getElementById("telepon").value;
-                    var teleponError = document.getElementById("teleponError");
-
-                    // Validate that the phone number is between 10 and 13 digits
-                    if (telepon.length < 10 || telepon.length > 13 || isNaN(telepon)) {
-                      teleponError.textContent = "Nomor Telepon harus terdiri dari 10 hingga 13 digit";
-                      return false;
-                    } else {
-                      teleponError.textContent = "";
-                    }
-
-                    // Add more validation for other fields if needed...
-
-                    return true;
-                  }
-                </script>
-
-  `;
+                  <div id="paymentBodyDateIndex" class="paymentBodyDateIndex">
+                      <div class="payment-form-group">
+                          <label for="lokPenyewaan">Lokasi Penyewaan:</label>
+                          <input type="text" value="${vehicles.locations}" id="lokPenyewaan" name="lokPenyewaan" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="tglMulai">Tanggal Mulai :</label>
+                          <input type="date" id="tanggalMulai" name="tanggalMulai" value="${sessionDatas.startDate}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="tglAkhir">Tanggal Selesai : </label>
+                          <input type="date" id="tanggalSelesai" name="tanggalSelesai" value="${sessionDatas.endDate}" readonly>
+                      </div>
+                  </div>
+                  <hr>
+                  <div id="paymentBodyCheckIndex" class="paymentBodyCheckIndex">
+                      <div class="payment-form-group">
+                          <label for="lokPenjemputan">Lokasi Penjemputan :</label>
+                          <input type="text" id="lokPenjemputan" name="lokPenjemputan" value="${sessionDatas.pickupLocation}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="waktuPenjemputan">Waktu Penjemputan :</label>
+                          <input type="time" id="waktuPenjemputan" name="waktuPenjemputan" value="${sessionDatas.pickupTime}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="lokPengantaran">Lokasi Pengantaran :</label>
+                          <input type="text"  id="lokPengantaran" name="lokPengantaran" value="${sessionDatas.deliveryLocation}" readonly>
+                      </div>
+                      <div class="payment-form-group">
+                          <label for="waktuPengantaran">Waktu Pengantaran :</label>
+                          <input type="time" id="waktuPengantaran" name="waktuPengantaran" value="${sessionDatas.deliveryTime}" readonly>
+                      </div>
+                  </div>
+                  <hr>
+                  <div id="paymentMethodName" class="paymentMethodName">
+                      <label for="payment-method">Metode Pembayaran</label>
+                      <input type="text" id="paymentMethodName" name="paymentMethodName" value="${sessionDatas.paymentMethod}" readonly>
+                  </div>
+                  <div id="paymentTotalCheck" class="paymentTotalCheck">
+                      <label for="paymentIndexes">${sessionDatas.selisihHari} hari x Rp${costAsNumber.toLocaleString('id-ID')}</label>
+                      <input type="text" id="paymentCheck" name="paymentCheck" value="Rp${timeCost.toLocaleString('id-ID')}" readonly>
+                  </div>
+              </section>
+              <button class="paymentConfirm" type="submit">Bayar Sekarang</button>
+          </form>
+      `;
 };
 
-const createTOCPages = () => {
+const userHistoryPageHead = () => {
   return `
-  <div class="terms-container">
-  <h2>Syarat dan Ketentuan Rent'O</h2>
-
-  <ol>
-    <li><strong>Penerimaan Syarat</strong>
-      <p>Dengan menggunakan layanan Rent'O, Anda setuju untuk mematuhi dan terikat oleh Syarat dan Ketentuan ini. Jika Anda tidak setuju dengan salah satu bagian dari syarat ini, Anda tidak diperkenankan menggunakan layanan kami.</p>
-    </li>
-
-    <li><strong>Perjanjian Sewa</strong>
-      <ol type="a">
-        <li>Saat menyewa mobil dari Rent'O, Anda setuju untuk mematuhi semua persyaratan yang diuraikan dalam Perjanjian Sewa. Persyaratan ini mencakup durasi penyewaan, biaya, dan kondisi kendaraan.</li>
-        <li>Anda bertanggung jawab untuk membaca dan memahami semua ketentuan dalam Perjanjian Sewa sebelum menandatanganinya.</li>
-      </ol>
-    </li>
-
-    <li><strong>Kelayakan</strong>
-      <ol type="a">
-        <li>Anda harus berusia minimal 21 tahun untuk menyewa mobil dari Rent'O.</li>
-        <li>Anda wajib memiliki SIM (Surat Izin Mengemudi) yang masih berlaku dan sesuai dengan kelas kendaraan yang akan Anda sewa.</li>
-        <li>Proses penyewaan dapat memerlukan verifikasi identitas dan informasi pembayaran yang valid.</li>
-        <li>Rent'O berhak menolak penyewaan jika persyaratan kelayakan tidak terpenuhi.</li>
-      </ol>
-    </li>
-
-    <li><strong>Reservasi dan Pembayaran</strong>
-      <ol type="a">
-        <li>Reservasi tergantung pada ketersediaan kendaraan. Kami merekomendasikan untuk melakukan reservasi sebelumnya untuk memastikan ketersediaan mobil.</li>
-        <li>Pembayaran harus dilakukan di muka melalui metode pembayaran yang disetujui. Biaya tambahan mungkin dikenakan untuk pengembalian terlambat atau kondisi tertentu lainnya.</li>
-      </ol>
-    </li>
-
-    <li><strong>Kebijakan Pembatalan</strong>
-      <ol type="a">
-        <li>Kebijakan pembatalan berbeda berdasarkan jenis reservasi. Silakan lihat syarat-syarat spesifik yang diberikan selama proses pemesanan.</li>
-        <li>Pembatalan yang dilakukan dalam waktu yang singkat mungkin dikenakan biaya pembatalan sesuai dengan kebijakan yang berlaku.</li>
-      </ol>
-    </li>
-
-    <li><strong>Penggunaan Kendaraan</strong>
-      <ol type="a">
-        <li>Kendaraan yang disewa harus digunakan hanya untuk tujuan yang legal dan aman. Pelanggaran apa pun terhadap hukum dapat mengakibatkan pemutusan perjanjian sewa.</li>
-        <li>Anda bertanggung jawab untuk menjaga kendaraan dalam kondisi baik selama periode penyewaan.</li>
-      </ol>
-    </li>
-
-    <li><strong>Asuransi</strong>
-        <ol type="a">
-            <li>Pelanggan disarankan untuk memiliki asuransi kecelakaan. Rent'O juga menyediakan asuransi kecelakaan tambahan untuk pelanggan tanpa biaya tambahan.</li>
-            <li>Asuransi kecelakaan dari Rent'O sudah termasuk dalam biaya layanan dan berlaku dari tanggal awal penggunaan hingga tanggal akhir penggunaan layanan Rent'O.</li>
-            <li>Pelanggan bertanggung jawab untuk memberikan informasi yang benar terkait klaim asuransi jika diperlukan.</li>
-        </ol>
-    </li>
-
-    <li><strong>Pengembalian Kendaraan</strong>
-      <ol type="a">
-        <li>Kendaraan harus dikembalikan tepat waktu dan dalam kondisi yang sama seperti saat disewa. Keterlambatan pengembalian dapat dikenai biaya tambahan.</li>
-        <li>Pengecualian dari kondisi normal akibat pemakaian wajar akan ditanggung oleh Rent'O.</li>
-      </ol>
-    </li>
-
-    <li><strong>Pemeliharaan dan Perbaikan</strong>
-      <ol type="a">
-        <li>Pelanggan wajib melaporkan segala kerusakan pada kendaraan kepada Rent'O sesegera mungkin.</li>
-        <li>Jika kendaraan mengalami kerusakan karena kelalaian atau tindakan penyewa, penyewa wajib menanggung seluruh biaya perbaikan.</li>
-      </ol>
-    </li>
-
-    <li><strong>Pemutusan Layanan</strong>
-      <ol type="a">
-        <li>Rent'O berhak untuk mengakhiri perjanjian sewa dan mengambil kembali kendaraan jika ada pelanggaran terhadap syarat-syarat ini atau jika kendaraan digunakan untuk kegiatan ilegal.</li>
-        <li>Pemutusan dapat terjadi jika pelanggan tidak mematuhi perjanjian, termasuk penggunaan yang tidak sah atau penyalahgunaan kendaraan.</li>
-      </ol>
-    </li>
-
-    <li><strong>Penolakan Tanggung Jawab</strong>
-      <ol type="a">
-        <li>Rent'O tidak bertanggung jawab atas kehilangan, cedera, atau kerusakan yang timbul dari penggunaan layanan rental kami.</li>
-        <li>Pelanggan setuju untuk membebaskan Rent'O dari segala tuntutan hukum yang mungkin timbul dari penggunaan layanan ini.</li>
-      </ol>
-    </li>
-
-    <li><strong>Perubahan pada Syarat</strong>
-      <ol type="a">
-        <li>Rent'O dapat memperbarui Syarat dan Ketentuan ini dari waktu ke waktu. Pengguna akan diberi tahu tentang perubahan apa pun melalui pemberitahuan yang sesuai.</li>
-        <li>Pelanggan diharapkan untuk secara berkala memeriksa Syarat dan Ketentuan untuk memahami perubahan yang mungkin terjadi.</li>
-      </ol>
-    </li>
-  </ol>
-  `;
+    <section id="userHistoryHeader" class="userHistoryHeader">
+        <h1>Riwayat Sewa Pengguna</h1>
+    </section>
+    <section class="userHistoryContainer">
+        <div id="userHistoryList" class="userHistoryList"></div>
+    </section>
+    `;
 };
 
-const createAboutPages = () => {
+const userHistoryCard = (rent) => {
+  const statusText = rent.status ? 'Sukses' : 'Menunggu';
+
+  //   Format date to dd/mm/yyyy and get day
+  const startDate = new Date(rent.schedule.startDate);
+  const endDate = new Date(rent.schedule.endDate);
+  const startDateString = startDate.toLocaleDateString('id-ID');
+  const endDateString = endDate.toLocaleDateString('id-ID');
+
+  //   Format floating number to IDR currency
+  const totalCost = parseFloat(rent.totalPayment);
+
+  //   Format updatedAt date to dd/mm/yyyy
+  const updatedAt = new Date(rent.updatedAt);
+  const updatedAtString = updatedAt.toLocaleDateString('id-ID');
+
   return `
-  <div class="about-container">
-  <h1 class="about-us">Rent'O: Solusi Penyewaan Mobil Terbaik Anda</h1>
-  <div class="about-row">
-    <div class="about-box">
-      <h2 class="about-heading">Armada kami</h2>
-      <p class="about-description">Di Rent'O, kami menawarkan beragam kendaraan berkualitas tinggi yang sesuai dengan setiap 
-      kebutuhan dan preferensi. Apakah Anda mencari mobil kompak untuk petualangan solo atau SUV yang luas untuk perjalanan keluarga, 
-      armada kami yang luas siap membantu Anda.</p>
-    </div>
-    <div class="about-box">
-      <h2 class="about-heading">Bagaimana cara kerjanya</h2>
-      <p class="about-description">Menyewa mobil dengan Rent'O sangatlah mudah. Cukup telusuri platform kami yang mudah digunakan, 
-      pilih kendaraan yang sesuai dengan kebutuhan Anda, dan lakukan reservasi. Proses kami yang mudah memastikan bahwa Anda dapat 
-      fokus pada perjalanan Anda, bukan pada dokumen.</p>
-    </div>
-  </div>
-  <div class="about-row">
-    <div class="about-box">
-      <h2 class="about-heading">Untuk Pemilik Mobil</h2>
-      <p class="about-description">Apakah Anda pemilik mobil yang ingin mendapatkan penghasilan tambahan? Bergabunglah dengan Rent'O 
-      sebagai mitra dan daftarkan kendaraan Anda dengan mudah untuk disewakan. Platform kami menyediakan cara yang aman dan efisien 
-      bagi Anda untuk berbagi mobil dengan tetap memegang kendali penuh atas ketentuan sewa Anda.</p>
-    </div>
-    <div class="about-box">
-      <h2 class="about-heading">Misi</h2>
-      <p class="about-description">Rent'O memiliki misi untuk menyederhanakan proses penyewaan mobil, membuatnya mudah diakses dan 
-      nyaman bagi semua orang. Kami bertujuan untuk menjembatani kesenjangan antara pemilik dan penyewa mobil, membina komunitas 
-      yang dibangun di atas kepercayaan, transparansi, dan pengalaman bersama.</p>
-    </div>
-  </div>
-  <div class="about-developer-section">
-    <h2 class="about-heading">Meet Our Team</h2>
+      <section class="userRentaledHistory">
+            <div class="rental-info">
+                <p>ID Rental: ${rent.rentId}</p>
+                <p>Status: ${statusText}</p>
+                <p>Metode Pembayaran: ${rent.paymentMethod}</p>
+                <p>Pembayaran: Rp${totalCost.toLocaleString('id-ID')}</p>
+                <p>Diperbarui pada: ${updatedAtString}</p>
+            </div>
+            <div class="date-info">
+                <p>Diantar di:</p>
+                <p>${rent.delivery.location}</p>
+                <p>Pada: ${rent.delivery.time + ', ' + startDateString}</p>
+                <br>
+                <p>Dijemput di:</p>
+                <p>${rent.pickUp.location}</p>
+                <p>Pada: ${rent.pickUp.time + ', ' + endDateString}</p>
+            </div>
+      </section> 
+    `;
+};
 
-    <!-- Lead & Fullstack Developers -->
-    <h2 class="about-heading">Lead & Fullstack Developers</h2>
-    <div class="about-row">
-      <div class="about-team-member">
-        <picture>
-          <source type="image/webp" srcset="./images/assets/about-us/fullstack/developer-1.webp">
-          <source type="image/jpeg" srcset="./images/assets/about-us/fullstack/developer-1.jpg">
-          <img src="./images/assets/about-us/fullstack/developer-1.jpg" alt="Lead & Fullstack Developer">
-        </picture>
-        <h3 class="team-member-name">Benaya Adi Sahat Dwiyanto</h3>
-        <p class="team-member-university">Politeknik Negeri Jakarta</p>
-      </div>
-    </div>
-
-    <!-- Back-end Developers -->
-    <h2 class="about-heading">Back-end Developers</h2>
-    <div class="about-row">
-      <div class="about-team-member">
-        <picture>
-          <source type="image/webp" srcset="./images/assets/about-us/back-end/developer-1.webp">
-          <source type="image/jpeg" srcset="./images/assets/about-us/back-end/developer-1.jpg">
-          <img src="./images/assets/about-us/back-end/developer-1.jpg" alt="Backend Developer 1">
-        </picture>
-        <h3 class="team-member-name">Daffa Habibullah</h3>
-        <p class="team-member-university">Universitas Bina Sarana Informatika</p>
-      </div>
-      <div class="about-team-member">
-        <picture>
-          <source type="image/webp" srcset="./images/assets/about-us/back-end/developer-2.webp">
-          <source type="image/jpeg" srcset="./images/assets/about-us/back-end/developer-2.jpg">
-          <img src="./images/assets/about-us/back-end/developer-2.jpg" alt="Backend Developer 2">
-        </picture>
-        <h3 class="team-member-name">Adam Arrahman</h3>
-        <p class="team-member-university">Universitas Suryakencana</p>
-      </div>
-    </div>
-
-    <!-- Front-end Developers -->
-    <h2 class="about-heading">Front-end Developers</h2>
-    <div class="about-row">
-      <div class="about-team-member">
-        <picture>
-          <source type="image/webp" srcset="./images/assets/about-us/front-end/developer-1.webp">
-          <source type="image/jpeg" srcset="./images/assets/about-us/front-end/developer-1.jpg">
-          <img src="./images/assets/about-us/front-end/developer-1.jpg" alt="Front-end Developer 1">
-        </picture>
-        <h3 class="team-member-name">Faiz Akhmad Daulay</h3>
-        <p class="team-member-university">Universitas Muhammadiyah Sukabumi</p>
-      </div>
-      <div class="about-team-member">
-        <picture>
-          <source type="image/webp" srcset="./images/assets/about-us/front-end/developer-2.webp">
-          <source type="image/jpeg" srcset="./images/assets/about-us/front-end/developer-2.jpg">
-          <img src="./images/assets/about-us/front-end/developer-2.jpg" alt="Front-end Developer 2">
-        </picture>
-        <h3 class="team-member-name">Faisal A F Rahman</h3>
-        <p class="team-member-university">Universitas Muhammadiyah Sukabumi</p>
-      </div>
-    </div>
-  </div>
-</div>
-  `;
+// History of rented vehicles
+const cardForListRentaled = (vehicle) => {
+  const availabilityClass = vehicle.isAvailable ? 'available' : 'unavailable';
+  const availabilitySwitch = vehicle.isAvailable ? 'avia-on' : 'avia-off';
+  return `
+        <section class="rentaledVehicle">
+            <img src="${vehicle.ImageUrl}" alt="foto ${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}">
+            <div class="rentaledVehicleInfo">
+                <h4>${vehicle.vehicleInformation.brand} ${vehicle.vehicleInformation.name}</h4>
+                <p>${vehicle.vehicleInformation.type}</p>
+            </div>
+            <div class="availableInfo">
+                <p class="${availabilityClass} ${availabilitySwitch}" id="availability">${vehicle.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}</p>
+            </div>
+            <i class="fa-solid fa-trash fa-2xl delete-icon" 
+                data-vehicle-id="${vehicle.vehicleId}" 
+                style="color: #f45d48; cursor: pointer; transition: color 700ms;" 
+                onmouseover="this.style.color='#ff0000'" 
+                onmouseout="this.style.color='#f45d48'">
+            </i>
+        </section>
+      `;
 };
 
 module.exports = {
@@ -511,7 +716,14 @@ module.exports = {
   createLoginPages,
   createRegisterPages,
   createPartnerRegisterPages,
-  createTOCPages,
-  createAboutPages,
   createCarCollection,
+  vehicleCheckin,
+  partnerAfterRegistation,
+  cardForListRentaled,
+  userProfilePages,
+  createSearchBar,
+  addRentalVehicle,
+  paymentCheck,
+  userHistoryPageHead,
+  userHistoryCard,
 };

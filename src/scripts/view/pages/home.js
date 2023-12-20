@@ -77,7 +77,6 @@ const Home = {
   async afterRender() {
     try {
       const vehicles = await CarDbSource.listCar();
-      console.log(vehicles);
       const carCollectionContainer = document.getElementById('car-collection-container');
 
       if (vehicles.length === 0) {
@@ -85,12 +84,12 @@ const Home = {
       } else {
         const limitedVehicles = vehicles.slice(0, 6);
 
-        limitedVehicles.forEach((vehicle) => {
-          carCollectionContainer.innerHTML += createCarCollection(vehicle);
+        limitedVehicles.forEach((vehicles) => {
+          carCollectionContainer.innerHTML += createCarCollection(vehicles);
         });
       }
     } catch (error) {
-      console.log(error);
+      console.error('An error occurred:', error);
     }
   },
 };

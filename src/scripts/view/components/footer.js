@@ -5,20 +5,26 @@ class FooterBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <div class="footer">
-        <div class="row">
-          <a href="https://github.com/Rent-O-Dicoding-Cycle-5" target="blank"><i class="fa-brands fa-github"></i></i></a>
-        </div>
-        <div class="row">
-          <ul>
-            <li><a href="#/about">Abous us</a></li>
-            <li><a href="#/toc">Terms & Conditions</a></li>
-          </ul>
-        </div>
-        <div class="row">
-        Rent'O &copy; 2023 Rent'O - All rights reserved
-        </div>
+    <div class="footer-container">
+      <div class="github">
+        <a href="https://github.com/Rent-O-Dicoding-Cycle-5" target="_blank">
+          <i class="fab fa-github github"></i>
+        </a>
       </div>
+    
+      <div class="about-us-footer">
+        <a href="#/about">About us</a>
+      </div>
+    
+      <div class="tac">
+        <a href="#/tac">Terms & Conditions</a>
+      </div>
+    
+      <div>
+        &copy; 2023 Rent'O - All rights reserved
+      </div>
+    </div>
+  
     `;
   }
 }

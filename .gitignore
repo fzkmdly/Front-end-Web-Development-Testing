@@ -1,6 +1,13 @@
 node_modules/
 yarn.lock
 package-lock.json
+.yarn/
+.yarnrc.yml
+.pnp.cjs
+.pnp.loader.mjs
 
 e2e/outputs/
 dist/
+
+tmpl.css
+.env

@@ -1,10 +1,11 @@
 import 'regenerator-runtime';
 import './view/components/header';
 import './view/components/footer';
-import './view/components/rental-bar';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import '@fortawesome/fontawesome-free/css/solid.min.css';
+import '@fortawesome/fontawesome-free/css/brands.min.css';
 import '../styles/main.css';
 import '../styles/responsive.css';
 import App from './view/app';
@@ -14,6 +15,8 @@ const skipToContent = document.querySelector('.skip-link');
 const button = document.querySelector('.menu-button');
 const drawer = document.querySelector('#nav');
 const mainContent = document.querySelector('#main-content');
+
+console.log('Bang, udah bang.');
 
 const app = new App({
   button: button,
